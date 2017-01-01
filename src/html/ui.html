@@ -9,7 +9,7 @@
 <body>
   <main>
     <section>
-      <div id='result'></div>
+      <ul id='results'></ul>
       <form>
         <button type='submit'>__MSG_actionbutton_title__</button>
       </form>
@@ -24,3 +24,11 @@
   <script src='../js/ui.js'></script>
 </body>
 </html>
+
+<template id='result-template'>
+  <li>
+    <div class='name'></div>
+    <div class='url'></div>
+    <div class='status'></div>
+  </li>
+</template>

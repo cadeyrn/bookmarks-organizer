@@ -1,6 +1,6 @@
 'use strict';
 
-const elResult = document.querySelector('#result');
+const elResults = document.getElementById('results');
 
 const ui = {
   execute : function () {
@@ -10,14 +10,16 @@ const ui = {
   handleResponse : function (response) {
     if (response.message === 'add-result') {
       let bookmark = response.bookmark;
-      let docFragment = document.createDocumentFragment();
+      let template = document.getElementById('result-template').content.cloneNode(true);
 
-      let div = document.createElement('div');
-      let text = document.createTextNode(bookmark.title + ', ' + bookmark.url + ', status: ' + bookmark.status);
-      div.appendChild(text);
-      docFragment.appendChild(div);
+      template.querySelector('.name').innerText = bookmark.title;
+      template.querySelector('.url').innerText = bookmark.url;
 
-      elResult.appendChild(docFragment);
+      if (bookmark.status !== 0) {
+        template.querySelector('.status').innerText = bookmark.status;
+      }
+
+      elResults.appendChild(template);
     }
   }
 };
