@@ -58,8 +58,7 @@ const bookmarkchecker = {
         callback(bookmark);
       }
     };
-
-    request.open('get', bookmark.url, true);
+    
     request.send(null);
   }
 };
