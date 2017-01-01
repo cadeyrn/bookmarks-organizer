@@ -14,7 +14,13 @@ const ui = {
 
       template.querySelector('.wrapper').parentNode.id = bookmark.id;
       template.querySelector('.name').innerText = bookmark.title;
-      template.querySelector('.url').innerText = bookmark.url;
+
+      let elUrl = template.querySelector('.url');
+      elUrl.innerText = bookmark.url;
+      elUrl.setAttribute('href', bookmark.url);
+      elUrl.setAttribute('target', '_blank');
+      elUrl.setAttribute('rel', 'noopener');
+
       template.querySelector('.parentId').innerText = 'Parent-ID: ' + bookmark.parentId;
 
       if (bookmark.status !== 0) {
@@ -28,9 +34,9 @@ const ui = {
   },
 
   removeBookmark : function (e) {
-    e.preventDefault();
-
-    if (e.target.tagName.toLowerCase() === 'a') {
+    if (e.target.tagName.toLowerCase() === 'a' && e.target.className === 'remove') {
+      e.preventDefault();
+      
       let bookmarkId = e.target.getAttribute('data-id');
       document.getElementById(bookmarkId).style.display = 'none';
       browser.bookmarks.remove(bookmarkId);
