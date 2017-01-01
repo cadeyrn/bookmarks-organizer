@@ -55,7 +55,7 @@ const bookmarkchecker = {
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
         clearTimeout(timeout_id);
-        bookmark.status = request.status ? request.status : 900;
+        bookmark.status = request.status;
         callback(bookmark);
       }
     };
