@@ -35,7 +35,7 @@ const bookmarkchecker = {
   checkSingleBookmark : function (bookmark) {
     bookmarkchecker.checkResponse(bookmark, function (bookmark) {
       if (bookmark.status != 200) {
-        browser.runtime.sendMessage({ 'bookmark' : bookmark });
+        browser.runtime.sendMessage({ 'message' : 'add-result', 'bookmark' : bookmark });
       }
     });
   },
