@@ -43,6 +43,7 @@ const bookmarkchecker = {
   checkResponse : function (bookmark, callback) {
     const request = new XMLHttpRequest();
     request.open('get', bookmark.url, true);
+    request.send(null);
 
     const timeout_id = setTimeout(function () {
       request.onreadystatechange = null;
@@ -58,8 +59,6 @@ const bookmarkchecker = {
         callback(bookmark);
       }
     };
-    
-    request.send(null);
   }
 };
 
