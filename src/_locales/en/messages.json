@@ -1,0 +1,11 @@
+{
+  "extension_description": {
+    "message": "TODO: Beschreibung"
+  },
+  "extension_name": {
+    "message": "Bookmark Checker"
+  },
+  "actionbutton_title": {
+    "message": "Prüfe Lesezeichen…"
+  }
+}
