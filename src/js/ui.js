@@ -30,13 +30,16 @@ const ui = {
       template.querySelector('.remove').setAttribute('data-id', bookmark.id);
 
       elResults.appendChild(template);
+    } else if (response.message === 'update-counters') {
+      document.getElementById('brokenBookmarks').innerText = response.broken_bookmarks;
+      document.getElementById('totalBookmarks').innerText = response.total_bookmarks;
     }
   },
 
   removeBookmark : function (e) {
     if (e.target.tagName.toLowerCase() === 'a' && e.target.className === 'remove') {
       e.preventDefault();
-      
+
       let bookmarkId = e.target.getAttribute('data-id');
       document.getElementById(bookmarkId).style.display = 'none';
       browser.bookmarks.remove(bookmarkId);
