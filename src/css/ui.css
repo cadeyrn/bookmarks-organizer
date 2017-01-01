@@ -1,3 +1,9 @@
-* {
+#results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#results .name {
   color: red;
 }
