@@ -10,26 +10,32 @@ const ui = {
   handleResponse : function (response) {
     if (response.message === 'add-result') {
       let bookmark = response.bookmark;
-      let template = document.getElementById('result-template').content.cloneNode(true);
+      
+      browser.bookmarks.get(bookmark.parentId).then((parentBookmark) => {
+        let template = document.getElementById('result-template').content.cloneNode(true);
 
-      template.querySelector('.wrapper').parentNode.id = bookmark.id;
-      template.querySelector('.name').innerText = bookmark.title;
+        template.querySelector('.wrapper').parentNode.id = bookmark.id;
+        template.querySelector('.name').innerText = bookmark.title;
 
-      let elUrl = template.querySelector('.url');
-      elUrl.innerText = bookmark.url;
-      elUrl.setAttribute('href', bookmark.url);
-      elUrl.setAttribute('target', '_blank');
-      elUrl.setAttribute('rel', 'noopener');
+        let elUrl = template.querySelector('.url');
+        elUrl.innerText = bookmark.url;
+        elUrl.setAttribute('href', bookmark.url);
+        elUrl.setAttribute('target', '_blank');
+        elUrl.setAttribute('rel', 'noopener');
 
-      template.querySelector('.parentId').innerText = 'Parent-ID: ' + bookmark.parentId;
 
-      if (bookmark.status !== 0) {
-        template.querySelector('.status').innerText = 'Status: ' + bookmark.status;
-      }
+          console.error(parentBookmark.title);
+          template.querySelector('.parent').innerText = 'Parent: ' + parentBookmark[0].title;
 
-      template.querySelector('.remove').setAttribute('data-id', bookmark.id);
 
-      elResults.appendChild(template);
+        if (bookmark.status !== 0) {
+          template.querySelector('.status').innerText = 'Status: ' + bookmark.status;
+        }
+
+        template.querySelector('.remove').setAttribute('data-id', bookmark.id);
+
+        elResults.appendChild(template);
+      });
     } else if (response.message === 'update-counters') {
       document.getElementById('brokenBookmarks').innerText = response.broken_bookmarks;
       document.getElementById('totalBookmarks').innerText = response.total_bookmarks;
