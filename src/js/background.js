@@ -1,7 +1,6 @@
 'use strict';
 
 const bookmarkchecker = {
-  TIMEOUT : 5000,
   UI_PAGE : 'html/ui.html',
 
   openUserInterface : function () {
@@ -45,16 +44,8 @@ const bookmarkchecker = {
     request.open('get', bookmark.url, true);
     request.send(null);
 
-    const timeout_id = setTimeout(function () {
-      request.onreadystatechange = null;
-      request.abort();
-      bookmark.status = 408;
-      callback(bookmark);
-    }, bookmarkchecker.TIMEOUT);
-
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
-        clearTimeout(timeout_id);
         bookmark.status = request.status;
         callback(bookmark);
       }
