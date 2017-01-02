@@ -1,6 +1,14 @@
 'use strict';
 
+const elBody = document.querySelector('body');
+const elButton = document.querySelector('button');
 const elResults = document.getElementById('results');
+const elTotalBookmarks = document.getElementById('totalBookmarks');
+const elCheckedBookmarks = document.getElementById('checkedBookmarks');
+const elBookmarksErrors = document.getElementById('bookmarksErrors');
+const elBookmarksWarnings = document.getElementById('bookmarksWarnings');
+const elUnknownBookmarks = document.getElementById('unknownBookmarks');
+const elProgress = document.getElementById('progress');
 
 const ui = {
   bookmarks : [],
@@ -18,13 +26,13 @@ const ui = {
         ui.bookmarks.push(bookmark);
       });
     } else if (response.message === 'total-bookmarks') {
-      document.getElementById('totalBookmarks').innerText = response.total_bookmarks;
+      elTotalBookmarks.innerText = response.total_bookmarks;
     } else if (response.message === 'update-counters') {
-      document.getElementById('checkedBookmarks').innerText = response.checked_bookmarks;
-      document.getElementById('bookmarksErrors').innerText = response.bookmarks_errors;
-      document.getElementById('bookmarksWarnings').innerText = response.bookmarks_warnings;
-      document.getElementById('unknownBookmarks').innerText = response.unknown_bookmarks;
-      document.getElementById('progress').setAttribute('value', response.progress);
+      elCheckedBookmarks.innerText = response.checked_bookmarks;
+      elBookmarksErrors.innerText = response.bookmarks_errors;
+      elBookmarksWarnings.innerText = response.bookmarks_warnings;
+      elUnknownBookmarks.innerText = response.unknown_bookmarks;
+      elProgress.setAttribute('value', response.progress);
     } else if (response.message === 'finished') {
       ui.bookmarks.sort(ui.sort(['parentTitle', 'title']));
       ui.showBookmarks();
@@ -46,38 +54,45 @@ const ui = {
 
   showBookmarks : function () {
     for (let bookmark of ui.bookmarks) {
-      let template = document.getElementById('result-template').content.cloneNode(true);
+      const template = document.getElementById('result-template').content.cloneNode(true);
 
-      template.querySelector('.wrapper').parentNode.id = bookmark.id;
-      template.querySelector('.name').innerText = bookmark.title;
+      const elWrapper = template.querySelector('.wrapper');
+      elWrapper.parentNode.id = bookmark.id;
 
-      let elUrl = template.querySelector('.url');
+      const elName = template.querySelector('.name');
+      elName.innerText = bookmark.title;
+
+      const elUrl = template.querySelector('.name');
       elUrl.innerText = bookmark.url;
       elUrl.setAttribute('href', bookmark.url);
       elUrl.setAttribute('target', '_blank');
       elUrl.setAttribute('rel', 'noopener');
 
-      template.querySelector('.location').innerText = 'Lesezeichen-Ort: ' + bookmark.parentTitle;
+      const elLocation = template.querySelector('.location');
+      elLocation.innerText = 'Lesezeichen-Ort: ' + bookmark.parentTitle;
+
+      const elStatus = template.querySelector('.status');
 
       if (bookmark.status == 901) {
-        template.querySelector('.status').innerText = 'Status: Weiterleitung';
-        template.querySelector('.wrapper').className += ' warning';
+        elStatus.innerText = 'Status: Weiterleitung';
+        elWrapper.className += ' warning';
       } else if (bookmark.status === 999) {
-        template.querySelector('.status').innerText = 'Status: unbekannt';
+        elStatus.innerText = 'Status: unbekannt';
       } else {
-        template.querySelector('.status').innerText = 'Status: ' + bookmark.status;
-        template.querySelector('.wrapper').className += ' error';
+        elStatus.innerText = 'Status: ' + bookmark.status;
+        elWrapper.className += ' error';
       }
 
       if (bookmark.newUrl) {
-        let elNewUrl = template.querySelector('.newUrl');
+        const elNewUrl = template.querySelector('.newUrl');
         elNewUrl.innerText = 'Neue URL: ' + bookmark.newUrl;
         elNewUrl.setAttribute('href', bookmark.newUrl);
         elNewUrl.setAttribute('target', '_blank');
         elNewUrl.setAttribute('rel', 'noopener');
       }
 
-      template.querySelector('.remove').setAttribute('data-id', bookmark.id);
+      const elRemoveButton = template.querySelector('.remove');
+      elRemoveButton.setAttribute('data-id', bookmark.id);
 
       elResults.appendChild(template);
     }
@@ -94,7 +109,7 @@ const ui = {
   }
 };
 
-document.querySelector('button').addEventListener('click', ui.execute);
-document.querySelector('body').addEventListener('click', ui.removeBookmark);
+elButton.addEventListener('click', ui.execute);
+elBody.addEventListener('click', ui.removeBookmark);
 
 browser.runtime.onMessage.addListener(ui.handleResponse);
