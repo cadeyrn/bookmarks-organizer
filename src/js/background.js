@@ -91,24 +91,21 @@ const bookmarkchecker = {
   },
 
   checkResponse : function (bookmark, callback) {
-    const request = new XMLHttpRequest();
-    request.open('get', bookmark.url);
-    request.send();
+    const p = Promise.race([
+      fetch(bookmark.url), new Promise(function (resolve, reject) {
+        setTimeout(() => reject(new Error('request timeout')), bookmarkchecker.TIMEOUT)
+      })
+    ]);
 
-    const timer = setTimeout(function () {
-      request.onreadystatechange = null;
-      request.abort();
-      bookmark.status = 408;
+    p.then(function (response) {
+      bookmark.status = response.status;
       callback(bookmark);
-    }, bookmarkchecker.TIMEOUT);
+    });
 
-    request.onreadystatechange = function () {
-      if (request.readyState === 4) {
-        clearTimeout(timer);
-        bookmark.status = request.status;
-        callback(bookmark);
-      }
-    };
+    p.catch(function () {
+      bookmark.status = 404;
+      callback(bookmark);
+    });
   }
 };
 
