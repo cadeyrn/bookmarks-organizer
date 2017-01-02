@@ -2,8 +2,8 @@
 
 const bookmarkchecker = {
   UI_PAGE : 'html/ui.html',
-  LIMIT : 5000,
-  TIMEOUT: 10000,
+  LIMIT : 10000,
+  TIMEOUT: 60000,
   internalCounter : 0,
   totalBookmarks : 0,
   checkedBookmarks : 0,
