@@ -3,6 +3,7 @@
 const bookmarkchecker = {
   UI_PAGE : 'html/ui.html',
   LIMIT : 200,
+  TIMEOUT: 10000,
   internalCounter : 0,
   totalBookmarks : 0,
   checkedBookmarks : 0,
@@ -93,8 +94,16 @@ const bookmarkchecker = {
     request.open('get', bookmark.url, true);
     request.send(null);
 
+    let timer = setTimeout(function () {
+      request.onreadystatechange = null;
+      request.abort();
+      bookmark.status = 408;
+      callback(bookmark);
+    }, bookmarkchecker.TIMEOUT);
+
     request.onreadystatechange = function () {
       if (request.readyState === 4) {
+        clearTimeout(timer);
         bookmark.status = request.status;
         callback(bookmark);
       }
