@@ -11,11 +11,11 @@ const bookmarkchecker = {
 
   openUserInterface : function () {
     browser.tabs.create({ url : browser.runtime.getURL(bookmarkchecker.UI_PAGE) });
+    bookmarkchecker.countBookmarks();
   },
 
   handleResponse : function (response) {
     if (response.message === 'execute') {
-      bookmarkchecker.countBookmarks();
       bookmarkchecker.execute();
     }
   },
