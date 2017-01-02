@@ -59,33 +59,40 @@ const ui = {
       const elWrapper = template.querySelector('.wrapper');
       elWrapper.parentNode.id = bookmark.id;
 
+      const elNameText = document.createTextNode(bookmark.title);
       const elName = template.querySelector('.name');
-      elName.innerText = bookmark.title;
+      elName.appendChild(elNameText);
 
-      const elUrl = template.querySelector('.name');
-      elUrl.innerText = bookmark.url;
+      const elUrlText = document.createTextNode(bookmark.url);
+      const elUrl = template.querySelector('.url');
+      elUrl.appendChild(elUrlText);
       elUrl.setAttribute('href', bookmark.url);
       elUrl.setAttribute('target', '_blank');
       elUrl.setAttribute('rel', 'noopener');
 
+      const elLocationText = document.createTextNode('Lesezeichen-Ort: ' + bookmark.parentTitle);
       const elLocation = template.querySelector('.location');
-      elLocation.innerText = 'Lesezeichen-Ort: ' + bookmark.parentTitle;
+      elLocation.appendChild(elLocationText);
 
       const elStatus = template.querySelector('.status');
 
       if (bookmark.status == 901) {
-        elStatus.innerText = 'Status: Weiterleitung';
+        const elStatusText = document.createTextNode('Status: Weiterleitung');
+        elStatus.appendChild(elStatusText);
         elWrapper.className += ' warning';
       } else if (bookmark.status === 999) {
-        elStatus.innerText = 'Status: unbekannt';
+        const elStatusText = document.createTextNode('Status: unbekannt');
+        elStatus.appendChild(elStatusText);
       } else {
-        elStatus.innerText = 'Status: ' + bookmark.status;
+        const elStatusText = document.createTextNode('Status: ' + bookmark.status);
+        elStatus.appendChild(elStatusText);
         elWrapper.className += ' error';
       }
 
       if (bookmark.newUrl) {
+        const elNewUrlText = document.createTextNode('Neue URL: ' + bookmark.newUrl);
         const elNewUrl = template.querySelector('.newUrl');
-        elNewUrl.innerText = 'Neue URL: ' + bookmark.newUrl;
+        elNewUrl.appendChild(elNewUrlText);
         elNewUrl.setAttribute('href', bookmark.newUrl);
         elNewUrl.setAttribute('target', '_blank');
         elNewUrl.setAttribute('rel', 'noopener');
