@@ -24,17 +24,22 @@ const ui = {
       document.getElementById('brokenBookmarks').innerText = response.broken_bookmarks;
       document.getElementById('progress').setAttribute('value', response.progress);
     } else if (response.message === 'finished') {
-      ui.bookmarks.sort(ui.compare);
+      ui.bookmarks.sort(ui.sort(['status', 'parentTitle']));
       ui.showBookmarks();
     }
   },
 
-  compare : function (a, b) {
-    if (a.status === 900) {
-      return 1;
-    }
+  sort : function (fields) {
+    return (a, b) => fields.map(obj => {
+        let returnValue = 1;
 
-    return 0;
+        if (obj[0] === '-') {
+          returnValue = -1;
+          obj = obj.substring(1);
+        }
+
+        return a[obj] > b[obj] ? returnValue : a[obj] < b[obj] ? -(returnValue) : 0;
+    }).reduce((a, b) => a ? a : b, 0);
   },
 
   showBookmarks : function () {
