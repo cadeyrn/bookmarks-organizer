@@ -3,6 +3,8 @@
 const elResults = document.getElementById('results');
 
 const ui = {
+  bookmarks : [],
+
   execute : function () {
     browser.runtime.sendMessage({ 'message' : 'execute' });
   },
@@ -10,35 +12,44 @@ const ui = {
   handleResponse : function (response) {
     if (response.message === 'add-result') {
       let bookmark = response.bookmark;
-      
+
       browser.bookmarks.get(bookmark.parentId).then((parentBookmark) => {
-        let template = document.getElementById('result-template').content.cloneNode(true);
-
-        template.querySelector('.wrapper').parentNode.id = bookmark.id;
-        template.querySelector('.name').innerText = bookmark.title;
-
-        let elUrl = template.querySelector('.url');
-        elUrl.innerText = bookmark.url;
-        elUrl.setAttribute('href', bookmark.url);
-        elUrl.setAttribute('target', '_blank');
-        elUrl.setAttribute('rel', 'noopener');
-
-
-          console.error(parentBookmark.title);
-          template.querySelector('.parent').innerText = 'Parent: ' + parentBookmark[0].title;
-
-
-        if (bookmark.status !== 0) {
-          template.querySelector('.status').innerText = 'Status: ' + bookmark.status;
-        }
-
-        template.querySelector('.remove').setAttribute('data-id', bookmark.id);
-
-        elResults.appendChild(template);
+        bookmark.parentTitle = parentBookmark[0].title;
+        ui.bookmarks.push(bookmark);
       });
-    } else if (response.message === 'update-counters') {
-      document.getElementById('brokenBookmarks').innerText = response.broken_bookmarks;
+    } else if (response.message === 'total-bookmarks') {
       document.getElementById('totalBookmarks').innerText = response.total_bookmarks;
+    } else if (response.message === 'update-counters') {
+      document.getElementById('checkedBookmarks').innerText = response.checked_bookmarks;
+      document.getElementById('brokenBookmarks').innerText = response.broken_bookmarks;
+    } else if (response.message === 'finished') {
+      //alert('test');
+      ui.showBookmarks();
+    }
+  },
+
+  showBookmarks : function () {
+    for (let bookmark of ui.bookmarks) {
+      let template = document.getElementById('result-template').content.cloneNode(true);
+
+      template.querySelector('.wrapper').parentNode.id = bookmark.id;
+      template.querySelector('.name').innerText = bookmark.title;
+
+      let elUrl = template.querySelector('.url');
+      elUrl.innerText = bookmark.url;
+      elUrl.setAttribute('href', bookmark.url);
+      elUrl.setAttribute('target', '_blank');
+      elUrl.setAttribute('rel', 'noopener');
+
+      template.querySelector('.parent').innerText = 'Parent: ' + bookmark.parentTitle;
+
+      if (bookmark.status !== 0) {
+        template.querySelector('.status').innerText = 'Status: ' + bookmark.status;
+      }
+
+      template.querySelector('.remove').setAttribute('data-id', bookmark.id);
+
+      elResults.appendChild(template);
     }
   },
 
