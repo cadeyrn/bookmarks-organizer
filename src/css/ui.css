@@ -1,3 +1,40 @@
+body {
+  margin: 0;
+  font-family: Verdana, sans-serif;
+  color: rgb(33, 37, 42);
+}
+
+a {
+  color: rgb(193, 56, 50);
+  text-decoration: none;
+  transition: color ease 250ms;
+}
+
+a:not(.button):hover {
+  color: rgb(210, 57, 49);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  height: 64px;
+  line-height: 64px;
+  font-size: 14px;
+  background: rgb(239, 239, 239);
+}
+
+footer a {
+  display: block;
+  padding-left: 40px;
+  background: url('../images/sh-at.png') no-repeat;
+  background-size: 32px 32px;
+  background-position: center left;
+  color: rgb(33, 37, 42);
+}
+
 #counters {
   margin-bottom: 20px;
   font-weight: bold;
