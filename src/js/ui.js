@@ -23,7 +23,6 @@ const ui = {
       document.getElementById('checkedBookmarks').innerText = response.checked_bookmarks;
       document.getElementById('brokenBookmarks').innerText = response.broken_bookmarks;
     } else if (response.message === 'finished') {
-      //alert('test');
       ui.showBookmarks();
     }
   },
