@@ -22,6 +22,7 @@ const ui = {
     } else if (response.message === 'update-counters') {
       document.getElementById('checkedBookmarks').innerText = response.checked_bookmarks;
       document.getElementById('brokenBookmarks').innerText = response.broken_bookmarks;
+      document.getElementById('unknownBookmarks').innerText = response.unknown_bookmarks;
       document.getElementById('progress').setAttribute('value', response.progress);
     } else if (response.message === 'finished') {
       ui.bookmarks.sort(ui.sort(['status', 'parentTitle']));

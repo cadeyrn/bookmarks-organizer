@@ -8,6 +8,7 @@ const bookmarkchecker = {
   totalBookmarks : 0,
   checkedBookmarks : 0,
   brokenBookmarks : 0,
+  unknownBookmarks : 0,
 
   openUserInterface : function () {
     browser.tabs.create({ url : browser.runtime.getURL(bookmarkchecker.UI_PAGE) });
@@ -37,6 +38,7 @@ const bookmarkchecker = {
     bookmarkchecker.internalCounter = 0;
     bookmarkchecker.checkedBookmarks = 0;
     bookmarkchecker.brokenBookmarks = 0;
+    bookmarkchecker.unknownBookmarks = 0;
 
     browser.bookmarks.getTree().then((bookmarks) => {
       bookmarkchecker.checkBookmarks(bookmarks[0], 'errors');
@@ -72,8 +74,13 @@ const bookmarkchecker = {
     bookmarkchecker.checkResponse(bookmark, function (bookmark) {
       bookmarkchecker.checkedBookmarks++;
 
-      if (bookmark.status != 200) {
-        bookmarkchecker.brokenBookmarks++;
+      if (bookmark.status !== 200) {
+        if (bookmark.status === 900) {
+          bookmarkchecker.unknownBookmarks++;
+        } else {
+          bookmarkchecker.brokenBookmarks++;
+        }
+
         browser.runtime.sendMessage({ 'message' : 'add-result', 'bookmark' : bookmark });
       }
 
@@ -81,6 +88,7 @@ const bookmarkchecker = {
         'message' : 'update-counters',
         'checked_bookmarks' : bookmarkchecker.checkedBookmarks,
         'broken_bookmarks' : bookmarkchecker.brokenBookmarks,
+        'unknown_bookmarks' : bookmarkchecker.unknownBookmarks,
         'progress' : bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks
       });
 
