@@ -57,7 +57,9 @@ const ui = {
 
       template.querySelector('.parent').innerText = 'Parent: ' + bookmark.parentTitle;
 
-      if (bookmark.status !== 0) {
+      if (bookmark.status === 900) {
+        template.querySelector('.status').innerText = 'Status: unbekannt';
+      } else {
         template.querySelector('.status').innerText = 'Status: ' + bookmark.status;
       }
 
