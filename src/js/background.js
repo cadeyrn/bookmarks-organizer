@@ -112,8 +112,13 @@ const bookmarkchecker = {
       callback(bookmark);
     });
 
-    p.catch(function () {
-      bookmark.status = 900;
+    p.catch(function (error) {
+      if (error.message === 'request timeout') {
+        bookmark.status = 900;
+      } else {
+        bookmark.status = 404;
+      }
+
       callback(bookmark);
     });
   }
