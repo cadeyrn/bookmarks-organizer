@@ -92,10 +92,14 @@ footer a {
   margin-bottom: 20px;
 }
 
-#results .error .name {
+#results .name {
+  font-weight: bold;
+}
+
+#results .error .status {
   color: red;
 }
 
-#results .warning .name {
+#results .warning .status {
   color: orange;
 }

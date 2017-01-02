@@ -57,7 +57,7 @@ const ui = {
       elUrl.setAttribute('target', '_blank');
       elUrl.setAttribute('rel', 'noopener');
 
-      template.querySelector('.parent').innerText = 'Parent: ' + bookmark.parentTitle;
+      template.querySelector('.location').innerText = 'Lesezeichen-Ort: ' + bookmark.parentTitle;
 
       if (bookmark.status == 901) {
         template.querySelector('.status').innerText = 'Status: Weiterleitung';
