@@ -92,8 +92,8 @@ const bookmarkchecker = {
 
   checkResponse : function (bookmark, callback) {
     const request = new XMLHttpRequest();
-    request.open('get', bookmark.url, true);
-    request.send(null);
+    request.open('get', bookmark.url);
+    request.send();
 
     let timer = setTimeout(function () {
       request.onreadystatechange = null;
