@@ -103,7 +103,7 @@ const bookmarkchecker = {
     });
 
     p.catch(function () {
-      bookmark.status = 404;
+      bookmark.status = 900;
       callback(bookmark);
     });
   }
