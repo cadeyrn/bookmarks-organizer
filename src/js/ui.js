@@ -21,7 +21,8 @@ const ui = {
       document.getElementById('totalBookmarks').innerText = response.total_bookmarks;
     } else if (response.message === 'update-counters') {
       document.getElementById('checkedBookmarks').innerText = response.checked_bookmarks;
-      document.getElementById('brokenBookmarks').innerText = response.broken_bookmarks;
+      document.getElementById('bookmarksErrors').innerText = response.bookmarks_errors;
+      document.getElementById('bookmarksWarnings').innerText = response.bookmarks_warnings;
       document.getElementById('unknownBookmarks').innerText = response.unknown_bookmarks;
       document.getElementById('progress').setAttribute('value', response.progress);
     } else if (response.message === 'finished') {
@@ -60,8 +61,12 @@ const ui = {
 
       if (bookmark.status === 900) {
         template.querySelector('.status').innerText = 'Status: unbekannt';
+      } else if (bookmark.status == 901) {
+        template.querySelector('.status').innerText = 'Status: Weiterleitung';
+        template.querySelector('.wrapper').className += ' warning';
       } else {
         template.querySelector('.status').innerText = 'Status: ' + bookmark.status;
+        template.querySelector('.wrapper').className += ' error';
       }
 
       template.querySelector('.remove').setAttribute('data-id', bookmark.id);

@@ -92,6 +92,10 @@ footer a {
   margin-bottom: 20px;
 }
 
-#results .name {
+#results .error .name {
   color: red;
+}
+
+#results .warning .name {
+  color: orange;
 }
