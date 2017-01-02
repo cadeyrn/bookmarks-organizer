@@ -26,7 +26,7 @@ const ui = {
       document.getElementById('unknownBookmarks').innerText = response.unknown_bookmarks;
       document.getElementById('progress').setAttribute('value', response.progress);
     } else if (response.message === 'finished') {
-      ui.bookmarks.sort(ui.sort(['status', 'parentTitle', 'title']));
+      ui.bookmarks.sort(ui.sort(['parentTitle', 'title']));
       ui.showBookmarks();
     }
   },
