@@ -36,7 +36,6 @@ header a {
 
 progress {
   -moz-appearance: none;
-  margin-bottom: 20px;
   width: 100%;
   height: 20px;
   border: none;
@@ -48,6 +47,13 @@ progress::-moz-progress-bar {
     -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)),
     -moz-linear-gradient(left, rgb(0, 139, 185), rgb(72, 185, 89));
   background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+main {
+  display: flex;
+  box-sizing: border-box;
+  padding: 20px 20px 120px 20px;
+  width: 100%;
 }
 
 footer {
