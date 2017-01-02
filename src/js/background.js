@@ -80,7 +80,8 @@ const bookmarkchecker = {
       browser.runtime.sendMessage({
         'message' : 'update-counters',
         'checked_bookmarks' : bookmarkchecker.checkedBookmarks,
-        'broken_bookmarks' : bookmarkchecker.brokenBookmarks
+        'broken_bookmarks' : bookmarkchecker.brokenBookmarks,
+        'progress' : bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks
       });
 
       if (bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
