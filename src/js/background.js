@@ -3,7 +3,7 @@
 const bookmarkchecker = {
   UI_PAGE : 'html/ui.html',
   LIMIT : 10000,
-  TIMEOUT: 60000,
+  TIMEOUT: 0,
   internalCounter : 0,
   totalBookmarks : 0,
   checkedBookmarks : 0,
@@ -93,7 +93,9 @@ const bookmarkchecker = {
   checkResponse : function (bookmark, callback) {
     const p = Promise.race([
       fetch(bookmark.url), new Promise(function (resolve, reject) {
-        setTimeout(() => reject(new Error('request timeout')), bookmarkchecker.TIMEOUT)
+        if (bookmarkchecker.TIMEOUT > 0) {
+          setTimeout(() => reject(new Error('request timeout')), bookmarkchecker.TIMEOUT)
+        }
       })
     ]);
 
