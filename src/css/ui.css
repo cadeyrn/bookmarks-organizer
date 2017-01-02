@@ -4,6 +4,10 @@
   list-style: none;
 }
 
+#results li {
+  margin-bottom: 20px;
+}
+
 #results .name {
   color: red;
 }
