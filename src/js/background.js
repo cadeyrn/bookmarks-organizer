@@ -77,10 +77,10 @@ const bookmarkchecker = {
       bookmarkchecker.checkedBookmarks++;
 
       if (bookmark.status !== 200) {
-        if (bookmark.status == 900) {
+        if (bookmark.status == 901) {
+           bookmarkchecker.bookmarkWarnings++;
+        } else if (bookmark.status == 999) {
           bookmarkchecker.unknownBookmarks++;
-        } else if (bookmark.status == 901) {
-          bookmarkchecker.bookmarkWarnings++;
         } else {
           bookmarkchecker.bookmarkErrors++;
         }
@@ -124,7 +124,7 @@ const bookmarkchecker = {
 
     p.catch(function (error) {
       if (error.message === 'request timeout') {
-        bookmark.status = 900;
+        bookmark.status = 999;
       } else {
         bookmark.status = 404;
       }

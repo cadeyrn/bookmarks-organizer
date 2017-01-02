@@ -59,11 +59,11 @@ const ui = {
 
       template.querySelector('.parent').innerText = 'Parent: ' + bookmark.parentTitle;
 
-      if (bookmark.status === 900) {
-        template.querySelector('.status').innerText = 'Status: unbekannt';
-      } else if (bookmark.status == 901) {
+      if (bookmark.status == 901) {
         template.querySelector('.status').innerText = 'Status: Weiterleitung';
         template.querySelector('.wrapper').className += ' warning';
+      } else if (bookmark.status === 999) {
+        template.querySelector('.status').innerText = 'Status: unbekannt';
       } else {
         template.querySelector('.status').innerText = 'Status: ' + bookmark.status;
         template.querySelector('.wrapper').className += ' error';
