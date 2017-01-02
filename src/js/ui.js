@@ -24,8 +24,17 @@ const ui = {
       document.getElementById('brokenBookmarks').innerText = response.broken_bookmarks;
       document.getElementById('progress').setAttribute('value', response.progress);
     } else if (response.message === 'finished') {
+      ui.bookmarks.sort(ui.compare);
       ui.showBookmarks();
     }
+  },
+
+  compare : function (a, b) {
+    if (a.status === 900) {
+      return 1;
+    }
+
+    return 0;
   },
 
   showBookmarks : function () {
