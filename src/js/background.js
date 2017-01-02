@@ -2,6 +2,8 @@
 
 const bookmarkchecker = {
   UI_PAGE : 'html/ui.html',
+  LIMIT : 200,
+  internalCounter : 0,
   totalBookmarks : 0,
   checkedBookmarks : 0,
   brokenBookmarks : 0,
@@ -22,6 +24,7 @@ const bookmarkchecker = {
 
     browser.bookmarks.getTree().then((bookmarks) => {
       bookmarkchecker.checkBookmarks(bookmarks[0], 'count');
+
       browser.runtime.sendMessage({
         'message' : 'total-bookmarks',
         'total_bookmarks' : bookmarkchecker.totalBookmarks
@@ -30,6 +33,7 @@ const bookmarkchecker = {
   },
 
   execute : function () {
+    bookmarkchecker.internalCounter = 0;
     bookmarkchecker.checkedBookmarks = 0;
     bookmarkchecker.brokenBookmarks = 0;
 
@@ -41,8 +45,17 @@ const bookmarkchecker = {
   checkBookmarks : function (bookmark, mode) {
     if (bookmark.url && !bookmark.url.match(/^(about:|place:)/)) {
       if (mode === 'count') {
+        if (bookmarkchecker.totalBookmarks === bookmarkchecker.LIMIT) {
+          return;
+        }
+
         bookmarkchecker.totalBookmarks++;
       } else {
+        if (bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
+          return;
+        }
+
+        bookmarkchecker.internalCounter++;
         bookmarkchecker.checkSingleBookmark(bookmark);
       }
     }
