@@ -115,6 +115,7 @@ const bookmarkchecker = {
     p.then(function (response) {
       if (response.redirected) {
         bookmark.status = 901;
+        bookmark.newUrl = response.url;
       } else {
         bookmark.status = response.status;
       }

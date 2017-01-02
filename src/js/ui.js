@@ -69,6 +69,14 @@ const ui = {
         template.querySelector('.wrapper').className += ' error';
       }
 
+      if (bookmark.newUrl) {
+        let elNewUrl = template.querySelector('.newUrl');
+        elNewUrl.innerText = 'Neue URL: ' + bookmark.newUrl;
+        elNewUrl.setAttribute('href', bookmark.newUrl);
+        elNewUrl.setAttribute('target', '_blank');
+        elNewUrl.setAttribute('rel', 'noopener');
+      }
+
       template.querySelector('.remove').setAttribute('data-id', bookmark.id);
 
       elResults.appendChild(template);
