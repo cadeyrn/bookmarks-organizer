@@ -28,6 +28,13 @@ const ui = {
     }
     else if (response.message === 'finished') {
       ui.buildBookmarksTree(response.bookmarks);
+      const rows = document.getElementsByTagName('ul');
+
+      for (let row of rows) {
+        if (row.getElementsByClassName('url').length == 0) {
+          row.parentNode.style.display = 'none';
+        }
+      }
     }
   },
 
@@ -48,17 +55,18 @@ const ui = {
   },
 
   getSingleNode : function (bookmark) {
-    const template = document.getElementById('result-template').content.cloneNode(true);
-
+    let template;
     const li = document.createElement('li');
     li.id = bookmark.id;
 
-    const title = bookmark.title ? bookmark.title : '<kein Name>'
-    const elNameText = document.createTextNode(title);
-    const elName = template.querySelector('.name');
-    elName.appendChild(elNameText);
-
     if (bookmark.url) {
+      template = document.getElementById('result-template-url').content.cloneNode(true);
+
+      const title = bookmark.title ? bookmark.title : '<kein Name>'
+      const elNameText = document.createTextNode(title);
+      const elName = template.querySelector('.name');
+      elName.appendChild(elNameText);
+
       const elUrlText = document.createTextNode(bookmark.url);
       const elUrl = template.querySelector('.url');
       elUrl.appendChild(elUrlText);
@@ -104,6 +112,14 @@ const ui = {
       elRemoveButton.setAttribute('href', '#');
       elRemoveButton.setAttribute('class', 'remove');
       elActionButtons.appendChild(elRemoveButton);
+    }
+    else {
+      template = document.getElementById('result-template-title').content.cloneNode(true);
+
+      const title = bookmark.title ? bookmark.title : '<kein Name>'
+      const elNameText = document.createTextNode(title);
+      const elName = template.querySelector('.name');
+      elName.appendChild(elNameText);
     }
 
     li.appendChild(template);
