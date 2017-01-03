@@ -29,13 +29,7 @@ const ui = {
     }
     else if (response.message === 'finished') {
       ui.buildBookmarksTree(response.bookmarks);
-      const rows = document.getElementsByTagName('ul');
-
-      for (let row of rows) {
-        if (row.getElementsByClassName('url').length == 0) {
-          row.parentNode.style.display = 'none';
-        }
-      }
+      ui.hideEmptyRows();
     }
   },
 
@@ -136,9 +130,37 @@ const ui = {
     if (e.target.tagName.toLowerCase() === 'a' && e.target.className === 'remove') {
       e.preventDefault();
 
-      let bookmarkId = e.target.getAttribute('data-id');
-      document.getElementById(bookmarkId).style.display = 'none';
+      const bookmarkId = e.target.getAttribute('data-id');
+      const elBookmark = document.getElementById(bookmarkId);
+
+      elBookmark.style.display = 'none';
+
+      elTotalBookmarks.innerText = parseInt(elTotalBookmarks.innerText) - 1;
+      elCheckedBookmarks.innerText = parseInt(elCheckedBookmarks.innerText) - 1;
+
+      if (elBookmark.className === 'error') {
+        elBookmarksErrors.innerText = parseInt(elBookmarksErrors.innerText) - 1;
+      }
+      else if (elBookmark.className === 'warning') {
+        elBookmarksWarnings.innerText = parseInt(elBookmarksWarnings.innerText) - 1;
+      }
+      else {
+        elUnknownBookmarks.innerText = parseInt(elUnknownBookmarks.innerText) - 1;
+      }
+
+      ui.hideEmptyRows();
+
       browser.runtime.sendMessage({ 'message' : 'remove', 'bookmarkId' : bookmarkId });
+    }
+  },
+
+  hideEmptyRows : function () {
+    const rows = document.getElementsByTagName('ul');
+
+    for (let row of rows) {
+      if (row.getElementsByClassName('url').length == 0) {
+        row.parentNode.style.display = 'none';
+      }
     }
   }
 };
