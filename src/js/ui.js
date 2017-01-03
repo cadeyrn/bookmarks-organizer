@@ -11,53 +11,54 @@ const elUnknownBookmarks = document.getElementById('unknownBookmarks');
 const elProgress = document.getElementById('progress');
 
 const ui = {
-  bookmarks : [],
-
   execute : function () {
     browser.runtime.sendMessage({ 'message' : 'execute' });
   },
 
   handleResponse : function (response) {
-    if (response.message === 'add-result') {
-      ui.bookmarks.push(response.bookmark);
-    } else if (response.message === 'total-bookmarks') {
+    if (response.message === 'total-bookmarks') {
       elTotalBookmarks.innerText = response.total_bookmarks;
-    } else if (response.message === 'update-counters') {
+    }
+    else if (response.message === 'update-counters') {
       elCheckedBookmarks.innerText = response.checked_bookmarks;
       elBookmarksErrors.innerText = response.bookmarks_errors;
       elBookmarksWarnings.innerText = response.bookmarks_warnings;
       elUnknownBookmarks.innerText = response.unknown_bookmarks;
       elProgress.setAttribute('value', response.progress);
-    } else if (response.message === 'finished') {
-      ui.bookmarks.sort(ui.sort(['parentTitle', 'title']));
-      ui.showBookmarks();
+    }
+    else if (response.message === 'finished') {
+      ui.buildBookmarksTree(response.bookmarks);
     }
   },
 
-  sort : function (fields) {
-    return (a, b) => fields.map(obj => {
-        let returnValue = 1;
-
-        if (obj[0] === '-') {
-          returnValue = -1;
-          obj = obj.substring(1);
-        }
-
-        return a[obj] > b[obj] ? returnValue : a[obj] < b[obj] ? -(returnValue) : 0;
-    }).reduce((a, b) => a ? a : b, 0);
+  buildBookmarksTree : function (bookmarks) {
+    elResults.appendChild(ui.getNodes(bookmarks));
   },
 
-  showBookmarks : function () {
-    for (let bookmark of ui.bookmarks) {
-      const template = document.getElementById('result-template').content.cloneNode(true);
+  getNodes : function (bookmarks) {
+    const list = document.createElement('ul');
 
-      const elWrapper = template.querySelector('.wrapper');
-      elWrapper.parentNode.id = bookmark.id;
+    for (let bookmark of bookmarks) {
+      if (bookmark.url || (!bookmark.url && bookmark.children.length > 0)) {
+        list.appendChild(ui.getSingleNode(bookmark));
+      }
+    }
 
-      const elNameText = document.createTextNode(bookmark.title);
-      const elName = template.querySelector('.name');
-      elName.appendChild(elNameText);
+    return list;
+  },
 
+  getSingleNode : function (bookmark) {
+    const template = document.getElementById('result-template').content.cloneNode(true);
+
+    const li = document.createElement('li');
+    li.id = bookmark.id;
+
+    const title = bookmark.title ? bookmark.title : '<kein Name>'
+    const elNameText = document.createTextNode(title);
+    const elName = template.querySelector('.name');
+    elName.appendChild(elNameText);
+
+    if (bookmark.url) {
       const elUrlText = document.createTextNode(bookmark.url);
       const elUrl = template.querySelector('.url');
       elUrl.appendChild(elUrlText);
@@ -74,14 +75,16 @@ const ui = {
       if (bookmark.status == 901) {
         const elStatusText = document.createTextNode('Status: Weiterleitung');
         elStatus.appendChild(elStatusText);
-        elWrapper.className += ' warning';
-      } else if (bookmark.status === 999) {
+        li.className += 'warning';
+      }
+      else if (bookmark.status === 999) {
         const elStatusText = document.createTextNode('Status: unbekannt');
         elStatus.appendChild(elStatusText);
-      } else {
+      }
+      else {
         const elStatusText = document.createTextNode('Status: ' + bookmark.status);
         elStatus.appendChild(elStatusText);
-        elWrapper.className += ' error';
+        li.className += 'error';
       }
 
       if (bookmark.newUrl) {
@@ -93,11 +96,23 @@ const ui = {
         elNewUrl.setAttribute('rel', 'noopener');
       }
 
-      const elRemoveButton = template.querySelector('.remove');
+      const elActionButtons = template.querySelector('.action-buttons');
+      const elRemoveButtonText = document.createTextNode('[entfernen]');
+      const elRemoveButton = document.createElement('a');
+      elRemoveButton.appendChild(elRemoveButtonText);
       elRemoveButton.setAttribute('data-id', bookmark.id);
-
-      elResults.appendChild(template);
+      elRemoveButton.setAttribute('href', '#');
+      elRemoveButton.setAttribute('class', 'remove');
+      elActionButtons.appendChild(elRemoveButton);
     }
+
+    li.appendChild(template);
+
+    if (bookmark.children && bookmark.children.length > 0) {
+      li.appendChild(ui.getNodes(bookmark.children));
+    }
+
+    return li;
   },
 
   removeBookmark : function (e) {

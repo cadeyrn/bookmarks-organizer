@@ -18,7 +18,7 @@
         (<span id='bookmarksErrors'>0</span> Fehler, <span id='bookmarksWarnings'>0</span> Warnungen,
         <span id='unknownBookmarks'>0</span> unbekannt).
       </div>
-      <ul id='results'></ul>
+      <div id='results'></div>
       <form>
         <button type='submit'>__MSG_actionbutton_title__</button>
       </form>
@@ -35,16 +35,12 @@
 </html>
 
 <template id='result-template'>
-  <li>
-    <div class='wrapper'>
-      <div class='name'></div>
-      <a class='url'></a>
-      <div class='location'></div>
-      <div class='status'></div>
-      <a class='newUrl'></a>
-      <div class='action-buttons'>
-        <a href='#' class='remove'>[entfernen]</a>
-      </div>
-    </div>
-  </li>
+  <div class='wrapper'>
+    <div class='name'></div>
+    <a class='url'></a>
+    <div class='location'></div>
+    <div class='status'></div>
+    <a class='newUrl'></a>
+    <div class='action-buttons'></div>
+  </div>
 </template>
