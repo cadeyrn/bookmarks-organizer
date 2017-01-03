@@ -81,12 +81,12 @@ const ui = {
 
       const elStatus = template.querySelector('.status');
 
-      if (bookmark.status == 901) {
+      if (bookmark.status == STATUS.REDIRECT) {
         const elStatusText = document.createTextNode('Status: Weiterleitung');
         elStatus.appendChild(elStatusText);
         li.className += 'warning';
       }
-      else if (bookmark.status === 999) {
+      else if (bookmark.status === STATUS.UNKNOWN_ERROR) {
         const elStatusText = document.createTextNode('Status: unbekannt');
         elStatus.appendChild(elStatusText);
       }

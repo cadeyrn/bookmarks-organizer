@@ -93,11 +93,11 @@ const bookmarkchecker = {
       bookmarkchecker.checkResponse(bookmark, function (bookmark) {
         bookmarkchecker.checkedBookmarks++;
 
-        if (bookmark.status !== 200) {
-          if (bookmark.status == 901) {
+        if (bookmark.status !== STATUS.OK) {
+          if (bookmark.status == STATUS.REDIRECT) {
              bookmarkchecker.bookmarkWarnings++;
           }
-          else if (bookmark.status == 999) {
+          else if (bookmark.status == STATUS.UNKNOWN_ERROR) {
             bookmarkchecker.unknownBookmarks++;
           }
           else {
@@ -137,7 +137,7 @@ const bookmarkchecker = {
 
     p.then(function (response) {
       if (response.redirected) {
-        bookmark.status = 901;
+        bookmark.status = STATUS.REDIRECT;
         bookmark.newUrl = response.url;
       }
       else {
@@ -149,10 +149,10 @@ const bookmarkchecker = {
 
     p.catch(function (error) {
       if (error.message === 'request timeout') {
-        bookmark.status = 999;
+        bookmark.status = STATUS.UNKNOWN_ERROR;
       }
       else {
-        bookmark.status = 404;
+        bookmark.status = STATUS.NOT_FOUND;
       }
 
       callback(bookmark);
