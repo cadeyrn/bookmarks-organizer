@@ -133,7 +133,7 @@ const ui = {
       const bookmarkId = e.target.getAttribute('data-id');
       const elBookmark = document.getElementById(bookmarkId);
 
-      elBookmark.style.display = 'none';
+      elBookmark.remove();
 
       elTotalBookmarks.innerText = parseInt(elTotalBookmarks.innerText) - 1;
       elCheckedBookmarks.innerText = parseInt(elCheckedBookmarks.innerText) - 1;
