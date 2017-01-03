@@ -19,12 +19,7 @@ const ui = {
 
   handleResponse : function (response) {
     if (response.message === 'add-result') {
-      let bookmark = response.bookmark;
-
-      browser.bookmarks.get(bookmark.parentId).then((parentBookmark) => {
-        bookmark.parentTitle = parentBookmark[0].title;
-        ui.bookmarks.push(bookmark);
-      });
+      ui.bookmarks.push(response.bookmark);
     } else if (response.message === 'total-bookmarks') {
       elTotalBookmarks.innerText = response.total_bookmarks;
     } else if (response.message === 'update-counters') {

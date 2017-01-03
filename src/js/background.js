@@ -73,33 +73,38 @@ const bookmarkchecker = {
   },
 
   checkSingleBookmark : function (bookmark) {
-    bookmarkchecker.checkResponse(bookmark, function (bookmark) {
-      bookmarkchecker.checkedBookmarks++;
+    browser.bookmarks.get(bookmark.parentId).then((parentBookmark) => {
+      bookmark.parentTitle = parentBookmark[0].title;
+      bookmarkchecker.checkResponse(bookmark, function (bookmark) {
+        bookmarkchecker.checkedBookmarks++;
 
-      if (bookmark.status !== 200) {
-        if (bookmark.status == 901) {
-           bookmarkchecker.bookmarkWarnings++;
-        } else if (bookmark.status == 999) {
-          bookmarkchecker.unknownBookmarks++;
-        } else {
-          bookmarkchecker.bookmarkErrors++;
+        if (bookmark.status !== 200) {
+          if (bookmark.status == 901) {
+             bookmarkchecker.bookmarkWarnings++;
+          } else if (bookmark.status == 999) {
+            bookmarkchecker.unknownBookmarks++;
+          } else {
+            bookmarkchecker.bookmarkErrors++;
+          }
+
+
+
+          browser.runtime.sendMessage({ 'message' : 'add-result', 'bookmark' : bookmark });
         }
 
-        browser.runtime.sendMessage({ 'message' : 'add-result', 'bookmark' : bookmark });
-      }
+        browser.runtime.sendMessage({
+          'message' : 'update-counters',
+          'checked_bookmarks' : bookmarkchecker.checkedBookmarks,
+          'unknown_bookmarks' : bookmarkchecker.unknownBookmarks,
+          'bookmarks_errors' : bookmarkchecker.bookmarkErrors,
+          'bookmarks_warnings' : bookmarkchecker.bookmarkWarnings,
+          'progress' : bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks
+        });
 
-      browser.runtime.sendMessage({
-        'message' : 'update-counters',
-        'checked_bookmarks' : bookmarkchecker.checkedBookmarks,
-        'unknown_bookmarks' : bookmarkchecker.unknownBookmarks,
-        'bookmarks_errors' : bookmarkchecker.bookmarkErrors,
-        'bookmarks_warnings' : bookmarkchecker.bookmarkWarnings,
-        'progress' : bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks
+        if (bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
+          browser.runtime.sendMessage({ 'message' : 'finished' });
+        }
       });
-
-      if (bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
-        browser.runtime.sendMessage({ 'message' : 'finished' });
-      }
     });
   },
 
