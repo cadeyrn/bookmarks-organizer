@@ -20,6 +20,7 @@ const ui = {
       elTotalBookmarks.innerText = response.total_bookmarks;
     }
     else if (response.message === 'update-counters') {
+      elTotalBookmarks.innerText = response.total_bookmarks;
       elCheckedBookmarks.innerText = response.checked_bookmarks;
       elBookmarksErrors.innerText = response.bookmarks_errors;
       elBookmarksWarnings.innerText = response.bookmarks_warnings;

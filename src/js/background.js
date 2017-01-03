@@ -4,6 +4,7 @@ const bookmarkchecker = {
   UI_PAGE : 'html/ui.html',
   LIMIT : 10000,
   TIMEOUT: 0,
+  inProgress : false,
   internalCounter : 0,
   totalBookmarks : 0,
   checkedBookmarks : 0,
@@ -18,8 +19,10 @@ const bookmarkchecker = {
 
   handleResponse : function (response) {
     if (response.message === 'execute') {
-      bookmarkchecker.countBookmarks();
-      bookmarkchecker.execute();
+      if (!bookmarkchecker.inProgress) {
+        bookmarkchecker.countBookmarks();
+        bookmarkchecker.execute();
+      }
     }
     else if (response.message === 'remove') {
       browser.bookmarks.remove(response.bookmarkId);
@@ -27,6 +30,7 @@ const bookmarkchecker = {
   },
 
   countBookmarks : function () {
+    bookmarkchecker.inProgress = true;
     bookmarkchecker.totalBookmarks = 0;
 
     browser.bookmarks.getTree().then((bookmarks) => {
@@ -105,6 +109,7 @@ const bookmarkchecker = {
 
         browser.runtime.sendMessage({
           'message' : 'update-counters',
+          'total_bookmarks' : bookmarkchecker.totalBookmarks,
           'checked_bookmarks' : bookmarkchecker.checkedBookmarks,
           'unknown_bookmarks' : bookmarkchecker.unknownBookmarks,
           'bookmarks_errors' : bookmarkchecker.bookmarkErrors,
@@ -115,6 +120,7 @@ const bookmarkchecker = {
         if (bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
           const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
           browser.runtime.sendMessage({ 'message' : 'finished', 'bookmarks' : bookmarks });
+          bookmarkchecker.inProgress = false;
         }
       });
     });
