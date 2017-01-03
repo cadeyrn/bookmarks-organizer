@@ -128,7 +128,7 @@ const bookmarkchecker = {
 
   checkResponse : function (bookmark, callback) {
     const p = Promise.race([
-      fetch(bookmark.url), new Promise(function (resolve, reject) {
+      fetch(bookmark.url, { cache : 'no-store' }), new Promise(function (resolve, reject) {
         if (bookmarkchecker.TIMEOUT > 0) {
           setTimeout(() => reject(new Error('request timeout')), bookmarkchecker.TIMEOUT)
         }
