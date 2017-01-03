@@ -58,7 +58,7 @@ const bookmarkchecker = {
 
   checkBookmarks : function (bookmark, mode) {
     if (bookmark.url) {
-      if (!bookmark.url.match(/^(about:|place:)/)) {
+      if (bookmark.url.match(/^https?:\/\//)) {
         if (mode === 'count') {
           if (bookmarkchecker.totalBookmarks === bookmarkchecker.LIMIT) {
             return;
