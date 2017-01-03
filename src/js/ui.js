@@ -106,7 +106,7 @@ const ui = {
 
       let bookmarkId = e.target.getAttribute('data-id');
       document.getElementById(bookmarkId).style.display = 'none';
-      browser.bookmarks.remove(bookmarkId);
+      browser.runtime.sendMessage({ 'message' : 'remove', 'bookmarkId' : bookmarkId });
     }
   }
 };

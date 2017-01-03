@@ -19,6 +19,8 @@ const bookmarkchecker = {
     if (response.message === 'execute') {
       bookmarkchecker.countBookmarks();
       bookmarkchecker.execute();
+    } else if (response.message === 'remove') {
+      browser.bookmarks.remove(response.bookmarkId);
     }
   },
 
