@@ -2,6 +2,7 @@
 
 const elBody = document.querySelector('body');
 const elButton = document.querySelector('button');
+const elMessage = document.getElementById('message');
 const elResults = document.getElementById('results');
 const elTotalBookmarks = document.getElementById('totalBookmarks');
 const elCheckedBookmarks = document.getElementById('checkedBookmarks');
@@ -11,6 +12,8 @@ const elUnknownBookmarks = document.getElementById('unknownBookmarks');
 const elProgress = document.getElementById('progress');
 
 const ui = {
+  markedBookmarks : 0,
+  
   execute : function () {
     browser.runtime.sendMessage({ 'message' : 'execute' });
   },
@@ -26,10 +29,15 @@ const ui = {
       elBookmarksWarnings.innerText = response.bookmarks_warnings;
       elUnknownBookmarks.innerText = response.unknown_bookmarks;
       elProgress.setAttribute('value', response.progress);
+      ui.markedBookmarks = response.bookmarks_errors + response.bookmarks_warnings + response.unknown_bookmarks;
     }
     else if (response.message === 'finished') {
       ui.buildBookmarksTree(response.bookmarks);
       ui.hideEmptyRows();
+      
+      if (ui.markedBookmarks === 0) {
+        elMessage.innerText = 'Glückwunsch, alle Lesezeichen sind in Ordnung!';
+      }
     }
   },
 
