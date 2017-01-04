@@ -107,6 +107,11 @@ const bookmarkchecker = {
           bookmarkchecker.bookmarksResult.push(bookmark);
         }
 
+        let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
+        if (progress < 0.01) {
+          progress = 0.01;
+        }
+
         browser.runtime.sendMessage({
           'message' : 'update-counters',
           'total_bookmarks' : bookmarkchecker.totalBookmarks,
@@ -114,7 +119,7 @@ const bookmarkchecker = {
           'unknown_bookmarks' : bookmarkchecker.unknownBookmarks,
           'bookmarks_errors' : bookmarkchecker.bookmarkErrors,
           'bookmarks_warnings' : bookmarkchecker.bookmarkWarnings,
-          'progress' : bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks
+          'progress' : progress
         });
 
         if (bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {

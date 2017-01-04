@@ -20,6 +20,7 @@ const ui = {
 
   handleResponse : function (response) {
     if (response.message === 'total-bookmarks') {
+      elProgress.setAttribute('value', 0.01);
       elTotalBookmarks.innerText = response.total_bookmarks;
     }
     else if (response.message === 'update-counters') {
