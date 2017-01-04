@@ -141,6 +141,10 @@ const ui = {
     if (e.target.tagName.toLowerCase() === 'a' && e.target.className === 'remove') {
       e.preventDefault();
 
+      if (!confirm('Soll dieses Lesezeichen wirklich gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden.')) {
+        return false;
+      }
+
       const bookmarkId = e.target.getAttribute('data-id');
       const elBookmark = document.getElementById(bookmarkId);
 
