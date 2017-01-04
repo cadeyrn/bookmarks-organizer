@@ -22,6 +22,7 @@ const ui = {
     if (response.message === 'total-bookmarks') {
       elProgress.setAttribute('value', 0.01);
       elTotalBookmarks.innerText = response.total_bookmarks;
+      elButton.disabled = true;
     }
     else if (response.message === 'update-counters') {
       elTotalBookmarks.innerText = response.total_bookmarks;
@@ -35,6 +36,7 @@ const ui = {
     else if (response.message === 'finished') {
       ui.buildBookmarksTree(response.bookmarks);
       ui.hideEmptyRows();
+      elButton.disabled = false;
       
       if (ui.markedBookmarks === 0) {
         elMessage.innerText = 'Glückwunsch, alle Lesezeichen sind in Ordnung!';
