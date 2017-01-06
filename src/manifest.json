@@ -23,6 +23,9 @@
     },
     "default_title": "__MSG_actionbutton_title__"
   },
+  "omnibox": {
+    "keyword" : "bookmarks"
+  },
   "permissions": [
     "bookmarks",
     "tabs",

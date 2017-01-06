@@ -13,6 +13,20 @@ const bookmarkchecker = {
   unknownBookmarks : 0,
   bookmarksResult : [],
 
+  showOmniboxSuggestions : function (input, suggest) {
+    suggest([
+      { content : 'check', description : 'check all bookmarks' }
+    ]);
+  },
+
+  callOmniboxAction : function (input) {
+    switch (input) {
+      case 'check':
+        bookmarkchecker.openUserInterface(true);
+        break;
+    }
+  },
+
   openUserInterface : function () {
     browser.tabs.create({ url : browser.runtime.getURL(bookmarkchecker.UI_PAGE) });
   },
@@ -192,3 +206,9 @@ const bookmarkchecker = {
 
 browser.browserAction.onClicked.addListener(bookmarkchecker.openUserInterface);
 browser.runtime.onMessage.addListener(bookmarkchecker.handleResponse);
+
+// Firefox 52+
+if (typeof browser.omnibox !== 'undefined') {
+  browser.omnibox.onInputChanged.addListener(bookmarkchecker.showOmniboxSuggestions);
+  browser.omnibox.onInputEntered.addListener(bookmarkchecker.callOmniboxAction);
+}
