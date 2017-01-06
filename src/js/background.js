@@ -15,7 +15,7 @@ const bookmarkchecker = {
 
   showOmniboxSuggestions : function (input, suggest) {
     suggest([
-      { content : 'check', description : 'check all bookmarks' }
+      { content : 'check', description : browser.i18n.getMessage('omnibox_command_check') }
     ]);
   },
 

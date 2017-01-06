@@ -39,7 +39,7 @@ const ui = {
       elButton.disabled = false;
       
       if (ui.markedBookmarks === 0) {
-        elMessage.innerText = 'Glückwunsch, alle Lesezeichen sind in Ordnung!';
+        elMessage.innerText = browser.i18n.getMessage('no_marked_bookmarks');
       }
     }
   },
@@ -68,7 +68,7 @@ const ui = {
     if (bookmark.url) {
       template = document.getElementById('result-template-url').content.cloneNode(true);
 
-      const title = bookmark.title ? bookmark.title : '<kein Name>'
+      const title = bookmark.title ? bookmark.title : browser.i18n.getMessage('bookmark_no_title');
       const elNameText = document.createTextNode(title);
       const elName = template.querySelector('.name');
       elName.appendChild(elNameText);
@@ -80,29 +80,29 @@ const ui = {
       elUrl.setAttribute('target', '_blank');
       elUrl.setAttribute('rel', 'noopener');
 
-      const elLocationText = document.createTextNode('Lesezeichen-Ort: ' + bookmark.parentTitle);
+      const elLocationText = document.createTextNode(browser.i18n.getMessage('bookmark_location') + ': ' + bookmark.parentTitle);
       const elLocation = template.querySelector('.location');
       elLocation.appendChild(elLocationText);
 
       const elStatus = template.querySelector('.status');
 
       if (bookmark.status == STATUS.REDIRECT) {
-        const elStatusText = document.createTextNode('Status: Weiterleitung');
+        const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_redirect'));
         elStatus.appendChild(elStatusText);
         li.className += 'warning';
       }
       else if (bookmark.status === STATUS.UNKNOWN_ERROR) {
-        const elStatusText = document.createTextNode('Status: unbekannt');
+        const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_unknown'));
         elStatus.appendChild(elStatusText);
       }
       else {
-        const elStatusText = document.createTextNode('Status: ' + bookmark.status);
+        const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);
         elStatus.appendChild(elStatusText);
         li.className += 'error';
       }
 
       if (bookmark.newUrl) {
-        const elNewUrlText = document.createTextNode('Neue URL: ' + bookmark.newUrl);
+        const elNewUrlText = document.createTextNode(browser.i18n.getMessage('bookmark_new_url') + ': ' + bookmark.newUrl);
         const elNewUrl = template.querySelector('.newUrl');
         elNewUrl.appendChild(elNewUrlText);
         elNewUrl.setAttribute('href', bookmark.newUrl);
@@ -111,7 +111,7 @@ const ui = {
       }
 
       const elActionButtons = template.querySelector('.action-buttons');
-      const elRemoveButtonText = document.createTextNode('[entfernen]');
+      const elRemoveButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_remove'));
       const elRemoveButton = document.createElement('a');
       elRemoveButton.appendChild(elRemoveButtonText);
       elRemoveButton.setAttribute('data-id', bookmark.id);
@@ -122,7 +122,7 @@ const ui = {
     else {
       template = document.getElementById('result-template-title').content.cloneNode(true);
 
-      const title = bookmark.title ? bookmark.title : '<kein Name>'
+      const title = bookmark.title ? bookmark.title : browser.i18n.getMessage('bookmark_no_title');
       const elNameText = document.createTextNode(title);
       const elName = template.querySelector('.name');
       elName.appendChild(elNameText);
@@ -141,7 +141,7 @@ const ui = {
     if (e.target.tagName.toLowerCase() === 'a' && e.target.className === 'remove') {
       e.preventDefault();
 
-      if (!confirm('Soll dieses Lesezeichen wirklich gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden.')) {
+      if (!confirm(browser.i18n.getMessage('bookmark_confirmation_remove'))) {
         return false;
       }
 

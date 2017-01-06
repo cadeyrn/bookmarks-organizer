@@ -1,11 +1,41 @@
 {
+  "button_check_bookmarks": {
+    "message": "Prüfe Lesezeichen…"
+  },
+  "bookmark_action_remove": {
+    "message": "[entfernen]"
+  },
+  "bookmark_confirmation_remove": {
+    "message": "Soll dieses Lesezeichen wirklich gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden."
+  },
+  "bookmark_location": {
+    "message": "Lesezeichen-Ort"
+  },
+  "bookmark_new_url": {
+    "message": "Neue URL"
+  },
+  "bookmark_no_title": {
+    "message": "(ohne Titel)"
+  },
+  "bookmark_state_label": {
+    "message": "Status"
+  },
+  "bookmark_state_redirect": {
+    "message": "Weiterleitung"
+  },
+  "bookmark_state_unknown": {
+    "message": "unbekannt"
+  },
   "extension_description": {
-    "message": "TODO: Beschreibung"
+    "message": "Beschreibung"
   },
   "extension_name": {
     "message": "Bookmark Checker"
   },
-  "actionbutton_title": {
-    "message": "Prüfe Lesezeichen…"
+  "no_marked_bookmarks": {
+    "message": "Glückwunsch, alle Lesezeichen sind in Ordnung!"
+  },
+  "omnibox_command_check": {
+    "message": "Prüfe alle deine Lesezeichen auf Fehler, Duplikate, …"
   }
 }
