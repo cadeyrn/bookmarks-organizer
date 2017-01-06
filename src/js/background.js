@@ -156,7 +156,15 @@ const bookmarkchecker = {
 
     p.then(function (response) {
       if (response.redirected) {
-        bookmark.status = STATUS.REDIRECT;
+        // redirect to identical url, there is something wrong, but we don't know the details…
+        if (bookmark.url === response.url) {
+          bookmark.status = STATUS.UNKNOWN_ERROR;
+        }
+        // redirect to another url
+        else {
+          bookmark.status = STATUS.REDIRECT;
+        }
+
         bookmark.newUrl = response.url;
       }
       else {
