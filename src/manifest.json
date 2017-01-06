@@ -21,7 +21,7 @@
       "32": "images/icon-32.png",
       "64": "images/icon-64.png"
     },
-    "default_title": "__MSG_actionbutton_title__"
+    "default_title": "__MSG_button_check_bookmarks__"
   },
   "omnibox": {
     "keyword" : "bookmarks"
