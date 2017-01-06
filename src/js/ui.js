@@ -85,21 +85,21 @@ const ui = {
       elLocation.appendChild(elLocationText);
 
       const elStatus = template.querySelector('.status');
+      let elStatusText;
 
-      if (bookmark.status == STATUS.REDIRECT) {
-        const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_redirect'));
-        elStatus.appendChild(elStatusText);
-        li.className = 'warning';
-      }
-      else if (bookmark.status === STATUS.UNKNOWN_ERROR) {
-        const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_unknown'));
-        elStatus.appendChild(elStatusText);
-        li.className = 'unknown';
-      }
-      else {
-        const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);
-        elStatus.appendChild(elStatusText);
-        li.className = 'error';
+      switch (bookmark.status) {
+        case STATUS.REDIRECT:
+          elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_redirect'));
+          elStatus.appendChild(elStatusText);
+          li.className = 'warning';
+        case STATUS.NOT_FOUND:
+          elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);
+          elStatus.appendChild(elStatusText);
+          li.className = 'error';
+        case STATUS.UNKNOWN_ERROR:
+          elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_unknown'));
+          elStatus.appendChild(elStatusText);
+          li.className = 'unknown';
       }
 
       const elActionButtons = template.querySelector('.action-buttons');
@@ -166,14 +166,13 @@ const ui = {
       elTotalBookmarks.innerText = parseInt(elTotalBookmarks.innerText) - 1;
       elCheckedBookmarks.innerText = parseInt(elCheckedBookmarks.innerText) - 1;
 
-      if (elBookmark.className === 'error') {
-        elBookmarksErrors.innerText = parseInt(elBookmarksErrors.innerText) - 1;
-      }
-      else if (elBookmark.className === 'warning') {
-        elBookmarksWarnings.innerText = parseInt(elBookmarksWarnings.innerText) - 1;
-      }
-      else {
-        elUnknownBookmarks.innerText = parseInt(elUnknownBookmarks.innerText) - 1;
+      switch (elBookmark.className) {
+        case 'warning':
+          elBookmarksWarnings.innerText = parseInt(elBookmarksWarnings.innerText) - 1;
+        case 'error':
+          elBookmarksErrors.innerText = parseInt(elBookmarksErrors.innerText) - 1;
+        case 'unknown':
+          elUnknownBookmarks.innerText = parseInt(elUnknownBookmarks.innerText) - 1;
       }
 
       ui.hideEmptyRows();
@@ -181,7 +180,6 @@ const ui = {
       switch (e.target.getAttribute('data-action')) {
         case 'remove':
           browser.runtime.sendMessage({ 'message' : 'remove', 'bookmarkId' : bookmarkId });
-          break;
         case 'repair-redirect':
           browser.runtime.sendMessage({
             'message' : 'repair-redirect',

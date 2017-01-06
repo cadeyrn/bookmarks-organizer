@@ -23,7 +23,6 @@ const bookmarkchecker = {
     switch (input) {
       case 'check':
         bookmarkchecker.openUserInterface(true);
-        break;
     }
   },
 
@@ -111,14 +110,13 @@ const bookmarkchecker = {
         bookmarkchecker.checkedBookmarks++;
 
         if (bookmark.status !== STATUS.OK) {
-          if (bookmark.status == STATUS.REDIRECT) {
-             bookmarkchecker.bookmarkWarnings++;
-          }
-          else if (bookmark.status == STATUS.UNKNOWN_ERROR) {
-            bookmarkchecker.unknownBookmarks++;
-          }
-          else {
-            bookmarkchecker.bookmarkErrors++;
+          switch (bookmark.status) {
+            case STATUS.REDIRECT:
+              bookmarkchecker.bookmarkWarnings++;
+            case STATUS.NOT_FOUND:
+              bookmarkchecker.bookmarkErrors++;
+            case STATUS.UNKNOWN_ERROR:
+              bookmarkchecker.unknownBookmarks++;
           }
 
           bookmarkchecker.bookmarksResult.push(bookmark);
