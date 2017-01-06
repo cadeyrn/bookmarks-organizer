@@ -94,6 +94,7 @@ const ui = {
       else if (bookmark.status === STATUS.UNKNOWN_ERROR) {
         const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_unknown'));
         elStatus.appendChild(elStatusText);
+        li.className = 'unknown';
       }
       else {
         const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);

@@ -24,7 +24,7 @@
     "message": "Weiterleitung"
   },
   "bookmark_state_unknown": {
-    "message": "unbekannt"
+    "message": "Unbekannt. Bitte überprüfe den Status dieses Lesezeichens manuell."
   },
   "extension_description": {
     "message": "Beschreibung"

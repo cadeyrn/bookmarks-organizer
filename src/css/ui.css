@@ -103,3 +103,7 @@ footer a {
 #results .warning .status {
   color: orange;
 }
+
+#results .unknown .status {
+  color: dodgerblue;
+}
