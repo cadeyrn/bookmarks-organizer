@@ -89,7 +89,7 @@ const ui = {
       if (bookmark.status == STATUS.REDIRECT) {
         const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_redirect'));
         elStatus.appendChild(elStatusText);
-        li.className += 'warning';
+        li.className = 'warning';
       }
       else if (bookmark.status === STATUS.UNKNOWN_ERROR) {
         const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_unknown'));
@@ -98,7 +98,7 @@ const ui = {
       else {
         const elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);
         elStatus.appendChild(elStatusText);
-        li.className += 'error';
+        li.className = 'error';
       }
 
       if (bookmark.newUrl) {
