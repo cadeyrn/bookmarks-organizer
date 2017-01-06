@@ -6,7 +6,7 @@ const i18n = {
   },
 
   getMessage : function (string, key) {
-    return chrome.i18n.getMessage(key);
+    return browser.i18n.getMessage(key);
   },
 
   replace : function (string) {
