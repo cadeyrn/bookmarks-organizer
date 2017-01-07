@@ -15,6 +15,7 @@ const elRepairAllRedirects = document.getElementById('repairAllRedirects');
 
 const ui = {
   markedBookmarks : 0,
+  warnings : 0,
   
   execute : function () {
     browser.runtime.sendMessage({ 'message' : 'execute' });
@@ -34,13 +35,17 @@ const ui = {
       elUnknownBookmarks.innerText = response.unknown_bookmarks;
       elProgress.setAttribute('value', response.progress);
       ui.markedBookmarks = response.bookmarks_errors + response.bookmarks_warnings + response.unknown_bookmarks;
+      ui.warnings = response.bookmarks_warnings;
     }
     else if (response.message === 'finished') {
       ui.buildBookmarksTree(response.bookmarks);
       ui.hideEmptyRows();
       elButton.disabled = false;
-      elMassActions.style.display = 'block';
-      
+
+      if (ui.warnings > 0) {
+        elMassActions.style.display = 'block';
+      }
+
       if (ui.markedBookmarks === 0) {
         elMessage.innerText = browser.i18n.getMessage('no_marked_bookmarks');
       }
