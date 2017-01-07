@@ -23,25 +23,20 @@ const bookmarkchecker = {
   },
 
   callOmniboxAction : function (input) {
+    bookmarkchecker.openUserInterface();
+    bookmarkchecker.countBookmarks();
+
     switch (input) {
       case 'check':
-        bookmarkchecker.openUserInterface();
-        bookmarkchecker.countBookmarks();
         bookmarkchecker.execute('all');
         break;
       case 'check-errors':
-        bookmarkchecker.openUserInterface();
-        bookmarkchecker.countBookmarks();
         bookmarkchecker.execute('errors');
         break;
       case 'check-warnings':
-        bookmarkchecker.openUserInterface();
-        bookmarkchecker.countBookmarks();
         bookmarkchecker.execute('warnings');
         break;
       case 'check-unknowns':
-        bookmarkchecker.openUserInterface();
-        bookmarkchecker.countBookmarks();
         bookmarkchecker.execute('unknowns');
         break;
     }
