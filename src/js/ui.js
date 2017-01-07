@@ -91,15 +91,15 @@ const ui = {
         case STATUS.REDIRECT:
           elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_redirect'));
           elStatus.appendChild(elStatusText);
-          li.className = 'warning';
+          li.classList.add('warning');
         case STATUS.NOT_FOUND:
           elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);
           elStatus.appendChild(elStatusText);
-          li.className = 'error';
+          li.classList.add('error');
         case STATUS.UNKNOWN_ERROR:
           elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_unknown'));
           elStatus.appendChild(elStatusText);
-          li.className = 'unknown';
+          li.classList.add('unknown');
       }
 
       const elActionButtons = template.querySelector('.action-buttons');
@@ -166,13 +166,17 @@ const ui = {
       elTotalBookmarks.innerText = parseInt(elTotalBookmarks.innerText) - 1;
       elCheckedBookmarks.innerText = parseInt(elCheckedBookmarks.innerText) - 1;
 
-      switch (elBookmark.className) {
-        case 'warning':
-          elBookmarksWarnings.innerText = parseInt(elBookmarksWarnings.innerText) - 1;
-        case 'error':
-          elBookmarksErrors.innerText = parseInt(elBookmarksErrors.innerText) - 1;
-        case 'unknown':
-          elUnknownBookmarks.innerText = parseInt(elUnknownBookmarks.innerText) - 1;
+      if (elBookmark.classList.contains('warning')) {
+        elBookmarksWarnings.innerText = parseInt(elBookmarksWarnings.innerText) - 1;
+        elBookmarksErrors.innerText = parseInt(elBookmarksErrors.innerText) - 1;
+        elUnknownBookmarks.innerText = parseInt(elUnknownBookmarks.innerText) - 1;
+      }
+      else if (elBookmark.classList.contains('error')) {
+        elBookmarksErrors.innerText = parseInt(elBookmarksErrors.innerText) - 1;
+        elUnknownBookmarks.innerText = parseInt(elUnknownBookmarks.innerText) - 1;
+      }
+      else if (elBookmark.classList.contains('unknown')) {
+        elUnknownBookmarks.innerText = parseInt(elUnknownBookmarks.innerText) - 1;
       }
 
       ui.hideEmptyRows();
