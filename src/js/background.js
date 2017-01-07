@@ -113,10 +113,13 @@ const bookmarkchecker = {
           switch (bookmark.status) {
             case STATUS.REDIRECT:
               bookmarkchecker.bookmarkWarnings++;
+              break;
             case STATUS.NOT_FOUND:
               bookmarkchecker.bookmarkErrors++;
+              break;
             case STATUS.UNKNOWN_ERROR:
               bookmarkchecker.unknownBookmarks++;
+              break;
           }
 
           bookmarkchecker.bookmarksResult.push(bookmark);

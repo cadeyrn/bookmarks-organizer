@@ -92,15 +92,18 @@ const ui = {
           elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_redirect'));
           elStatus.appendChild(elStatusText);
           li.classList.add('warning');
+          break;
         case STATUS.NOT_FOUND:
           elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);
           elStatus.appendChild(elStatusText);
           li.classList.add('error');
+          break;
         case STATUS.TIMEOUT:
         case STATUS.UNKNOWN_ERROR:
           elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_unknown'));
           elStatus.appendChild(elStatusText);
           li.classList.add('unknown');
+          break;
       }
 
       const elActionButtons = template.querySelector('.action-buttons');
@@ -185,12 +188,14 @@ const ui = {
       switch (e.target.getAttribute('data-action')) {
         case 'remove':
           browser.runtime.sendMessage({ 'message' : 'remove', 'bookmarkId' : bookmarkId });
+          break;
         case 'repair-redirect':
           browser.runtime.sendMessage({
             'message' : 'repair-redirect',
             'bookmarkId' : bookmarkId,
             'newUrl' : e.target.getAttribute('data-new-url')
           });
+          break;
       }
     }
   },
