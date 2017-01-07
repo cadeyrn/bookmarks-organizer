@@ -167,21 +167,6 @@ const ui = {
 
       elBookmark.remove();
 
-      elTotalBookmarks.innerText = parseInt(elTotalBookmarks.innerText) - 1;
-      elCheckedBookmarks.innerText = parseInt(elCheckedBookmarks.innerText) - 1;
-
-      if (elBookmark.classList.contains('warning')) {
-        elBookmarksWarnings.innerText = parseInt(elBookmarksWarnings.innerText) - 1;
-        elBookmarksErrors.innerText = parseInt(elBookmarksErrors.innerText) - 1;
-        elUnknownBookmarks.innerText = parseInt(elUnknownBookmarks.innerText) - 1;
-      }
-      else if (elBookmark.classList.contains('error')) {
-        elBookmarksErrors.innerText = parseInt(elBookmarksErrors.innerText) - 1;
-        elUnknownBookmarks.innerText = parseInt(elUnknownBookmarks.innerText) - 1;
-      }
-      else if (elBookmark.classList.contains('unknown')) {
-        elUnknownBookmarks.innerText = parseInt(elUnknownBookmarks.innerText) - 1;
-      }
 
       ui.hideEmptyRows();
 
