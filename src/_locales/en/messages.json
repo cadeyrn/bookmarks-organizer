@@ -44,7 +44,16 @@
   "no_marked_bookmarks": {
     "message": "Glückwunsch, alle Lesezeichen sind in Ordnung!"
   },
-  "omnibox_command_check": {
-    "message": "Prüfe alle deine Lesezeichen auf Fehler, Duplikate, …"
+  "omnibox_command_check_all": {
+    "message": "Prüfe alle deine Lesezeichen auf Fehler, Weiterleitungen, Duplikate, …"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Prüfe deine Lesezeichen nur auf Fehler"
+  },
+  "omnibox_command_check_warnings": {
+    "message": "Prüfe deine Lesezeichen nur auf Warnungen"
+  },
+  "omnibox_command_check_unknowns": {
+    "message": "Prüfe deine Lesezeichen nur auf welche, deren Status nicht ermittelt werden kann"
   }
 }

@@ -15,7 +15,10 @@ const bookmarkchecker = {
 
   showOmniboxSuggestions : function (input, suggest) {
     suggest([
-      { content : 'check', description : browser.i18n.getMessage('omnibox_command_check') }
+      { content : 'check', description : browser.i18n.getMessage('omnibox_command_check_all') },
+      { content : 'check-errors', description : browser.i18n.getMessage('omnibox_command_check_errors') },
+      { content : 'check-warnings', description : browser.i18n.getMessage('omnibox_command_check_warnings') },
+      { content : 'check-unknowns', description : browser.i18n.getMessage('omnibox_command_check_unknowns') },
     ]);
   },
 
@@ -24,7 +27,22 @@ const bookmarkchecker = {
       case 'check':
         bookmarkchecker.openUserInterface();
         bookmarkchecker.countBookmarks();
-        bookmarkchecker.execute();
+        bookmarkchecker.execute('all');
+        break;
+      case 'check-errors':
+        bookmarkchecker.openUserInterface();
+        bookmarkchecker.countBookmarks();
+        bookmarkchecker.execute('errors');
+        break;
+      case 'check-warnings':
+        bookmarkchecker.openUserInterface();
+        bookmarkchecker.countBookmarks();
+        bookmarkchecker.execute('warnings');
+        break;
+      case 'check-unknowns':
+        bookmarkchecker.openUserInterface();
+        bookmarkchecker.countBookmarks();
+        bookmarkchecker.execute('unknowns');
         break;
     }
   },
@@ -37,7 +55,7 @@ const bookmarkchecker = {
     if (response.message === 'execute') {
       if (!bookmarkchecker.inProgress) {
         bookmarkchecker.countBookmarks();
-        bookmarkchecker.execute();
+        bookmarkchecker.execute('all');
       }
     }
     else if (response.message === 'remove') {
@@ -53,7 +71,7 @@ const bookmarkchecker = {
     bookmarkchecker.totalBookmarks = 0;
 
     browser.bookmarks.getTree().then((bookmarks) => {
-      bookmarkchecker.checkBookmarks(bookmarks[0], 'count');
+      bookmarkchecker.checkBookmarks(bookmarks[0], 'count', 'all');
 
       browser.runtime.sendMessage({
         'message' : 'total-bookmarks',
@@ -62,7 +80,7 @@ const bookmarkchecker = {
     });
   },
 
-  execute : function () {
+  execute : function (type) {
     bookmarkchecker.internalCounter = 0;
     bookmarkchecker.checkedBookmarks = 0;
     bookmarkchecker.bookmarkErrors = 0;
@@ -71,11 +89,11 @@ const bookmarkchecker = {
     bookmarkchecker.bookmarksResult = [];
 
     browser.bookmarks.getTree().then((bookmarks) => {
-      bookmarkchecker.checkBookmarks(bookmarks[0], 'errors');
+      bookmarkchecker.checkBookmarks(bookmarks[0], 'check', type);
     });
   },
 
-  checkBookmarks : function (bookmark, mode) {
+  checkBookmarks : function (bookmark, mode, type) {
     if (bookmark.url) {
       if (bookmark.url.match(/^https?:\/\//)) {
         if (mode === 'count') {
@@ -91,7 +109,7 @@ const bookmarkchecker = {
           }
 
           bookmarkchecker.internalCounter++;
-          bookmarkchecker.checkSingleBookmark(bookmark);
+          bookmarkchecker.checkSingleBookmark(bookmark, type);
         }
       }
     }
@@ -101,12 +119,12 @@ const bookmarkchecker = {
 
     if (bookmark.children) {
       for (let child of bookmark.children) {
-        bookmarkchecker.checkBookmarks(child, mode);
+        bookmarkchecker.checkBookmarks(child, mode, type);
       }
     }
   },
 
-  checkSingleBookmark : function (bookmark) {
+  checkSingleBookmark : function (bookmark, type) {
     browser.bookmarks.get(bookmark.parentId).then((parentBookmark) => {
       bookmark.parentTitle = parentBookmark[0].title;
       bookmarkchecker.checkResponse(bookmark, function (bookmark) {
@@ -115,17 +133,24 @@ const bookmarkchecker = {
         if (bookmark.status !== STATUS.OK) {
           switch (bookmark.status) {
             case STATUS.REDIRECT:
-              bookmarkchecker.bookmarkWarnings++;
+              if (type === 'all' || type === 'warnings') {
+                bookmarkchecker.bookmarkWarnings++;
+                bookmarkchecker.bookmarksResult.push(bookmark);
+              }
               break;
             case STATUS.NOT_FOUND:
-              bookmarkchecker.bookmarkErrors++;
+              if (type === 'all' || type === 'errors') {
+                bookmarkchecker.bookmarkErrors++;
+                bookmarkchecker.bookmarksResult.push(bookmark);
+              }
               break;
             case STATUS.UNKNOWN_ERROR:
-              bookmarkchecker.unknownBookmarks++;
+              if (type === 'all' || type === 'unknowns') {
+                bookmarkchecker.unknownBookmarks++;
+                bookmarkchecker.bookmarksResult.push(bookmark);
+              }
               break;
           }
-
-          bookmarkchecker.bookmarksResult.push(bookmark);
         }
 
         let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
