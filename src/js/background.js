@@ -18,7 +18,7 @@ const bookmarkchecker = {
       { content : 'check', description : browser.i18n.getMessage('omnibox_command_check_all') },
       { content : 'check-errors', description : browser.i18n.getMessage('omnibox_command_check_errors') },
       { content : 'check-warnings', description : browser.i18n.getMessage('omnibox_command_check_warnings') },
-      { content : 'check-unknowns', description : browser.i18n.getMessage('omnibox_command_check_unknowns') },
+      { content : 'check-unknowns', description : browser.i18n.getMessage('omnibox_command_check_unknowns') }
     ]);
   },
 
