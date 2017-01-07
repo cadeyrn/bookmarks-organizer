@@ -218,8 +218,10 @@ const ui = {
     const bookmarks = document.querySelectorAll('.redirect');
 
     for (let bookmark of bookmarks) {
-      bookmark.remove();
-      ui.repairRedirect(bookmark.id, bookmark.getElementsByClassName('newUrl')[0].getAttribute('href'));
+      if (getComputedStyle(bookmark).display !== 'none') {
+        bookmark.remove();
+        ui.repairRedirect(bookmark.id, bookmark.getElementsByClassName('newUrl')[0].getAttribute('href'));
+      }
     }
 
     ui.hideEmptyRows();
