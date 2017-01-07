@@ -10,6 +10,8 @@ const elBookmarksErrors = document.getElementById('bookmarksErrors');
 const elBookmarksWarnings = document.getElementById('bookmarksWarnings');
 const elUnknownBookmarks = document.getElementById('unknownBookmarks');
 const elProgress = document.getElementById('progress');
+const elMassActions = document.getElementById('mass-actions');
+const elRepairAllRedirects = document.getElementById('repairAllRedirects');
 
 const ui = {
   markedBookmarks : 0,
@@ -37,6 +39,7 @@ const ui = {
       ui.buildBookmarksTree(response.bookmarks);
       ui.hideEmptyRows();
       elButton.disabled = false;
+      elMassActions.style.display = 'block';
       
       if (ui.markedBookmarks === 0) {
         elMessage.innerText = browser.i18n.getMessage('no_marked_bookmarks');
@@ -91,7 +94,7 @@ const ui = {
         case STATUS.REDIRECT:
           elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_redirect'));
           elStatus.appendChild(elStatusText);
-          li.classList.add('warning');
+          li.classList.add('warning', 'redirect');
           break;
         case STATUS.NOT_FOUND:
           elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);
@@ -154,6 +157,21 @@ const ui = {
     return li;
   },
 
+  removeBookmark : function (bookmarkId) {
+    browser.runtime.sendMessage({
+      'message' : 'remove',
+      'bookmarkId' : bookmarkId
+    });
+  },
+
+  repairRedirect : function (bookmarkId, newUrl) {
+    browser.runtime.sendMessage({
+      'message' : 'repair-redirect',
+      'bookmarkId' : bookmarkId,
+      'newUrl' : newUrl
+    });
+  },
+
   handleActionButtonClicks : function (e) {
     if (e.target.tagName === 'A' && e.target.getAttribute('data-action')) {
       e.preventDefault();
@@ -166,23 +184,34 @@ const ui = {
       const elBookmark = document.getElementById(bookmarkId);
 
       elBookmark.remove();
-
-
       ui.hideEmptyRows();
 
       switch (e.target.getAttribute('data-action')) {
         case 'remove':
-          browser.runtime.sendMessage({ 'message' : 'remove', 'bookmarkId' : bookmarkId });
+          ui.removeBookmark(bookmarkId);
           break;
         case 'repair-redirect':
-          browser.runtime.sendMessage({
-            'message' : 'repair-redirect',
-            'bookmarkId' : bookmarkId,
-            'newUrl' : e.target.getAttribute('data-new-url')
-          });
+          ui.repairRedirect(bookmarkId, e.target.getAttribute('data-new-url'));
           break;
       }
     }
+  },
+
+  elRepairAllRedirects : function (e) {
+    e.preventDefault();
+
+    if (!confirm(browser.i18n.getMessage('bookmark_confirmation_repair_all_redirects'))) {
+      return false;
+    }
+
+    const bookmarks = document.querySelectorAll('.redirect');
+
+    for (let bookmark of bookmarks) {
+      bookmark.remove();
+      ui.repairRedirect(bookmark.id, bookmark.getElementsByClassName('newUrl')[0].getAttribute('href'));
+    }
+
+    ui.hideEmptyRows();
   },
 
   hideEmptyRows : function () {
@@ -198,5 +227,6 @@ const ui = {
 
 elButton.addEventListener('click', ui.execute);
 elBody.addEventListener('click', ui.handleActionButtonClicks);
+elRepairAllRedirects.addEventListener('click', ui.elRepairAllRedirects)
 
 browser.runtime.onMessage.addListener(ui.handleResponse);

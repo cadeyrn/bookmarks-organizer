@@ -11,6 +11,9 @@
   "bookmark_confirmation_remove": {
     "message": "Soll dieses Lesezeichen wirklich gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden."
   },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Sollen wirklich die URLs aller weitergeleiteten Lesezeichen geändert werden? Die Aktion kann nicht rückgängig gemacht werden."
+  },
   "bookmark_confirmation_repair_redirect": {
     "message": "Soll die URL dieses Lesezeichen wirklich geändert werden? Die Aktion kann nicht rückgängig gemacht werden."
   },

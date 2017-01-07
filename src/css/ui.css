@@ -107,3 +107,7 @@ footer a {
 #results .unknown .status {
   color: dodgerblue;
 }
+
+#mass-actions {
+  display: none;
+}
