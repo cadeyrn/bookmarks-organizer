@@ -66,6 +66,6 @@
     "message": "Prüfe deine Lesezeichen nur auf welche, deren Status nicht ermittelt werden kann"
   },
   "search_label": {
-    "message" : "Suche…"
+    "message" : "Titel oder URL…"
   }
 }
