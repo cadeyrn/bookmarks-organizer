@@ -21,6 +21,14 @@
       <div id='result-wrapper'>
         <div id='message'></div>
         <input type='search' id='search' placeholder='__MSG_search_label__' />
+        <div>
+          <input type='checkbox' id='filter_errors' class='filter' data-filter='error' checked>
+          <label for='filter_errors'>__MSG_filter_errors__</label>
+          <input type='checkbox' id='filter_warnings' class='filter' data-filter='warning' checked>
+          <label for='filter_warnings'>__MSG_filter_warnings__</label>
+          <input type='checkbox' id='filter_unknowns' class='filter' data-filter='unknown' checked>
+          <label for='filter_unknowns'>__MSG_filter_unknowns__</label>
+        </div>
         <div id='results'></div>
         <div id='mass-actions'>
           <a href='#' id='repairAllRedirects'>[Korrigiere alle Weiterleitungen]</a>

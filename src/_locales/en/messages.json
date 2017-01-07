@@ -41,6 +41,15 @@
   "extension_name": {
     "message": "Bookmark Checker"
   },
+  "filter_errors": {
+    "message": "Fehler"
+  },
+  "filter_unknowns": {
+    "message": "Unbekannt"
+  },
+  "filter_warnings": {
+    "message": "Warnungen"
+  },
   "no_marked_bookmarks": {
     "message": "Glückwunsch, alle Lesezeichen sind in Ordnung!"
   },

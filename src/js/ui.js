@@ -181,7 +181,7 @@ const ui = {
   },
 
   handleActionButtonClicks : function (e) {
-    if (e.target.tagName === 'A' && e.target.getAttribute('data-action')) {
+    if (e.target.getAttribute('data-action')) {
       e.preventDefault();
 
       if (!confirm(e.target.getAttribute('data-confirmation-msg'))) {
@@ -202,6 +202,9 @@ const ui = {
           ui.repairRedirect(bookmarkId, e.target.getAttribute('data-new-url'));
           break;
       }
+    }
+    else if (e.target.getAttribute('data-filter')) {
+      ui.applyCheckboxFilter(e);
     }
   },
 
@@ -232,7 +235,7 @@ const ui = {
     }
   },
 
-  filterResults : function (e) {
+  applySearchFieldFilter : function (e) {
     const matcher = new RegExp(e.target.value, 'i');
     const urls = elResults.querySelectorAll('.url');
 
@@ -247,12 +250,29 @@ const ui = {
         parent.style.display = 'none';
       }
     }
+  },
+
+  applyCheckboxFilter : function (e) {
+    const urls = elResults.querySelectorAll('.url');
+
+    for (let url of urls) {
+      const parent = url.parentNode.parentNode;
+
+      if (parent.classList.contains(e.target.getAttribute('data-filter'))) {
+        if (e.target.checked) {
+          parent.style.display = 'block';
+        }
+        else {
+          parent.style.display = 'none';
+        }
+      }
+    }
   }
 };
 
 elButton.addEventListener('click', ui.execute);
 elBody.addEventListener('click', ui.handleActionButtonClicks);
 elRepairAllRedirects.addEventListener('click', ui.elRepairAllRedirects);
-elSearch.addEventListener('input', ui.filterResults);
+elSearch.addEventListener('input', ui.applySearchFieldFilter);
 
 browser.runtime.onMessage.addListener(ui.handleResponse);
