@@ -150,7 +150,7 @@ const bookmarkchecker = {
     const p = Promise.race([
       fetch(bookmark.url, { cache : 'no-store' }), new Promise(function (resolve, reject) {
         if (bookmarkchecker.TIMEOUT > 0) {
-          setTimeout(() => reject(new Error('request timeout')), bookmarkchecker.TIMEOUT)
+          setTimeout(() => reject(new Error('timeout')), bookmarkchecker.TIMEOUT)
         }
       })
     ]);
@@ -176,8 +176,8 @@ const bookmarkchecker = {
     });
 
     p.catch(function (error) {
-      if (error.message === 'request timeout') {
-        bookmark.status = STATUS.UNKNOWN_ERROR;
+      if (error.message === 'timeout') {
+        bookmark.status = STATUS.TIMEOUT;
       }
       else {
         bookmark.status = STATUS.NOT_FOUND;

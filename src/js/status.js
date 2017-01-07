@@ -3,6 +3,7 @@
 const STATUS = {
   OK : 200,
   NOT_FOUND : 404,
-  REDIRECT : 901,
+  TIMEOUT : 901,
+  REDIRECT : 902,
   UNKNOWN_ERROR : 999
 };

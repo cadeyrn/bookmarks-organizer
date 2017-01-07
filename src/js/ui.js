@@ -96,6 +96,7 @@ const ui = {
           elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);
           elStatus.appendChild(elStatusText);
           li.classList.add('error');
+        case STATUS.TIMEOUT:
         case STATUS.UNKNOWN_ERROR:
           elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_unknown'));
           elStatus.appendChild(elStatusText);
