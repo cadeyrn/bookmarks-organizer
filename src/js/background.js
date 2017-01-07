@@ -22,7 +22,10 @@ const bookmarkchecker = {
   callOmniboxAction : function (input) {
     switch (input) {
       case 'check':
-        bookmarkchecker.openUserInterface(true);
+        bookmarkchecker.openUserInterface();
+        bookmarkchecker.countBookmarks();
+        bookmarkchecker.execute();
+        break;
     }
   },
 
