@@ -2,7 +2,7 @@
 
 const bookmarkchecker = {
   UI_PAGE : 'html/ui.html',
-  LIMIT : 10000,
+  LIMIT : 0,
   TIMEOUT: 0,
   inProgress : false,
   internalCounter : 0,
@@ -76,14 +76,14 @@ const bookmarkchecker = {
     if (bookmark.url) {
       if (bookmark.url.match(/^https?:\/\//)) {
         if (mode === 'count') {
-          if (bookmarkchecker.totalBookmarks === bookmarkchecker.LIMIT) {
+          if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.totalBookmarks === bookmarkchecker.LIMIT) {
             return;
           }
 
           bookmarkchecker.totalBookmarks++;
         }
         else {
-          if (bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
+          if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
             return;
           }
 
