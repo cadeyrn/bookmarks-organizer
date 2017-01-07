@@ -108,6 +108,6 @@ footer a {
   color: dodgerblue;
 }
 
-#mass-actions {
+#result-wrapper, #mass-actions {
   display: none;
 }

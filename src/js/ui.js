@@ -2,6 +2,7 @@
 
 const elBody = document.querySelector('body');
 const elButton = document.querySelector('button');
+const elResultWrapper = document.getElementById('result-wrapper');
 const elMessage = document.getElementById('message');
 const elResults = document.getElementById('results');
 const elTotalBookmarks = document.getElementById('totalBookmarks');
@@ -12,6 +13,7 @@ const elUnknownBookmarks = document.getElementById('unknownBookmarks');
 const elProgress = document.getElementById('progress');
 const elMassActions = document.getElementById('mass-actions');
 const elRepairAllRedirects = document.getElementById('repairAllRedirects');
+const elSearch = document.getElementById('search');
 
 const ui = {
   markedBookmarks : 0,
@@ -41,6 +43,7 @@ const ui = {
       ui.buildBookmarksTree(response.bookmarks);
       ui.hideEmptyRows();
       elButton.disabled = false;
+      elResultWrapper.style.display = 'block';
 
       if (ui.warnings > 0) {
         elMassActions.style.display = 'block';
@@ -227,11 +230,29 @@ const ui = {
         row.parentNode.style.display = 'none';
       }
     }
+  },
+
+  filterResults : function (e) {
+    const matcher = new RegExp(e.target.value, 'i');
+    const urls = elResults.querySelectorAll('.url');
+
+    for (let url of urls) {
+      const parent = url.parentNode.parentNode;
+      const name = parent.querySelector('.name');
+
+      if (matcher.test(name.textContent) || matcher.test(url.textContent)) {
+        parent.style.display = 'block';
+      }
+      else {
+        parent.style.display = 'none';
+      }
+    }
   }
 };
 
 elButton.addEventListener('click', ui.execute);
 elBody.addEventListener('click', ui.handleActionButtonClicks);
-elRepairAllRedirects.addEventListener('click', ui.elRepairAllRedirects)
+elRepairAllRedirects.addEventListener('click', ui.elRepairAllRedirects);
+elSearch.addEventListener('input', ui.filterResults);
 
 browser.runtime.onMessage.addListener(ui.handleResponse);
