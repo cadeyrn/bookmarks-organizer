@@ -23,7 +23,7 @@ const bookmarkchecker = {
   },
 
   callOmniboxAction : function (input) {
-    bookmarkchecker.openUserInterface();
+    bookmarkchecker.openUserInterfaceInCurrentTab();
     bookmarkchecker.countBookmarks();
 
     switch (input) {
@@ -43,7 +43,29 @@ const bookmarkchecker = {
   },
 
   openUserInterface : function () {
-    browser.tabs.create({ url : browser.runtime.getURL(bookmarkchecker.UI_PAGE) });
+    const url = browser.extension.getURL(bookmarkchecker.UI_PAGE);
+
+    browser.tabs.query({}, (tabs) => {
+      let tabId;
+
+      for (let tab of tabs) {
+        if (tab.url === url) {
+          tabId = tab.id;
+          break;
+        }
+      }
+
+      if (tabId) {
+        browser.tabs.update(tabId, { 'active' : true });
+      }
+      else {
+        browser.tabs.create({ 'url' : url });
+      }
+    });
+  },
+
+  openUserInterfaceInCurrentTab : function () {
+    browser.tabs.update(null, { 'url' : browser.extension.getURL(bookmarkchecker.UI_PAGE) });
   },
 
   handleResponse : function (response) {
