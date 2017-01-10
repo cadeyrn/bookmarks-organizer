@@ -20,14 +20,16 @@
       </div>
       <div id='message'>__MSG_intro_check__</div>
       <div id='result-wrapper' class='hidden'>
-        <input type='search' id='search' placeholder='__MSG_search_label__' />
-        <div>
-          <input type='checkbox' id='filter_errors' class='filter' data-filter='error' checked>
-          <label for='filter_errors'>__MSG_filter_errors__</label>
-          <input type='checkbox' id='filter_warnings' class='filter' data-filter='warning' checked>
-          <label for='filter_warnings'>__MSG_filter_warnings__</label>
-          <input type='checkbox' id='filter_unknowns' class='filter' data-filter='unknown' checked>
-          <label for='filter_unknowns'>__MSG_filter_unknowns__</label>
+        <div id='filterbar'>
+          <input type='search' id='search' placeholder='__MSG_search_label__' />
+          <div>
+            <input type='checkbox' id='filter_errors' class='filter' data-filter='error' checked>
+            <label for='filter_errors'>__MSG_filter_errors__</label>
+            <input type='checkbox' id='filter_warnings' class='filter' data-filter='warning' checked>
+            <label for='filter_warnings'>__MSG_filter_warnings__</label>
+            <input type='checkbox' id='filter_unknowns' class='filter' data-filter='unknown' checked>
+            <label for='filter_unknowns'>__MSG_filter_unknowns__</label>
+          </div>
         </div>
         <div id='results'></div>
         <div id='mass-actions' class='hidden'>

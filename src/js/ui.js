@@ -13,6 +13,7 @@ const elUnknownBookmarks = document.getElementById('unknownBookmarks');
 const elProgress = document.getElementById('progress');
 const elMassActions = document.getElementById('mass-actions');
 const elRepairAllRedirects = document.getElementById('repairAllRedirects');
+const elFilterBar = document.getElementById('filterbar');
 const elSearch = document.getElementById('search');
 
 const ui = {
@@ -52,6 +53,7 @@ const ui = {
 
       if (ui.markedBookmarks === 0) {
         elMessage.innerText = browser.i18n.getMessage('no_marked_bookmarks');
+        elFilterBar.remove();
       }
       else {
         elMessage.remove();
