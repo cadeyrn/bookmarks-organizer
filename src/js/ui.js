@@ -44,6 +44,7 @@ const ui = {
       ui.hideEmptyCategories();
       elButton.disabled = false;
       elResultWrapper.classList.remove('hidden');
+      elSearch.focus();
 
       if (ui.warnings > 0) {
         elMassActions.classList.remove('hidden');
