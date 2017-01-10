@@ -53,6 +53,9 @@ const ui = {
       if (ui.markedBookmarks === 0) {
         elMessage.innerText = browser.i18n.getMessage('no_marked_bookmarks');
       }
+      else {
+        elMessage.remove();
+      }
     }
   },
 

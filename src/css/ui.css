@@ -86,6 +86,10 @@ footer a {
   font-weight: bold;
 }
 
+#message{
+  margin: 10px 0;
+}
+
 #results {
   margin: 0;
   padding: 0;

@@ -50,6 +50,9 @@
   "filter_warnings": {
     "message": "Warnungen"
   },
+  "intro_check": {
+    "message": "Die Überprüfung der Lesezeichen kann bis zu mehrere Minuten dauern und hängt sowohl von der Anzahl der Lesezeichen als auch von der Internetgeschwindigkeit ab."
+  },
   "no_marked_bookmarks": {
     "message": "Glückwunsch, alle Lesezeichen sind in Ordnung!"
   },
