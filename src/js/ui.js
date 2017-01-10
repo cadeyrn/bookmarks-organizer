@@ -15,6 +15,7 @@ const elMassActions = document.getElementById('mass-actions');
 const elRepairAllRedirects = document.getElementById('repairAllRedirects');
 const elFilterBar = document.getElementById('filterbar');
 const elSearch = document.getElementById('search');
+const elErrorOutput = document.getElementById('error-output');
 
 const ui = {
   markedBookmarks : 0,
@@ -43,6 +44,7 @@ const ui = {
     else if (response.message === 'finished') {
       ui.buildBookmarksTree(response.bookmarks);
       ui.hideEmptyCategories();
+      elErrorOutput.innerText = JSON.stringify(response.errors);
       elButton.disabled = false;
       elResultWrapper.classList.remove('hidden');
       elSearch.focus();

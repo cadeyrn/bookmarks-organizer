@@ -12,6 +12,7 @@ const bookmarkchecker = {
   bookmarkWarnings : 0,
   unknownBookmarks : 0,
   bookmarksResult : [],
+  errors : [],
 
   showOmniboxSuggestions : function (input, suggest) {
     suggest([
@@ -187,7 +188,7 @@ const bookmarkchecker = {
 
         if (bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
           const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
-          browser.runtime.sendMessage({ 'message' : 'finished', 'bookmarks' : bookmarks });
+          browser.runtime.sendMessage({ 'message' : 'finished', 'bookmarks' : bookmarks, 'errors' : bookmarkchecker.errors });
           bookmarkchecker.inProgress = false;
         }
       });
@@ -217,6 +218,21 @@ const bookmarkchecker = {
         bookmark.newUrl = response.url;
       }
       else {
+        if (response.status === STATUS.NOT_FOUND) {
+          bookmarkchecker.errors.push({
+            bookmark : bookmark,
+            cause : 'server-response',
+            response : {
+              type : response.type,
+              url : response.url,
+              redirected : response.redirected,
+              status : response.status,
+              ok : response.ok,
+              statusText : response.statusText,
+              bodyUsed : response.bodyUsed
+            }
+          });
+        }
         bookmark.status = response.status;
       }
 
@@ -228,6 +244,11 @@ const bookmarkchecker = {
         bookmark.status = STATUS.TIMEOUT;
       }
       else {
+        bookmarkchecker.errors.push({
+          bookmark : bookmark,
+          cause : 'fetch-error',
+          response : error.message
+        });
         bookmark.status = STATUS.NOT_FOUND;
       }
 
