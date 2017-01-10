@@ -13,7 +13,7 @@ const bookmarkchecker = {
   bookmarkWarnings : 0,
   unknownBookmarks : 0,
   bookmarksResult : [],
-  errors : [],
+  debug : [],
 
   showOmniboxSuggestions : function (input, suggest) {
     suggest([
@@ -192,7 +192,7 @@ const bookmarkchecker = {
           browser.runtime.sendMessage({
             'message' : 'finished',
             'bookmarks' : bookmarks,
-            'errors' : bookmarkchecker.errors
+            "debug" : bookmarkchecker.debug
           });
           bookmarkchecker.inProgress = false;
         }
@@ -227,7 +227,7 @@ const bookmarkchecker = {
       }
 
       if (bookmarkchecker.DEBUG_MODE) {
-        bookmarkchecker.errors.push({
+        bookmarkchecker.debug.push({
           bookmark : bookmark,
           cause : 'server-response',
           response : {
@@ -253,7 +253,7 @@ const bookmarkchecker = {
       }
 
       if (bookmarkchecker.DEBUG_MODE) {
-        bookmarkchecker.errors.push({
+        bookmarkchecker.debug.push({
           bookmark : bookmark,
           cause : 'fetch-error',
           response : error.message

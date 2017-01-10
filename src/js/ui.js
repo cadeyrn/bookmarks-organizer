@@ -57,8 +57,8 @@ const ui = {
         elFilterBar.remove();
       }
 
-      if (response.errors.length > 0) {
-        elErrorOutput.innerText = JSON.stringify(response.errors);
+      if (response.debug.length > 0) {
+        elErrorOutput.innerText = JSON.stringify(response.debug);
         elErrorOutput.classList.remove('hidden');
       }
       else {
