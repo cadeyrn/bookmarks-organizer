@@ -77,6 +77,10 @@ footer a {
   color: rgb(33, 37, 42);
 }
 
+.hidden {
+  display: none;
+}
+
 #counters {
   margin-bottom: 20px;
   font-weight: bold;
@@ -106,8 +110,4 @@ footer a {
 
 #results .unknown .status {
   color: dodgerblue;
-}
-
-#result-wrapper, #mass-actions {
-  display: none;
 }
