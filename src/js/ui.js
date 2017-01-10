@@ -44,7 +44,6 @@ const ui = {
     else if (response.message === 'finished') {
       ui.buildBookmarksTree(response.bookmarks);
       ui.hideEmptyCategories();
-      elErrorOutput.innerText = JSON.stringify(response.errors);
       elButton.disabled = false;
       elResultWrapper.classList.remove('hidden');
       elSearch.focus();
@@ -56,6 +55,11 @@ const ui = {
       if (ui.markedBookmarks === 0) {
         elMessage.innerText = browser.i18n.getMessage('no_marked_bookmarks');
         elFilterBar.remove();
+      }
+
+      if (response.errors.length > 0) {
+        elErrorOutput.innerText = JSON.stringify(response.errors);
+        elErrorOutput.classList.remove('hidden');
       }
       else {
         elMessage.remove();

@@ -2,6 +2,7 @@
 
 const bookmarkchecker = {
   UI_PAGE : 'html/ui.html',
+  DEBUG_MODE : false,
   LIMIT : 0,
   TIMEOUT: 0,
   inProgress : false,
@@ -188,7 +189,11 @@ const bookmarkchecker = {
 
         if (bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
           const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
-          browser.runtime.sendMessage({ 'message' : 'finished', 'bookmarks' : bookmarks, 'errors' : bookmarkchecker.errors });
+          browser.runtime.sendMessage({
+            'message' : 'finished',
+            'bookmarks' : bookmarks,
+            'errors' : bookmarkchecker.errors
+          });
           bookmarkchecker.inProgress = false;
         }
       });
@@ -218,22 +223,22 @@ const bookmarkchecker = {
         bookmark.newUrl = response.url;
       }
       else {
-        if (response.status === STATUS.NOT_FOUND) {
-          bookmarkchecker.errors.push({
-            bookmark : bookmark,
-            cause : 'server-response',
-            response : {
-              type : response.type,
-              url : response.url,
-              redirected : response.redirected,
-              status : response.status,
-              ok : response.ok,
-              statusText : response.statusText,
-              bodyUsed : response.bodyUsed
-            }
-          });
-        }
         bookmark.status = response.status;
+      }
+
+      if (bookmarkchecker.DEBUG_MODE) {
+        bookmarkchecker.errors.push({
+          bookmark : bookmark,
+          cause : 'server-response',
+          response : {
+            type : response.type,
+            url : response.url,
+            redirected : response.redirected,
+            status : response.status,
+            ok : response.ok,
+            statusText : response.statusText
+          }
+        });
       }
 
       callback(bookmark);
@@ -244,12 +249,15 @@ const bookmarkchecker = {
         bookmark.status = STATUS.TIMEOUT;
       }
       else {
+        bookmark.status = STATUS.NOT_FOUND;
+      }
+
+      if (bookmarkchecker.DEBUG_MODE) {
         bookmarkchecker.errors.push({
           bookmark : bookmark,
           cause : 'fetch-error',
           response : error.message
         });
-        bookmark.status = STATUS.NOT_FOUND;
       }
 
       callback(bookmark);
