@@ -68,6 +68,9 @@
   "omnibox_command_check_unknowns": {
     "message": "Prüfe deine Lesezeichen nur auf welche, deren Status nicht ermittelt werden kann"
   },
+  "option_debug_label": {
+    "message": "Debug-Option aktivieren"
+  },
   "search_label": {
     "message" : "Titel oder URL…"
   }

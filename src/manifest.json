@@ -26,10 +26,15 @@
   "omnibox": {
     "keyword" : "bookmarks"
   },
+  "options_ui": {
+    "page": "html/options.html",
+    "open_in_tab": true
+  },
   "permissions": [
+    "<all_urls>",
     "bookmarks",
-    "tabs",
-    "<all_urls>"
+    "storage",
+    "tabs"
   ],
   "default_locale": "en",
   "applications": {

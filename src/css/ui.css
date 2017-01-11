@@ -81,6 +81,15 @@ footer a {
   display: none;
 }
 
+.vertical-align > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.vertical-align label {
+  margin-left: 5px;
+}
+
 #counters {
   margin-bottom: 20px;
   font-weight: bold;

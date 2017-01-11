@@ -2,10 +2,10 @@
 
 const bookmarkchecker = {
   UI_PAGE : 'html/ui.html',
-  DEBUG_MODE : false,
   LIMIT : 0,
   TIMEOUT : 0,
   ATTEMPTS : 2,
+  debug_enabled : false,
   inProgress : false,
   internalCounter : 0,
   totalBookmarks : 0,
@@ -108,6 +108,10 @@ const bookmarkchecker = {
     bookmarkchecker.unknownBookmarks = 0;
     bookmarkchecker.bookmarksResult = [];
     bookmarkchecker.debug = [];
+
+    browser.storage.local.get('debug_enabled', function (result) {
+      bookmarkchecker.debug_enabled = result.debug_enabled;
+    });
 
     browser.bookmarks.getTree().then((bookmarks) => {
       bookmarkchecker.checkBookmarks(bookmarks[0], 'check', type);
@@ -233,7 +237,7 @@ const bookmarkchecker = {
         bookmark.status = response.status;
       }
 
-      if (bookmarkchecker.DEBUG_MODE) {
+      if (bookmarkchecker.debug_enabled) {
         bookmarkchecker.debug.push({
           bookmark : {
             id : bookmark.id,
@@ -262,7 +266,7 @@ const bookmarkchecker = {
         bookmark.status = STATUS.NOT_FOUND;
       }
 
-      if (bookmarkchecker.DEBUG_MODE) {
+      if (bookmarkchecker.debug_enabled) {
         bookmarkchecker.debug.push({
           bookmark : {
             id : bookmark.id,
