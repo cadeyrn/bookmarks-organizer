@@ -166,6 +166,7 @@ const bookmarkchecker = {
                 bookmarkchecker.bookmarksResult.push(bookmark);
               }
               break;
+            case STATUS.TIMEOUT:
             case STATUS.UNKNOWN_ERROR:
               if (type === 'all' || type === 'unknowns') {
                 bookmarkchecker.unknownBookmarks++;
