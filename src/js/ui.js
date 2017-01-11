@@ -15,7 +15,7 @@ const elMassActions = document.getElementById('mass-actions');
 const elRepairAllRedirects = document.getElementById('repairAllRedirects');
 const elFilterBar = document.getElementById('filterbar');
 const elSearch = document.getElementById('search');
-const elErrorOutput = document.getElementById('error-output');
+const elDebugOutput = document.getElementById('debug-output');
 
 const ui = {
   markedBookmarks : 0,
@@ -58,8 +58,8 @@ const ui = {
       }
 
       if (response.debug.length > 0) {
-        elErrorOutput.innerText = JSON.stringify(response.debug);
-        elErrorOutput.classList.remove('hidden');
+        elDebugOutput.innerText = JSON.stringify(response.debug);
+        elDebugOutput.classList.remove('hidden');
       }
       else {
         elMessage.remove();

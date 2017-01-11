@@ -116,7 +116,7 @@ footer a {
   color: dodgerblue;
 }
 
-code {
+#debug-output {
   height: 150px;
   background: rgb(237, 237, 237);
   border: 1px dotted rgb(204, 204, 204);
