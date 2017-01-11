@@ -233,15 +233,18 @@ const bookmarkchecker = {
 
       if (bookmarkchecker.DEBUG_MODE) {
         bookmarkchecker.debug.push({
-          bookmark : bookmark,
+          bookmark : {
+            id : bookmark.id,
+            parentId : bookmark.parentId,
+            title : bookmark.title,
+            url : bookmark.url,
+            status : bookmark.status
+          },
           cause : 'server-response',
           response : {
-            type : response.type,
             url : response.url,
             redirected : response.redirected,
-            status : response.status,
-            ok : response.ok,
-            statusText : response.statusText
+            status : response.status
           }
         });
       }
@@ -259,7 +262,13 @@ const bookmarkchecker = {
 
       if (bookmarkchecker.DEBUG_MODE) {
         bookmarkchecker.debug.push({
-          bookmark : bookmark,
+          bookmark : {
+            id : bookmark.id,
+            parentId : bookmark.parentId,
+            title : bookmark.title,
+            url : bookmark.url,
+            status : bookmark.status
+          },
           cause : 'fetch-error',
           response : error.message
         });
