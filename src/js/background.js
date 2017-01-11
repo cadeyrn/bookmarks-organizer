@@ -146,6 +146,8 @@ const bookmarkchecker = {
   checkSingleBookmark : function (bookmark, type) {
     browser.bookmarks.get(bookmark.parentId).then((parentBookmark) => {
       bookmark.parentTitle = parentBookmark[0].title;
+      bookmark.attempts = 0;
+
       bookmarkchecker.checkResponse(bookmark, function (bookmark) {
         bookmarkchecker.checkedBookmarks++;
 
@@ -201,6 +203,8 @@ const bookmarkchecker = {
   },
 
   checkResponse : function (bookmark, callback) {
+    bookmark.attempts++;
+
     const p = Promise.race([
       fetch(bookmark.url, { method: 'HEAD', cache : 'no-store' }), new Promise(function (resolve, reject) {
         if (bookmarkchecker.TIMEOUT > 0) {
@@ -260,7 +264,12 @@ const bookmarkchecker = {
         });
       }
 
-      callback(bookmark);
+      if (bookmark.attempts === 1) {
+        bookmarkchecker.checkResponse(bookmark, callback)
+      }
+      else {
+        callback(bookmark);
+      }
     });
   },
 
