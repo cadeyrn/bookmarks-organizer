@@ -4,7 +4,8 @@ const bookmarkchecker = {
   UI_PAGE : 'html/ui.html',
   DEBUG_MODE : false,
   LIMIT : 0,
-  TIMEOUT: 0,
+  TIMEOUT : 0,
+  ATTEMPTS : 2,
   inProgress : false,
   internalCounter : 0,
   totalBookmarks : 0,
@@ -264,7 +265,7 @@ const bookmarkchecker = {
         });
       }
 
-      if (bookmark.attempts === 1) {
+      if (bookmark.attempts < bookmarkchecker.ATTEMPTS) {
         bookmarkchecker.checkResponse(bookmark, callback)
       }
       else {
