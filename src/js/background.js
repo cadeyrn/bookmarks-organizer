@@ -201,7 +201,7 @@ const bookmarkchecker = {
           browser.runtime.sendMessage({
             'message' : 'finished',
             'bookmarks' : bookmarks,
-            "debug" : bookmarkchecker.debug
+            'debug' : bookmarkchecker.debug
           });
           bookmarkchecker.inProgress = false;
         }
