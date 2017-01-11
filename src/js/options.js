@@ -1,6 +1,6 @@
 'use strict';
 
-const elDebug = document.querySelector('#debug');
+const elDebug = document.getElementById('debug');
 
 const options = {
   load : function () {
