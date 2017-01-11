@@ -107,6 +107,7 @@ const bookmarkchecker = {
     bookmarkchecker.bookmarkWarnings = 0;
     bookmarkchecker.unknownBookmarks = 0;
     bookmarkchecker.bookmarksResult = [];
+    bookmarkchecker.debug = [];
 
     browser.bookmarks.getTree().then((bookmarks) => {
       bookmarkchecker.checkBookmarks(bookmarks[0], 'check', type);
