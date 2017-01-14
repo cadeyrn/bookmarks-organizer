@@ -1,7 +1,7 @@
 'use strict';
 
 const elBody = document.querySelector('body');
-const elButton = document.querySelector('button');
+const elButton = document.getElementById('submit_button');
 const elResultWrapper = document.getElementById('result-wrapper');
 const elMessage = document.getElementById('message');
 const elResults = document.getElementById('results');
