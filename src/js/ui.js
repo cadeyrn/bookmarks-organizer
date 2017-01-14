@@ -32,6 +32,7 @@ const ui = {
       elResultWrapper.classList.add('hidden');
       elResults.innerText = '';
       elProgress.setAttribute('value', 0.01);
+      elCheckedBookmarks.innerText = 0;
       elTotalBookmarks.innerText = response.total_bookmarks;
       elButton.disabled = true;
     }
