@@ -91,13 +91,58 @@ const bookmarkchecker = {
     bookmarkchecker.totalBookmarks = 0;
 
     browser.bookmarks.getTree().then((bookmarks) => {
-      bookmarkchecker.checkBookmarks(bookmarks[0], 'count', 'all');
+      bookmarkchecker.countBookmarksRecursive(bookmarks[0]);
 
       browser.runtime.sendMessage({
         'message' : 'total-bookmarks',
         'total_bookmarks' : bookmarkchecker.totalBookmarks
       });
     });
+  },
+
+  countBookmarksRecursive : function (bookmark) {
+    if (bookmark.url) {
+      if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.totalBookmarks === bookmarkchecker.LIMIT) {
+        return;
+      }
+
+      bookmarkchecker.totalBookmarks++;
+    }
+
+    if (bookmark.children) {
+      for (let child of bookmark.children) {
+        bookmarkchecker.countBookmarksRecursive(child);
+      }
+    }
+  },
+
+  updateProgressUi : function () {
+    let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
+      if (progress < 0.01) {
+        progress = 0.01;
+      }
+
+      browser.runtime.sendMessage({
+        'message' : 'update-counters',
+        'total_bookmarks' : bookmarkchecker.totalBookmarks,
+        'checked_bookmarks' : bookmarkchecker.checkedBookmarks,
+        'unknown_bookmarks' : bookmarkchecker.unknownBookmarks,
+        'bookmarks_errors' : bookmarkchecker.bookmarkErrors,
+        'bookmarks_warnings' : bookmarkchecker.bookmarkWarnings,
+        'progress' : progress
+      });
+
+      if (bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
+        const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
+
+        browser.runtime.sendMessage({
+          'message' : 'finished',
+          'bookmarks' : bookmarks,
+          'debug' : bookmarkchecker.debug
+        });
+
+        bookmarkchecker.inProgress = false;
+      }
   },
 
   execute : function (type) {
@@ -114,28 +159,24 @@ const bookmarkchecker = {
     });
 
     browser.bookmarks.getTree().then((bookmarks) => {
-      bookmarkchecker.checkBookmarks(bookmarks[0], 'check', type);
+      bookmarkchecker.checkBookmarks(bookmarks[0], type);
     });
   },
 
-  checkBookmarks : function (bookmark, mode, type) {
+  checkBookmarks : function (bookmark, type) {
     if (bookmark.url) {
+      if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
+        return;
+      }
+
+      bookmarkchecker.internalCounter++;
+
       if (bookmark.url.match(/^https?:\/\//)) {
-        if (mode === 'count') {
-          if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.totalBookmarks === bookmarkchecker.LIMIT) {
-            return;
-          }
-
-          bookmarkchecker.totalBookmarks++;
-        }
-        else {
-          if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
-            return;
-          }
-
-          bookmarkchecker.internalCounter++;
-          bookmarkchecker.checkSingleBookmark(bookmark, type);
-        }
+        bookmarkchecker.checkSingleBookmark(bookmark, type);
+      }
+      else {
+        bookmarkchecker.checkedBookmarks++;
+        bookmarkchecker.updateProgressUi();
       }
     }
     else {
@@ -144,7 +185,7 @@ const bookmarkchecker = {
 
     if (bookmark.children) {
       for (let child of bookmark.children) {
-        bookmarkchecker.checkBookmarks(child, mode, type);
+        bookmarkchecker.checkBookmarks(child, type);
       }
     }
   },
@@ -181,30 +222,7 @@ const bookmarkchecker = {
           }
         }
 
-        let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
-        if (progress < 0.01) {
-          progress = 0.01;
-        }
-
-        browser.runtime.sendMessage({
-          'message' : 'update-counters',
-          'total_bookmarks' : bookmarkchecker.totalBookmarks,
-          'checked_bookmarks' : bookmarkchecker.checkedBookmarks,
-          'unknown_bookmarks' : bookmarkchecker.unknownBookmarks,
-          'bookmarks_errors' : bookmarkchecker.bookmarkErrors,
-          'bookmarks_warnings' : bookmarkchecker.bookmarkWarnings,
-          'progress' : progress
-        });
-
-        if (bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
-          const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
-          browser.runtime.sendMessage({
-            'message' : 'finished',
-            'bookmarks' : bookmarks,
-            'debug' : bookmarkchecker.debug
-          });
-          bookmarkchecker.inProgress = false;
-        }
+        bookmarkchecker.updateProgressUi();
       });
     });
   },
