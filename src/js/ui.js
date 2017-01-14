@@ -30,6 +30,7 @@ const ui = {
   handleResponse : function (response) {
     if (response.message === 'total-bookmarks') {
       elResultWrapper.classList.add('hidden');
+      elMessage.innerText = '';
       elResults.innerText = '';
       elProgress.setAttribute('value', 0.01);
       elCheckedBookmarks.innerText = 0;
@@ -59,15 +60,15 @@ const ui = {
 
       if (ui.markedBookmarks === 0) {
         elMessage.innerText = browser.i18n.getMessage('no_marked_bookmarks');
-        elFilterBar.remove();
+        elFilterBar.classList.add('hidden');
+      }
+      else {
+        elFilterBar.classList.remove('hidden');
       }
 
       if (response.debug.length > 0) {
         elDebugOutput.innerText = JSON.stringify(response.debug);
         elDebugOutput.classList.remove('hidden');
-      }
-      else {
-        elMessage.remove();
       }
     }
   },
