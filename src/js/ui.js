@@ -27,6 +27,8 @@ const ui = {
 
   handleResponse : function (response) {
     if (response.message === 'total-bookmarks') {
+      elResultWrapper.classList.add('hidden');
+      elResults.innerText = '';
       elProgress.setAttribute('value', 0.01);
       elTotalBookmarks.innerText = response.total_bookmarks;
       elButton.disabled = true;
