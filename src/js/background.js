@@ -31,16 +31,16 @@ const bookmarkchecker = {
 
     switch (input) {
       case 'check-all':
-        bookmarkchecker.execute('all');
+        bookmarkchecker.execute('broken-bookmarks', 'all');
         break;
       case 'check-errors':
-        bookmarkchecker.execute('errors');
+        bookmarkchecker.execute('broken-bookmarks', 'errors');
         break;
       case 'check-warnings':
-        bookmarkchecker.execute('warnings');
+        bookmarkchecker.execute('broken-bookmarks', 'warnings');
         break;
       case 'check-unknowns':
-        bookmarkchecker.execute('unknowns');
+        bookmarkchecker.execute('broken-bookmarks', 'unknowns');
         break;
     }
   },
@@ -75,7 +75,7 @@ const bookmarkchecker = {
     if (response.message === 'execute') {
       if (!bookmarkchecker.inProgress) {
         bookmarkchecker.countBookmarks();
-        bookmarkchecker.execute('all');
+        bookmarkchecker.execute(response.mode, 'all');
       }
     }
     else if (response.message === 'remove') {
@@ -145,7 +145,7 @@ const bookmarkchecker = {
       }
   },
 
-  execute : function (type) {
+  execute : function (mode, type) {
     bookmarkchecker.internalCounter = 0;
     bookmarkchecker.checkedBookmarks = 0;
     bookmarkchecker.bookmarkErrors = 0;
@@ -159,11 +159,25 @@ const bookmarkchecker = {
     });
 
     browser.bookmarks.getTree().then((bookmarks) => {
-      bookmarkchecker.checkBookmarks(bookmarks[0], type);
+      bookmarkchecker.checkBookmarks(bookmarks[0], mode, type);
     });
   },
 
-  checkBookmarks : function (bookmark, type) {
+  checkBookmarks : function (bookmark, mode, type) {
+    switch (mode) {
+      case 'broken-bookmarks':
+        bookmarkchecker.checkForAllBrokenBookmarks(bookmark, type);
+        break;
+    }
+
+    if (bookmark.children) {
+      for (let child of bookmark.children) {
+        bookmarkchecker.checkBookmarks(child, mode, type);
+      }
+    }
+  },
+
+  checkForAllBrokenBookmarks : function (bookmark, type) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
         return;
@@ -172,7 +186,7 @@ const bookmarkchecker = {
       bookmarkchecker.internalCounter++;
 
       if (bookmark.url.match(/^https?:\/\//)) {
-        bookmarkchecker.checkSingleBookmark(bookmark, type);
+        bookmarkchecker.checkForSingleBrokenBookmark(bookmark, type);
       }
       else {
         bookmarkchecker.checkedBookmarks++;
@@ -182,15 +196,9 @@ const bookmarkchecker = {
     else {
       bookmarkchecker.bookmarksResult.push(bookmark);
     }
-
-    if (bookmark.children) {
-      for (let child of bookmark.children) {
-        bookmarkchecker.checkBookmarks(child, type);
-      }
-    }
   },
 
-  checkSingleBookmark : function (bookmark, type) {
+  checkForSingleBrokenBookmark : function (bookmark, type) {
     browser.bookmarks.get(bookmark.parentId).then((parentBookmark) => {
       bookmark.parentTitle = parentBookmark[0].title;
       bookmark.attempts = 0;

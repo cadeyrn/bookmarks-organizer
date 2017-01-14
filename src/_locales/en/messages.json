@@ -51,7 +51,13 @@
     "message": "Warnungen"
   },
   "intro_check": {
-    "message": "Die Überprüfung der Lesezeichen kann bis zu mehrere Minuten dauern und hängt sowohl von der Anzahl der Lesezeichen als auch von der Internetgeschwindigkeit ab."
+    "message": "Die Überprüfung der Lesezeichen kann, abhängig vom ausgewählten Modus, der Anzahl der Lesezeichen sowie der Internetgeschwindigkeit, ein paar Minuten dauern."
+  },
+  "mode_broken_bookmarks": {
+    "message": "defekte Lesezeichen"
+  },
+  "mode_label": {
+    "message": "Modus"
   },
   "no_marked_bookmarks": {
     "message": "Glückwunsch, alle Lesezeichen sind in Ordnung!"

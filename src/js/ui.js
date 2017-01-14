@@ -2,6 +2,7 @@
 
 const elBody = document.querySelector('body');
 const elButton = document.getElementById('submit_button');
+const elMode = document.getElementById('mode');
 const elResultWrapper = document.getElementById('result-wrapper');
 const elMessage = document.getElementById('message');
 const elResults = document.getElementById('results');
@@ -21,8 +22,9 @@ const ui = {
   markedBookmarks : 0,
   warnings : 0,
   
-  execute : function () {
-    browser.runtime.sendMessage({ 'message' : 'execute' });
+  execute : function (e) {
+    e.preventDefault();
+    browser.runtime.sendMessage({ 'message' : 'execute', 'mode' : elMode.value });
   },
 
   handleResponse : function (response) {
