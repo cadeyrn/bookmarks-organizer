@@ -2,8 +2,8 @@
   "button_check_bookmarks": {
     "message": "Prüfe Lesezeichen…"
   },
-  "bookmark_action_remove": {
-    "message": "[entfernen]"
+  "bookmark_action_edit": {
+    "message": "[bearbeiten]"
   },
   "bookmark_action_repair_redirect": {
     "message": "[korrigiere URL]"

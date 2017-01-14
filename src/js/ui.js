@@ -144,6 +144,7 @@ const ui = {
       elRemoveButton.appendChild(elRemoveButtonText);
       elRemoveButton.setAttribute('data-id', bookmark.id);
       elRemoveButton.setAttribute('data-action', 'remove');
+      elRemoveButton.setAttribute('data-confirmation', 'true');
       elRemoveButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_remove'));
       elRemoveButton.setAttribute('href', '#');
       elActionButtons.appendChild(elRemoveButton);
@@ -161,11 +162,20 @@ const ui = {
         elRepairRedirectButton.appendChild(elRepairRedirectButtonText);
         elRepairRedirectButton.setAttribute('data-id', bookmark.id);
         elRepairRedirectButton.setAttribute('data-action', 'repair-redirect');
+        elRepairRedirectButton.setAttribute('data-confirmation', 'true');
         elRepairRedirectButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_repair_redirect'));
         elRepairRedirectButton.setAttribute('data-new-url', bookmark.newUrl);
         elRepairRedirectButton.setAttribute('href', '#');
         elActionButtons.appendChild(elRepairRedirectButton);
       }
+
+      const elEditButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_edit'));
+      const elEditButton = document.createElement('a');
+      elEditButton.appendChild(elEditButtonText);
+      elEditButton.setAttribute('data-id', bookmark.id);
+      elEditButton.setAttribute('data-action', 'edit');
+      elEditButton.setAttribute('href', '#');
+      elActionButtons.appendChild(elEditButton);
     }
     else {
       template = document.getElementById('result-template-title').content.cloneNode(true);
@@ -184,6 +194,10 @@ const ui = {
     }
 
     return li;
+  },
+
+  showEditBookmarkOverlay : function (bookmarkId) {
+    
   },
 
   removeBookmark : function (bookmarkId) {
@@ -205,21 +219,27 @@ const ui = {
     if (e.target.getAttribute('data-action')) {
       e.preventDefault();
 
-      if (!confirm(e.target.getAttribute('data-confirmation-msg'))) {
-        return false;
+      if (e.target.getAttribute('data-confirmation')) {
+        if (!confirm(e.target.getAttribute('data-confirmation-msg'))) {
+          return false;
+        }
       }
 
       const bookmarkId = e.target.getAttribute('data-id');
       const elBookmark = document.getElementById(bookmarkId);
 
-      elBookmark.remove();
-      ui.hideEmptyCategories();
-
       switch (e.target.getAttribute('data-action')) {
+        case 'edit':
+          ui.showEditBookmarkOverlay(bookmarkId);
+          break;
         case 'remove':
+          elBookmark.remove();
+          ui.hideEmptyCategories();
           ui.removeBookmark(bookmarkId);
           break;
         case 'repair-redirect':
+          elBookmark.remove();
+          ui.hideEmptyCategories();
           ui.repairRedirect(bookmarkId, e.target.getAttribute('data-new-url'));
           break;
       }
