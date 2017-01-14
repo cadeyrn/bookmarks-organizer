@@ -35,6 +35,15 @@
   "bookmark_state_unknown": {
     "message": "Unbekannt. Bitte überprüfe den Status dieses Lesezeichens manuell."
   },
+  "bookmark_title": {
+    "message": "Titel"
+  },
+  "bookmark_url": {
+    "message": "URL"
+  },
+  "edit_bookmark": {
+    "message": "Lesezeichen bearbeiten"
+  },
   "extension_description": {
     "message": "Beschreibung"
   },
@@ -82,6 +91,9 @@
   },
   "option_debug_mode": {
     "message": "Debug-Option aktivieren"
+  },
+  "save_boolmark": {
+    "message": "Speichern"
   },
   "search_label": {
     "message" : "Titel oder URL…"
