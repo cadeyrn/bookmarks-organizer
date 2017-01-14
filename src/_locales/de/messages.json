@@ -38,6 +38,9 @@
   "bookmark_url": {
     "message": "URL"
   },
+  "close_overlay": {
+    "message": "Schließen"
+  },
   "edit_bookmark": {
     "message": "Lesezeichen bearbeiten"
   },
