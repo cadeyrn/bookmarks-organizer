@@ -166,10 +166,11 @@ footer a {
   color: rgb(255, 255, 255);
   text-decoration: none;
   cursor: pointer;
+  transition: color ease 250ms;
 }
 
 .close:hover, .close:focus {
-  color: rgb(0, 0, 0);
+  color: rgb(215, 215, 215) !important;
 }
 
 .modal-header {
