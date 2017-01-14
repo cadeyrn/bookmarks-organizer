@@ -74,6 +74,9 @@
   "omnibox_command_check_unknowns": {
     "message": "Prüfe deine Lesezeichen nur auf welche, deren Status nicht ermittelt werden kann"
   },
+  "omnibox_command_empty_titles": {
+    "message": "Finde Lesezeichen ohne Titel"
+  },
   "option_debug_mode": {
     "message": "Debug-Option aktivieren"
   },
