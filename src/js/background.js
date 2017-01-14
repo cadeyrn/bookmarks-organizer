@@ -82,6 +82,19 @@ const bookmarkchecker = {
         bookmarkchecker.execute(response.mode, 'all');
       }
     }
+    else if (response.message === 'edit') {
+      browser.bookmarks.update(response.bookmarkId, {
+        title : response.title,
+        url : response.url
+      }).then(() => {
+        browser.bookmarks.get(response.bookmarkId).then((bookmarks) => {
+          browser.runtime.sendMessage({
+            'message' : 'update-listitem',
+            'bookmarkId' : response.bookmarkId,
+            'bookmark' : bookmarks[0] });
+        });
+      });
+    }
     else if (response.message === 'remove') {
       browser.bookmarks.remove(response.bookmarkId);
     }

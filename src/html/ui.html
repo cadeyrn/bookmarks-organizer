@@ -52,6 +52,30 @@
       __MSG_extension_name__ © 2017, soeren-hentzschel.at
     </a>
   </footer>
+  <div id='modal-dialog' class='modal-dialog hidden'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <div class='clearfix'>
+          <span id='close_button' class='close'>&times;</span>
+          <div>Lesezeichen bearbeiten</div>
+        </div>
+      </div>
+      <div class='modal-body'>
+        <form>
+          <div class='vertical-align'>
+            <div><label for='title'>Titel:</label></div>
+            <div><input type='text' name='title' id='title' /></div>
+          </div>
+          <div class='vertical-align'>
+            <div><label for='url'>URL:</label></div>
+            <div><input type='text' name='url' id='url' /></div>
+          </div>
+          <button type='submit' id='submit_changes'>Speichern</button>
+        </form>
+      </div>
+      <div class='modal-footer'></div>
+    </div>
+  </div>
   <template id='result-template-url'>
     <div class='wrapper'>
       <div class='name'></div>

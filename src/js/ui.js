@@ -74,6 +74,10 @@ const ui = {
         elDebugOutput.classList.remove('hidden');
       }
     }
+    else if (response.message === 'update-listitem') {
+      const listItem = document.getElementById(response.bookmarkId);
+      listItem.replaceWith(ui.getSingleNode(response.bookmark));
+    }
   },
 
   buildBookmarksTree : function (bookmarks) {
@@ -174,6 +178,8 @@ const ui = {
       elEditButton.appendChild(elEditButtonText);
       elEditButton.setAttribute('data-id', bookmark.id);
       elEditButton.setAttribute('data-action', 'edit');
+      elEditButton.setAttribute('data-title', bookmark.title);
+      elEditButton.setAttribute('data-url', bookmark.url);
       elEditButton.setAttribute('href', '#');
       elActionButtons.appendChild(elEditButton);
     }
@@ -196,8 +202,43 @@ const ui = {
     return li;
   },
 
-  showEditBookmarkOverlay : function (bookmarkId) {
-    
+  showEditBookmarkOverlay : function (bookmarkId, title, url) {
+    const modal = document.getElementById('modal-dialog');
+    modal.classList.remove('hidden');
+
+    const closeButton = document.getElementById('close_button');
+    closeButton.onclick = function () {
+      modal.classList.add('hidden');
+    }
+
+    window.onclick = function (e) {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+      }
+    }
+
+    const elTitle = document.getElementById('title');
+    elTitle.value = title;
+
+    const elUrl = document.getElementById('url');
+    elUrl.value = url;
+
+    const submitButton = document.getElementById('submit_changes');
+    submitButton.onclick = function (e) {
+      e.preventDefault();
+
+      modal.classList.add('hidden');
+      ui.editBookmark(bookmarkId, elTitle.value, elUrl.value);
+    }
+  },
+
+  editBookmark : function (bookmarkId, title, url) {
+    browser.runtime.sendMessage({
+      'message' : 'edit',
+      'bookmarkId' : bookmarkId,
+      'title' : title,
+      'url' : url
+    });
   },
 
   removeBookmark : function (bookmarkId) {
@@ -230,7 +271,9 @@ const ui = {
 
       switch (e.target.getAttribute('data-action')) {
         case 'edit':
-          ui.showEditBookmarkOverlay(bookmarkId);
+          const title = e.target.getAttribute('data-title');
+          const url = e.target.getAttribute('data-url');
+          ui.showEditBookmarkOverlay(bookmarkId, title, url);
           break;
         case 'remove':
           elBookmark.remove();
