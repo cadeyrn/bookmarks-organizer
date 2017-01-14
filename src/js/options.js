@@ -1,20 +1,17 @@
 'use strict';
 
-const elDebug = document.getElementById('debug');
+const elDebugMode = document.getElementById('debug_mode');
 
 const options = {
   load : function () {
-    function setDebugOption(result) {
-      elDebug.checked = result.debug_enabled || false;
-    }
-
-    let debug = browser.storage.local.get('debug_enabled');
-    debug.then(setDebugOption);
+    browser.storage.local.get({ 'debug_enabled' : false }).then((option) => {
+      elDebugMode.checked = option.debug_enabled;
+    });
   }
 };
 
 document.addEventListener('DOMContentLoaded', options.load);
 
-elDebug.addEventListener('change', function () {
+elDebugMode.addEventListener('change', function () {
   browser.storage.local.set({ 'debug_enabled' : this.checked });
 });
