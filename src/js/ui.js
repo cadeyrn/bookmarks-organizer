@@ -111,10 +111,6 @@ const ui = {
       elUrl.setAttribute('target', '_blank');
       elUrl.setAttribute('rel', 'noopener');
 
-      const elLocationText = document.createTextNode(browser.i18n.getMessage('bookmark_location') + ': ' + bookmark.parentTitle);
-      const elLocation = template.querySelector('.location');
-      elLocation.appendChild(elLocationText);
-
       const elStatus = template.querySelector('.status');
       let elStatusText;
 

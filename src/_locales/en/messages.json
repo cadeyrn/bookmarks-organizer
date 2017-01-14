@@ -17,9 +17,6 @@
   "bookmark_confirmation_repair_redirect": {
     "message": "Soll die URL dieses Lesezeichen wirklich geändert werden? Die Aktion kann nicht rückgängig gemacht werden."
   },
-  "bookmark_location": {
-    "message": "Lesezeichen-Ort"
-  },
   "bookmark_new_url": {
     "message": "Neue URL"
   },

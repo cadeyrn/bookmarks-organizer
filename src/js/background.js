@@ -199,39 +199,36 @@ const bookmarkchecker = {
   },
 
   checkForSingleBrokenBookmark : function (bookmark, type) {
-    browser.bookmarks.get(bookmark.parentId).then((parentBookmark) => {
-      bookmark.parentTitle = parentBookmark[0].title;
-      bookmark.attempts = 0;
+    bookmark.attempts = 0;
 
-      bookmarkchecker.checkResponse(bookmark, function (bookmark) {
-        bookmarkchecker.checkedBookmarks++;
+    bookmarkchecker.checkResponse(bookmark, function (bookmark) {
+      bookmarkchecker.checkedBookmarks++;
 
-        if (bookmark.status !== STATUS.OK) {
-          switch (bookmark.status) {
-            case STATUS.REDIRECT:
-              if (type === 'all' || type === 'warnings') {
-                bookmarkchecker.bookmarkWarnings++;
-                bookmarkchecker.bookmarksResult.push(bookmark);
-              }
-              break;
-            case STATUS.NOT_FOUND:
-              if (type === 'all' || type === 'errors') {
-                bookmarkchecker.bookmarkErrors++;
-                bookmarkchecker.bookmarksResult.push(bookmark);
-              }
-              break;
-            case STATUS.TIMEOUT:
-            case STATUS.UNKNOWN_ERROR:
-              if (type === 'all' || type === 'unknowns') {
-                bookmarkchecker.unknownBookmarks++;
-                bookmarkchecker.bookmarksResult.push(bookmark);
-              }
-              break;
-          }
+      if (bookmark.status !== STATUS.OK) {
+        switch (bookmark.status) {
+          case STATUS.REDIRECT:
+            if (type === 'all' || type === 'warnings') {
+              bookmarkchecker.bookmarkWarnings++;
+              bookmarkchecker.bookmarksResult.push(bookmark);
+            }
+            break;
+          case STATUS.NOT_FOUND:
+            if (type === 'all' || type === 'errors') {
+              bookmarkchecker.bookmarkErrors++;
+              bookmarkchecker.bookmarksResult.push(bookmark);
+            }
+            break;
+          case STATUS.TIMEOUT:
+          case STATUS.UNKNOWN_ERROR:
+            if (type === 'all' || type === 'unknowns') {
+              bookmarkchecker.unknownBookmarks++;
+              bookmarkchecker.bookmarksResult.push(bookmark);
+            }
+            break;
         }
+      }
 
-        bookmarkchecker.updateProgressUi();
-      });
+      bookmarkchecker.updateProgressUi();
     });
   },
 
