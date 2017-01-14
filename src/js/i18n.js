@@ -22,10 +22,13 @@ const i18n = {
       text.nodeValue = i18n.replace(text.nodeValue);
     }
 
-    const titleAttributes = i18n.findWithXPath('//*/attribute::title[contains(., "__MSG_")]');
-    for (let i = 0, length = titleAttributes.snapshotLength; i < length; i++) {
-      const title = titleAttributes.snapshotItem(i);
-      title.value = i18n.replace(title.value);
+    const attributes = ['title', 'placeholder'];
+    for (let attribute of attributes) {
+      const nodes = i18n.findWithXPath('//*/attribute::' + attribute + '[contains(., "__MSG_")]');
+      for (let i = 0, length = nodes.snapshotLength; i < length; i++) {
+        const node = nodes.snapshotItem(i);
+        node.value = i18n.replace(node.value);
+      }
     }
   }
 };
