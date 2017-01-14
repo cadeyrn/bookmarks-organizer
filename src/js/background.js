@@ -166,7 +166,10 @@ const bookmarkchecker = {
   checkBookmarks : function (bookmark, mode, type) {
     switch (mode) {
       case 'broken-bookmarks':
-        bookmarkchecker.checkForAllBrokenBookmarks(bookmark, type);
+        bookmarkchecker.checkForBrokenBookmarks(bookmark, type);
+        break;
+      case 'empty-titles':
+        bookmarkchecker.checkForEmptyTitles(bookmark);
         break;
     }
 
@@ -177,7 +180,7 @@ const bookmarkchecker = {
     }
   },
 
-  checkForAllBrokenBookmarks : function (bookmark, type) {
+  checkForBrokenBookmarks : function (bookmark, type) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
         return;
@@ -186,7 +189,37 @@ const bookmarkchecker = {
       bookmarkchecker.internalCounter++;
 
       if (bookmark.url.match(/^https?:\/\//)) {
-        bookmarkchecker.checkForSingleBrokenBookmark(bookmark, type);
+        bookmark.attempts = 0;
+
+        bookmarkchecker.checkResponse(bookmark, function (bookmark) {
+          bookmarkchecker.checkedBookmarks++;
+
+          if (bookmark.status !== STATUS.OK) {
+            switch (bookmark.status) {
+              case STATUS.REDIRECT:
+                if (type === 'all' || type === 'warnings') {
+                  bookmarkchecker.bookmarkWarnings++;
+                  bookmarkchecker.bookmarksResult.push(bookmark);
+                }
+                break;
+              case STATUS.NOT_FOUND:
+                if (type === 'all' || type === 'errors') {
+                  bookmarkchecker.bookmarkErrors++;
+                  bookmarkchecker.bookmarksResult.push(bookmark);
+                }
+                break;
+              case STATUS.TIMEOUT:
+              case STATUS.UNKNOWN_ERROR:
+                if (type === 'all' || type === 'unknowns') {
+                  bookmarkchecker.unknownBookmarks++;
+                  bookmarkchecker.bookmarksResult.push(bookmark);
+                }
+                break;
+            }
+          }
+
+          bookmarkchecker.updateProgressUi();
+        });
       }
       else {
         bookmarkchecker.checkedBookmarks++;
@@ -196,40 +229,6 @@ const bookmarkchecker = {
     else {
       bookmarkchecker.bookmarksResult.push(bookmark);
     }
-  },
-
-  checkForSingleBrokenBookmark : function (bookmark, type) {
-    bookmark.attempts = 0;
-
-    bookmarkchecker.checkResponse(bookmark, function (bookmark) {
-      bookmarkchecker.checkedBookmarks++;
-
-      if (bookmark.status !== STATUS.OK) {
-        switch (bookmark.status) {
-          case STATUS.REDIRECT:
-            if (type === 'all' || type === 'warnings') {
-              bookmarkchecker.bookmarkWarnings++;
-              bookmarkchecker.bookmarksResult.push(bookmark);
-            }
-            break;
-          case STATUS.NOT_FOUND:
-            if (type === 'all' || type === 'errors') {
-              bookmarkchecker.bookmarkErrors++;
-              bookmarkchecker.bookmarksResult.push(bookmark);
-            }
-            break;
-          case STATUS.TIMEOUT:
-          case STATUS.UNKNOWN_ERROR:
-            if (type === 'all' || type === 'unknowns') {
-              bookmarkchecker.unknownBookmarks++;
-              bookmarkchecker.bookmarksResult.push(bookmark);
-            }
-            break;
-        }
-      }
-
-      bookmarkchecker.updateProgressUi();
-    });
   },
 
   checkResponse : function (bookmark, callback) {
@@ -310,6 +309,27 @@ const bookmarkchecker = {
         callback(bookmark);
       }
     });
+  },
+
+  checkForEmptyTitles : function (bookmark) {
+    if (bookmark.url) {
+      if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
+        return;
+      }
+
+      bookmarkchecker.internalCounter++;
+
+      if (!bookmark.title) {
+        bookmarkchecker.bookmarkErrors++;
+        bookmarkchecker.bookmarksResult.push(bookmark);
+      }
+
+      bookmarkchecker.checkedBookmarks++;
+      bookmarkchecker.updateProgressUi();
+    }
+    else {
+      bookmarkchecker.bookmarksResult.push(bookmark);
+    }
   },
 
   buildResultArray : function (bookmarks) {

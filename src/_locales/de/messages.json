@@ -53,6 +53,9 @@
   "mode_broken_bookmarks": {
     "message": "defekte Lesezeichen"
   },
+  "mode_empty_titles": {
+    "message": "fehlende Lesezeichen-Namen"
+  },
   "mode_label": {
     "message": "Modus"
   },
