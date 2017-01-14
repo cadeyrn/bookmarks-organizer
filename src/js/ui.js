@@ -54,7 +54,10 @@ const ui = {
       elResultWrapper.classList.remove('hidden');
       elSearch.focus();
 
-      if (ui.warnings > 0) {
+      if (ui.warnings === 0) {
+        elMassActions.classList.add('hidden');
+      }
+      else {
         elMassActions.classList.remove('hidden');
       }
 
