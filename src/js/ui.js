@@ -108,9 +108,9 @@ const ui = {
       template = document.getElementById('result-template-url').content.cloneNode(true);
 
       const title = bookmark.title ? bookmark.title : browser.i18n.getMessage('bookmark_no_title');
-      const elNameText = document.createTextNode(title);
-      const elName = template.querySelector('.name');
-      elName.appendChild(elNameText);
+      const elTitleText = document.createTextNode(title);
+      const elTitle = template.querySelector('.title');
+      elTitle.appendChild(elTitleText);
 
       const elUrlText = document.createTextNode(bookmark.url);
       const elUrl = template.querySelector('.url');
@@ -187,9 +187,9 @@ const ui = {
       template = document.getElementById('result-template-title').content.cloneNode(true);
 
       const title = bookmark.title ? bookmark.title : browser.i18n.getMessage('bookmark_no_title');
-      const elNameText = document.createTextNode(title);
-      const elName = template.querySelector('.name');
-      elName.appendChild(elNameText);
+      const elTitleText = document.createTextNode(title);
+      const elTitle = template.querySelector('.title');
+      elTitle.appendChild(elTitleText);
     }
 
     li.appendChild(template);
@@ -319,9 +319,9 @@ const ui = {
 
     for (let url of urls) {
       const parent = url.parentNode.parentNode;
-      const name = parent.querySelector('.name');
+      const title = parent.querySelector('.title');
 
-      if (matcher.test(name.textContent) || matcher.test(url.textContent)) {
+      if (matcher.test(title.textContent) || matcher.test(url.textContent)) {
         parent.setAttribute('data-filter-searchfield', 'true');
       }
       else {
