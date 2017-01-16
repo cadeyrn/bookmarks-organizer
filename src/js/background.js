@@ -320,7 +320,7 @@ const bookmarkchecker = {
       }
 
       if (bookmark.attempts < bookmarkchecker.ATTEMPTS) {
-        bookmarkchecker.checkResponse(bookmark, callback)
+        bookmarkchecker.checkResponse(bookmark, callback);
       }
       else {
         callback(bookmark);
