@@ -1,4 +1,7 @@
 {
+  "action_repair_all_redirects": {
+    "message": "[Korrigiere alle Weiterleitungen]"
+  },
   "button_check_bookmarks": {
     "message": "Prüfe Lesezeichen…"
   },
