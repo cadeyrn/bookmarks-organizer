@@ -261,9 +261,9 @@ const bookmarkchecker = {
 
     p.then(function (response) {
       if (response.redirected) {
-        // redirect to identical url, there is something wrong, but we don't know the details…
+        // redirect to identical url. That's weird but there are cases in the real world…
         if (bookmark.url === response.url) {
-          bookmark.status = STATUS.UNKNOWN_ERROR;
+          bookmark.status = STATUS.OK;
         }
         // redirect to another url
         else {
