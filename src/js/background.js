@@ -171,7 +171,7 @@ const bookmarkchecker = {
     bookmarkchecker.bookmarksResult = [];
     bookmarkchecker.debug = [];
 
-    browser.storage.local.get('debug_enabled', function (result) {
+    browser.storage.local.get('debug_enabled', (result) => {
       bookmarkchecker.debug_enabled = result.debug_enabled;
     });
 
