@@ -217,9 +217,7 @@ const ui = {
     modal.classList.remove('hidden');
 
     const closeButton = document.getElementById('close_button');
-    closeButton.onclick = function (e) {
-      e.preventDefault();
-
+    closeButton.onclick = function () {
       modal.classList.add('hidden');
     }
 
