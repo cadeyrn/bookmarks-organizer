@@ -252,7 +252,7 @@ const bookmarkchecker = {
     bookmark.attempts++;
 
     const p = Promise.race([
-      fetch(bookmark.url, { cache : 'no-store' }), new Promise(function (resolve, reject) {
+      fetch(bookmark.url, { credentials : 'include', cache : 'no-store' }), new Promise(function (resolve, reject) {
         if (bookmarkchecker.TIMEOUT > 0) {
           setTimeout(() => reject(new Error('timeout')), bookmarkchecker.TIMEOUT)
         }
