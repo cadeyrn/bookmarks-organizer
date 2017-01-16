@@ -131,7 +131,7 @@ const ui = {
             break;
           case STATUS.NOT_FOUND:
           case STATUS.FETCH_ERROR:
-            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);
+            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_not_found'));
             elStatus.appendChild(elStatusText);
             li.classList.add('error');
             break;
