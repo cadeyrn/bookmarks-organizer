@@ -227,6 +227,12 @@ const ui = {
       }
     }
 
+    window.onkeydown = function (e) {
+      if (e.keyCode === 27) {
+        modal.classList.add('hidden');
+      }
+    };
+
     const elTitle = document.getElementById('title');
     elTitle.value = title;
 
