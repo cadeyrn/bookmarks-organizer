@@ -14,6 +14,7 @@ const elUnknownBookmarks = document.getElementById('unknownBookmarks');
 const elProgress = document.getElementById('progress');
 const elMassActions = document.getElementById('mass-actions');
 const elRepairAllRedirects = document.getElementById('repairAllRedirects');
+const elRemoveAllBookmarksWithErrors = document.getElementById('removeAllBookmarksWithErrors');
 const elFilterBar = document.getElementById('filterbar');
 const elSearch = document.getElementById('search');
 const elDebugOutput = document.getElementById('debug-output');
@@ -327,6 +328,25 @@ const ui = {
     ui.hideEmptyCategories();
   },
 
+  removeAllBookmarksWithErrors : function (e) {
+    e.preventDefault();
+
+    if (!confirm(browser.i18n.getMessage('bookmark_confirmation_remove_all_bookmarks_with_errors'))) {
+      return false;
+    }
+
+    const bookmarks = document.querySelectorAll('.error');
+
+    for (let bookmark of bookmarks) {
+      if (!bookmark.classList.contains('hidden')) {
+        bookmark.remove();
+        ui.removeBookmark(bookmark.id);
+      }
+    }
+
+    ui.hideEmptyCategories();
+  },
+
   applySearchFieldFilter : function (e) {
     const matcher = new RegExp(e.target.value, 'i');
     const urls = elResults.querySelectorAll('.url');
@@ -408,6 +428,7 @@ const ui = {
 elButton.addEventListener('click', ui.execute);
 elBody.addEventListener('click', ui.handleActionButtonClicks);
 elRepairAllRedirects.addEventListener('click', ui.repairAllRedirects);
+elRemoveAllBookmarksWithErrors.addEventListener('click', ui.removeAllBookmarksWithErrors);
 elSearch.addEventListener('input', ui.applySearchFieldFilter);
 
 browser.runtime.onMessage.addListener(ui.handleResponse);

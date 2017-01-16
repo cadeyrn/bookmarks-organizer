@@ -1,4 +1,7 @@
 {
+  "action_remove_all_bookmarks_with_errors": {
+    "message": "[Lösche alle fehlerhaften Lesezeichen]"
+  },
   "action_repair_all_redirects": {
     "message": "[Korrigiere alle Weiterleitungen]"
   },
@@ -16,6 +19,9 @@
   },
   "bookmark_confirmation_remove": {
     "message": "Soll dieses Lesezeichen wirklich gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden."
+  },
+  "bookmark_confirmation_remove_all_bookmarks_with_errors": {
+    "message": "Sollen wirklich alle fehlerhaften Lesezeichen gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden."
   },
   "bookmark_confirmation_repair_all_redirects": {
     "message": "Sollen wirklich die URLs aller weitergeleiteten Lesezeichen geändert werden? Die Aktion kann nicht rückgängig gemacht werden."
