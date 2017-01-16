@@ -220,6 +220,7 @@ const bookmarkchecker = {
                 }
                 break;
               case STATUS.NOT_FOUND:
+              case STATUS.FETCH_ERROR:
                 if (type === 'all' || type === 'errors') {
                   bookmarkchecker.bookmarkErrors++;
                   bookmarkchecker.bookmarksResult.push(bookmark);
@@ -302,7 +303,7 @@ const bookmarkchecker = {
         bookmark.status = STATUS.TIMEOUT;
       }
       else {
-        bookmark.status = STATUS.NOT_FOUND;
+        bookmark.status = STATUS.FETCH_ERROR;
       }
 
       if (bookmarkchecker.debug_enabled) {

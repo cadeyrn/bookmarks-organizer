@@ -130,6 +130,7 @@ const ui = {
             li.classList.add('warning', 'redirect');
             break;
           case STATUS.NOT_FOUND:
+          case STATUS.FETCH_ERROR:
             elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + bookmark.status);
             elStatus.appendChild(elStatusText);
             li.classList.add('error');
