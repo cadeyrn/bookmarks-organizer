@@ -32,8 +32,12 @@ const ui = {
       elResultWrapper.classList.add('hidden');
       elMessage.innerText = '';
       elResults.innerText = '';
+      elDebugOutput.innerText = '';
       elProgress.setAttribute('value', 0.01);
       elCheckedBookmarks.innerText = 0;
+      elBookmarksErrors.innerText = 0;
+      elBookmarksWarnings.innerText = 0;
+      elUnknownBookmarks.innerText = 0;
       elTotalBookmarks.innerText = response.total_bookmarks;
       elButton.disabled = true;
     }
@@ -72,6 +76,9 @@ const ui = {
       if (response.debug.length > 0) {
         elDebugOutput.innerText = JSON.stringify(response.debug);
         elDebugOutput.classList.remove('hidden');
+      }
+      else {
+        elDebugOutput.classList.add('hidden');
       }
     }
     else if (response.message === 'update-listitem') {
