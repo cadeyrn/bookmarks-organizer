@@ -308,7 +308,7 @@ const ui = {
     }
   },
 
-  elRepairAllRedirects : function (e) {
+  repairAllRedirects : function (e) {
     e.preventDefault();
 
     if (!confirm(browser.i18n.getMessage('bookmark_confirmation_repair_all_redirects'))) {
@@ -407,7 +407,7 @@ const ui = {
 
 elButton.addEventListener('click', ui.execute);
 elBody.addEventListener('click', ui.handleActionButtonClicks);
-elRepairAllRedirects.addEventListener('click', ui.elRepairAllRedirects);
+elRepairAllRedirects.addEventListener('click', ui.repairAllRedirects);
 elSearch.addEventListener('input', ui.applySearchFieldFilter);
 
 browser.runtime.onMessage.addListener(ui.handleResponse);
