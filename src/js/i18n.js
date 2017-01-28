@@ -2,7 +2,7 @@
 
 const i18n = {
   findWithXPath : function (path) {
-    return document.evaluate(path, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
+    return document.evaluate(path, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
   },
 
   getMessage : function (string, key) {
