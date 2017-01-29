@@ -178,7 +178,7 @@ const bookmarkchecker = {
         map[bookmark.id] = {};
       }
 
-      map[bookmark.id].path = path.slice(0, -1).join(' / ');
+      map[bookmark.id].path = path.slice(0, -1);
     }
 
     path.pop();
