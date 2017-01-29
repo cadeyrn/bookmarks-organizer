@@ -36,23 +36,23 @@ const ui = {
   handleResponse : function (response) {
     if (response.message === 'total-bookmarks') {
       elResultWrapper.classList.add('hidden');
-      elMessage.innerText = '';
-      elResults.innerText = '';
-      elDebugOutput.innerText = '';
+      elMessage.textContent = '';
+      elResults.textContent = '';
+      elDebugOutput.textContent = '';
       elProgress.setAttribute('value', 0.01);
-      elCheckedBookmarks.innerText = 0;
-      elBookmarksErrors.innerText = 0;
-      elBookmarksWarnings.innerText = 0;
-      elUnknownBookmarks.innerText = 0;
-      elTotalBookmarks.innerText = response.total_bookmarks;
+      elCheckedBookmarks.textContent = 0;
+      elBookmarksErrors.textContent = 0;
+      elBookmarksWarnings.textContent = 0;
+      elUnknownBookmarks.textContent = 0;
+      elTotalBookmarks.textContent = response.total_bookmarks;
       elButton.disabled = true;
     }
     else if (response.message === 'update-counters') {
-      elTotalBookmarks.innerText = response.total_bookmarks;
-      elCheckedBookmarks.innerText = response.checked_bookmarks;
-      elBookmarksErrors.innerText = response.bookmarks_errors;
-      elBookmarksWarnings.innerText = response.bookmarks_warnings;
-      elUnknownBookmarks.innerText = response.unknown_bookmarks;
+      elTotalBookmarks.textContent = response.total_bookmarks;
+      elCheckedBookmarks.textContent = response.checked_bookmarks;
+      elBookmarksErrors.textContent = response.bookmarks_errors;
+      elBookmarksWarnings.textContent = response.bookmarks_warnings;
+      elUnknownBookmarks.textContent = response.unknown_bookmarks;
       elProgress.setAttribute('value', response.progress);
       ui.markedBookmarks = response.bookmarks_errors + response.bookmarks_warnings + response.unknown_bookmarks;
       ui.warnings = response.bookmarks_warnings;
@@ -83,14 +83,14 @@ const ui = {
         ui.showDebugOutput = false;
       }
       else {
-        elDebugOutput.innerText = JSON.stringify(response.debug);
+        elDebugOutput.textContent = JSON.stringify(response.debug);
         ui.showDebugOutput = true;
       }
 
       ui.doUiCleanup();
     }
     else if (response.message === 'show-duplicates-ui') {
-      elBookmarksWarnings.innerText = response.warnings;
+      elBookmarksWarnings.textContent = response.warnings;
 
       if (response.warnings === 0) {
         ui.showNoResultsMessage = true;
@@ -129,7 +129,7 @@ const ui = {
     elSearch.focus();
 
     if (ui.showNoResultsMessage) {
-      elMessage.innerText = browser.i18n.getMessage('no_marked_bookmarks');
+      elMessage.textContent = browser.i18n.getMessage('no_marked_bookmarks');
     }
 
     if (ui.showMassActionButtons) {
