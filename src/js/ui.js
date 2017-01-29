@@ -22,6 +22,11 @@ const elDebugOutput = document.getElementById('debug-output');
 const ui = {
   markedBookmarks : 0,
   warnings : 0,
+  showNoResultsMessage : false,
+  showSearchField : false,
+  showFilterCheckboxes : false,
+  showMassActionButtons : false,
+  showDebugOutput : false,
   
   execute : function (e) {
     e.preventDefault();
@@ -55,37 +60,176 @@ const ui = {
     else if (response.message === 'finished') {
       ui.buildBookmarksTree(response.bookmarks);
       ui.hideEmptyCategories();
-      elButton.disabled = false;
-      elResultWrapper.classList.remove('hidden');
-      elSearch.focus();
-
-      if (ui.warnings === 0) {
-        elMassActions.classList.add('hidden');
-      }
-      else {
-        elMassActions.classList.remove('hidden');
-      }
 
       if (ui.markedBookmarks === 0) {
-        elMessage.innerText = browser.i18n.getMessage('no_marked_bookmarks');
-        elFilterBar.classList.add('hidden');
+        ui.showNoResultsMessage = true;
+        ui.showSearchField = false;
+        ui.showFilterCheckboxes = false;
       }
       else {
-        elFilterBar.classList.remove('hidden');
+        ui.showNoResultsMessage = false;
+        ui.showSearchField = true;
+        ui.showFilterCheckboxes = true;
       }
 
-      if (response.debug.length > 0) {
-        elDebugOutput.innerText = JSON.stringify(response.debug);
-        elDebugOutput.classList.remove('hidden');
+      if (ui.warnings === 0) {
+        ui.showMassActionButtons = false;
       }
       else {
-        elDebugOutput.classList.add('hidden');
+        ui.showMassActionButtons = true;
       }
+
+      if (response.debug.length === 0) {
+        ui.showDebugOutput = false;
+      }
+      else {
+        elDebugOutput.innerText = JSON.stringify(response.debug);
+        ui.showDebugOutput = true;
+      }
+
+      ui.doUiCleanup();
+    }
+    else if (response.message === 'show-duplicates-ui') {
+      elBookmarksWarnings.innerText = response.warnings;
+
+      if (response.warnings === 0) {
+        ui.showNoResultsMessage = true;
+      }
+      else {
+        ui.showNoResultsMessage = false;
+      }
+
+      ui.showSearchField = false;
+      ui.showFilterCheckboxes = false;
+      ui.showMassActionButtons = false;
+      ui.showDebugOutput = false;
+
+      ui.buildDuplicatesUi(response.bookmarks);
+      ui.doUiCleanup();
     }
     else if (response.message === 'update-listitem') {
       const listItem = document.getElementById(response.bookmarkId);
-      listItem.replaceWith(ui.getSingleNode(response.bookmark));
+
+      if (response.mode === 'duplicate') {
+        const title = browser.i18n.getMessage('bookmark_title') + ': ' + response.title;
+        const path = browser.i18n.getMessage('bookmark_path') + ': ' + response.path.join(' / ');
+
+        listItem.getElementsByClassName('title')[0].textContent = title;
+        listItem.getElementsByClassName('url')[0].textContent = path;
+      }
+      else {
+        listItem.replaceWith(ui.getSingleNode(response.bookmark));
+      }
     }
+  },
+
+  doUiCleanup : function (debug) {
+    elButton.disabled = false;
+    elResultWrapper.classList.remove('hidden');
+    elSearch.focus();
+
+    if (ui.showNoResultsMessage) {
+      elMessage.innerText = browser.i18n.getMessage('no_marked_bookmarks');
+    }
+
+    if (ui.showMassActionButtons) {
+      elMassActions.classList.remove('hidden');
+    }
+    else {
+      elMassActions.classList.add('hidden');
+    }
+
+    if (ui.showSearchField) {
+      elSearch.classList.remove('hidden');
+    }
+    else {
+      elSearch.classList.add('hidden');
+    }
+
+    if (ui.showFilterCheckboxes) {
+      elFilterBar.classList.remove('hidden');
+    }
+    else {
+      elFilterBar.classList.add('hidden');
+    }
+
+    if (ui.showDebugOutput) {
+      elDebugOutput.classList.remove('hidden');
+    }
+    else {
+      elDebugOutput.classList.add('hidden');
+    }
+  },
+
+  buildDuplicatesUi : function (bookmarks) {
+    const list = document.createElement('ul');
+
+    for (let url in bookmarks) {
+      list.appendChild(ui.getSingleDuplicateNode(bookmarks, url));
+    }
+
+    elResults.appendChild(list);
+  },
+
+  getSingleDuplicateNode : function (bookmarks, url) {
+    const template = document.getElementById('duplicates-template').content.cloneNode(true);
+    const elListItem = document.createElement('li');
+
+    const elUrlText = document.createTextNode(url);
+    const elUrl = template.querySelector('.url');
+    elUrl.appendChild(elUrlText);
+    elUrl.setAttribute('href', url);
+    elUrl.setAttribute('target', '_blank');
+    elUrl.setAttribute('rel', 'noopener');
+    elListItem.appendChild(elUrl);
+
+    const elDuplicatesList = document.createElement('ul');
+    const duplicates = bookmarks[url];
+
+    for (let duplicate of duplicates) {
+      const elDuplicate = document.createElement('li');
+      elDuplicate.id = duplicate.id;
+
+      const elDuplicateTitle = document.createElement('div');
+      elDuplicateTitle.classList.add('title');
+      elDuplicateTitle.textContent = browser.i18n.getMessage('bookmark_title') + ': ' + duplicate.title;
+      elDuplicate.appendChild(elDuplicateTitle);
+
+      const elDuplicatePath = document.createElement('div');
+      elDuplicatePath.classList.add('url');
+      elDuplicatePath.textContent = browser.i18n.getMessage('bookmark_path') + ': ' + duplicate.path.join(' / ');
+      elDuplicate.appendChild(elDuplicatePath);
+
+      const elActionButtons = document.createElement('div');
+
+      const elRemoveButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_remove'));
+      const elRemoveButton = document.createElement('a');
+      elRemoveButton.appendChild(elRemoveButtonText);
+      elRemoveButton.setAttribute('data-id', duplicate.id);
+      elRemoveButton.setAttribute('data-action', 'remove');
+      elRemoveButton.setAttribute('data-confirmation', 'true');
+      elRemoveButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_remove'));
+      elRemoveButton.setAttribute('href', '#');
+      elActionButtons.appendChild(elRemoveButton);
+
+      const elEditButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_edit'));
+      const elEditButton = document.createElement('a');
+      elEditButton.appendChild(elEditButtonText);
+      elEditButton.setAttribute('data-id', duplicate.id);
+      elEditButton.setAttribute('data-action', 'edit');
+      elEditButton.setAttribute('data-title', duplicate.title);
+      elEditButton.setAttribute('data-url', duplicate.url);
+      elEditButton.setAttribute('data-mode', 'duplicate');
+      elEditButton.setAttribute('href', '#');
+      elActionButtons.appendChild(elEditButton);
+
+      elDuplicate.appendChild(elActionButtons);
+      elDuplicatesList.appendChild(elDuplicate);
+    }
+
+    elListItem.appendChild(elDuplicatesList);
+
+    return elListItem;
   },
 
   buildBookmarksTree : function (bookmarks) {
@@ -191,6 +335,7 @@ const ui = {
       elEditButton.setAttribute('data-action', 'edit');
       elEditButton.setAttribute('data-title', bookmark.title);
       elEditButton.setAttribute('data-url', bookmark.url);
+      elEditButton.setAttribute('data-mode', 'default');
       elEditButton.setAttribute('href', '#');
       elActionButtons.appendChild(elEditButton);
     }
@@ -213,7 +358,7 @@ const ui = {
     return li;
   },
 
-  showEditBookmarkOverlay : function (bookmarkId, title, url) {
+  showEditBookmarkOverlay : function (bookmarkId, title, url, mode) {
     const modal = document.getElementById('modal-dialog');
     modal.classList.remove('hidden');
 
@@ -245,16 +390,17 @@ const ui = {
       e.preventDefault();
 
       modal.classList.add('hidden');
-      ui.editBookmark(bookmarkId, elTitle.value, elUrl.value);
+      ui.editBookmark(bookmarkId, elTitle.value, elUrl.value, mode);
     }
   },
 
-  editBookmark : function (bookmarkId, title, url) {
+  editBookmark : function (bookmarkId, title, url, mode) {
     browser.runtime.sendMessage({
       'message' : 'edit',
       'bookmarkId' : bookmarkId,
       'title' : title,
-      'url' : url
+      'url' : url,
+      'mode' : mode
     });
   },
 
@@ -290,7 +436,8 @@ const ui = {
         case 'edit':
           const title = e.target.getAttribute('data-title');
           const url = e.target.getAttribute('data-url');
-          ui.showEditBookmarkOverlay(bookmarkId, title, url);
+          const mode = e.target.getAttribute('data-mode')
+          ui.showEditBookmarkOverlay(bookmarkId, title, url, mode);
           break;
         case 'remove':
           elBookmark.remove();

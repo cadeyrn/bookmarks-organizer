@@ -20,8 +20,8 @@
       </div>
       <div id='message'>__MSG_intro_check__</div>
       <div id='result-wrapper' class='hidden'>
+        <input type='search' id='search' placeholder='__MSG_search_label__' />
         <div id='filterbar'>
-          <input type='search' id='search' placeholder='__MSG_search_label__' />
           <div>
             <input type='checkbox' id='filter_errors' class='filter' data-filter='error' checked>
             <label for='filter_errors'>__MSG_filter_errors__</label>
@@ -42,6 +42,7 @@
         <label for='mode'>__MSG_mode_label__</label>
         <select name='mode' id='mode'>
           <option value='broken-bookmarks'>__MSG_mode_broken_bookmarks__</option>
+          <option value='duplicates'>__MSG_mode_duplicates__</option>
           <option value='empty-titles'>__MSG_mode_empty_titles__</option>
         </select>
         <button type='submit' id='submit_button'>__MSG_button_check_bookmarks__</button>
@@ -89,6 +90,12 @@
   <template id='result-template-title'>
     <div class='wrapper'>
       <div class='title'></div>
+    </div>
+  </template>
+  <template id='duplicates-template'>
+    <div class='wrapper'>
+      <a class='url'></a>
+      <ul class='duplicates'></ul>
     </div>
   </template>
   <script src='../js/i18n.js'></script>

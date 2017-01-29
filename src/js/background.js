@@ -84,16 +84,31 @@ const bookmarkchecker = {
       }
     }
     else if (response.message === 'edit') {
-      browser.bookmarks.update(response.bookmarkId, {
+      const p = browser.bookmarks.update(response.bookmarkId, {
         title : response.title,
         url : response.url
-      }).then(() => {
-        browser.bookmarks.get(response.bookmarkId).then((bookmarks) => {
+      });
+
+      p.then(() => {
+        if (response.mode === 'duplicate') {
           browser.runtime.sendMessage({
             'message' : 'update-listitem',
             'bookmarkId' : response.bookmarkId,
-            'bookmark' : bookmarks[0] });
-        });
+            'title' : response.title,
+            'path' : bookmarkchecker.additionalData[response.bookmarkId].path,
+            'mode' : response.mode
+          });
+        }
+        else {
+          browser.bookmarks.get(response.bookmarkId).then((bookmarks) => {
+            browser.runtime.sendMessage({
+              'message' : 'update-listitem',
+              'bookmarkId' : response.bookmarkId,
+              'bookmark' : bookmarks[0],
+              'mode' : response.mode
+            });
+          });
+        }
       });
     }
     else if (response.message === 'remove') {
@@ -134,7 +149,7 @@ const bookmarkchecker = {
     }
   },
 
-  updateProgressUi : function () {
+  updateProgressUi : function (checkForFinish) {
     let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
       if (progress < 0.01) {
         progress = 0.01;
@@ -150,7 +165,7 @@ const bookmarkchecker = {
         'progress' : progress
       });
 
-      if (bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
+      if (checkForFinish && bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
         const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
 
         browser.runtime.sendMessage({
@@ -200,16 +215,53 @@ const bookmarkchecker = {
       bookmarkchecker.debug_enabled = options.debug_enabled;
     });
 
-    browser.bookmarks.getTree().then((bookmarks) => {
+    const p = browser.bookmarks.getTree().then((bookmarks) => {
       bookmarkchecker.getAdditionalData(bookmarks[0], [], bookmarkchecker.additionalData);
       bookmarkchecker.checkBookmarks(bookmarks[0], mode, type);
     });
+
+    if (mode === 'duplicates') {
+      p.then(() => {
+        let duplicates = { };
+
+        bookmarkchecker.bookmarksResult.forEach((bookmark) => {
+          if (bookmark.url) {
+            if (duplicates[bookmark.url]) {
+              duplicates[bookmark.url].push(bookmark);
+            }
+            else {
+              duplicates[bookmark.url] = [bookmark]
+            }
+          }
+        });
+
+        Object.keys(duplicates).forEach((key, idx) => {
+          if (duplicates[key].length < 2) {
+            delete duplicates[key];
+          }
+          else {
+            bookmarkchecker.bookmarkWarnings++;
+          }
+        });
+
+        browser.runtime.sendMessage({
+          'message' : 'show-duplicates-ui',
+          'bookmarks' : duplicates,
+          'warnings' : bookmarkchecker.bookmarkWarnings
+        });
+
+        bookmarkchecker.inProgress = false;
+      });
+    }
   },
 
   checkBookmarks : function (bookmark, mode, type) {
     switch (mode) {
       case 'broken-bookmarks':
         bookmarkchecker.checkForBrokenBookmarks(bookmark, type);
+        break;
+      case 'duplicates':
+        bookmarkchecker.checkForAllBookmarks(bookmark);
         break;
       case 'empty-titles':
         bookmarkchecker.checkForEmptyTitles(bookmark);
@@ -262,12 +314,12 @@ const bookmarkchecker = {
             }
           }
 
-          bookmarkchecker.updateProgressUi();
+          bookmarkchecker.updateProgressUi(true);
         });
       }
       else {
         bookmarkchecker.checkedBookmarks++;
-        bookmarkchecker.updateProgressUi();
+        bookmarkchecker.updateProgressUi(true);
       }
     }
     else {
@@ -355,6 +407,22 @@ const bookmarkchecker = {
     });
   },
 
+  checkForAllBookmarks : function (bookmark) {
+    if (bookmark.url) {
+      if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
+        return;
+      }
+
+      bookmark.path = bookmarkchecker.additionalData[bookmark.id].path;
+
+      bookmarkchecker.internalCounter++;
+      bookmarkchecker.checkedBookmarks++;
+      bookmarkchecker.updateProgressUi(false);
+    }
+
+    bookmarkchecker.bookmarksResult.push(bookmark);
+  },
+
   checkForEmptyTitles : function (bookmark) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
@@ -369,7 +437,7 @@ const bookmarkchecker = {
       }
 
       bookmarkchecker.checkedBookmarks++;
-      bookmarkchecker.updateProgressUi();
+      bookmarkchecker.updateProgressUi(true);
     }
     else {
       bookmarkchecker.bookmarksResult.push(bookmark);

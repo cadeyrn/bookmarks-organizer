@@ -35,6 +35,9 @@
   "bookmark_no_title": {
     "message": "(ohne Titel)"
   },
+  "bookmark_path": {
+    "message": "Lesezeichen-Pfad"
+  },
   "bookmark_state_label": {
     "message": "Status"
   },
@@ -79,6 +82,9 @@
   },
   "mode_broken_bookmarks": {
     "message": "defekte Lesezeichen"
+  },
+  "mode_duplicates": {
+    "message": "Duplikate"
   },
   "mode_empty_titles": {
     "message": "fehlende Lesezeichen-Namen"
