@@ -23,6 +23,7 @@ const bookmarkchecker = {
       { content : 'check-errors', description : browser.i18n.getMessage('omnibox_command_check_errors') },
       { content : 'check-warnings', description : browser.i18n.getMessage('omnibox_command_check_warnings') },
       { content : 'check-unknowns', description : browser.i18n.getMessage('omnibox_command_check_unknowns') },
+      { content : 'duplicates', description : browser.i18n.getMessage('omnibox_command_check_duplicates') },
       { content : 'empty-titles', description : browser.i18n.getMessage('omnibox_command_empty_titles') }
     ]);
   },
@@ -43,6 +44,9 @@ const bookmarkchecker = {
         break;
       case 'check-unknowns':
         bookmarkchecker.execute('broken-bookmarks', 'unknowns');
+        break;
+      case 'duplicates':
+        bookmarkchecker.execute('duplicates', 'all');
         break;
       case 'empty-titles':
         bookmarkchecker.execute('empty-titles', 'all');

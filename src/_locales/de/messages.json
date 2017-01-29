@@ -98,6 +98,9 @@
   "omnibox_command_check_all": {
     "message": "Prüfe alle deine Lesezeichen auf Fehler, Weiterleitungen, Duplikate, …"
   },
+  "omnibox_command_check_duplicates": {
+    "message": "Finde Lesezeichen-Duplikate"
+  },
   "omnibox_command_check_errors": {
     "message": "Prüfe deine Lesezeichen nur auf Fehler"
   },
