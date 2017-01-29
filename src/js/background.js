@@ -14,6 +14,7 @@ const bookmarkchecker = {
   bookmarkWarnings : 0,
   unknownBookmarks : 0,
   bookmarksResult : [],
+  additionalData : [],
   debug : [],
 
   showOmniboxSuggestions : function (input, suggest) {
@@ -162,6 +163,29 @@ const bookmarkchecker = {
       }
   },
 
+  getAdditionalData : function (bookmark, path, map) {
+    if (bookmark.title) {
+      path.push(bookmark.title);
+    }
+
+    if (bookmark.children) {
+      for (let childNode of bookmark.children) {
+        bookmarkchecker.getAdditionalData(childNode, path, map);
+      }
+    }
+    else {
+      if (!map[bookmark.id]) {
+        map[bookmark.id] = {};
+      }
+
+      map[bookmark.id].path = path.slice(0, -1).join(' / ');
+    }
+
+    path.pop();
+
+    return map;
+  },
+
   execute : function (mode, type) {
     bookmarkchecker.internalCounter = 0;
     bookmarkchecker.checkedBookmarks = 0;
@@ -169,6 +193,7 @@ const bookmarkchecker = {
     bookmarkchecker.bookmarkWarnings = 0;
     bookmarkchecker.unknownBookmarks = 0;
     bookmarkchecker.bookmarksResult = [];
+    bookmarkchecker.additionalData = [];
     bookmarkchecker.debug = [];
 
     browser.storage.local.get('debug_enabled', (options) => {
@@ -176,6 +201,7 @@ const bookmarkchecker = {
     });
 
     browser.bookmarks.getTree().then((bookmarks) => {
+      bookmarkchecker.getAdditionalData(bookmarks[0], [], bookmarkchecker.additionalData);
       bookmarkchecker.checkBookmarks(bookmarks[0], mode, type);
     });
   },
