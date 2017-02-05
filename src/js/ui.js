@@ -425,7 +425,7 @@ const ui = {
 
       if (e.target.getAttribute('data-confirmation')) {
         if (!confirm(e.target.getAttribute('data-confirmation-msg'))) {
-          return false;
+          return;
         }
       }
 
@@ -460,7 +460,7 @@ const ui = {
     e.preventDefault();
 
     if (!confirm(browser.i18n.getMessage('bookmark_confirmation_repair_all_redirects'))) {
-      return false;
+      return;
     }
 
     const bookmarks = document.querySelectorAll('.redirect');
@@ -479,7 +479,7 @@ const ui = {
     e.preventDefault();
 
     if (!confirm(browser.i18n.getMessage('bookmark_confirmation_remove_all_bookmarks_with_errors'))) {
-      return false;
+      return;
     }
 
     const bookmarks = document.querySelectorAll('.error');
