@@ -19,12 +19,30 @@ const bookmarkchecker = {
 
   showOmniboxSuggestions : function (input, suggest) {
     suggest([
-      { content : 'check-all', description : browser.i18n.getMessage('omnibox_command_check_all') },
-      { content : 'check-errors', description : browser.i18n.getMessage('omnibox_command_check_errors') },
-      { content : 'check-warnings', description : browser.i18n.getMessage('omnibox_command_check_warnings') },
-      { content : 'check-unknowns', description : browser.i18n.getMessage('omnibox_command_check_unknowns') },
-      { content : 'duplicates', description : browser.i18n.getMessage('omnibox_command_check_duplicates') },
-      { content : 'empty-titles', description : browser.i18n.getMessage('omnibox_command_empty_titles') }
+      {
+        content : 'check-all',
+        description : browser.i18n.getMessage('omnibox_command_check_all')
+      },
+      {
+        content : 'check-errors',
+        description : browser.i18n.getMessage('omnibox_command_check_errors')
+      },
+      {
+        content : 'check-warnings',
+        description : browser.i18n.getMessage('omnibox_command_check_warnings')
+      },
+      {
+        content : 'check-unknowns',
+        description : browser.i18n.getMessage('omnibox_command_check_unknowns')
+      },
+      {
+        content : 'duplicates',
+        description : browser.i18n.getMessage('omnibox_command_check_duplicates')
+      },
+      {
+        content : 'empty-titles',
+        description : browser.i18n.getMessage('omnibox_command_empty_titles')
+      }
     ]);
   },
 
@@ -335,7 +353,10 @@ const bookmarkchecker = {
     bookmark.attempts++;
 
     const p = Promise.race([
-      fetch(bookmark.url, { credentials : 'include', cache : 'no-store' }), new Promise((resolve, reject) => {
+      fetch(bookmark.url, {
+        credentials : 'include',
+        cache : 'no-store'
+      }), new Promise((resolve, reject) => {
         if (bookmarkchecker.TIMEOUT > 0) {
           setTimeout(() => reject(new Error('timeout')), bookmarkchecker.TIMEOUT);
         }

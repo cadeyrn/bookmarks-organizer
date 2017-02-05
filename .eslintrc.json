@@ -205,7 +205,7 @@
     "no-whitespace-before-property": "error",
     "object-curly-newline": "error",
     "object-curly-spacing": ["error", "always"],
-    //"object-property-newline": "error",
+    "object-property-newline": "error",
     "one-var-declaration-per-line": ["error", "always"],
     "one-var": ["error", "never"],
     "operator-assignment": "error",

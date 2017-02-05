@@ -30,7 +30,10 @@ const ui = {
 
   execute : function (e) {
     e.preventDefault();
-    browser.runtime.sendMessage({ message : 'execute', mode : elMode.value });
+    browser.runtime.sendMessage({
+      message : 'execute',
+      mode : elMode.value
+    });
   },
 
   handleResponse : function (response) {
