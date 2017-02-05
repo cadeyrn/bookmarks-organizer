@@ -234,7 +234,7 @@ const bookmarkchecker = {
               duplicates[bookmark.url].push(bookmark);
             }
             else {
-              duplicates[bookmark.url] = [bookmark]
+              duplicates[bookmark.url] = [bookmark];
             }
           }
         });
@@ -337,7 +337,7 @@ const bookmarkchecker = {
     const p = Promise.race([
       fetch(bookmark.url, { credentials : 'include', cache : 'no-store' }), new Promise(function (resolve, reject) {
         if (bookmarkchecker.TIMEOUT > 0) {
-          setTimeout(() => reject(new Error('timeout')), bookmarkchecker.TIMEOUT)
+          setTimeout(() => reject(new Error('timeout')), bookmarkchecker.TIMEOUT);
         }
       })
     ]);

@@ -367,13 +367,13 @@ const ui = {
     const closeButton = document.getElementById('close_button');
     closeButton.onclick = function () {
       modal.classList.add('hidden');
-    }
+    };
 
     window.onclick = function (e) {
       if (e.target === modal) {
         modal.classList.add('hidden');
       }
-    }
+    };
 
     window.onkeydown = function (e) {
       if (e.keyCode === 27) {
@@ -393,7 +393,7 @@ const ui = {
 
       modal.classList.add('hidden');
       ui.editBookmark(bookmarkId, elTitle.value, elUrl.value, mode);
-    }
+    };
   },
 
   editBookmark : function (bookmarkId, title, url, mode) {
