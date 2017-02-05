@@ -131,7 +131,7 @@
     // Strict Mode
     "strict": ["error", "global"],
     // Variables
-    //"init-declarations": "error",
+    "init-declarations": "error",
     "no-catch-shadow": "error",
     "no-delete-var": "error",
     "no-label-var": "error",

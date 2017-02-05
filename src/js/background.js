@@ -58,7 +58,7 @@ const bookmarkchecker = {
     const url = browser.extension.getURL(bookmarkchecker.UI_PAGE);
 
     browser.tabs.query({}, (tabs) => {
-      let tabId;
+      let tabId = null;
 
       for (let tab of tabs) {
         if (tab.url === url) {
@@ -451,7 +451,7 @@ const bookmarkchecker = {
   buildResultArray : function (bookmarks) {
     const result = [];
     const mappedArray = {};
-    let mappedElement;
+    let mappedElement = null;
 
     for (let bookmark of bookmarks) {
       mappedArray[bookmark.id] = bookmark;

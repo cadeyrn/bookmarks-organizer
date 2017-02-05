@@ -251,7 +251,7 @@ const ui = {
   },
 
   getSingleNode : function (bookmark) {
-    let template;
+    let template = null;
     const li = document.createElement('li');
     li.id = bookmark.id;
     li.setAttribute('data-filter-searchfield', 'true');
@@ -274,7 +274,7 @@ const ui = {
       elUrl.setAttribute('rel', 'noopener');
 
       const elStatus = template.querySelector('.status');
-      let elStatusText;
+      let elStatusText = null;
 
       if (bookmark.status) {
         switch (bookmark.status) {
