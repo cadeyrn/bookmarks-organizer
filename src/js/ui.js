@@ -165,7 +165,9 @@ const ui = {
     const list = document.createElement('ul');
 
     for (let url in bookmarks) {
-      list.appendChild(ui.getSingleDuplicateNode(bookmarks, url));
+      if (Object.prototype.hasOwnProperty.call(bookmarks, url)) {
+        list.appendChild(ui.getSingleDuplicateNode(bookmarks, url));
+      }
     }
 
     elResults.appendChild(list);

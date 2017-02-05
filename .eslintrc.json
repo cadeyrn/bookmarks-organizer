@@ -69,7 +69,7 @@
     "dot-location": ["error", "property"],
     "dot-notation": "error",
     "eqeqeq": "error",
-    //"guard-for-in": "error",
+    "guard-for-in": "error",
     //"no-alert": "error",
     "no-caller": "error",
     //"no-case-declarations": "error",
