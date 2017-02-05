@@ -164,7 +164,7 @@ const ui = {
   buildDuplicatesUi : function (bookmarks) {
     const list = document.createElement('ul');
 
-    for (let url in bookmarks) {
+    for (const url in bookmarks) {
       if (Object.prototype.hasOwnProperty.call(bookmarks, url)) {
         list.appendChild(ui.getSingleDuplicateNode(bookmarks, url));
       }
@@ -188,7 +188,7 @@ const ui = {
     const elDuplicatesList = document.createElement('ul');
     const duplicates = bookmarks[url];
 
-    for (let duplicate of duplicates) {
+    for (const duplicate of duplicates) {
       const elDuplicate = document.createElement('li');
       elDuplicate.id = duplicate.id;
 
@@ -241,7 +241,7 @@ const ui = {
   getNodes : function (bookmarks) {
     const list = document.createElement('ul');
 
-    for (let bookmark of bookmarks) {
+    for (const bookmark of bookmarks) {
       if (bookmark.url || (!bookmark.url && bookmark.children.length > 0)) {
         list.appendChild(ui.getSingleNode(bookmark));
       }
@@ -467,7 +467,7 @@ const ui = {
 
     const bookmarks = document.querySelectorAll('.redirect');
 
-    for (let bookmark of bookmarks) {
+    for (const bookmark of bookmarks) {
       if (!bookmark.classList.contains('hidden')) {
         bookmark.remove();
         ui.repairRedirect(bookmark.id, bookmark.getElementsByClassName('newUrl')[0].getAttribute('href'));
@@ -486,7 +486,7 @@ const ui = {
 
     const bookmarks = document.querySelectorAll('.error');
 
-    for (let bookmark of bookmarks) {
+    for (const bookmark of bookmarks) {
       if (!bookmark.classList.contains('hidden')) {
         bookmark.remove();
         ui.removeBookmark(bookmark.id);
@@ -500,7 +500,7 @@ const ui = {
     const matcher = new RegExp(e.target.value, 'i');
     const urls = elResults.querySelectorAll('.url');
 
-    for (let url of urls) {
+    for (const url of urls) {
       const parent = url.parentNode.parentNode;
       const title = parent.querySelector('.title');
 
@@ -518,7 +518,7 @@ const ui = {
   applyCheckboxFilter : function (e) {
     const urls = elResults.querySelectorAll('.url');
 
-    for (let url of urls) {
+    for (const url of urls) {
       const parent = url.parentNode.parentNode;
 
       if (parent.classList.contains(e.target.getAttribute('data-filter'))) {
@@ -537,7 +537,7 @@ const ui = {
   hideFilteredElements : function () {
     const elements = elResults.querySelectorAll('li');
 
-    for (let element of elements) {
+    for (const element of elements) {
       if (element.getElementsByClassName('url').length !== 0) {
         if (element.hasAttribute('data-filter-searchfield') && element.hasAttribute('data-filter-checkbox')) {
           element.classList.remove('hidden');
@@ -553,11 +553,11 @@ const ui = {
 
   hideEmptyCategories : function () {
     const elements = elResults.querySelectorAll('li.has-children');
-    for (let element of elements) {
+    for (const element of elements) {
       const subelements = element.querySelectorAll('li.is-bookmark');
       let count = 0;
 
-      for (let subelement of subelements) {
+      for (const subelement of subelements) {
         if (!subelement.classList.contains('hidden')) {
           count++;
           break;

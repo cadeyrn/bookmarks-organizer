@@ -60,7 +60,7 @@ const bookmarkchecker = {
     browser.tabs.query({}, (tabs) => {
       let tabId = null;
 
-      for (let tab of tabs) {
+      for (const tab of tabs) {
         if (tab.url === url) {
           tabId = tab.id;
           break;
@@ -147,7 +147,7 @@ const bookmarkchecker = {
     }
 
     if (bookmark.children) {
-      for (let child of bookmark.children) {
+      for (const child of bookmark.children) {
         bookmarkchecker.countBookmarksRecursive(child);
       }
     }
@@ -188,7 +188,7 @@ const bookmarkchecker = {
     }
 
     if (bookmark.children) {
-      for (let childNode of bookmark.children) {
+      for (const childNode of bookmark.children) {
         bookmarkchecker.getAdditionalData(childNode, path, map);
       }
     }
@@ -226,7 +226,7 @@ const bookmarkchecker = {
 
     if (mode === 'duplicates') {
       p.then(() => {
-        let duplicates = { };
+        const duplicates = { };
 
         bookmarkchecker.bookmarksResult.forEach((bookmark) => {
           if (bookmark.url) {
@@ -273,7 +273,7 @@ const bookmarkchecker = {
     }
 
     if (bookmark.children) {
-      for (let child of bookmark.children) {
+      for (const child of bookmark.children) {
         bookmarkchecker.checkBookmarks(child, mode, type);
       }
     }
@@ -453,12 +453,12 @@ const bookmarkchecker = {
     const mappedArray = {};
     let mappedElement = null;
 
-    for (let bookmark of bookmarks) {
+    for (const bookmark of bookmarks) {
       mappedArray[bookmark.id] = bookmark;
       mappedArray[bookmark.id].children = [];
     }
 
-    for (let id in mappedArray) {
+    for (const id in mappedArray) {
       if (Object.prototype.hasOwnProperty.call(mappedArray, id)) {
         mappedElement = mappedArray[id];
         if (mappedElement.parentId) {
