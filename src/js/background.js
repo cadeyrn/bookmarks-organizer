@@ -290,29 +290,29 @@ const bookmarkchecker = {
       if (bookmark.url.match(/^https?:\/\//)) {
         bookmark.attempts = 0;
 
-        bookmarkchecker.checkResponse(bookmark, function (bookmark) {
+        bookmarkchecker.checkResponse(bookmark, function (checkedBookmark) {
           bookmarkchecker.checkedBookmarks++;
 
-          if (bookmark.status !== STATUS.OK) {
-            switch (bookmark.status) {
+          if (checkedBookmark.status !== STATUS.OK) {
+            switch (checkedBookmark.status) {
               case STATUS.REDIRECT:
                 if (type === 'all' || type === 'warnings') {
                   bookmarkchecker.bookmarkWarnings++;
-                  bookmarkchecker.bookmarksResult.push(bookmark);
+                  bookmarkchecker.bookmarksResult.push(checkedBookmark);
                 }
                 break;
               case STATUS.NOT_FOUND:
               case STATUS.FETCH_ERROR:
                 if (type === 'all' || type === 'errors') {
                   bookmarkchecker.bookmarkErrors++;
-                  bookmarkchecker.bookmarksResult.push(bookmark);
+                  bookmarkchecker.bookmarksResult.push(checkedBookmark);
                 }
                 break;
               case STATUS.TIMEOUT:
               case STATUS.UNKNOWN_ERROR:
                 if (type === 'all' || type === 'unknowns') {
                   bookmarkchecker.unknownBookmarks++;
-                  bookmarkchecker.bookmarksResult.push(bookmark);
+                  bookmarkchecker.bookmarksResult.push(checkedBookmark);
                 }
                 break;
             }

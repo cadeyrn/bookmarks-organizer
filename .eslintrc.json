@@ -137,7 +137,7 @@
     "no-label-var": "error",
     "no-restricted-globals": "error",
     "no-shadow-restricted-names": "error",
-    //"no-shadow": ["error", { "builtinGlobals": true }],
+    "no-shadow": ["error", { "builtinGlobals": true }],
     "no-undef-init": "error",
     //"no-undef": ["error", { "typeof": true }],
     "no-undefined": "error",

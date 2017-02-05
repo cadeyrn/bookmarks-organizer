@@ -501,14 +501,14 @@ const ui = {
     const urls = elResults.querySelectorAll('.url');
 
     for (const url of urls) {
-      const parent = url.parentNode.parentNode;
-      const title = parent.querySelector('.title');
+      const parentElement = url.parentNode.parentNode;
+      const title = parentElement.querySelector('.title');
 
       if (matcher.test(title.textContent) || matcher.test(url.textContent)) {
-        parent.setAttribute('data-filter-searchfield', 'true');
+        parentElement.setAttribute('data-filter-searchfield', 'true');
       }
       else {
-        parent.removeAttribute('data-filter-searchfield');
+        parentElement.removeAttribute('data-filter-searchfield');
       }
     }
 
@@ -519,14 +519,14 @@ const ui = {
     const urls = elResults.querySelectorAll('.url');
 
     for (const url of urls) {
-      const parent = url.parentNode.parentNode;
+      const parentElement = url.parentNode.parentNode;
 
-      if (parent.classList.contains(e.target.getAttribute('data-filter'))) {
+      if (parentElement.classList.contains(e.target.getAttribute('data-filter'))) {
         if (e.target.checked) {
-          parent.setAttribute('data-filter-checkbox', 'true');
+          parentElement.setAttribute('data-filter-checkbox', 'true');
         }
         else {
-          parent.removeAttribute('data-filter-checkbox');
+          parentElement.removeAttribute('data-filter-checkbox');
         }
       }
     }
