@@ -162,7 +162,7 @@
     "id-blacklist": "error",
     "id-length": ["error", { "max": 30, "exceptions": ["e", "i", "p"] }],
     "id-match": "error",
-    //"indent": ["error", 2, { "SwitchCase" : 1}],
+    "indent": ["error", 2, { "SwitchCase" : 1}],
     "jsx-quotes": "error",
     "key-spacing": ["error", { "beforeColon": true }],
     "keyword-spacing": "error",

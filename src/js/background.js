@@ -155,31 +155,31 @@ const bookmarkchecker = {
 
   updateProgressUi : function (checkForFinish) {
     let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
-      if (progress < 0.01) {
-        progress = 0.01;
-      }
+    if (progress < 0.01) {
+      progress = 0.01;
+    }
+
+    browser.runtime.sendMessage({
+      'message' : 'update-counters',
+      'total_bookmarks' : bookmarkchecker.totalBookmarks,
+      'checked_bookmarks' : bookmarkchecker.checkedBookmarks,
+      'unknown_bookmarks' : bookmarkchecker.unknownBookmarks,
+      'bookmarks_errors' : bookmarkchecker.bookmarkErrors,
+      'bookmarks_warnings' : bookmarkchecker.bookmarkWarnings,
+      'progress' : progress
+    });
+
+    if (checkForFinish && bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
+      const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
 
       browser.runtime.sendMessage({
-        'message' : 'update-counters',
-        'total_bookmarks' : bookmarkchecker.totalBookmarks,
-        'checked_bookmarks' : bookmarkchecker.checkedBookmarks,
-        'unknown_bookmarks' : bookmarkchecker.unknownBookmarks,
-        'bookmarks_errors' : bookmarkchecker.bookmarkErrors,
-        'bookmarks_warnings' : bookmarkchecker.bookmarkWarnings,
-        'progress' : progress
+        'message' : 'finished',
+        'bookmarks' : bookmarks,
+        'debug' : bookmarkchecker.debug
       });
 
-      if (checkForFinish && bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
-        const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
-
-        browser.runtime.sendMessage({
-          'message' : 'finished',
-          'bookmarks' : bookmarks,
-          'debug' : bookmarkchecker.debug
-        });
-
-        bookmarkchecker.inProgress = false;
-      }
+      bookmarkchecker.inProgress = false;
+    }
   },
 
   getAdditionalData : function (bookmark, path, map) {
