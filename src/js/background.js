@@ -239,7 +239,7 @@ const bookmarkchecker = {
           }
         });
 
-        Object.keys(duplicates).forEach((key, idx) => {
+        Object.keys(duplicates).forEach((key) => {
           if (duplicates[key].length < 2) {
             delete duplicates[key];
           }

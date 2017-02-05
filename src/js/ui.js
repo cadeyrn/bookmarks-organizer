@@ -123,7 +123,7 @@ const ui = {
     }
   },
 
-  doUiCleanup : function (debug) {
+  doUiCleanup : function () {
     elButton.disabled = false;
     elResultWrapper.classList.remove('hidden');
     elSearch.focus();
