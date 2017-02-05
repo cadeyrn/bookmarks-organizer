@@ -455,14 +455,14 @@ const bookmarkchecker = {
 
     for (let bookmark of bookmarks) {
       mappedArray[bookmark.id] = bookmark;
-      mappedArray[bookmark.id]['children'] = [];
+      mappedArray[bookmark.id].children = [];
     }
 
     for (let id in mappedArray) {
       if (Object.prototype.hasOwnProperty.call(mappedArray, id)) {
         mappedElement = mappedArray[id];
         if (mappedElement.parentId) {
-          mappedArray[mappedElement['parentId']]['children'].push(mappedElement);
+          mappedArray[mappedElement.parentId].children.push(mappedElement);
         }
         else {
           result.push(mappedElement);

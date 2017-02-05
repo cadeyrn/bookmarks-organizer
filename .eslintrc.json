@@ -67,7 +67,7 @@
     "curly": "error",
     //"default-case": "error",
     "dot-location": ["error", "property"],
-    //"dot-notation": "error",
+    "dot-notation": "error",
     "eqeqeq": "error",
     //"guard-for-in": "error",
     //"no-alert": "error",
