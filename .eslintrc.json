@@ -253,7 +253,7 @@
     "no-useless-rename": "error",
     "no-var": "error",
     //"object-shorthand": "error",
-    //"prefer-arrow-callback": "error",
+    "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "prefer-destructuring": "error",
     "prefer-numeric-literals": "error",

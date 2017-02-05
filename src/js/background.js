@@ -290,7 +290,7 @@ const bookmarkchecker = {
       if (bookmark.url.match(/^https?:\/\//)) {
         bookmark.attempts = 0;
 
-        bookmarkchecker.checkResponse(bookmark, function (checkedBookmark) {
+        bookmarkchecker.checkResponse(bookmark, (checkedBookmark) => {
           bookmarkchecker.checkedBookmarks++;
 
           if (checkedBookmark.status !== STATUS.OK) {
@@ -335,14 +335,14 @@ const bookmarkchecker = {
     bookmark.attempts++;
 
     const p = Promise.race([
-      fetch(bookmark.url, { credentials : 'include', cache : 'no-store' }), new Promise(function (resolve, reject) {
+      fetch(bookmark.url, { credentials : 'include', cache : 'no-store' }), new Promise((resolve, reject) => {
         if (bookmarkchecker.TIMEOUT > 0) {
           setTimeout(() => reject(new Error('timeout')), bookmarkchecker.TIMEOUT);
         }
       })
     ]);
 
-    p.then(function (response) {
+    p.then((response) => {
       if (response.redirected) {
         // redirect to identical url. That's weird but there are cases in the real world…
         if (bookmark.url === response.url) {
@@ -380,7 +380,7 @@ const bookmarkchecker = {
       callback(bookmark);
     });
 
-    p.catch(function (error) {
+    p.catch((error) => {
       if (error.message === 'timeout') {
         bookmark.status = STATUS.TIMEOUT;
       }
