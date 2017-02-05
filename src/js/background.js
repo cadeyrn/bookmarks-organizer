@@ -459,7 +459,7 @@ const bookmarkchecker = {
     }
 
     for (let id in mappedArray) {
-      if (mappedArray.hasOwnProperty(id)) {
+      if (Object.prototype.hasOwnProperty.call(mappedArray, id)) {
         mappedElement = mappedArray[id];
         if (mappedElement.parentId) {
           mappedArray[mappedElement['parentId']]['children'].push(mappedElement);
