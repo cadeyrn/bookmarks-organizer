@@ -68,16 +68,16 @@ const bookmarkchecker = {
       }
 
       if (tabId) {
-        browser.tabs.update(tabId, { 'active' : true });
+        browser.tabs.update(tabId, { active : true });
       }
       else {
-        browser.tabs.create({ 'url' : url });
+        browser.tabs.create({ url : url });
       }
     });
   },
 
   openUserInterfaceInCurrentTab : function () {
-    browser.tabs.update(null, { 'url' : browser.extension.getURL(bookmarkchecker.UI_PAGE) });
+    browser.tabs.update(null, { url : browser.extension.getURL(bookmarkchecker.UI_PAGE) });
   },
 
   handleResponse : function (response) {
@@ -96,20 +96,20 @@ const bookmarkchecker = {
       p.then(() => {
         if (response.mode === 'duplicate') {
           browser.runtime.sendMessage({
-            'message' : 'update-listitem',
-            'bookmarkId' : response.bookmarkId,
-            'title' : response.title,
-            'path' : bookmarkchecker.additionalData[response.bookmarkId].path,
-            'mode' : response.mode
+            message : 'update-listitem',
+            bookmarkId : response.bookmarkId,
+            title : response.title,
+            path : bookmarkchecker.additionalData[response.bookmarkId].path,
+            mode : response.mode
           });
         }
         else {
           browser.bookmarks.get(response.bookmarkId).then((bookmarks) => {
             browser.runtime.sendMessage({
-              'message' : 'update-listitem',
-              'bookmarkId' : response.bookmarkId,
-              'bookmark' : bookmarks[0],
-              'mode' : response.mode
+              message : 'update-listitem',
+              bookmarkId : response.bookmarkId,
+              bookmark : bookmarks[0],
+              mode : response.mode
             });
           });
         }
@@ -131,8 +131,8 @@ const bookmarkchecker = {
       bookmarkchecker.countBookmarksRecursive(bookmarks[0]);
 
       browser.runtime.sendMessage({
-        'message' : 'total-bookmarks',
-        'total_bookmarks' : bookmarkchecker.totalBookmarks
+        message : 'total-bookmarks',
+        total_bookmarks : bookmarkchecker.totalBookmarks
       });
     });
   },
@@ -160,22 +160,22 @@ const bookmarkchecker = {
     }
 
     browser.runtime.sendMessage({
-      'message' : 'update-counters',
-      'total_bookmarks' : bookmarkchecker.totalBookmarks,
-      'checked_bookmarks' : bookmarkchecker.checkedBookmarks,
-      'unknown_bookmarks' : bookmarkchecker.unknownBookmarks,
-      'bookmarks_errors' : bookmarkchecker.bookmarkErrors,
-      'bookmarks_warnings' : bookmarkchecker.bookmarkWarnings,
-      'progress' : progress
+      message : 'update-counters',
+      total_bookmarks : bookmarkchecker.totalBookmarks,
+      checked_bookmarks : bookmarkchecker.checkedBookmarks,
+      unknown_bookmarks : bookmarkchecker.unknownBookmarks,
+      bookmarks_errors : bookmarkchecker.bookmarkErrors,
+      bookmarks_warnings : bookmarkchecker.bookmarkWarnings,
+      progress : progress
     });
 
     if (checkForFinish && bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
       const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
 
       browser.runtime.sendMessage({
-        'message' : 'finished',
-        'bookmarks' : bookmarks,
-        'debug' : bookmarkchecker.debug
+        message : 'finished',
+        bookmarks : bookmarks,
+        debug : bookmarkchecker.debug
       });
 
       bookmarkchecker.inProgress = false;
@@ -249,9 +249,9 @@ const bookmarkchecker = {
         });
 
         browser.runtime.sendMessage({
-          'message' : 'show-duplicates-ui',
-          'bookmarks' : duplicates,
-          'warnings' : bookmarkchecker.bookmarkWarnings
+          message : 'show-duplicates-ui',
+          bookmarks : duplicates,
+          warnings : bookmarkchecker.bookmarkWarnings
         });
 
         bookmarkchecker.inProgress = false;

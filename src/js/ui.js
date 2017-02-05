@@ -30,7 +30,7 @@ const ui = {
 
   execute : function (e) {
     e.preventDefault();
-    browser.runtime.sendMessage({ 'message' : 'execute', 'mode' : elMode.value });
+    browser.runtime.sendMessage({ message : 'execute', mode : elMode.value });
   },
 
   handleResponse : function (response) {
@@ -398,26 +398,26 @@ const ui = {
 
   editBookmark : function (bookmarkId, title, url, mode) {
     browser.runtime.sendMessage({
-      'message' : 'edit',
-      'bookmarkId' : bookmarkId,
-      'title' : title,
-      'url' : url,
-      'mode' : mode
+      message : 'edit',
+      bookmarkId : bookmarkId,
+      title : title,
+      url : url,
+      mode : mode
     });
   },
 
   removeBookmark : function (bookmarkId) {
     browser.runtime.sendMessage({
-      'message' : 'remove',
-      'bookmarkId' : bookmarkId
+      message : 'remove',
+      bookmarkId : bookmarkId
     });
   },
 
   repairRedirect : function (bookmarkId, newUrl) {
     browser.runtime.sendMessage({
-      'message' : 'repair-redirect',
-      'bookmarkId' : bookmarkId,
-      'newUrl' : newUrl
+      message : 'repair-redirect',
+      bookmarkId : bookmarkId,
+      newUrl : newUrl
     });
   },
 

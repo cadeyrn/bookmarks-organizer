@@ -211,7 +211,7 @@
     "operator-assignment": "error",
     "operator-linebreak": "error",
     "padded-blocks": ["error", "never"],
-    //"quote-props": ["error", "as-needed"],
+    "quote-props": ["error", "as-needed"],
     "quotes": ["error", "single"],
     "require-jsdoc": ["error", {
       "require": {
