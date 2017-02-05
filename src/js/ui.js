@@ -433,12 +433,12 @@ const ui = {
 
       const bookmarkId = e.target.getAttribute('data-id');
       const elBookmark = document.getElementById(bookmarkId);
+      const title = e.target.getAttribute('data-title');
+      const url = e.target.getAttribute('data-url');
+      const mode = e.target.getAttribute('data-mode');
 
       switch (e.target.getAttribute('data-action')) {
         case 'edit':
-          const title = e.target.getAttribute('data-title');
-          const url = e.target.getAttribute('data-url');
-          const mode = e.target.getAttribute('data-mode')
           ui.showEditBookmarkOverlay(bookmarkId, title, url, mode);
           break;
         case 'remove':
