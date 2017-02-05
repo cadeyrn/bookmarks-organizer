@@ -477,7 +477,7 @@ const bookmarkchecker = {
 browser.browserAction.onClicked.addListener(bookmarkchecker.openUserInterface);
 browser.runtime.onMessage.addListener(bookmarkchecker.handleResponse);
 
-// only available Firefox 52+
+// only available in Firefox 52+
 if (typeof browser.omnibox !== 'undefined') {
   browser.omnibox.onInputChanged.addListener(bookmarkchecker.showOmniboxSuggestions);
   browser.omnibox.onInputEntered.addListener(bookmarkchecker.callOmniboxAction);
