@@ -27,7 +27,7 @@ const ui = {
   showFilterCheckboxes : false,
   showMassActionButtons : false,
   showDebugOutput : false,
-  
+
   execute : function (e) {
     e.preventDefault();
     browser.runtime.sendMessage({ 'message' : 'execute', 'mode' : elMode.value });
