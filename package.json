@@ -1,0 +1,28 @@
+{
+  "name": "bookmarkchecker",
+  "version": "0.10.0",
+  "description": "Bookmark Checker. Check all your bookmarks.",
+  "author": {
+    "name": "Sören Hentzschel",
+    "email": "kontakt@agenedia.com",
+    "url": "https://agenedia.com"
+  },
+  "homepage": "https://www.soeren-hentzschel.at",
+  "bugs": {
+    "email": "kontakt@agenedia.com"
+  },
+  "license": "MPL 2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://gitplace.net/firefox-add-ons/bookmark-checker.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "eslint": "3.15.0",
+    "gulp": "3.9.1",
+    "gulp-eslint": "3.0.1"
+  },
+  "scripts": {
+    "lint": "gulp lint-js"
+  }
+}
