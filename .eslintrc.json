@@ -277,8 +277,8 @@
     "promise/catch-or-return": "off",
     "promise/no-native": "off",
     "promise/no-nesting": "off",
-    "promise/no-promise-in-callback": "error"
-    //"promise/no-callback-in-promise": "error",
+    "promise/no-promise-in-callback": "error",
+    "promise/no-callback-in-promise": "off"
     //"promise/avoid-new": "error",
     // Async/Await Rules
     //"promise/prefer-await-to-then": "error",
