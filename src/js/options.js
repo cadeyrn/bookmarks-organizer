@@ -3,7 +3,7 @@
 const elDebugMode = document.getElementById('debug_mode');
 
 const options = {
-  load : function () {
+  load () {
     browser.storage.local.get({ debug_enabled : false }).then((option) => {
       elDebugMode.checked = option.debug_enabled;
     });

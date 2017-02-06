@@ -1,19 +1,19 @@
 'use strict';
 
 const i18n = {
-  findWithXPath : function (path) {
+  findWithXPath (path) {
     return document.evaluate(path, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
   },
 
-  getMessage : function (string, key) {
+  getMessage (string, key) {
     return browser.i18n.getMessage(key);
   },
 
-  replace : function (string) {
+  replace (string) {
     return string.replace(/__MSG_([a-z_.]+)__/gi, i18n.getMessage);
   },
 
-  translate : function () {
+  translate () {
     document.removeEventListener('DOMContentLoaded', i18n.translate);
 
     const textNodes = i18n.findWithXPath('//text()[contains(self::text(), "__MSG_")]');

@@ -19,7 +19,7 @@ const bookmarkchecker = {
   additionalData : [],
   debug : [],
 
-  showOmniboxSuggestions : function (input, suggest) {
+  showOmniboxSuggestions (input, suggest) {
     suggest([
       {
         content : 'check-all',
@@ -48,7 +48,7 @@ const bookmarkchecker = {
     ]);
   },
 
-  callOmniboxAction : function (input) {
+  callOmniboxAction (input) {
     bookmarkchecker.openUserInterfaceInCurrentTab();
     bookmarkchecker.countBookmarks();
 
@@ -76,7 +76,7 @@ const bookmarkchecker = {
     }
   },
 
-  openUserInterface : function () {
+  openUserInterface () {
     const url = browser.extension.getURL(bookmarkchecker.UI_PAGE);
 
     browser.tabs.query({}, (tabs) => {
@@ -93,16 +93,16 @@ const bookmarkchecker = {
         browser.tabs.update(tabId, { active : true });
       }
       else {
-        browser.tabs.create({ url : url });
+        browser.tabs.create({ url });
       }
     });
   },
 
-  openUserInterfaceInCurrentTab : function () {
+  openUserInterfaceInCurrentTab () {
     browser.tabs.update(null, { url : browser.extension.getURL(bookmarkchecker.UI_PAGE) });
   },
 
-  handleResponse : function (response) {
+  handleResponse (response) {
     if (response.message === 'execute') {
       if (!bookmarkchecker.inProgress) {
         bookmarkchecker.countBookmarks();
@@ -145,7 +145,7 @@ const bookmarkchecker = {
     }
   },
 
-  countBookmarks : function () {
+  countBookmarks () {
     bookmarkchecker.inProgress = true;
     bookmarkchecker.totalBookmarks = 0;
 
@@ -159,7 +159,7 @@ const bookmarkchecker = {
     });
   },
 
-  countBookmarksRecursive : function (bookmark) {
+  countBookmarksRecursive (bookmark) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.totalBookmarks === bookmarkchecker.LIMIT) {
         return;
@@ -175,7 +175,7 @@ const bookmarkchecker = {
     }
   },
 
-  updateProgressUi : function (checkForFinish) {
+  updateProgressUi (checkForFinish) {
     let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
     if (progress < 0.01) {
       progress = 0.01;
@@ -188,7 +188,7 @@ const bookmarkchecker = {
       unknown_bookmarks : bookmarkchecker.unknownBookmarks,
       bookmarks_errors : bookmarkchecker.bookmarkErrors,
       bookmarks_warnings : bookmarkchecker.bookmarkWarnings,
-      progress : progress
+      progress
     });
 
     if (checkForFinish && bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
@@ -196,7 +196,7 @@ const bookmarkchecker = {
 
       browser.runtime.sendMessage({
         message : 'finished',
-        bookmarks : bookmarks,
+        bookmarks,
         debug : bookmarkchecker.debug
       });
 
@@ -204,7 +204,7 @@ const bookmarkchecker = {
     }
   },
 
-  getAdditionalData : function (bookmark, path, map) {
+  getAdditionalData (bookmark, path, map) {
     if (bookmark.title) {
       path.push(bookmark.title);
     }
@@ -227,7 +227,7 @@ const bookmarkchecker = {
     return map;
   },
 
-  execute : function (mode, type) {
+  execute (mode, type) {
     bookmarkchecker.internalCounter = 0;
     bookmarkchecker.checkedBookmarks = 0;
     bookmarkchecker.bookmarkErrors = 0;
@@ -281,7 +281,7 @@ const bookmarkchecker = {
     }
   },
 
-  checkBookmarks : function (bookmark, mode, type) {
+  checkBookmarks (bookmark, mode, type) {
     switch (mode) {
       case 'broken-bookmarks':
         bookmarkchecker.checkForBrokenBookmarks(bookmark, type);
@@ -303,7 +303,7 @@ const bookmarkchecker = {
     }
   },
 
-  checkForBrokenBookmarks : function (bookmark, type) {
+  checkForBrokenBookmarks (bookmark, type) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
         return;
@@ -357,7 +357,7 @@ const bookmarkchecker = {
     }
   },
 
-  checkResponse : function (bookmark, callback) {
+  checkResponse (bookmark, callback) {
     bookmark.attempts++;
 
     const p = Promise.race([
@@ -440,7 +440,7 @@ const bookmarkchecker = {
     });
   },
 
-  checkForAllBookmarks : function (bookmark) {
+  checkForAllBookmarks (bookmark) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
         return;
@@ -456,7 +456,7 @@ const bookmarkchecker = {
     bookmarkchecker.bookmarksResult.push(bookmark);
   },
 
-  checkForEmptyTitles : function (bookmark) {
+  checkForEmptyTitles (bookmark) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
         return;
@@ -477,7 +477,7 @@ const bookmarkchecker = {
     }
   },
 
-  buildResultArray : function (bookmarks) {
+  buildResultArray (bookmarks) {
     const result = [];
     const mappedArray = {};
     let mappedElement = null;

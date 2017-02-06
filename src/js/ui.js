@@ -30,7 +30,7 @@ const ui = {
   showMassActionButtons : false,
   showDebugOutput : false,
 
-  execute : function (e) {
+  execute (e) {
     e.preventDefault();
     browser.runtime.sendMessage({
       message : 'execute',
@@ -38,7 +38,7 @@ const ui = {
     });
   },
 
-  handleResponse : function (response) {
+  handleResponse (response) {
     if (response.message === 'total-bookmarks') {
       elResultWrapper.classList.add('hidden');
       elMessage.textContent = '';
@@ -128,7 +128,7 @@ const ui = {
     }
   },
 
-  doUiCleanup : function () {
+  doUiCleanup () {
     elButton.disabled = false;
     elResultWrapper.classList.remove('hidden');
     elSearch.focus();
@@ -166,7 +166,7 @@ const ui = {
     }
   },
 
-  buildDuplicatesUi : function (bookmarks) {
+  buildDuplicatesUi (bookmarks) {
     const list = document.createElement('ul');
 
     for (const url in bookmarks) {
@@ -178,7 +178,7 @@ const ui = {
     elResults.appendChild(list);
   },
 
-  getSingleDuplicateNode : function (bookmarks, url) {
+  getSingleDuplicateNode (bookmarks, url) {
     const template = document.getElementById('duplicates-template').content.cloneNode(true);
     const elListItem = document.createElement('li');
 
@@ -239,11 +239,11 @@ const ui = {
     return elListItem;
   },
 
-  buildBookmarksTree : function (bookmarks) {
+  buildBookmarksTree (bookmarks) {
     elResults.appendChild(ui.getNodes(bookmarks));
   },
 
-  getNodes : function (bookmarks) {
+  getNodes (bookmarks) {
     const list = document.createElement('ul');
 
     for (const bookmark of bookmarks) {
@@ -255,7 +255,7 @@ const ui = {
     return list;
   },
 
-  getSingleNode : function (bookmark) {
+  getSingleNode (bookmark) {
     let template = null;
     const li = document.createElement('li');
     li.id = bookmark.id;
@@ -367,7 +367,7 @@ const ui = {
     return li;
   },
 
-  showEditBookmarkOverlay : function (bookmarkId, title, url, mode) {
+  showEditBookmarkOverlay (bookmarkId, title, url, mode) {
     const modal = document.getElementById('modal-dialog');
     modal.classList.remove('hidden');
 
@@ -403,7 +403,7 @@ const ui = {
     };
   },
 
-  editBookmark : function (bookmarkId, title, url, mode) {
+  editBookmark (bookmarkId, title, url, mode) {
     browser.runtime.sendMessage({
       message : 'edit',
       bookmarkId : bookmarkId,
@@ -413,14 +413,14 @@ const ui = {
     });
   },
 
-  removeBookmark : function (bookmarkId) {
+  removeBookmark (bookmarkId) {
     browser.runtime.sendMessage({
       message : 'remove',
       bookmarkId : bookmarkId
     });
   },
 
-  repairRedirect : function (bookmarkId, newUrl) {
+  repairRedirect (bookmarkId, newUrl) {
     browser.runtime.sendMessage({
       message : 'repair-redirect',
       bookmarkId : bookmarkId,
@@ -428,7 +428,7 @@ const ui = {
     });
   },
 
-  handleActionButtonClicks : function (e) {
+  handleActionButtonClicks (e) {
     if (e.target.getAttribute('data-action')) {
       e.preventDefault();
 
@@ -467,7 +467,7 @@ const ui = {
     }
   },
 
-  repairAllRedirects : function (e) {
+  repairAllRedirects (e) {
     e.preventDefault();
 
     if (!confirm(browser.i18n.getMessage('bookmark_confirmation_repair_all_redirects'))) {
@@ -486,7 +486,7 @@ const ui = {
     ui.hideEmptyCategories();
   },
 
-  removeAllBookmarksWithErrors : function (e) {
+  removeAllBookmarksWithErrors (e) {
     e.preventDefault();
 
     if (!confirm(browser.i18n.getMessage('bookmark_confirmation_remove_all_bookmarks_with_errors'))) {
@@ -505,7 +505,7 @@ const ui = {
     ui.hideEmptyCategories();
   },
 
-  applySearchFieldFilter : function (e) {
+  applySearchFieldFilter (e) {
     const matcher = new RegExp(e.target.value, 'i');
     const urls = elResults.querySelectorAll('.url');
 
@@ -524,7 +524,7 @@ const ui = {
     ui.hideFilteredElements();
   },
 
-  applyCheckboxFilter : function (e) {
+  applyCheckboxFilter (e) {
     const urls = elResults.querySelectorAll('.url');
 
     for (const url of urls) {
@@ -543,7 +543,7 @@ const ui = {
     ui.hideFilteredElements();
   },
 
-  hideFilteredElements : function () {
+  hideFilteredElements () {
     const elements = elResults.querySelectorAll('li');
 
     for (const element of elements) {
@@ -560,7 +560,7 @@ const ui = {
     ui.hideEmptyCategories();
   },
 
-  hideEmptyCategories : function () {
+  hideEmptyCategories () {
     const elements = elResults.querySelectorAll('li.has-children');
     for (const element of elements) {
       const subelements = element.querySelectorAll('li.is-bookmark');
