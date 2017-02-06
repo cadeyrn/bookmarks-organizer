@@ -444,6 +444,7 @@ const ui = {
       e.preventDefault();
 
       if (e.target.getAttribute('data-confirmation')) {
+        // eslint-disable-next-line no-alert
         if (!confirm(e.target.getAttribute('data-confirmation-msg'))) {
           return;
         }
@@ -481,6 +482,7 @@ const ui = {
   repairAllRedirects (e) {
     e.preventDefault();
 
+    // eslint-disable-next-line no-alert
     if (!confirm(browser.i18n.getMessage('bookmark_confirmation_repair_all_redirects'))) {
       return;
     }
@@ -500,6 +502,7 @@ const ui = {
   removeAllBookmarksWithErrors (e) {
     e.preventDefault();
 
+    // eslint-disable-next-line no-alert
     if (!confirm(browser.i18n.getMessage('bookmark_confirmation_remove_all_bookmarks_with_errors'))) {
       return;
     }
