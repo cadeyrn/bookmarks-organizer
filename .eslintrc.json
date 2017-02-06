@@ -10,6 +10,10 @@
     "browser": true,
     "webextensions": true
   },
+  "globals": {
+    "Promise": true,
+    "require": true
+  },
   "rules": {
     // Possible Errors
     "no-await-in-loop": "error",
@@ -139,7 +143,7 @@
     "no-shadow-restricted-names": "error",
     "no-shadow": ["error", { "builtinGlobals": true }],
     "no-undef-init": "error",
-    //"no-undef": ["error", { "typeof": true }],
+    "no-undef": ["error", { "typeof": true }],
     "no-undefined": "error",
     //"no-unused-vars": "error",
     "no-use-before-define": "error",

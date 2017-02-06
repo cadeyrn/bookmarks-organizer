@@ -1,5 +1,7 @@
 'use strict';
 
+/* global STATUS */
+
 const bookmarkchecker = {
   UI_PAGE : 'html/ui.html',
   LIMIT : 0,

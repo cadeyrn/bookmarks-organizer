@@ -1,5 +1,7 @@
 'use strict';
 
+/* global STATUS */
+
 const elBody = document.querySelector('body');
 const elButton = document.getElementById('submit_button');
 const elMode = document.getElementById('mode');
