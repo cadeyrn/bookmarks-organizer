@@ -2,6 +2,9 @@
 
 /* global STATUS */
 
+const ESC_KEY = 27;
+const MIN_PROGRESS = 0.01;
+
 const elBody = document.querySelector('body');
 const elButton = document.getElementById('submit_button');
 const elMode = document.getElementById('mode');
@@ -44,7 +47,7 @@ const ui = {
       elMessage.textContent = '';
       elResults.textContent = '';
       elDebugOutput.textContent = '';
-      elProgress.setAttribute('value', 0.01);
+      elProgress.setAttribute('value', MIN_PROGRESS);
       elCheckedBookmarks.textContent = 0;
       elBookmarksErrors.textContent = 0;
       elBookmarksWarnings.textContent = 0;
@@ -391,7 +394,7 @@ const ui = {
     };
 
     window.onkeydown = function (e) {
-      if (e.keyCode === 27) {
+      if (e.keyCode === ESC_KEY) {
         modal.classList.add('hidden');
       }
     };

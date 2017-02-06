@@ -2,8 +2,10 @@
 
 /* global STATUS */
 
+const MIN_PROGRESS = 0.01;
+const UI_PAGE = 'html/ui.html';
+
 const bookmarkchecker = {
-  UI_PAGE : 'html/ui.html',
   LIMIT : 0,
   TIMEOUT : 0,
   ATTEMPTS : 2,
@@ -77,7 +79,7 @@ const bookmarkchecker = {
   },
 
   openUserInterface () {
-    const url = browser.extension.getURL(bookmarkchecker.UI_PAGE);
+    const url = browser.extension.getURL(UI_PAGE);
 
     browser.tabs.query({}, (tabs) => {
       let tabId = null;
@@ -99,7 +101,7 @@ const bookmarkchecker = {
   },
 
   openUserInterfaceInCurrentTab () {
-    browser.tabs.update(null, { url : browser.extension.getURL(bookmarkchecker.UI_PAGE) });
+    browser.tabs.update(null, { url : browser.extension.getURL(UI_PAGE) });
   },
 
   handleResponse (response) {
@@ -177,8 +179,8 @@ const bookmarkchecker = {
 
   updateProgressUi (checkForFinish) {
     let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
-    if (progress < 0.01) {
-      progress = 0.01;
+    if (progress < MIN_PROGRESS) {
+      progress = MIN_PROGRESS;
     }
 
     browser.runtime.sendMessage({
