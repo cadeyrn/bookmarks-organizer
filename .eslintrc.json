@@ -145,7 +145,7 @@
     "no-undef-init": "error",
     "no-undef": ["error", { "typeof": true }],
     "no-undefined": "error",
-    //"no-unused-vars": "error",
+    "no-unused-vars": ["error", { "vars": "local" }],
     "no-use-before-define": "error",
     // Stylistic Issues
     "array-bracket-spacing": "error",
