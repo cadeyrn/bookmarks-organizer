@@ -281,7 +281,7 @@
     "promise/no-callback-in-promise": "off",
     "promise/avoid-new": "off",
     // Async/Await Rules
-    "promise/prefer-await-to-then": "off"
-    //"promise/prefer-await-to-callbacks": "error"
+    "promise/prefer-await-to-then": "off",
+    "promise/prefer-await-to-callbacks": "off"
   }
 }
