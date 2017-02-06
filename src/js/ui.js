@@ -284,19 +284,22 @@ const ui = {
       if (bookmark.status) {
         switch (bookmark.status) {
           case STATUS.REDIRECT:
-            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_redirect'));
+            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' +
+              browser.i18n.getMessage('bookmark_state_redirect'));
             elStatus.appendChild(elStatusText);
             li.classList.add('warning', 'redirect');
             break;
           case STATUS.NOT_FOUND:
           case STATUS.FETCH_ERROR:
-            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_not_found'));
+            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' +
+              browser.i18n.getMessage('bookmark_state_not_found'));
             elStatus.appendChild(elStatusText);
             li.classList.add('error');
             break;
           case STATUS.TIMEOUT:
           case STATUS.UNKNOWN_ERROR:
-            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' + browser.i18n.getMessage('bookmark_state_unknown'));
+            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' +
+              browser.i18n.getMessage('bookmark_state_unknown'));
             elStatus.appendChild(elStatusText);
             li.classList.add('unknown');
             break;
@@ -318,20 +321,25 @@ const ui = {
       elActionButtons.appendChild(elRemoveButton);
 
       if (bookmark.status && bookmark.status === STATUS.REDIRECT) {
-        const elNewUrlText = document.createTextNode(browser.i18n.getMessage('bookmark_new_url') + ': ' + bookmark.newUrl);
+        const elNewUrlText = document.createTextNode(browser.i18n.getMessage('bookmark_new_url') + ': ' +
+          bookmark.newUrl);
         const elNewUrl = template.querySelector('.newUrl');
         elNewUrl.appendChild(elNewUrlText);
         elNewUrl.setAttribute('href', bookmark.newUrl);
         elNewUrl.setAttribute('target', '_blank');
         elNewUrl.setAttribute('rel', 'noopener');
 
-        const elRepairRedirectButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_repair_redirect'));
+        const elRepairRedirectButtonText = document.createTextNode(
+          browser.i18n.getMessage('bookmark_action_repair_redirect')
+        );
         const elRepairRedirectButton = document.createElement('a');
         elRepairRedirectButton.appendChild(elRepairRedirectButtonText);
         elRepairRedirectButton.setAttribute('data-id', bookmark.id);
         elRepairRedirectButton.setAttribute('data-action', 'repair-redirect');
         elRepairRedirectButton.setAttribute('data-confirmation', 'true');
-        elRepairRedirectButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_repair_redirect'));
+        elRepairRedirectButton.setAttribute(
+          'data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_repair_redirect')
+        );
         elRepairRedirectButton.setAttribute('data-new-url', bookmark.newUrl);
         elRepairRedirectButton.setAttribute('href', '#');
         elActionButtons.appendChild(elRepairRedirectButton);

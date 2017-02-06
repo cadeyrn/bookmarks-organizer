@@ -175,7 +175,7 @@
     "lines-around-comment": "error",
     "lines-around-directive": "error",
     "max-depth": "error",
-    //"max-len": ["error", 120, 2],
+    "max-len": ["error", 120, 2],
     "max-lines": "off",
     "max-nested-callbacks": ["error", 2],
     "max-params": ["error", 4],
