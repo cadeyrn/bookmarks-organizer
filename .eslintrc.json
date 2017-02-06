@@ -279,9 +279,9 @@
     "promise/no-nesting": "off",
     "promise/no-promise-in-callback": "error",
     "promise/no-callback-in-promise": "off",
-    "promise/avoid-new": "off"
+    "promise/avoid-new": "off",
     // Async/Await Rules
-    //"promise/prefer-await-to-then": "error",
+    "promise/prefer-await-to-then": "off"
     //"promise/prefer-await-to-callbacks": "error"
   }
 }
