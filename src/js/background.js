@@ -69,6 +69,8 @@ const bookmarkchecker = {
       case 'empty-titles':
         bookmarkchecker.execute('empty-titles', 'all');
         break;
+      default:
+        // do nothing
     }
   },
 
@@ -288,6 +290,8 @@ const bookmarkchecker = {
       case 'empty-titles':
         bookmarkchecker.checkForEmptyTitles(bookmark);
         break;
+      default:
+        // do nothing
     }
 
     if (bookmark.children) {
@@ -333,6 +337,8 @@ const bookmarkchecker = {
                   bookmarkchecker.bookmarksResult.push(checkedBookmark);
                 }
                 break;
+              default:
+                // do nothing
             }
           }
 

@@ -65,7 +65,7 @@
     //"complexity": ["error", { "max": 20 }],
     "consistent-return": "error",
     "curly": "error",
-    //"default-case": "error",
+    "default-case": "error",
     "dot-location": ["error", "property"],
     "dot-notation": "error",
     "eqeqeq": "error",

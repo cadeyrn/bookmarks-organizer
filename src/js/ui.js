@@ -298,6 +298,8 @@ const ui = {
             elStatus.appendChild(elStatusText);
             li.classList.add('unknown');
             break;
+          default:
+            // do nothing
         }
       }
 
@@ -454,6 +456,8 @@ const ui = {
           ui.hideEmptyCategories();
           ui.repairRedirect(bookmarkId, e.target.getAttribute('data-new-url'));
           break;
+        default:
+          // do nothing
       }
     }
     else if (e.target.getAttribute('data-filter')) {
