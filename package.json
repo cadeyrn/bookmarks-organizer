@@ -25,6 +25,7 @@
     "web-ext": "1.8.0"
   },
   "scripts": {
+    "build": "cd src && web-ext build -a ../dist",
     "lint": "npm-run-all lint:*",
     "lint:js": "gulp lint-js",
     "lint:webext": "cd src && web-ext lint",
