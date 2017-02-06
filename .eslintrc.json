@@ -271,7 +271,7 @@
     "template-curly-spacing": "error",
     "yield-star-spacing": "error",
     // Promise Rules
-    //"promise/always-return": "error",
+    "promise/always-return": "off",
     "promise/no-return-wrap": "error",
     "promise/param-names": "error",
     //"promise/catch-or-return": "error",
