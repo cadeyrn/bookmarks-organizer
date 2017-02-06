@@ -278,8 +278,8 @@
     "promise/no-native": "off",
     "promise/no-nesting": "off",
     "promise/no-promise-in-callback": "error",
-    "promise/no-callback-in-promise": "off"
-    //"promise/avoid-new": "error",
+    "promise/no-callback-in-promise": "off",
+    "promise/avoid-new": "off"
     // Async/Await Rules
     //"promise/prefer-await-to-then": "error",
     //"promise/prefer-await-to-callbacks": "error"
