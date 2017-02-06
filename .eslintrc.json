@@ -180,7 +180,7 @@
     "max-nested-callbacks": ["error", 2],
     "max-params": ["error", 4],
     "max-statements-per-line": "error",
-    //"max-statements": "error",
+    "max-statements": "off",
     "multiline-ternary": ["error", "never"],
     "new-cap": "error",
     "new-parens": "error",
