@@ -23,6 +23,7 @@
     "gulp-eslint": "3.0.1"
   },
   "scripts": {
-    "lint": "gulp lint-js"
+    "lint-webext": "cd src && web-ext lint",
+    "lint-js": "gulp lint-js"
   }
 }
