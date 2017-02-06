@@ -157,7 +157,7 @@
     "eol-last": "error",
     "func-call-spacing": "error",
     "func-name-matching": "error",
-    //"func-names": "error",
+    "func-names": "off",
     "func-style": "error",
     "id-blacklist": "error",
     "id-length": ["error", { "max": 30, "exceptions": ["e", "i", "p"] }],
