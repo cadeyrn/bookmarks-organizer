@@ -12,6 +12,6 @@ const options = {
 
 document.addEventListener('DOMContentLoaded', options.load);
 
-elDebugMode.addEventListener('change', function () {
-  browser.storage.local.set({ debug_enabled : this.checked });
+elDebugMode.addEventListener('change', (e) => {
+  browser.storage.local.set({ debug_enabled : e.target.checked });
 });
