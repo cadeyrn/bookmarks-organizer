@@ -27,7 +27,7 @@ const i18n = {
     const attributes = ['title', 'placeholder'];
     for (const attribute of attributes) {
       const nodes = i18n.findWithXPath('//*/attribute::' + attribute + '[contains(., "__MSG_")]');
-      const AttributesSnapshotLength = textNodes.snapshotLength;
+      const AttributesSnapshotLength = nodes.snapshotLength;
 
       for (let i = 0; i < AttributesSnapshotLength; i++) {
         const node = nodes.snapshotItem(i);
