@@ -22,7 +22,7 @@
     "gulp": "3.9.1",
     "gulp-eslint": "3.0.1",
     "npm-run-all": "4.0.1",
-    "web-ext": "1.8.0"
+    "web-ext": "1.8.1"
   },
   "scripts": {
     "build": "cd src && web-ext build -a ../dist",
