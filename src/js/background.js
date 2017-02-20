@@ -190,7 +190,7 @@ const bookmarkchecker = {
       unknown_bookmarks : bookmarkchecker.unknownBookmarks,
       bookmarks_errors : bookmarkchecker.bookmarkErrors,
       bookmarks_warnings : bookmarkchecker.bookmarkWarnings,
-      progress
+      progress : progress
     });
 
     if (checkForFinish && bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
@@ -198,7 +198,7 @@ const bookmarkchecker = {
 
       browser.runtime.sendMessage({
         message : 'finished',
-        bookmarks,
+        bookmarks : bookmarks,
         debug : bookmarkchecker.debug
       });
 
