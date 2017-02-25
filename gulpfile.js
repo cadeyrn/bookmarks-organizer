@@ -1,8 +1,8 @@
 'use strict';
 
 const gulp = require('gulp');
-const eslint = require('gulp-eslint');
+const gulpEslint = require('gulp-eslint');
 
 gulp.task('lint-js', () => gulp.src(['**/*.js', '!node_modules/**'])
-  .pipe(eslint({ configFile : '.eslintrc.json' }))
-  .pipe(eslint.format()));
+  .pipe(gulpEslint({ configFile : '.eslintrc.json' }))
+  .pipe(gulpEslint.format()));

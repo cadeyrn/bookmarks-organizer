@@ -1,5 +1,6 @@
 {
   "plugins": [
+    "sort-requires",
     "standard",
     "promise"
   ],
@@ -270,7 +271,7 @@
     "symbol-description": "error",
     "template-curly-spacing": "error",
     "yield-star-spacing": "error",
-    // Promise Rules
+    // Plugin: promise
     "promise/always-return": "off",
     "promise/no-return-wrap": "error",
     "promise/param-names": "error",
@@ -280,8 +281,9 @@
     "promise/no-promise-in-callback": "error",
     "promise/no-callback-in-promise": "off",
     "promise/avoid-new": "off",
-    // Async/Await Rules
     "promise/prefer-await-to-then": "off",
-    "promise/prefer-await-to-callbacks": "off"
+    "promise/prefer-await-to-callbacks": "off",
+    // Plugin: sort-requires
+    "sort-requires/sort-requires": "error"
   }
 }
