@@ -506,10 +506,6 @@ const bookmarkchecker = {
 };
 
 browser.browserAction.onClicked.addListener(bookmarkchecker.openUserInterface);
+browser.omnibox.onInputChanged.addListener(bookmarkchecker.showOmniboxSuggestions);
+browser.omnibox.onInputEntered.addListener(bookmarkchecker.callOmniboxAction);
 browser.runtime.onMessage.addListener(bookmarkchecker.handleResponse);
-
-// only available in Firefox 52+
-if (typeof browser.omnibox !== 'undefined') {
-  browser.omnibox.onInputChanged.addListener(bookmarkchecker.showOmniboxSuggestions);
-  browser.omnibox.onInputEntered.addListener(bookmarkchecker.callOmniboxAction);
-}
