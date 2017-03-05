@@ -1,5 +1,6 @@
 {
   "plugins": [
+    "compat",
     "promise",
     "sort-requires",
     "standard"
@@ -31,6 +32,7 @@
     "comma-dangle": "error",
     "comma-spacing": "error",
     "comma-style": "error",
+    "compat/compat": "error",
     "complexity": "error",
     "computed-property-spacing": "error",
     "consistent-return": "error",
