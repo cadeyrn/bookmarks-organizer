@@ -91,6 +91,7 @@
     "media-query-list-comma-newline-before": "never-multi-line",
     "media-query-list-comma-space-after": "always-single-line",
     "media-query-list-comma-space-before": "never-single-line",
+    "no-descending-specificity": null,
     "no-duplicate-selectors": true,
     "no-empty-source": true,
     "no-eol-whitespace": true,
