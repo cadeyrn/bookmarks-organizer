@@ -116,15 +116,15 @@ footer a {
 }
 
 #results .error .status {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 #results .warning .status {
-  color: orange;
+  color: rgb(255, 165, 0);
 }
 
 #results .unknown .status {
-  color: dodgerblue;
+  color: rgb(30, 144, 255);
 }
 
 #debug-output {
