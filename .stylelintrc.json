@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "stylelint-csstree-validator"
+  ],
   "rules": {
     "at-rule-blacklist": null,
     "at-rule-empty-line-before": "always",
@@ -28,6 +31,7 @@
     "comment-no-empty": true,
     "comment-whitespace-inside": "always",
     "comment-word-blacklist": ["todo", "fixme", "xxx"],
+    "csstree/validator": true,
     "custom-media-pattern": null,
     "custom-property-empty-line-before": "never",
     "custom-property-pattern": null,

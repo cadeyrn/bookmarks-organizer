@@ -25,6 +25,7 @@
     "gulp-stylelint": "3.9.0",
     "npm-run-all": "4.0.1",
     "stylelint": "7.9.0",
+    "stylelint-csstree-validator": "1.1.1",
     "web-ext": "1.8.1"
   },
   "scripts": {
