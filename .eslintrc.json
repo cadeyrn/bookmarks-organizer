@@ -3,7 +3,8 @@
     "compat",
     "promise",
     "sort-requires",
-    "standard"
+    "standard",
+    "xss"
   ],
   "parserOptions": {
     "ecmaVersion": 6
@@ -279,6 +280,8 @@
     "vars-on-top": "error",
     "wrap-iife": "error",
     "wrap-regex": "error",
+    "xss/no-mixed-html": "error",
+    "xss/no-location-href-assign": "error",
     "yield-star-spacing": "error",
     "yoda": "error"
   }
