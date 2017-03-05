@@ -166,7 +166,7 @@ footer a {
 }
 
 .close:hover, .close:focus {
-  color: rgb(215, 215, 215) !important;
+  color: rgb(215, 215, 215);
 }
 
 .modal-header {

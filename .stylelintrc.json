@@ -46,6 +46,7 @@
     "declaration-colon-space-after": "always-single-line",
     "declaration-colon-space-before": "never",
     "declaration-empty-line-before": "never",
+    "declaration-no-important": true,
     "declaration-property-unit-blacklist": null,
     "declaration-property-unit-whitelist": null,
     "declaration-property-value-blacklist": null,
