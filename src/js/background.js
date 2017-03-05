@@ -103,7 +103,7 @@ const bookmarkchecker = {
     browser.tabs.update(null, { url : browser.extension.getURL(UI_PAGE) });
   },
 
-  handleResponse (response) {
+  async handleResponse (response) {
     if (response.message === 'execute') {
       if (!bookmarkchecker.inProgress) {
         bookmarkchecker.countBookmarks();
@@ -111,32 +111,29 @@ const bookmarkchecker = {
       }
     }
     else if (response.message === 'edit') {
-      const p = browser.bookmarks.update(response.bookmarkId, {
+      await browser.bookmarks.update(response.bookmarkId, {
         title : response.title,
         url : response.url
       });
 
-      p.then(() => {
-        if (response.mode === 'duplicate') {
-          browser.runtime.sendMessage({
-            message : 'update-listitem',
-            bookmarkId : response.bookmarkId,
-            title : response.title,
-            path : bookmarkchecker.additionalData[response.bookmarkId].path,
-            mode : response.mode
-          });
-        }
-        else {
-          browser.bookmarks.get(response.bookmarkId).then((bookmarks) => {
-            browser.runtime.sendMessage({
-              message : 'update-listitem',
-              bookmarkId : response.bookmarkId,
-              bookmark : bookmarks[0],
-              mode : response.mode
-            });
-          });
-        }
-      });
+      if (response.mode === 'duplicate') {
+        browser.runtime.sendMessage({
+          message : 'update-listitem',
+          bookmarkId : response.bookmarkId,
+          title : response.title,
+          path : bookmarkchecker.additionalData[response.bookmarkId].path,
+          mode : response.mode
+        });
+      }
+      else {
+        const bookmarks = await browser.bookmarks.get(response.bookmarkId);
+        browser.runtime.sendMessage({
+          message : 'update-listitem',
+          bookmarkId : response.bookmarkId,
+          bookmark : bookmarks[0],
+          mode : response.mode
+        });
+      }
     }
     else if (response.message === 'remove') {
       browser.bookmarks.remove(response.bookmarkId);
@@ -146,17 +143,16 @@ const bookmarkchecker = {
     }
   },
 
-  countBookmarks () {
+  async countBookmarks () {
     bookmarkchecker.inProgress = true;
     bookmarkchecker.totalBookmarks = 0;
 
-    browser.bookmarks.getTree().then((bookmarks) => {
-      bookmarkchecker.countBookmarksRecursive(bookmarks[0]);
+    const bookmarks = await browser.bookmarks.getTree();
+    bookmarkchecker.countBookmarksRecursive(bookmarks[0]);
 
-      browser.runtime.sendMessage({
-        message : 'total-bookmarks',
-        total_bookmarks : bookmarkchecker.totalBookmarks
-      });
+    browser.runtime.sendMessage({
+      message : 'total-bookmarks',
+      total_bookmarks : bookmarkchecker.totalBookmarks
     });
   },
 
@@ -228,7 +224,7 @@ const bookmarkchecker = {
     return map;
   },
 
-  execute (mode, type) {
+  async execute (mode, type) {
     bookmarkchecker.internalCounter = 0;
     bookmarkchecker.checkedBookmarks = 0;
     bookmarkchecker.bookmarkErrors = 0;
@@ -242,43 +238,41 @@ const bookmarkchecker = {
       bookmarkchecker.debug_enabled = options.debug_enabled;
     });
 
-    const p = browser.bookmarks.getTree().then((bookmarks) => {
+    await browser.bookmarks.getTree().then((bookmarks) => {
       bookmarkchecker.getAdditionalData(bookmarks[0], [], bookmarkchecker.additionalData);
       bookmarkchecker.checkBookmarks(bookmarks[0], mode, type);
     });
 
     if (mode === 'duplicates') {
-      p.then(() => {
-        const duplicates = { };
+      const duplicates = { };
 
-        bookmarkchecker.bookmarksResult.forEach((bookmark) => {
-          if (bookmark.url) {
-            if (duplicates[bookmark.url]) {
-              duplicates[bookmark.url].push(bookmark);
-            }
-            else {
-              duplicates[bookmark.url] = [bookmark];
-            }
-          }
-        });
-
-        Object.keys(duplicates).forEach((key) => {
-          if (duplicates[key].length < 2) {
-            delete duplicates[key];
+      bookmarkchecker.bookmarksResult.forEach((bookmark) => {
+        if (bookmark.url) {
+          if (duplicates[bookmark.url]) {
+            duplicates[bookmark.url].push(bookmark);
           }
           else {
-            bookmarkchecker.bookmarkWarnings++;
+            duplicates[bookmark.url] = [bookmark];
           }
-        });
-
-        browser.runtime.sendMessage({
-          message : 'show-duplicates-ui',
-          bookmarks : duplicates,
-          warnings : bookmarkchecker.bookmarkWarnings
-        });
-
-        bookmarkchecker.inProgress = false;
+        }
       });
+
+      Object.keys(duplicates).forEach((key) => {
+        if (duplicates[key].length < 2) {
+          delete duplicates[key];
+        }
+        else {
+          bookmarkchecker.bookmarkWarnings++;
+        }
+      });
+
+      browser.runtime.sendMessage({
+        message : 'show-duplicates-ui',
+        bookmarks : duplicates,
+        warnings : bookmarkchecker.bookmarkWarnings
+      });
+
+      bookmarkchecker.inProgress = false;
     }
   },
 
@@ -357,15 +351,15 @@ const bookmarkchecker = {
     }
   },
 
-  checkResponse (bookmark, callback) {
+  async checkResponse (bookmark, callback) {
     bookmark.attempts++;
 
-    const p = fetch(bookmark.url, {
-      credentials : 'include',
-      cache : 'no-store'
-    });
+    try {
+      const response = await fetch(bookmark.url, {
+        credentials : 'include',
+        cache : 'no-store'
+      });
 
-    p.then((response) => {
       if (response.redirected) {
         // redirect to identical url. That's weird but there are cases in the real world…
         if (bookmark.url === response.url) {
@@ -401,9 +395,8 @@ const bookmarkchecker = {
       }
 
       callback(bookmark);
-    });
-
-    p.catch((error) => {
+    }
+    catch (error) {
       bookmark.status = STATUS.FETCH_ERROR;
 
       if (bookmarkchecker.debug_enabled) {
@@ -426,7 +419,7 @@ const bookmarkchecker = {
       else {
         callback(bookmark);
       }
-    });
+    }
   },
 
   checkForAllBookmarks (bookmark) {

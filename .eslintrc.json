@@ -6,7 +6,7 @@
     "xss"
   ],
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 2017
   },
   "env": {
     "browser": true,
@@ -227,7 +227,7 @@
     "promise/no-return-wrap": "error",
     "promise/param-names": "error",
     "promise/prefer-await-to-callbacks": "off",
-    "promise/prefer-await-to-then": "off",
+    "promise/prefer-await-to-then": "error",
     "quote-props": ["error", "as-needed"],
     "quotes": ["error", "single"],
     "radix": ["error", "as-needed"],
