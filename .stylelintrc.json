@@ -105,6 +105,7 @@
     "property-blacklist": null,
     "property-case": "lower",
     "property-no-unknown": true,
+    "property-no-vendor-prefix": true,
     "property-whitelist": null,
     "selector-attribute-brackets-space-inside": "always",
     "selector-attribute-operator-blacklist": null,
