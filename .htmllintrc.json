@@ -31,7 +31,7 @@
   "focusable-tabindex-style": true,
   "head-req-title": true,
   "head-valid-content-model": true,
-  "href-style": "relative",
+  "href-style": false,
   "html-req-lang": false,
   "html-valid-content-model": true,
   "id-class-ignore-regex": false,
