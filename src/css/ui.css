@@ -77,7 +77,7 @@ footer a {
   color: rgb(33, 37, 42);
 }
 
-.clearfix:after {
+.clearfix::after {
   content: '';
   display: table-cell;
   clear: both;
