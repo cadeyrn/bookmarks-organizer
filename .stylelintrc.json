@@ -99,6 +99,7 @@
     "no-invalid-double-slash-comments": true,
     "no-missing-end-of-source-newline": true,
     "no-unknown-animations": true,
+    "number-leading-zero": "never",
     "number-max-precision": 2,
     "number-no-trailing-zeros": true,
     "property-blacklist": null,
