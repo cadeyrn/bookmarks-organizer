@@ -7,7 +7,6 @@ const UI_PAGE = 'html/ui.html';
 
 const bookmarkchecker = {
   LIMIT : 0,
-  TIMEOUT : 0,
   ATTEMPTS : 2,
   debug_enabled : false,
   inProgress : false,
@@ -334,7 +333,6 @@ const bookmarkchecker = {
                   bookmarkchecker.bookmarksResult.push(checkedBookmark);
                 }
                 break;
-              case STATUS.TIMEOUT:
               case STATUS.UNKNOWN_ERROR:
                 if (type === 'all' || type === 'unknowns') {
                   bookmarkchecker.unknownBookmarks++;
@@ -362,16 +360,10 @@ const bookmarkchecker = {
   checkResponse (bookmark, callback) {
     bookmark.attempts++;
 
-    const p = Promise.race([
-      fetch(bookmark.url, {
-        credentials : 'include',
-        cache : 'no-store'
-      }), new Promise((resolve, reject) => {
-        if (bookmarkchecker.TIMEOUT > 0) {
-          setTimeout(() => reject(new Error('timeout')), bookmarkchecker.TIMEOUT);
-        }
-      })
-    ]);
+    const p = fetch(bookmark.url, {
+      credentials : 'include',
+      cache : 'no-store'
+    });
 
     p.then((response) => {
       if (response.redirected) {
@@ -412,12 +404,7 @@ const bookmarkchecker = {
     });
 
     p.catch((error) => {
-      if (error.message === 'timeout') {
-        bookmark.status = STATUS.TIMEOUT;
-      }
-      else {
-        bookmark.status = STATUS.FETCH_ERROR;
-      }
+      bookmark.status = STATUS.FETCH_ERROR;
 
       if (bookmarkchecker.debug_enabled) {
         bookmarkchecker.debug.push({
