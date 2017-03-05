@@ -23,7 +23,7 @@
     "gulp": "3.9.1",
     "gulp-eslint": "3.0.1",
     "gulp-stylelint": "3.9.0",
-    "npm-run-all": "4.0.1",
+    "npm-run-all": "4.0.2",
     "stylelint": "7.9.0",
     "stylelint-csstree-validator": "1.1.1",
     "stylelint-order": "0.3.0",
