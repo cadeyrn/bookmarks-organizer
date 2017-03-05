@@ -18,7 +18,7 @@
   },
   "private": true,
   "devDependencies": {
-    "eslint": "3.16.0",
+    "eslint": "3.17.0",
     "eslint-plugin-sort-requires": "2.1.0",
     "gulp": "3.9.1",
     "gulp-eslint": "3.0.1",
