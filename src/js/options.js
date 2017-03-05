@@ -1,6 +1,6 @@
 'use strict';
 
-const elDebugMode = document.getElementById('debug_mode');
+const elDebugMode = document.getElementById('debug-mode');
 
 const options = {
   load () {

@@ -14,27 +14,27 @@
   <main>
     <section>
       <div id='counters'>
-        <span id='checkedBookmarks'>0</span> überprüft von <span id='totalBookmarks'>0</span> Lesezeichen
-        (<span id='bookmarksErrors'>0</span> Fehler, <span id='bookmarksWarnings'>0</span> Warnungen,
-        <span id='unknownBookmarks'>0</span> unbekannt).
+        <span id='checked-bookmarks'>0</span> überprüft von <span id='total-bookmarks'>0</span> Lesezeichen
+        (<span id='bookmarks-errors'>0</span> Fehler, <span id='bookmarks-warnings'>0</span> Warnungen,
+        <span id='unknown-bookmarks'>0</span> unbekannt).
       </div>
       <div id='message'>__MSG_intro_check__</div>
       <div id='result-wrapper' class='hidden'>
         <input type='search' id='search' placeholder='__MSG_search_label__' />
         <div id='filterbar'>
           <div>
-            <input type='checkbox' id='filter_errors' class='filter' data-filter='error' checked />
-            <label for='filter_errors'>__MSG_filter_errors__</label>
-            <input type='checkbox' id='filter_warnings' class='filter' data-filter='warning' checked />
-            <label for='filter_warnings'>__MSG_filter_warnings__</label>
-            <input type='checkbox' id='filter_unknowns' class='filter' data-filter='unknown' checked />
-            <label for='filter_unknowns'>__MSG_filter_unknowns__</label>
+            <input type='checkbox' id='filter-errors' class='filter' data-filter='error' checked />
+            <label for='filter-errors'>__MSG_filter_errors__</label>
+            <input type='checkbox' id='filter-warnings' class='filter' data-filter='warning' checked />
+            <label for='filter-warnings'>__MSG_filter_warnings__</label>
+            <input type='checkbox' id='filter-unknowns' class='filter' data-filter='unknown' checked />
+            <label for='filter-unknowns'>__MSG_filter_unknowns__</label>
           </div>
         </div>
         <div id='results'></div>
         <div id='mass-actions' class='hidden'>
-          <a href='#' id='repairAllRedirects'>__MSG_action_repair_all_redirects__</a>
-          <a href='#' id='removeAllBookmarksWithErrors'>__MSG_action_remove_all_bookmarks_with_errors__</a>
+          <a href='#' id='repair-all-redirects'>__MSG_action_repair_all_redirects__</a>
+          <a href='#' id='remove-all-bookmarks-with-errors'>__MSG_action_remove_all_bookmarks_with_errors__</a>
         </div>
         <code id='debug-output' class='hidden'></code>
       </div>
@@ -45,7 +45,7 @@
           <option value='duplicates'>__MSG_mode_duplicates__</option>
           <option value='empty-titles'>__MSG_mode_empty_titles__</option>
         </select>
-        <button type='submit' id='submit_button'>__MSG_button_check_bookmarks__</button>
+        <button type='submit' id='submit-button'>__MSG_button_check_bookmarks__</button>
       </form>
     </section>
   </main>
@@ -58,7 +58,7 @@
     <div class='modal-content'>
       <div class='modal-header'>
         <div class='clearfix'>
-          <span id='close_button' class='close' title='__MSG_close_overlay__'>&times;</span>
+          <span id='close-button' class='close' title='__MSG_close_overlay__'>&times;</span>
           <div>__MSG_edit_bookmark__</div>
         </div>
       </div>
@@ -72,7 +72,7 @@
             <div><label for='url'>__MSG_bookmark_url__:</label></div>
             <div><input type='text' name='url' id='url' /></div>
           </div>
-          <button type='submit' id='submit_changes'>__MSG_save_boolmark__</button>
+          <button type='submit' id='submit-changes'>__MSG_save_boolmark__</button>
         </form>
       </div>
       <div class='modal-footer'></div>

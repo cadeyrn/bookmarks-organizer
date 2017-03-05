@@ -6,20 +6,20 @@ const ESC_KEY = 27;
 const MIN_PROGRESS = 0.01;
 
 const elBody = document.querySelector('body');
-const elButton = document.getElementById('submit_button');
+const elButton = document.getElementById('submit-button');
 const elMode = document.getElementById('mode');
 const elResultWrapper = document.getElementById('result-wrapper');
 const elMessage = document.getElementById('message');
 const elResults = document.getElementById('results');
-const elTotalBookmarks = document.getElementById('totalBookmarks');
-const elCheckedBookmarks = document.getElementById('checkedBookmarks');
-const elBookmarksErrors = document.getElementById('bookmarksErrors');
-const elBookmarksWarnings = document.getElementById('bookmarksWarnings');
-const elUnknownBookmarks = document.getElementById('unknownBookmarks');
+const elTotalBookmarks = document.getElementById('total-bookmarks');
+const elCheckedBookmarks = document.getElementById('checked-bookmarks');
+const elBookmarksErrors = document.getElementById('bookmarks-errors');
+const elBookmarksWarnings = document.getElementById('bookmarks-warnings');
+const elUnknownBookmarks = document.getElementById('unknown-bookmarks');
 const elProgress = document.getElementById('progress');
 const elMassActions = document.getElementById('mass-actions');
-const elRepairAllRedirects = document.getElementById('repairAllRedirects');
-const elRemoveAllBookmarksWithErrors = document.getElementById('removeAllBookmarksWithErrors');
+const elRepairAllRedirects = document.getElementById('repair-all-redirects');
+const elRemoveAllBookmarksWithErrors = document.getElementById('remove-all-bookmarks-with-errors');
 const elFilterBar = document.getElementById('filterbar');
 const elSearch = document.getElementById('search');
 const elDebugOutput = document.getElementById('debug-output');
@@ -382,7 +382,7 @@ const ui = {
     const modal = document.getElementById('modal-dialog');
     modal.classList.remove('hidden');
 
-    const closeButton = document.getElementById('close_button');
+    const closeButton = document.getElementById('close-button');
     closeButton.onclick = function () {
       modal.classList.add('hidden');
     };
@@ -405,7 +405,7 @@ const ui = {
     const elUrl = document.getElementById('url');
     elUrl.value = url;
 
-    const submitButton = document.getElementById('submit_changes');
+    const submitButton = document.getElementById('submit-changes');
     submitButton.onclick = function (e) {
       e.preventDefault();
 
