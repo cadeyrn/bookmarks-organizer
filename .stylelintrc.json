@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "stylelint-csstree-validator"
+    "stylelint-csstree-validator",
+    "stylelint-order"
   ],
   "rules": {
     "at-rule-blacklist": null,
@@ -106,6 +107,36 @@
     "number-leading-zero": "never",
     "number-max-precision": 2,
     "number-no-trailing-zeros": true,
+    "order/declaration-block-properties-specified-order": [
+      "appearance",
+      "display",
+      "position",
+      "top",
+      "bottom",
+      "left",
+      "right",
+      "z-index",
+      "float",
+      "clear",
+      "box-sizing",
+      "margin",
+      "padding",
+      "width",
+      "height",
+      "line-height",
+      "font",
+      "border",
+      "background",
+      "color",
+      "list-style",
+      "vertical-align",
+      "text-align",
+      "text-decoration",
+      "overflow",
+      "cursor",
+      "animation",
+      "transition"
+    ],
     "property-blacklist": null,
     "property-case": "lower",
     "property-no-unknown": true,

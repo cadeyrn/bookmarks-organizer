@@ -26,8 +26,8 @@ header {
   padding: 0 20px;
   height: 64px;
   line-height: 64px;
-  background: rgb(239, 239, 239);
   border-bottom: 1px solid rgba(150, 152, 152, .25);
+  background: rgb(239, 239, 239);
 }
 
 header a {
@@ -129,19 +129,19 @@ footer a {
 
 #debug-output {
   height: 150px;
-  background: rgb(237, 237, 237);
   border: 1px dotted rgb(204, 204, 204);
+  background: rgb(237, 237, 237);
 }
 
 .modal-dialog {
   position: fixed;
-  z-index: 10;
   top: 0;
   left: 0;
+  z-index: 10;
   width: 100%;
   height: 100%;
-  overflow: auto;
   background-color: rgba(0, 0, 0, .75);
+  overflow: auto;
 }
 
 .modal-content {
