@@ -144,6 +144,7 @@
     "selector-type-case": "lower",
     "selector-type-no-unknown": true,
     "selector-max-empty-lines": 0,
+    "shorthand-property-no-redundant-values": true,
     "string-no-newline": true,
     "string-quotes": "single",
     "time-min-milliseconds": 100,
