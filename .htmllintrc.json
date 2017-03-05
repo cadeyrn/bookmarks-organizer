@@ -13,7 +13,7 @@
     "width"
   ],
   "attr-name-ignore-regex": false,
-  "attr-name-style": "lowercase",
+  "attr-name-style": "dash",
   "attr-new-line": false,
   "attr-no-dup": true,
   "attr-no-unsafe-char": true,
