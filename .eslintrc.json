@@ -3,7 +3,6 @@
     "compat",
     "promise",
     "sort-requires",
-    "standard",
     "xss"
   ],
   "parserOptions": {
