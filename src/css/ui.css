@@ -188,10 +188,10 @@ footer a {
 @keyframes animateFromTop {
   from {
     top: -300px;
-    opacity: 0
+    opacity: 0;
   }
   to {
     top: 50%;
-    opacity: 1
+    opacity: 1;
   }
 }
