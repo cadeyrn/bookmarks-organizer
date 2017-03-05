@@ -107,6 +107,7 @@
     "property-no-unknown": true,
     "property-no-vendor-prefix": true,
     "property-whitelist": null,
+    "rule-empty-line-before": ["always", { "except" : ["first-nested"] }],
     "selector-attribute-brackets-space-inside": "always",
     "selector-attribute-operator-blacklist": null,
     "selector-attribute-operator-space-after": "never",

@@ -190,6 +190,7 @@ footer a {
     top: -300px;
     opacity: 0;
   }
+
   to {
     top: 50%;
     opacity: 1;
