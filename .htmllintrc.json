@@ -32,7 +32,7 @@
   "head-req-title": true,
   "head-valid-content-model": true,
   "href-style": "relative",
-  "html-req-lang": true,
+  "html-req-lang": false,
   "html-valid-content-model": true,
   "id-class-ignore-regex": false,
   "id-class-no-ad": true,

@@ -1,6 +1,15 @@
 'use strict';
 
 const i18n = {
+  init () {
+    i18n.translate();
+    i18n.setLangAttribute();
+  },
+
+  setLangAttribute () {
+    document.querySelector('html').setAttribute('lang', browser.i18n.getUILanguage().substring(0, 2));
+  },
+
   findWithXPath (path) {
     return document.evaluate(path, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
   },
@@ -37,4 +46,4 @@ const i18n = {
   }
 };
 
-window.addEventListener('DOMContentLoaded', i18n.translate);
+window.addEventListener('DOMContentLoaded', i18n.init);
