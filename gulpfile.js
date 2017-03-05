@@ -2,7 +2,7 @@
 
 const gulp = require('gulp');
 const gulpEslint = require('gulp-eslint');
-const gulpHtmllint = require('gulp-html-lint')
+const gulpHtmllint = require('gulp-html-lint');
 const gulpStylelint = require('gulp-stylelint');
 
 gulp.task('lint-html', () => gulp.src(['**/*.html', '!node_modules/**'])
