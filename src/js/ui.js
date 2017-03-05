@@ -326,7 +326,7 @@ const ui = {
       if (bookmark.status && bookmark.status === STATUS.REDIRECT) {
         const elNewUrlText = document.createTextNode(browser.i18n.getMessage('bookmark_new_url') + ': ' +
           bookmark.newUrl);
-        const elNewUrl = template.querySelector('.newUrl');
+        const elNewUrl = template.querySelector('.new-url');
         elNewUrl.appendChild(elNewUrlText);
         elNewUrl.setAttribute('href', bookmark.newUrl);
         elNewUrl.setAttribute('target', '_blank');
@@ -492,7 +492,7 @@ const ui = {
     for (const bookmark of bookmarks) {
       if (!bookmark.classList.contains('hidden')) {
         bookmark.remove();
-        ui.repairRedirect(bookmark.id, bookmark.getElementsByClassName('newUrl')[0].getAttribute('href'));
+        ui.repairRedirect(bookmark.id, bookmark.getElementsByClassName('new-url')[0].getAttribute('href'));
       }
     }
 
