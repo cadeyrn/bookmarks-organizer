@@ -298,7 +298,7 @@ const bookmarkchecker = {
     }
   },
 
-  checkForBrokenBookmarks (bookmark, type) {
+  async checkForBrokenBookmarks (bookmark, type) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
         return;
@@ -309,37 +309,36 @@ const bookmarkchecker = {
       if (bookmark.url.match(/^https?:\/\//)) {
         bookmark.attempts = 0;
 
-        bookmarkchecker.checkResponse(bookmark, (checkedBookmark) => {
-          bookmarkchecker.checkedBookmarks++;
+        const checkedBookmark = await bookmarkchecker.checkResponse(bookmark);
+        bookmarkchecker.checkedBookmarks++;
 
-          if (checkedBookmark.status !== STATUS.OK) {
-            switch (checkedBookmark.status) {
-              case STATUS.REDIRECT:
-                if (type === 'all' || type === 'warnings') {
-                  bookmarkchecker.bookmarkWarnings++;
-                  bookmarkchecker.bookmarksResult.push(checkedBookmark);
-                }
-                break;
-              case STATUS.NOT_FOUND:
-              case STATUS.FETCH_ERROR:
-                if (type === 'all' || type === 'errors') {
-                  bookmarkchecker.bookmarkErrors++;
-                  bookmarkchecker.bookmarksResult.push(checkedBookmark);
-                }
-                break;
-              case STATUS.UNKNOWN_ERROR:
-                if (type === 'all' || type === 'unknowns') {
-                  bookmarkchecker.unknownBookmarks++;
-                  bookmarkchecker.bookmarksResult.push(checkedBookmark);
-                }
-                break;
-              default:
-                // do nothing
-            }
+        if (checkedBookmark.status !== STATUS.OK) {
+          switch (checkedBookmark.status) {
+            case STATUS.REDIRECT:
+              if (type === 'all' || type === 'warnings') {
+                bookmarkchecker.bookmarkWarnings++;
+                bookmarkchecker.bookmarksResult.push(checkedBookmark);
+              }
+              break;
+            case STATUS.NOT_FOUND:
+            case STATUS.FETCH_ERROR:
+              if (type === 'all' || type === 'errors') {
+                bookmarkchecker.bookmarkErrors++;
+                bookmarkchecker.bookmarksResult.push(checkedBookmark);
+              }
+              break;
+            case STATUS.UNKNOWN_ERROR:
+              if (type === 'all' || type === 'unknowns') {
+                bookmarkchecker.unknownBookmarks++;
+                bookmarkchecker.bookmarksResult.push(checkedBookmark);
+              }
+              break;
+            default:
+              // do nothing
           }
+        }
 
-          bookmarkchecker.updateProgressUi(true);
-        });
+        bookmarkchecker.updateProgressUi(true);
       }
       else {
         bookmarkchecker.checkedBookmarks++;
@@ -351,7 +350,7 @@ const bookmarkchecker = {
     }
   },
 
-  async checkResponse (bookmark, callback) {
+  async checkResponse (bookmark) {
     bookmark.attempts++;
 
     try {
@@ -393,8 +392,6 @@ const bookmarkchecker = {
           }
         });
       }
-
-      callback(bookmark);
     }
     catch (error) {
       bookmark.status = STATUS.FETCH_ERROR;
@@ -414,12 +411,11 @@ const bookmarkchecker = {
       }
 
       if (bookmark.attempts < bookmarkchecker.ATTEMPTS) {
-        bookmarkchecker.checkResponse(bookmark, callback);
-      }
-      else {
-        callback(bookmark);
+        await bookmarkchecker.checkResponse(bookmark);
       }
     }
+
+    return bookmark;
   },
 
   checkForAllBookmarks (bookmark) {
