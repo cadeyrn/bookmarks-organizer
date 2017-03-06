@@ -238,10 +238,9 @@ const bookmarkchecker = {
       bookmarkchecker.debug_enabled = options.debug_enabled;
     });
 
-    await browser.bookmarks.getTree().then((bookmarks) => {
-      bookmarkchecker.getAdditionalData(bookmarks[0], [], bookmarkchecker.additionalData);
-      bookmarkchecker.checkBookmarks(bookmarks[0], mode, type);
-    });
+    const bookmarks = await browser.bookmarks.getTree();
+    bookmarkchecker.getAdditionalData(bookmarks[0], [], bookmarkchecker.additionalData);
+    bookmarkchecker.checkBookmarks(bookmarks[0], mode, type);
 
     if (mode === 'duplicates') {
       const duplicates = { };

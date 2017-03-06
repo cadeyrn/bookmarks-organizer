@@ -217,7 +217,7 @@
     "prefer-rest-params": "error",
     "prefer-spread": "error",
     "prefer-template": "off",
-    "promise/always-return": "off",
+    "promise/always-return": "error",
     "promise/avoid-new": "error",
     "promise/catch-or-return": "error",
     "promise/no-callback-in-promise": "error",
