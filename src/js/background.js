@@ -312,30 +312,28 @@ const bookmarkchecker = {
         const checkedBookmark = await bookmarkchecker.checkResponse(bookmark);
         bookmarkchecker.checkedBookmarks++;
 
-        if (checkedBookmark.status !== STATUS.OK) {
-          switch (checkedBookmark.status) {
-            case STATUS.REDIRECT:
-              if (type === 'all' || type === 'warnings') {
-                bookmarkchecker.bookmarkWarnings++;
-                bookmarkchecker.bookmarksResult.push(checkedBookmark);
-              }
-              break;
-            case STATUS.NOT_FOUND:
-            case STATUS.FETCH_ERROR:
-              if (type === 'all' || type === 'errors') {
-                bookmarkchecker.bookmarkErrors++;
-                bookmarkchecker.bookmarksResult.push(checkedBookmark);
-              }
-              break;
-            case STATUS.UNKNOWN_ERROR:
-              if (type === 'all' || type === 'unknowns') {
-                bookmarkchecker.unknownBookmarks++;
-                bookmarkchecker.bookmarksResult.push(checkedBookmark);
-              }
-              break;
-            default:
-              // do nothing
-          }
+        switch (checkedBookmark.status) {
+          case STATUS.REDIRECT:
+            if (type === 'all' || type === 'warnings') {
+              bookmarkchecker.bookmarkWarnings++;
+              bookmarkchecker.bookmarksResult.push(checkedBookmark);
+            }
+            break;
+          case STATUS.NOT_FOUND:
+          case STATUS.FETCH_ERROR:
+            if (type === 'all' || type === 'errors') {
+              bookmarkchecker.bookmarkErrors++;
+              bookmarkchecker.bookmarksResult.push(checkedBookmark);
+            }
+            break;
+          case STATUS.UNKNOWN_ERROR:
+            if (type === 'all' || type === 'unknowns') {
+              bookmarkchecker.unknownBookmarks++;
+              bookmarkchecker.bookmarksResult.push(checkedBookmark);
+            }
+            break;
+          default:
+            // do nothing
         }
 
         bookmarkchecker.updateProgressUi(true);
