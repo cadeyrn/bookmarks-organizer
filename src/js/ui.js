@@ -23,6 +23,8 @@ const elRemoveAllBookmarksWithErrors = document.getElementById('remove-all-bookm
 const elFilterBar = document.getElementById('filterbar');
 const elSearch = document.getElementById('search');
 const elDebugOutput = document.getElementById('debug-output');
+const elMask = document.getElementById('mask');
+const elSpinner = document.getElementById('spinner');
 
 const ui = {
   markedBookmarks : 0,
@@ -60,6 +62,8 @@ const ui = {
     }
     else if (response.message === 'total-bookmarks') {
       elTotalBookmarks.textContent = response.total_bookmarks;
+      elMask.classList.add('is-hidden');
+      elSpinner.classList.add('is-hidden');
     }
     else if (response.message === 'update-counters') {
       elTotalBookmarks.textContent = response.total_bookmarks;

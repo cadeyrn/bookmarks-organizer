@@ -87,6 +87,17 @@ footer a {
   display: none;
 }
 
+.animated-visibility.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.animated-visibility {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s 1000ms, opacity 1000ms linear;
+}
+
 .vertical-align > div {
   display: table-cell;
   vertical-align: middle;
@@ -131,6 +142,53 @@ footer a {
   height: 150px;
   border: 1px dotted rgb(204, 204, 204);
   background: rgb(237, 237, 237);
+}
+
+#mask {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(255, 255, 255);
+}
+
+#mask img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -120px;
+  margin-left: -32px;
+  width: 64px;
+  height: 64px;
+}
+
+#spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -11px;
+  margin-left: -35px;
+  width: 70px;
+  height: 22px;
+  text-align: center;
+}
+
+#spinner > div {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: rgb(172, 0, 0);
+  animation: spinner 1400ms infinite ease-in-out both;
+}
+
+#spinner .bounce1 {
+  animation-delay: -320ms;
+}
+
+#spinner .bounce2 {
+  animation-delay: -160ms;
 }
 
 .modal-dialog {
@@ -194,5 +252,15 @@ footer a {
   to {
     top: 50%;
     opacity: 1;
+  }
+}
+
+@keyframes spinner {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
   }
 }
