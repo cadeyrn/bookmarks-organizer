@@ -51,8 +51,6 @@ const bookmarkchecker = {
 
   callOmniboxAction (input) {
     bookmarkchecker.openUserInterfaceInCurrentTab();
-    bookmarkchecker.countBookmarks();
-
     switch (input) {
       case 'check-all':
         bookmarkchecker.execute('broken-bookmarks', 'all');
@@ -104,9 +102,11 @@ const bookmarkchecker = {
   },
 
   async handleResponse (response) {
-    if (response.message === 'execute') {
+    if (response.message === 'count') {
+      bookmarkchecker.countBookmarks();
+    }
+    else if (response.message === 'execute') {
       if (!bookmarkchecker.inProgress) {
-        bookmarkchecker.countBookmarks();
         bookmarkchecker.execute(response.mode, 'all');
       }
     }
@@ -144,7 +144,6 @@ const bookmarkchecker = {
   },
 
   async countBookmarks () {
-    bookmarkchecker.inProgress = true;
     bookmarkchecker.totalBookmarks = 0;
 
     const bookmarks = await browser.bookmarks.getTree();
@@ -225,6 +224,7 @@ const bookmarkchecker = {
   },
 
   async execute (mode, type) {
+    bookmarkchecker.inProgress = true;
     bookmarkchecker.internalCounter = 0;
     bookmarkchecker.checkedBookmarks = 0;
     bookmarkchecker.bookmarkErrors = 0;
@@ -233,6 +233,8 @@ const bookmarkchecker = {
     bookmarkchecker.bookmarksResult = [];
     bookmarkchecker.additionalData = [];
     bookmarkchecker.debug = [];
+
+    browser.runtime.sendMessage({ message : 'started' });
 
     browser.storage.local.get('debug_enabled', (options) => {
       bookmarkchecker.debug_enabled = options.debug_enabled;

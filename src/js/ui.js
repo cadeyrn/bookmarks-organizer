@@ -33,6 +33,10 @@ const ui = {
   showMassActionButtons : false,
   showDebugOutput : false,
 
+  init () {
+    browser.runtime.sendMessage({ message : 'count' });
+  },
+
   execute (e) {
     e.preventDefault();
     browser.runtime.sendMessage({
@@ -42,7 +46,7 @@ const ui = {
   },
 
   handleResponse (response) {
-    if (response.message === 'total-bookmarks') {
+    if (response.message === 'started') {
       elResultWrapper.classList.add('hidden');
       elMessage.textContent = '';
       elResults.textContent = '';
@@ -52,8 +56,10 @@ const ui = {
       elBookmarksErrors.textContent = 0;
       elBookmarksWarnings.textContent = 0;
       elUnknownBookmarks.textContent = 0;
-      elTotalBookmarks.textContent = response.total_bookmarks;
       elButton.disabled = true;
+    }
+    else if (response.message === 'total-bookmarks') {
+      elTotalBookmarks.textContent = response.total_bookmarks;
     }
     else if (response.message === 'update-counters') {
       elTotalBookmarks.textContent = response.total_bookmarks;
@@ -595,6 +601,8 @@ const ui = {
     }
   }
 };
+
+document.addEventListener('DOMContentLoaded', ui.init);
 
 elButton.addEventListener('click', ui.execute);
 elBody.addEventListener('click', ui.handleActionButtonClicks);
