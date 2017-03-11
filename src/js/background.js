@@ -95,7 +95,7 @@ const bookmarkchecker = {
 
   async handleResponse (response) {
     if (response.message === 'count') {
-      bookmarkchecker.countBookmarks();
+      bookmarkchecker.initBookmarkCount();
     }
     else if (response.message === 'execute') {
       if (!bookmarkchecker.inProgress) {
@@ -135,11 +135,11 @@ const bookmarkchecker = {
     }
   },
 
-  async countBookmarks () {
+  async initBookmarkCount () {
     bookmarkchecker.totalBookmarks = 0;
 
     const bookmarks = await browser.bookmarks.getTree();
-    bookmarkchecker.countBookmarksRecursive(bookmarks[0]);
+    bookmarkchecker.countBookmarks(bookmarks[0]);
 
     browser.runtime.sendMessage({
       message : 'total-bookmarks',
@@ -147,7 +147,7 @@ const bookmarkchecker = {
     });
   },
 
-  countBookmarksRecursive (bookmark) {
+  countBookmarks (bookmark) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.totalBookmarks === bookmarkchecker.LIMIT) {
         return;
@@ -158,60 +158,9 @@ const bookmarkchecker = {
 
     if (bookmark.children) {
       for (const child of bookmark.children) {
-        bookmarkchecker.countBookmarksRecursive(child);
+        bookmarkchecker.countBookmarks(child);
       }
     }
-  },
-
-  updateProgressUi (checkForFinish) {
-    let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
-    if (progress < MIN_PROGRESS) {
-      progress = MIN_PROGRESS;
-    }
-
-    browser.runtime.sendMessage({
-      message : 'update-counters',
-      total_bookmarks : bookmarkchecker.totalBookmarks,
-      checked_bookmarks : bookmarkchecker.checkedBookmarks,
-      bookmarks_errors : bookmarkchecker.bookmarkErrors,
-      bookmarks_warnings : bookmarkchecker.bookmarkWarnings,
-      progress : progress
-    });
-
-    if (checkForFinish && bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
-      const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
-
-      browser.runtime.sendMessage({
-        message : 'finished',
-        bookmarks : bookmarks,
-        debug : bookmarkchecker.debug
-      });
-
-      bookmarkchecker.inProgress = false;
-    }
-  },
-
-  getAdditionalData (bookmark, path, map) {
-    if (bookmark.title) {
-      path.push(bookmark.title);
-    }
-
-    if (bookmark.children) {
-      for (const childNode of bookmark.children) {
-        bookmarkchecker.getAdditionalData(childNode, path, map);
-      }
-    }
-    else {
-      if (!map[bookmark.id]) {
-        map[bookmark.id] = {};
-      }
-
-      map[bookmark.id].path = path.slice(0, -1);
-    }
-
-    path.pop();
-
-    return map;
   },
 
   async execute (mode, type) {
@@ -231,52 +180,47 @@ const bookmarkchecker = {
     });
 
     const bookmarks = await browser.bookmarks.getTree();
-    bookmarkchecker.getAdditionalData(bookmarks[0], [], bookmarkchecker.additionalData);
-    bookmarkchecker.checkBookmarks(bookmarks[0], mode, type);
+    bookmarkchecker.getBookmarkPath(bookmarks[0], [], bookmarkchecker.additionalData);
+    bookmarkchecker.checkAllBookmarks(bookmarks[0], mode, type);
 
     if (mode === 'duplicates') {
-      const duplicates = { };
-
-      bookmarkchecker.bookmarksResult.forEach((bookmark) => {
-        if (bookmark.url) {
-          if (duplicates[bookmark.url]) {
-            duplicates[bookmark.url].push(bookmark);
-          }
-          else {
-            duplicates[bookmark.url] = [bookmark];
-          }
-        }
-      });
-
-      Object.keys(duplicates).forEach((key) => {
-        if (duplicates[key].length < 2) {
-          delete duplicates[key];
-        }
-        else {
-          bookmarkchecker.bookmarkWarnings++;
-        }
-      });
-
-      browser.runtime.sendMessage({
-        message : 'show-duplicates-ui',
-        bookmarks : duplicates,
-        warnings : bookmarkchecker.bookmarkWarnings
-      });
-
-      bookmarkchecker.inProgress = false;
+      bookmarkchecker.checkForDuplicates();
     }
   },
 
-  checkBookmarks (bookmark, mode, type) {
+  getBookmarkPath (bookmark, path, map) {
+    if (bookmark.title) {
+      path.push(bookmark.title);
+    }
+
+    if (bookmark.children) {
+      for (const childNode of bookmark.children) {
+        bookmarkchecker.getBookmarkPath(childNode, path, map);
+      }
+    }
+    else {
+      if (!map[bookmark.id]) {
+        map[bookmark.id] = {};
+      }
+
+      map[bookmark.id].path = path.slice(0, -1);
+    }
+
+    path.pop();
+
+    return map;
+  },
+
+  checkAllBookmarks (bookmark, mode, type) {
     switch (mode) {
       case 'broken-bookmarks':
-        bookmarkchecker.checkForBrokenBookmarks(bookmark, type);
+        bookmarkchecker.checkForBrokenBookmark(bookmark, type);
         break;
       case 'duplicates':
-        bookmarkchecker.checkForAllBookmarks(bookmark);
+        bookmarkchecker.checkBookmarkAndAssignPath(bookmark);
         break;
       case 'empty-titles':
-        bookmarkchecker.checkForEmptyTitles(bookmark);
+        bookmarkchecker.checkForEmptyTitle(bookmark);
         break;
       default:
         // do nothing
@@ -284,12 +228,12 @@ const bookmarkchecker = {
 
     if (bookmark.children) {
       for (const child of bookmark.children) {
-        bookmarkchecker.checkBookmarks(child, mode, type);
+        bookmarkchecker.checkAllBookmarks(child, mode, type);
       }
     }
   },
 
-  async checkForBrokenBookmarks (bookmark, type) {
+  async checkForBrokenBookmark (bookmark, type) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
         return;
@@ -300,7 +244,7 @@ const bookmarkchecker = {
       if (bookmark.url.match(/^https?:\/\//)) {
         bookmark.attempts = 0;
 
-        const checkedBookmark = await bookmarkchecker.checkResponse(bookmark);
+        const checkedBookmark = await bookmarkchecker.checkHttpResponse(bookmark);
         bookmarkchecker.checkedBookmarks++;
 
         switch (checkedBookmark.status) {
@@ -333,7 +277,7 @@ const bookmarkchecker = {
     }
   },
 
-  async checkResponse (bookmark) {
+  async checkHttpResponse (bookmark) {
     bookmark.attempts++;
 
     try {
@@ -394,14 +338,14 @@ const bookmarkchecker = {
       }
 
       if (bookmark.attempts < bookmarkchecker.ATTEMPTS) {
-        await bookmarkchecker.checkResponse(bookmark);
+        await bookmarkchecker.checkHttpResponse(bookmark);
       }
     }
 
     return bookmark;
   },
 
-  checkForAllBookmarks (bookmark) {
+  checkBookmarkAndAssignPath (bookmark) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
         return;
@@ -417,7 +361,7 @@ const bookmarkchecker = {
     bookmarkchecker.bookmarksResult.push(bookmark);
   },
 
-  checkForEmptyTitles (bookmark) {
+  checkForEmptyTitle (bookmark) {
     if (bookmark.url) {
       if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
         return;
@@ -435,6 +379,66 @@ const bookmarkchecker = {
     }
     else {
       bookmarkchecker.bookmarksResult.push(bookmark);
+    }
+  },
+
+  checkForDuplicates () {
+    const duplicates = { };
+
+    bookmarkchecker.bookmarksResult.forEach((bookmark) => {
+      if (bookmark.url) {
+        if (duplicates[bookmark.url]) {
+          duplicates[bookmark.url].push(bookmark);
+        }
+        else {
+          duplicates[bookmark.url] = [bookmark];
+        }
+      }
+    });
+
+    Object.keys(duplicates).forEach((key) => {
+      if (duplicates[key].length < 2) {
+        delete duplicates[key];
+      }
+      else {
+        bookmarkchecker.bookmarkWarnings++;
+      }
+    });
+
+    browser.runtime.sendMessage({
+      message : 'show-duplicates-ui',
+      bookmarks : duplicates,
+      warnings : bookmarkchecker.bookmarkWarnings
+    });
+
+    bookmarkchecker.inProgress = false;
+  },
+
+  updateProgressUi (checkForFinish) {
+    let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
+    if (progress < MIN_PROGRESS) {
+      progress = MIN_PROGRESS;
+    }
+
+    browser.runtime.sendMessage({
+      message : 'update-counters',
+      total_bookmarks : bookmarkchecker.totalBookmarks,
+      checked_bookmarks : bookmarkchecker.checkedBookmarks,
+      bookmarks_errors : bookmarkchecker.bookmarkErrors,
+      bookmarks_warnings : bookmarkchecker.bookmarkWarnings,
+      progress : progress
+    });
+
+    if (checkForFinish && bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
+      const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
+
+      browser.runtime.sendMessage({
+        message : 'finished',
+        bookmarks : bookmarks,
+        debug : bookmarkchecker.debug
+      });
+
+      bookmarkchecker.inProgress = false;
     }
   },
 
