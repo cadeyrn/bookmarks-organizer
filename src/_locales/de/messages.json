@@ -47,9 +47,6 @@
   "bookmark_state_redirect": {
     "message": "Weiterleitung"
   },
-  "bookmark_state_unknown": {
-    "message": "Unbekannt. Bitte überprüfe den Status dieses Lesezeichens manuell."
-  },
   "bookmark_title": {
     "message": "Titel"
   },
@@ -70,9 +67,6 @@
   },
   "filter_errors": {
     "message": "Fehler"
-  },
-  "filter_unknowns": {
-    "message": "Unbekannt"
   },
   "filter_warnings": {
     "message": "Warnungen"
@@ -106,9 +100,6 @@
   },
   "omnibox_command_check_warnings": {
     "message": "Prüfe deine Lesezeichen nur auf Warnungen"
-  },
-  "omnibox_command_check_unknowns": {
-    "message": "Prüfe deine Lesezeichen nur auf welche, deren Status nicht ermittelt werden kann"
   },
   "omnibox_command_empty_titles": {
     "message": "Finde Lesezeichen ohne Titel"

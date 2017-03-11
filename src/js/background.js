@@ -15,7 +15,6 @@ const bookmarkchecker = {
   checkedBookmarks : 0,
   bookmarkErrors : 0,
   bookmarkWarnings : 0,
-  unknownBookmarks : 0,
   bookmarksResult : [],
   additionalData : [],
   debug : [],
@@ -33,10 +32,6 @@ const bookmarkchecker = {
       {
         content : 'check-warnings',
         description : browser.i18n.getMessage('omnibox_command_check_warnings')
-      },
-      {
-        content : 'check-unknowns',
-        description : browser.i18n.getMessage('omnibox_command_check_unknowns')
       },
       {
         content : 'duplicates',
@@ -60,9 +55,6 @@ const bookmarkchecker = {
         break;
       case 'check-warnings':
         bookmarkchecker.execute('broken-bookmarks', 'warnings');
-        break;
-      case 'check-unknowns':
-        bookmarkchecker.execute('broken-bookmarks', 'unknowns');
         break;
       case 'duplicates':
         bookmarkchecker.execute('duplicates', 'all');
@@ -181,7 +173,6 @@ const bookmarkchecker = {
       message : 'update-counters',
       total_bookmarks : bookmarkchecker.totalBookmarks,
       checked_bookmarks : bookmarkchecker.checkedBookmarks,
-      unknown_bookmarks : bookmarkchecker.unknownBookmarks,
       bookmarks_errors : bookmarkchecker.bookmarkErrors,
       bookmarks_warnings : bookmarkchecker.bookmarkWarnings,
       progress : progress
@@ -229,7 +220,6 @@ const bookmarkchecker = {
     bookmarkchecker.checkedBookmarks = 0;
     bookmarkchecker.bookmarkErrors = 0;
     bookmarkchecker.bookmarkWarnings = 0;
-    bookmarkchecker.unknownBookmarks = 0;
     bookmarkchecker.bookmarksResult = [];
     bookmarkchecker.additionalData = [];
     bookmarkchecker.debug = [];
@@ -324,12 +314,6 @@ const bookmarkchecker = {
           case STATUS.FETCH_ERROR:
             if (type === 'all' || type === 'errors') {
               bookmarkchecker.bookmarkErrors++;
-              bookmarkchecker.bookmarksResult.push(checkedBookmark);
-            }
-            break;
-          case STATUS.UNKNOWN_ERROR:
-            if (type === 'all' || type === 'unknowns') {
-              bookmarkchecker.unknownBookmarks++;
               bookmarkchecker.bookmarksResult.push(checkedBookmark);
             }
             break;

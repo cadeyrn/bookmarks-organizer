@@ -134,10 +134,6 @@ footer a {
   color: rgb(255, 165, 0);
 }
 
-#results .unknown .status {
-  color: rgb(30, 144, 255);
-}
-
 #debug-output {
   height: 150px;
   border: 1px dotted rgb(204, 204, 204);

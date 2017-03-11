@@ -15,7 +15,6 @@ const elTotalBookmarks = document.getElementById('total-bookmarks');
 const elCheckedBookmarks = document.getElementById('checked-bookmarks');
 const elBookmarksErrors = document.getElementById('bookmarks-errors');
 const elBookmarksWarnings = document.getElementById('bookmarks-warnings');
-const elUnknownBookmarks = document.getElementById('unknown-bookmarks');
 const elProgress = document.getElementById('progress');
 const elMassActions = document.getElementById('mass-actions');
 const elRepairAllRedirects = document.getElementById('repair-all-redirects');
@@ -57,7 +56,6 @@ const ui = {
       elCheckedBookmarks.textContent = 0;
       elBookmarksErrors.textContent = 0;
       elBookmarksWarnings.textContent = 0;
-      elUnknownBookmarks.textContent = 0;
       elButton.disabled = true;
     }
     else if (response.message === 'total-bookmarks') {
@@ -70,9 +68,8 @@ const ui = {
       elCheckedBookmarks.textContent = response.checked_bookmarks;
       elBookmarksErrors.textContent = response.bookmarks_errors;
       elBookmarksWarnings.textContent = response.bookmarks_warnings;
-      elUnknownBookmarks.textContent = response.unknown_bookmarks;
       elProgress.setAttribute('value', response.progress);
-      ui.markedBookmarks = response.bookmarks_errors + response.bookmarks_warnings + response.unknown_bookmarks;
+      ui.markedBookmarks = response.bookmarks_errors + response.bookmarks_warnings;
       ui.warnings = response.bookmarks_warnings;
     }
     else if (response.message === 'finished') {
@@ -308,12 +305,6 @@ const ui = {
               browser.i18n.getMessage('bookmark_state_not_found'));
             elStatus.appendChild(elStatusText);
             li.classList.add('error');
-            break;
-          case STATUS.UNKNOWN_ERROR:
-            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' +
-              browser.i18n.getMessage('bookmark_state_unknown'));
-            elStatus.appendChild(elStatusText);
-            li.classList.add('unknown');
             break;
           default:
             // do nothing
