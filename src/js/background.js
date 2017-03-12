@@ -7,7 +7,7 @@ const UI_PAGE = 'html/ui.html';
 
 const bookmarkchecker = {
   LIMIT : 0,
-  ATTEMPTS : 2,
+  MAX_ATTEMPTS : 2,
   debug_enabled : false,
   inProgress : false,
   internalCounter : 0,
@@ -337,7 +337,7 @@ const bookmarkchecker = {
         });
       }
 
-      if (bookmark.attempts < bookmarkchecker.ATTEMPTS) {
+      if (bookmark.attempts < bookmarkchecker.MAX_ATTEMPTS) {
         await bookmarkchecker.checkHttpResponse(bookmark);
       }
     }
