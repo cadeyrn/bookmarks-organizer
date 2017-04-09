@@ -12,6 +12,7 @@
     "at-rule-no-unknown": true,
     "at-rule-no-vendor-prefix": true,
     "at-rule-semicolon-newline-after": "always",
+    "at-rule-semicolon-space-before": "never",
     "at-rule-whitelist": null,
     "block-closing-brace-empty-line-before": "never",
     "block-closing-brace-newline-after": "always",
