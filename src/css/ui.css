@@ -259,10 +259,10 @@ a:not(.button):hover {
 
 #results > ul {
   padding: 0;
-  border-bottom: 1px solid rgb(210, 210, 210);
 }
 
 #results > ul > li > .wrapper {
+  margin-top: -1px;
   border-top: 1px solid rgb(210, 210, 210);
   border-bottom: 1px solid rgb(210, 210, 210);
 }
@@ -275,12 +275,10 @@ a:not(.button):hover {
 }
 
 #results li li:not(.has-children) > .wrapper {
-  border-bottom: 1px dotted rgb(210, 210, 210);
+  margin-top: -1px;
+  border-top: 1px solid rgb(210, 210, 210);
+  border-bottom: 1px solid rgb(210, 210, 210);
   border-left: 1px dotted rgb(210, 210, 210);
-}
-
-#results li li:not(.has-children):not(:first-child) > .wrapper {
-  border-top: 1px dotted rgb(210, 210, 210);
 }
 
 #results li.has-children > .wrapper {
