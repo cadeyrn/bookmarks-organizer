@@ -7,17 +7,45 @@
   <link rel='icon' type='image/png' href='../images/icon-32.png' />
 </head>
 <body>
-  <header>
-    <a href='ui.html'><h1>__MSG_extension_name__</h1></a>
-  </header>
-  <progress id='progress' value='0'></progress>
-  <main>
-    <section>
-      <div id='counters'>
-        <span id='checked-bookmarks'>0</span> überprüft von <span id='total-bookmarks'>0</span> Lesezeichen
-        (<span id='bookmarks-errors'>0</span> Fehler, <span id='bookmarks-warnings'>0</span> Warnungen).
+  <div id='header-wrapper' class='default'>
+    <header id='header'>
+      <div id='logo-wrapper'>
+        <a href='ui.html'></a>
       </div>
-      <div id='message'>__MSG_intro_check__</div>
+    </header>
+    <div id='logo-small'>
+      <a href='ui.html'></a>
+    </div>
+    <div id='status-board'>
+      <div class='row'>
+        <div class='label'>__MSG_status_total__</div>
+        <div class='value'><span id='total-bookmarks'>0</span></div>
+      </div>
+      <div class='row'>
+        <div class='label'>__MSG_status_checked__</div>
+        <div class='value'><span id='checked-bookmarks'>0</span></div>
+      </div>
+      <div class='row'>
+        <div class='label'>__MSG_status_errors__</div>
+        <div class='value'><span id='bookmarks-errors'>0</span></div>
+      </div>
+      <div class='row'>
+        <div class='label'>__MSG_status_warnings__</div>
+        <div class='value'><span id='bookmarks-warnings'>0</span></div>
+      </div>
+    </div>
+    <progress id='progress' value='0'></progress>
+  </div>
+  <main id='main'>
+    <section id='main-section'>
+      <a href='#' id='fox'>
+        <img src='../images/fox.png' alt='Firefox' />
+      </a>
+      <div id='hint' class='hidden'>
+        <span id='hint-close-button' class='close' title='__MSG_close_overlay__'>&times;</span>
+        <div class='notice'>__MSG_greeting__</div>
+        <div class='content'>__MSG_intro_check__</div>
+      </div>
       <div id='result-wrapper' class='hidden'>
         <input type='search' id='search' placeholder='__MSG_search_label__' />
         <div id='filterbar'>
@@ -35,18 +63,20 @@
         </div>
         <code id='debug-output' class='hidden'></code>
       </div>
-      <form>
-        <label for='mode'>__MSG_mode_label__</label>
-        <select name='mode' id='mode'>
-          <option value='broken-bookmarks'>__MSG_mode_broken_bookmarks__</option>
-          <option value='duplicates'>__MSG_mode_duplicates__</option>
-          <option value='empty-titles'>__MSG_mode_empty_titles__</option>
-        </select>
-        <button type='submit' id='submit-button'>__MSG_button_check_bookmarks__</button>
-      </form>
+      <div id='start'>__MSG_start_message__</div>
+      <div id='control-bar'>
+        <form>
+          <select name='mode' id='mode'>
+            <option value='broken-bookmarks'>__MSG_mode_broken_bookmarks__</option>
+            <option value='duplicates'>__MSG_mode_duplicates__</option>
+            <option value='empty-titles'>__MSG_mode_empty_titles__</option>
+          </select>
+          <button type='submit' id='submit-button'>__MSG_button_check_bookmarks__</button>
+        </form>
+      </div>
     </section>
   </main>
-  <footer>
+  <footer id='footer'>
     <a href='https://www.soeren-hentzschel.at' target='_blank' rel='noopener'>
       __MSG_extension_name__ © 2017, soeren-hentzschel.at
     </a>

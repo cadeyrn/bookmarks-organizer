@@ -28,7 +28,7 @@
     "color-named": "never",
     "color-no-hex": true,
     "color-no-invalid-hex": true,
-    "comment-empty-line-before": "always",
+    "comment-empty-line-before": ["always", { "ignore": ["stylelint-commands"] }],
     "comment-no-empty": true,
     "comment-whitespace-inside": "always",
     "comment-word-blacklist": ["todo", "fixme", "xxx"],

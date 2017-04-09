@@ -3,13 +3,17 @@
 /* global STATUS */
 
 const ESC_KEY = 27;
+const HEADER_SWITCH_POSITION = 100;
+const HEADER_TIMEOUT_IN_MS = 250;
 const MIN_PROGRESS = 0.01;
 
 const elBody = document.querySelector('body');
 const elButton = document.getElementById('submit-button');
+const elFox = document.getElementById('fox');
+const elHeaderWrapper = document.getElementById('header-wrapper');
+const elHint = document.getElementById('hint');
 const elMode = document.getElementById('mode');
 const elResultWrapper = document.getElementById('result-wrapper');
-const elMessage = document.getElementById('message');
 const elResults = document.getElementById('results');
 const elTotalBookmarks = document.getElementById('total-bookmarks');
 const elCheckedBookmarks = document.getElementById('checked-bookmarks');
@@ -21,6 +25,7 @@ const elRepairAllRedirects = document.getElementById('repair-all-redirects');
 const elRemoveAllBookmarksWithErrors = document.getElementById('remove-all-bookmarks-with-errors');
 const elFilterBar = document.getElementById('filterbar');
 const elSearch = document.getElementById('search');
+const elStart = document.getElementById('start');
 const elDebugOutput = document.getElementById('debug-output');
 const elMask = document.getElementById('mask');
 const elSpinner = document.getElementById('spinner');
@@ -36,6 +41,59 @@ const ui = {
 
   init () {
     browser.runtime.sendMessage({ message : 'count' });
+    ui.uiscript();
+  },
+
+  uiscript () {
+    const delta = 5;
+    let didScroll = false;
+    let lastScrollTop = 0;
+
+    const hasScrolled = function () {
+      const { scrollTop } = document.documentElement;
+
+      if (Math.abs(lastScrollTop - scrollTop) <= delta) {
+        return;
+      }
+
+      if (scrollTop > HEADER_SWITCH_POSITION) {
+        elHeaderWrapper.classList.remove('default');
+        elHeaderWrapper.classList.add('compact');
+      }
+      else {
+        elHeaderWrapper.classList.remove('compact');
+        elHeaderWrapper.classList.add('default');
+      }
+
+      lastScrollTop = scrollTop;
+    };
+
+    window.addEventListener('scroll', () => {
+      didScroll = true;
+    });
+
+    setInterval(() => {
+      if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+      }
+    }, HEADER_TIMEOUT_IN_MS);
+
+    const closeButton = document.getElementById('hint-close-button');
+    closeButton.onclick = function () {
+      elHint.classList.add('hidden');
+    };
+
+    window.onkeydown = function (e) {
+      if (e.keyCode === ESC_KEY) {
+        elHint.classList.add('hidden');
+      }
+    };
+  },
+
+  handleFoxMessageClick (e) {
+    e.preventDefault();
+    elHint.classList.toggle('hidden');
   },
 
   execute (e) {
@@ -49,7 +107,10 @@ const ui = {
   handleResponse (response) {
     if (response.message === 'started') {
       elResultWrapper.classList.add('hidden');
-      elMessage.textContent = '';
+      elStart.classList.add('hidden');
+      elHint.classList.add('hidden');
+      elHint.getElementsByClassName('notice')[0].textContent = '';
+      elHint.getElementsByClassName('content')[0].textContent = '';
       elResults.textContent = '';
       elDebugOutput.textContent = '';
       elProgress.setAttribute('value', MIN_PROGRESS);
@@ -144,7 +205,15 @@ const ui = {
     elSearch.focus();
 
     if (ui.showNoResultsMessage) {
-      elMessage.textContent = browser.i18n.getMessage('no_marked_bookmarks');
+      elHint.getElementsByClassName('notice')[0].textContent = browser.i18n.getMessage('no_marked_bookmarks_title');
+      elHint.getElementsByClassName('content')[0].textContent = browser.i18n.getMessage('no_marked_bookmarks');
+      elHint.classList.add('success');
+      elHint.classList.remove('hidden');
+    }
+    else {
+      elHint.getElementsByClassName('notice')[0].textContent = browser.i18n.getMessage('greeting');
+      elHint.getElementsByClassName('content')[0].textContent = browser.i18n.getMessage('intro_check');
+      elHint.classList.remove('success');
     }
 
     if (ui.showMassActionButtons) {
@@ -601,6 +670,7 @@ document.addEventListener('DOMContentLoaded', ui.init);
 
 elButton.addEventListener('click', ui.execute);
 elBody.addEventListener('click', ui.handleActionButtonClicks);
+elFox.addEventListener('click', ui.handleFoxMessageClick);
 elRepairAllRedirects.addEventListener('click', ui.repairAllRedirects);
 elRemoveAllBookmarksWithErrors.addEventListener('click', ui.removeAllBookmarksWithErrors);
 elSearch.addEventListener('input', ui.applySearchFieldFilter);

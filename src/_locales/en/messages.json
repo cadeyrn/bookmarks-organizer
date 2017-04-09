@@ -71,6 +71,9 @@
   "filter_warnings": {
     "message": "Warnungen"
   },
+  "greeting": {
+    "message": "Hey!"
+  },
   "intro_check": {
     "message": "Die Überprüfung der Lesezeichen kann, abhängig vom ausgewählten Modus, der Anzahl der Lesezeichen sowie der Internetgeschwindigkeit, mehrere Minuten dauern. Bitte beachte, dass während der Überprüfung auf defekte Lesezeichen das Laden von Webseiten spürbar verlangsamt sein kann."
   },
@@ -83,11 +86,11 @@
   "mode_empty_titles": {
     "message": "fehlende Lesezeichen-Namen"
   },
-  "mode_label": {
-    "message": "Modus"
-  },
   "no_marked_bookmarks": {
-    "message": "Glückwunsch, alle Lesezeichen sind in Ordnung!"
+    "message": "Alle Lesezeichen sind in Ordnung!"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Juhuu!"
   },
   "omnibox_command_check_all": {
     "message": "Prüfe alle deine Lesezeichen auf Fehler, Weiterleitungen, Duplikate, …"
@@ -112,5 +115,20 @@
   },
   "search_label": {
     "message" : "Titel oder URL…"
+  },
+  "start_message": {
+    "message" : "Starte hier…"
+  },
+  "status_checked": {
+    "message" : "Überprüft"
+  },
+  "status_errors": {
+    "message" : "Fehler"
+  },
+  "status_total": {
+    "message" : "Anzahl Lesezeichen"
+  },
+  "status_warnings": {
+    "message" : "Warnungen"
   }
 }
