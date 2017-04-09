@@ -121,6 +121,7 @@ const ui = {
     }
     else if (response.message === 'total-bookmarks') {
       elTotalBookmarks.textContent = response.total_bookmarks;
+      elButton.disabled = false;
       elMask.classList.add('is-hidden');
       elSpinner.classList.add('is-hidden');
     }
