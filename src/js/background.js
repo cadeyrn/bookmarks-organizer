@@ -5,7 +5,7 @@
 const MIN_PROGRESS = 0.01;
 const UI_PAGE = 'html/ui.html';
 
-const bookmarkchecker = {
+const bookmarksorganizer = {
   LIMIT : 0,
   MAX_ATTEMPTS : 2,
   debug_enabled : false,
@@ -45,22 +45,22 @@ const bookmarkchecker = {
   },
 
   callOmniboxAction (input) {
-    bookmarkchecker.openUserInterfaceInCurrentTab();
+    bookmarksorganizer.openUserInterfaceInCurrentTab();
     switch (input) {
       case 'check-all':
-        bookmarkchecker.execute('broken-bookmarks', 'all');
+        bookmarksorganizer.execute('broken-bookmarks', 'all');
         break;
       case 'check-errors':
-        bookmarkchecker.execute('broken-bookmarks', 'errors');
+        bookmarksorganizer.execute('broken-bookmarks', 'errors');
         break;
       case 'check-warnings':
-        bookmarkchecker.execute('broken-bookmarks', 'warnings');
+        bookmarksorganizer.execute('broken-bookmarks', 'warnings');
         break;
       case 'duplicates':
-        bookmarkchecker.execute('duplicates', 'all');
+        bookmarksorganizer.execute('duplicates', 'all');
         break;
       case 'empty-titles':
-        bookmarkchecker.execute('empty-titles', 'all');
+        bookmarksorganizer.execute('empty-titles', 'all');
         break;
       default:
         // do nothing
@@ -95,11 +95,11 @@ const bookmarkchecker = {
 
   async handleResponse (response) {
     if (response.message === 'count') {
-      bookmarkchecker.initBookmarkCount();
+      bookmarksorganizer.initBookmarkCount();
     }
     else if (response.message === 'execute') {
-      if (!bookmarkchecker.inProgress) {
-        bookmarkchecker.execute(response.mode, 'all');
+      if (!bookmarksorganizer.inProgress) {
+        bookmarksorganizer.execute(response.mode, 'all');
       }
     }
     else if (response.message === 'edit') {
@@ -113,7 +113,7 @@ const bookmarkchecker = {
           message : 'update-listitem',
           bookmarkId : response.bookmarkId,
           title : response.title,
-          path : bookmarkchecker.additionalData[response.bookmarkId].path,
+          path : bookmarksorganizer.additionalData[response.bookmarkId].path,
           mode : response.mode
         });
       }
@@ -136,55 +136,55 @@ const bookmarkchecker = {
   },
 
   async initBookmarkCount () {
-    bookmarkchecker.totalBookmarks = 0;
+    bookmarksorganizer.totalBookmarks = 0;
 
     const bookmarks = await browser.bookmarks.getTree();
-    bookmarkchecker.countBookmarks(bookmarks[0]);
+    bookmarksorganizer.countBookmarks(bookmarks[0]);
 
     browser.runtime.sendMessage({
       message : 'total-bookmarks',
-      total_bookmarks : bookmarkchecker.totalBookmarks
+      total_bookmarks : bookmarksorganizer.totalBookmarks
     });
   },
 
   countBookmarks (bookmark) {
     if (bookmark.url) {
-      if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.totalBookmarks === bookmarkchecker.LIMIT) {
+      if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.totalBookmarks === bookmarksorganizer.LIMIT) {
         return;
       }
 
-      bookmarkchecker.totalBookmarks++;
+      bookmarksorganizer.totalBookmarks++;
     }
 
     if (bookmark.children) {
       for (const child of bookmark.children) {
-        bookmarkchecker.countBookmarks(child);
+        bookmarksorganizer.countBookmarks(child);
       }
     }
   },
 
   async execute (mode, type) {
-    bookmarkchecker.inProgress = true;
-    bookmarkchecker.internalCounter = 0;
-    bookmarkchecker.checkedBookmarks = 0;
-    bookmarkchecker.bookmarkErrors = 0;
-    bookmarkchecker.bookmarkWarnings = 0;
-    bookmarkchecker.bookmarksResult = [];
-    bookmarkchecker.additionalData = [];
-    bookmarkchecker.debug = [];
+    bookmarksorganizer.inProgress = true;
+    bookmarksorganizer.internalCounter = 0;
+    bookmarksorganizer.checkedBookmarks = 0;
+    bookmarksorganizer.bookmarkErrors = 0;
+    bookmarksorganizer.bookmarkWarnings = 0;
+    bookmarksorganizer.bookmarksResult = [];
+    bookmarksorganizer.additionalData = [];
+    bookmarksorganizer.debug = [];
 
     browser.runtime.sendMessage({ message : 'started' });
 
     browser.storage.local.get('debug_enabled', (options) => {
-      bookmarkchecker.debug_enabled = options.debug_enabled;
+      bookmarksorganizer.debug_enabled = options.debug_enabled;
     });
 
     const bookmarks = await browser.bookmarks.getTree();
-    bookmarkchecker.getBookmarkPath(bookmarks[0], [], bookmarkchecker.additionalData);
-    bookmarkchecker.checkAllBookmarks(bookmarks[0], mode, type);
+    bookmarksorganizer.getBookmarkPath(bookmarks[0], [], bookmarksorganizer.additionalData);
+    bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
 
     if (mode === 'duplicates') {
-      bookmarkchecker.checkForDuplicates();
+      bookmarksorganizer.checkForDuplicates();
     }
   },
 
@@ -195,7 +195,7 @@ const bookmarkchecker = {
 
     if (bookmark.children) {
       for (const childNode of bookmark.children) {
-        bookmarkchecker.getBookmarkPath(childNode, path, map);
+        bookmarksorganizer.getBookmarkPath(childNode, path, map);
       }
     }
     else {
@@ -214,13 +214,13 @@ const bookmarkchecker = {
   checkAllBookmarks (bookmark, mode, type) {
     switch (mode) {
       case 'broken-bookmarks':
-        bookmarkchecker.checkForBrokenBookmark(bookmark, type);
+        bookmarksorganizer.checkForBrokenBookmark(bookmark, type);
         break;
       case 'duplicates':
-        bookmarkchecker.checkBookmarkAndAssignPath(bookmark);
+        bookmarksorganizer.checkBookmarkAndAssignPath(bookmark);
         break;
       case 'empty-titles':
-        bookmarkchecker.checkForEmptyTitle(bookmark);
+        bookmarksorganizer.checkForEmptyTitle(bookmark);
         break;
       default:
         // do nothing
@@ -228,52 +228,52 @@ const bookmarkchecker = {
 
     if (bookmark.children) {
       for (const child of bookmark.children) {
-        bookmarkchecker.checkAllBookmarks(child, mode, type);
+        bookmarksorganizer.checkAllBookmarks(child, mode, type);
       }
     }
   },
 
   async checkForBrokenBookmark (bookmark, type) {
     if (bookmark.url) {
-      if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
+      if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.internalCounter === bookmarksorganizer.LIMIT) {
         return;
       }
 
-      bookmarkchecker.internalCounter++;
+      bookmarksorganizer.internalCounter++;
 
       if (bookmark.url.match(/^https?:\/\//)) {
         bookmark.attempts = 0;
 
-        const checkedBookmark = await bookmarkchecker.checkHttpResponse(bookmark);
-        bookmarkchecker.checkedBookmarks++;
+        const checkedBookmark = await bookmarksorganizer.checkHttpResponse(bookmark);
+        bookmarksorganizer.checkedBookmarks++;
 
         switch (checkedBookmark.status) {
           case STATUS.REDIRECT:
             if (type === 'all' || type === 'warnings') {
-              bookmarkchecker.bookmarkWarnings++;
-              bookmarkchecker.bookmarksResult.push(checkedBookmark);
+              bookmarksorganizer.bookmarkWarnings++;
+              bookmarksorganizer.bookmarksResult.push(checkedBookmark);
             }
             break;
           case STATUS.NOT_FOUND:
           case STATUS.FETCH_ERROR:
             if (type === 'all' || type === 'errors') {
-              bookmarkchecker.bookmarkErrors++;
-              bookmarkchecker.bookmarksResult.push(checkedBookmark);
+              bookmarksorganizer.bookmarkErrors++;
+              bookmarksorganizer.bookmarksResult.push(checkedBookmark);
             }
             break;
           default:
             // do nothing
         }
 
-        bookmarkchecker.updateProgressUi(true);
+        bookmarksorganizer.updateProgressUi(true);
       }
       else {
-        bookmarkchecker.checkedBookmarks++;
-        bookmarkchecker.updateProgressUi(true);
+        bookmarksorganizer.checkedBookmarks++;
+        bookmarksorganizer.updateProgressUi(true);
       }
     }
     else {
-      bookmarkchecker.bookmarksResult.push(bookmark);
+      bookmarksorganizer.bookmarksResult.push(bookmark);
     }
   },
 
@@ -302,8 +302,8 @@ const bookmarkchecker = {
         bookmark.status = response.status;
       }
 
-      if (bookmarkchecker.debug_enabled) {
-        bookmarkchecker.debug.push({
+      if (bookmarksorganizer.debug_enabled) {
+        bookmarksorganizer.debug.push({
           bookmark : {
             id : bookmark.id,
             parentId : bookmark.parentId,
@@ -323,8 +323,8 @@ const bookmarkchecker = {
     catch (error) {
       bookmark.status = STATUS.FETCH_ERROR;
 
-      if (bookmarkchecker.debug_enabled) {
-        bookmarkchecker.debug.push({
+      if (bookmarksorganizer.debug_enabled) {
+        bookmarksorganizer.debug.push({
           bookmark : {
             id : bookmark.id,
             parentId : bookmark.parentId,
@@ -337,8 +337,8 @@ const bookmarkchecker = {
         });
       }
 
-      if (bookmark.attempts < bookmarkchecker.MAX_ATTEMPTS) {
-        await bookmarkchecker.checkHttpResponse(bookmark);
+      if (bookmark.attempts < bookmarksorganizer.MAX_ATTEMPTS) {
+        await bookmarksorganizer.checkHttpResponse(bookmark);
       }
     }
 
@@ -347,45 +347,45 @@ const bookmarkchecker = {
 
   checkBookmarkAndAssignPath (bookmark) {
     if (bookmark.url) {
-      if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
+      if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.internalCounter === bookmarksorganizer.LIMIT) {
         return;
       }
 
-      bookmark.path = bookmarkchecker.additionalData[bookmark.id].path;
+      bookmark.path = bookmarksorganizer.additionalData[bookmark.id].path;
 
-      bookmarkchecker.internalCounter++;
-      bookmarkchecker.checkedBookmarks++;
-      bookmarkchecker.updateProgressUi(false);
+      bookmarksorganizer.internalCounter++;
+      bookmarksorganizer.checkedBookmarks++;
+      bookmarksorganizer.updateProgressUi(false);
     }
 
-    bookmarkchecker.bookmarksResult.push(bookmark);
+    bookmarksorganizer.bookmarksResult.push(bookmark);
   },
 
   checkForEmptyTitle (bookmark) {
     if (bookmark.url) {
-      if (bookmarkchecker.LIMIT > 0 && bookmarkchecker.internalCounter === bookmarkchecker.LIMIT) {
+      if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.internalCounter === bookmarksorganizer.LIMIT) {
         return;
       }
 
-      bookmarkchecker.internalCounter++;
+      bookmarksorganizer.internalCounter++;
 
       if (!bookmark.title) {
-        bookmarkchecker.bookmarkErrors++;
-        bookmarkchecker.bookmarksResult.push(bookmark);
+        bookmarksorganizer.bookmarkErrors++;
+        bookmarksorganizer.bookmarksResult.push(bookmark);
       }
 
-      bookmarkchecker.checkedBookmarks++;
-      bookmarkchecker.updateProgressUi(true);
+      bookmarksorganizer.checkedBookmarks++;
+      bookmarksorganizer.updateProgressUi(true);
     }
     else {
-      bookmarkchecker.bookmarksResult.push(bookmark);
+      bookmarksorganizer.bookmarksResult.push(bookmark);
     }
   },
 
   checkForDuplicates () {
     const duplicates = { };
 
-    bookmarkchecker.bookmarksResult.forEach((bookmark) => {
+    bookmarksorganizer.bookmarksResult.forEach((bookmark) => {
       if (bookmark.url) {
         if (duplicates[bookmark.url]) {
           duplicates[bookmark.url].push(bookmark);
@@ -401,44 +401,44 @@ const bookmarkchecker = {
         delete duplicates[key];
       }
       else {
-        bookmarkchecker.bookmarkWarnings++;
+        bookmarksorganizer.bookmarkWarnings++;
       }
     });
 
     browser.runtime.sendMessage({
       message : 'show-duplicates-ui',
       bookmarks : duplicates,
-      warnings : bookmarkchecker.bookmarkWarnings
+      warnings : bookmarksorganizer.bookmarkWarnings
     });
 
-    bookmarkchecker.inProgress = false;
+    bookmarksorganizer.inProgress = false;
   },
 
   updateProgressUi (checkForFinish) {
-    let progress = bookmarkchecker.checkedBookmarks / bookmarkchecker.totalBookmarks;
+    let progress = bookmarksorganizer.checkedBookmarks / bookmarksorganizer.totalBookmarks;
     if (progress < MIN_PROGRESS) {
       progress = MIN_PROGRESS;
     }
 
     browser.runtime.sendMessage({
       message : 'update-counters',
-      total_bookmarks : bookmarkchecker.totalBookmarks,
-      checked_bookmarks : bookmarkchecker.checkedBookmarks,
-      bookmarks_errors : bookmarkchecker.bookmarkErrors,
-      bookmarks_warnings : bookmarkchecker.bookmarkWarnings,
+      total_bookmarks : bookmarksorganizer.totalBookmarks,
+      checked_bookmarks : bookmarksorganizer.checkedBookmarks,
+      bookmarks_errors : bookmarksorganizer.bookmarkErrors,
+      bookmarks_warnings : bookmarksorganizer.bookmarkWarnings,
       progress : progress
     });
 
-    if (checkForFinish && bookmarkchecker.checkedBookmarks === bookmarkchecker.totalBookmarks) {
-      const bookmarks = bookmarkchecker.buildResultArray(bookmarkchecker.bookmarksResult)[0].children;
+    if (checkForFinish && bookmarksorganizer.checkedBookmarks === bookmarksorganizer.totalBookmarks) {
+      const bookmarks = bookmarksorganizer.buildResultArray(bookmarksorganizer.bookmarksResult)[0].children;
 
       browser.runtime.sendMessage({
         message : 'finished',
         bookmarks : bookmarks,
-        debug : bookmarkchecker.debug
+        debug : bookmarksorganizer.debug
       });
 
-      bookmarkchecker.inProgress = false;
+      bookmarksorganizer.inProgress = false;
     }
   },
 
@@ -468,7 +468,7 @@ const bookmarkchecker = {
   }
 };
 
-browser.browserAction.onClicked.addListener(bookmarkchecker.openUserInterface);
-browser.omnibox.onInputChanged.addListener(bookmarkchecker.showOmniboxSuggestions);
-browser.omnibox.onInputEntered.addListener(bookmarkchecker.callOmniboxAction);
-browser.runtime.onMessage.addListener(bookmarkchecker.handleResponse);
+browser.browserAction.onClicked.addListener(bookmarksorganizer.openUserInterface);
+browser.omnibox.onInputChanged.addListener(bookmarksorganizer.showOmniboxSuggestions);
+browser.omnibox.onInputEntered.addListener(bookmarksorganizer.callOmniboxAction);
+browser.runtime.onMessage.addListener(bookmarksorganizer.handleResponse);
