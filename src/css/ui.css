@@ -241,7 +241,7 @@ a:not(.button):hover {
 }
 
 #results {
-  margin-top: 50px;
+  margin: 50px 0;
 }
 
 #results ul {
@@ -259,11 +259,28 @@ a:not(.button):hover {
 
 #results > ul {
   padding: 0;
+  border-bottom: 1px solid rgb(210, 210, 210);
 }
 
 #results > ul > li > .wrapper {
   border-top: 1px solid rgb(210, 210, 210);
   border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+#results li li.has-children > .wrapper {
+  margin-top: -1px;
+  border-left: 1px solid rgb(210, 210, 210);
+  border-top: 1px solid rgb(210, 210, 210);
+  border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+#results li li:not(.has-children) > .wrapper {
+  border-bottom: 1px dotted rgb(210, 210, 210);
+  border-left: 1px dotted rgb(210, 210, 210);
+}
+
+#results li li:not(.has-children):not(:first-child) > .wrapper {
+  border-top: 1px dotted rgb(210, 210, 210);
 }
 
 #results li.has-children > .wrapper {
@@ -284,6 +301,32 @@ a:not(.button):hover {
 
 #results .warning .status {
   color: rgb(255, 165, 0);
+}
+
+#results .title {
+  position: relative;
+}
+
+#results .title::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: -24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+#results .error .title::before {
+  background: rgb(172, 0, 0);
+}
+
+#results .warning .title::before {
+  background: rgb(255, 165, 0);
+}
+
+#results .url, #results .new-url {
+  display: block;
 }
 
 #start {
@@ -333,7 +376,6 @@ a:not(.button):hover {
 #control-bar option {
   padding: 0 12px;
   font-size: 14px;
-  border: none !important;
 }
 
 #control-bar button {
@@ -351,6 +393,7 @@ a:not(.button):hover {
 
 #control-bar button:disabled {
   color: rgba(33, 37, 42, .5);
+  cursor: default;
 }
 
 #control-bar button:not(:disabled):hover {

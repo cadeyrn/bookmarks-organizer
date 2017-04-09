@@ -359,22 +359,13 @@ const ui = {
       elUrl.setAttribute('target', '_blank');
       elUrl.setAttribute('rel', 'noopener');
 
-      const elStatus = template.querySelector('.status');
-      let elStatusText = null;
-
       if (bookmark.status) {
         switch (bookmark.status) {
           case STATUS.REDIRECT:
-            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' +
-              browser.i18n.getMessage('bookmark_state_redirect'));
-            elStatus.appendChild(elStatusText);
             li.classList.add('warning', 'redirect');
             break;
           case STATUS.NOT_FOUND:
           case STATUS.FETCH_ERROR:
-            elStatusText = document.createTextNode(browser.i18n.getMessage('bookmark_state_label') + ': ' +
-              browser.i18n.getMessage('bookmark_state_not_found'));
-            elStatus.appendChild(elStatusText);
             li.classList.add('error');
             break;
           default:

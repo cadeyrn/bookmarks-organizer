@@ -38,15 +38,6 @@
   "bookmark_path": {
     "message": "Lesezeichen-Pfad"
   },
-  "bookmark_state_label": {
-    "message": "Status"
-  },
-  "bookmark_state_not_found": {
-    "message": "Nicht gefunden"
-  },
-  "bookmark_state_redirect": {
-    "message": "Weiterleitung"
-  },
   "bookmark_title": {
     "message": "Titel"
   },
