@@ -178,7 +178,7 @@ a:not(.button):hover {
 #main {
   display: flex;
   box-sizing: border-box;
-  padding: 130px 20px 140px;
+  padding: 130px 0 140px;
   width: 100%;
 }
 
@@ -241,12 +241,40 @@ a:not(.button):hover {
 }
 
 #results {
+  margin-top: 50px;
+}
+
+#results ul {
   margin: 0;
-  padding: 0;
   list-style: none;
 }
 
-#results .title {
+#results li .wrapper {
+  padding: 0 10px 0 35px;
+}
+
+#results > ul > li .wrapper {
+  padding: 10px 10px 10px 35px;
+}
+
+#results > ul {
+  padding: 0;
+}
+
+#results > ul > li > .wrapper {
+  border-top: 1px solid rgb(210, 210, 210);
+  border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+#results li.has-children > .wrapper {
+  background: url('../images/folder.png') 10px center / 16px 16px no-repeat transparent;
+}
+
+#results li:not(.has-children) > .wrapper {
+  background: url('../images/bookmark.png') 10px 12px / 16px 16px no-repeat transparent;
+}
+
+#results li:not(.has-children) .title {
   font-weight: 700;
 }
 
@@ -282,6 +310,7 @@ a:not(.button):hover {
   /* stylelint-disable-next-line property-no-vendor-prefix */
   -moz-appearance: none;
   margin: 12px 5px 12px 10px;
+  padding-left: 10px;
   padding-right: 40px;
   width: 310px;
   height: 40px;
@@ -289,6 +318,11 @@ a:not(.button):hover {
   border: 2px solid rgb(33, 37, 42);
   background: url('../images/arrow-down.png') right 10px center / 20px 20px no-repeat transparent;
   cursor: pointer;
+  transition: background ease 500ms;
+}
+
+#control-bar select:hover {
+  background-color: rgb(235, 235, 235);
 }
 
 #control-bar select:-moz-focusring {
@@ -297,7 +331,9 @@ a:not(.button):hover {
 }
 
 #control-bar option {
+  padding: 0 12px;
   font-size: 14px;
+  border: none !important;
 }
 
 #control-bar button {
@@ -313,7 +349,11 @@ a:not(.button):hover {
   transition: all ease 500ms;
 }
 
-#control-bar button:hover {
+#control-bar button:disabled {
+  color: rgba(33, 37, 42, .5);
+}
+
+#control-bar button:not(:disabled):hover {
   background: rgb(172, 0, 0);
   color: rgb(255, 255, 255);
 }
