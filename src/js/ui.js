@@ -108,9 +108,10 @@ const ui = {
     if (response.message === 'started') {
       elResultWrapper.classList.add('hidden');
       elStart.classList.add('hidden');
+      elHint.getElementsByClassName('notice')[0].textContent = browser.i18n.getMessage('greeting');
+      elHint.getElementsByClassName('content')[0].textContent = browser.i18n.getMessage('intro_check');
       elHint.classList.add('hidden');
-      elHint.getElementsByClassName('notice')[0].textContent = '';
-      elHint.getElementsByClassName('content')[0].textContent = '';
+      elHint.classList.remove('success');
       elResults.textContent = '';
       elDebugOutput.textContent = '';
       elProgress.setAttribute('value', MIN_PROGRESS);
