@@ -108,7 +108,7 @@
     "number-leading-zero": "never",
     "number-max-precision": 2,
     "number-no-trailing-zeros": true,
-    "order/declaration-block-properties-specified-order": [
+    "order/properties-order": [
       "appearance",
       "display",
       "position",
