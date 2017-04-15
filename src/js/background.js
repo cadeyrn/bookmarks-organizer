@@ -401,14 +401,14 @@ const bookmarksorganizer = {
         delete duplicates[key];
       }
       else {
-        bookmarksorganizer.bookmarkWarnings++;
+        bookmarksorganizer.bookmarkErrors++;
       }
     });
 
     browser.runtime.sendMessage({
       message : 'show-duplicates-ui',
       bookmarks : duplicates,
-      warnings : bookmarksorganizer.bookmarkWarnings
+      errors : bookmarksorganizer.bookmarkErrors
     });
 
     bookmarksorganizer.inProgress = false;

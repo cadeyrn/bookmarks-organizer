@@ -175,9 +175,9 @@ const ui = {
       ui.doUiCleanup();
     }
     else if (response.message === 'show-duplicates-ui') {
-      elBookmarksWarnings.textContent = response.warnings;
+      elBookmarksErrors.textContent = response.errors;
 
-      if (response.warnings === 0) {
+      if (response.errors === 0) {
         ui.showNoResultsMessage = true;
       }
       else {
@@ -269,6 +269,7 @@ const ui = {
   getSingleDuplicateNode (bookmarks, url) {
     const template = document.getElementById('duplicates-template').content.cloneNode(true);
     const elListItem = document.createElement('li');
+    elListItem.classList.add('error');
 
     const elUrlText = document.createTextNode(url);
     const elUrl = template.querySelector('.url');
