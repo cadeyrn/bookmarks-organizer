@@ -8,7 +8,7 @@ const UI_PAGE = 'html/ui.html';
 const bookmarksorganizer = {
   LIMIT : 0,
   MAX_ATTEMPTS : 2,
-  debug_enabled : false,
+  debugEnabled : false,
   inProgress : false,
   internalCounter : 0,
   totalBookmarks : 0,
@@ -176,7 +176,7 @@ const bookmarksorganizer = {
     browser.runtime.sendMessage({ message : 'started' });
 
     browser.storage.local.get('debug_enabled', (options) => {
-      bookmarksorganizer.debug_enabled = options.debug_enabled;
+      bookmarksorganizer.debugEnabled = options.debugEnabled;
     });
 
     const bookmarks = await browser.bookmarks.getTree();
@@ -302,7 +302,7 @@ const bookmarksorganizer = {
         bookmark.status = response.status;
       }
 
-      if (bookmarksorganizer.debug_enabled) {
+      if (bookmarksorganizer.debugEnabled) {
         bookmarksorganizer.debug.push({
           bookmark : {
             id : bookmark.id,
@@ -323,7 +323,7 @@ const bookmarksorganizer = {
     catch (error) {
       bookmark.status = STATUS.FETCH_ERROR;
 
-      if (bookmarksorganizer.debug_enabled) {
+      if (bookmarksorganizer.debugEnabled) {
         bookmarksorganizer.debug.push({
           bookmark : {
             id : bookmark.id,
