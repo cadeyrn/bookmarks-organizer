@@ -143,13 +143,18 @@ const ui = {
       if (ui.markedBookmarks === 0) {
         ui.showNoResultsMessage = true;
         ui.showSearchField = false;
-        ui.showFilterCheckboxes = false;
       }
       else {
         ui.showNoResultsMessage = false;
         ui.showSearchField = true;
-        ui.showFilterCheckboxes = true;
         elSearch.focus();
+      }
+
+      if (response.mode !== 'broken-bookmarks' || ui.markedBookmarks === 0) {
+        ui.showFilterCheckboxes = false;
+      }
+      else {
+        ui.showFilterCheckboxes = true;
       }
 
       if (ui.warnings === 0) {

@@ -214,13 +214,13 @@ const bookmarksorganizer = {
   checkAllBookmarks (bookmark, mode, type) {
     switch (mode) {
       case 'broken-bookmarks':
-        bookmarksorganizer.checkForBrokenBookmark(bookmark, type);
+        bookmarksorganizer.checkForBrokenBookmark(bookmark, mode, type);
         break;
       case 'duplicates':
-        bookmarksorganizer.checkBookmarkAndAssignPath(bookmark);
+        bookmarksorganizer.checkBookmarkAndAssignPath(bookmark, mode);
         break;
       case 'empty-titles':
-        bookmarksorganizer.checkForEmptyTitle(bookmark);
+        bookmarksorganizer.checkForEmptyTitle(bookmark, mode);
         break;
       default:
         // do nothing
@@ -233,7 +233,7 @@ const bookmarksorganizer = {
     }
   },
 
-  async checkForBrokenBookmark (bookmark, type) {
+  async checkForBrokenBookmark (bookmark, mode, type) {
     if (bookmark.url) {
       if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.internalCounter === bookmarksorganizer.LIMIT) {
         return;
@@ -265,11 +265,11 @@ const bookmarksorganizer = {
             // do nothing
         }
 
-        bookmarksorganizer.updateProgressUi(true);
+        bookmarksorganizer.updateProgressUi(mode, true);
       }
       else {
         bookmarksorganizer.checkedBookmarks++;
-        bookmarksorganizer.updateProgressUi(true);
+        bookmarksorganizer.updateProgressUi(mode, true);
       }
     }
     else {
@@ -345,7 +345,7 @@ const bookmarksorganizer = {
     return bookmark;
   },
 
-  checkBookmarkAndAssignPath (bookmark) {
+  checkBookmarkAndAssignPath (bookmark, mode) {
     if (bookmark.url) {
       if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.internalCounter === bookmarksorganizer.LIMIT) {
         return;
@@ -355,13 +355,13 @@ const bookmarksorganizer = {
 
       bookmarksorganizer.internalCounter++;
       bookmarksorganizer.checkedBookmarks++;
-      bookmarksorganizer.updateProgressUi(false);
+      bookmarksorganizer.updateProgressUi(mode, false);
     }
 
     bookmarksorganizer.bookmarksResult.push(bookmark);
   },
 
-  checkForEmptyTitle (bookmark) {
+  checkForEmptyTitle (bookmark, mode) {
     if (bookmark.url) {
       if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.internalCounter === bookmarksorganizer.LIMIT) {
         return;
@@ -375,7 +375,7 @@ const bookmarksorganizer = {
       }
 
       bookmarksorganizer.checkedBookmarks++;
-      bookmarksorganizer.updateProgressUi(true);
+      bookmarksorganizer.updateProgressUi(mode, true);
     }
     else {
       bookmarksorganizer.bookmarksResult.push(bookmark);
@@ -414,7 +414,7 @@ const bookmarksorganizer = {
     bookmarksorganizer.inProgress = false;
   },
 
-  updateProgressUi (checkForFinish) {
+  updateProgressUi (mode, checkForFinish) {
     let progress = bookmarksorganizer.checkedBookmarks / bookmarksorganizer.totalBookmarks;
     if (progress < MIN_PROGRESS) {
       progress = MIN_PROGRESS;
@@ -434,6 +434,7 @@ const bookmarksorganizer = {
 
       browser.runtime.sendMessage({
         message : 'finished',
+        mode : mode,
         bookmarks : bookmarks,
         debug : bookmarksorganizer.debug
       });

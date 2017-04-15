@@ -24,7 +24,7 @@ a:not(.button):hover {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .animated-visibility.is-hidden {
