@@ -333,9 +333,9 @@ a:not(.button):hover {
   position: absolute;
   top: 3px;
   left: -25px;
-  background: url('../images/redirect.png') center center / 16px 16px no-repeat transparent;
   width: 16px;
   height: 16px;
+  background: url('../images/redirect.png') center center / 16px 16px no-repeat transparent;
 }
 
 #results .action-buttons {
@@ -389,7 +389,7 @@ a:not(.button):hover {
 
 #filterbar .checkbox {
   display: inline-block;
-	position: relative;
+  position: relative;
   width: 90px;
 }
 
@@ -399,8 +399,8 @@ a:not(.button):hover {
   left: 0;
   width: 25px;
   height: 25px;
-	background: rgb(255, 255, 255);
-  border: 2px solid rgb(210, 210, 210);;
+  border: 2px solid rgb(210, 210, 210);
+  background: rgb(255, 255, 255);
   text-indent: 35px;
   cursor: pointer;
   transition: border 500ms;
@@ -411,21 +411,21 @@ a:not(.button):hover {
 }
 
 #filterbar .checkbox label::after {
-	content: '';
+  content: '';
   position: absolute;
   top: 6px;
   left: 7px;
   width: 9px;
   height: 5px;
-  opacity: 0.2;
-	border: 3px solid rgb(150, 150, 150);
-	border-top: none;
-	border-right: none;
-	transform: rotate(-45deg);
+  opacity: .2;
+  border: 3px solid rgb(150, 150, 150);
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
 }
 
 #filterbar .checkbox input[type='checkbox']:checked + label::after {
-	opacity: 1;
+  opacity: 1;
 }
 
 #start {
