@@ -528,10 +528,12 @@ a:not(.button):hover {
   color: rgb(33, 37, 42);
 }
 
-#debug-output {
-  height: 150px;
-  border: 1px dotted rgb(204, 204, 204);
+#debug-output-wrapper {
+  padding: 30px 10px;
+  max-height: 500px;
+  border-top: 1px dotted rgb(210, 210, 210);
   background: rgb(237, 237, 237);
+  overflow: scroll;
 }
 
 #mask {

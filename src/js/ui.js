@@ -162,7 +162,7 @@ const ui = {
         ui.showDebugOutput = false;
       }
       else {
-        elDebugOutput.textContent = JSON.stringify(response.debug);
+        elDebugOutput.textContent = JSON.stringify(response.debug, null, 2);
         ui.showDebugOutput = true;
       }
 
