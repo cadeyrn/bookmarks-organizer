@@ -50,10 +50,14 @@
         <input type='search' id='search' placeholder='__MSG_search_label__' />
         <div id='filterbar'>
           <div>
-            <input type='checkbox' id='filter-errors' class='filter' data-filter='error' checked />
-            <label for='filter-errors'>__MSG_filter_errors__</label>
-            <input type='checkbox' id='filter-warnings' class='filter' data-filter='warning' checked />
-            <label for='filter-warnings'>__MSG_filter_warnings__</label>
+            <div class='checkbox'>
+              <input type='checkbox' id='filter-errors' class='filter' data-filter='error' checked />
+              <label for='filter-errors'>__MSG_filter_errors__</label>
+            </div>
+            <div class='checkbox'>
+              <input type='checkbox' id='filter-warnings' class='filter' data-filter='warning' checked />
+              <label for='filter-warnings'>__MSG_filter_warnings__</label>
+            </div>
           </div>
         </div>
         <div id='results'></div>
