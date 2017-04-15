@@ -26,6 +26,7 @@ const elRemoveAllBookmarksWithErrors = document.getElementById('remove-all-bookm
 const elFilterBar = document.getElementById('filterbar');
 const elSearch = document.getElementById('search');
 const elStart = document.getElementById('start');
+const elDebugWrapper = document.getElementById('debug-output-wrapper');
 const elDebugOutput = document.getElementById('debug-output');
 const elMask = document.getElementById('mask');
 const elSpinner = document.getElementById('spinner');
@@ -241,10 +242,10 @@ const ui = {
     }
 
     if (ui.showDebugOutput) {
-      elDebugOutput.classList.remove('hidden');
+      elDebugWrapper.classList.remove('hidden');
     }
     else {
-      elDebugOutput.classList.add('hidden');
+      elDebugWrapper.classList.add('hidden');
     }
   },
 
