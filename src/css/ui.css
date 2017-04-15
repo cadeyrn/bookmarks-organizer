@@ -204,9 +204,10 @@ a:not(.button):hover {
 
 #hint {
   position: absolute;
-  left: 20px;
+  left: auto;
   right: 130px;
   z-index: 10;
+  margin-left: 20px;
   padding: 20px 15px;
   border-radius: 5px;
   background: rgb(172, 0, 0);
