@@ -216,7 +216,6 @@ const ui = {
       elHint.getElementsByClassName('notice')[0].textContent = browser.i18n.getMessage('some_marked_bookmarks_title');
       elHint.getElementsByClassName('content')[0].textContent = browser.i18n.getMessage('some_marked_bookmarks');
       elHint.classList.remove('success');
-      elHint.classList.remove('hidden');
     }
 
     if (ui.showMassActionButtons) {
