@@ -374,6 +374,9 @@ const ui = {
             // do nothing
         }
       }
+      else {
+        li.classList.add('error');
+      }
 
       const elActionButtons = template.querySelector('.action-buttons');
 
