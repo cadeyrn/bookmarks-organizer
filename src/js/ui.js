@@ -213,9 +213,10 @@ const ui = {
       elHint.classList.remove('hidden');
     }
     else {
-      elHint.getElementsByClassName('notice')[0].textContent = browser.i18n.getMessage('greeting');
-      elHint.getElementsByClassName('content')[0].textContent = browser.i18n.getMessage('intro_check');
+      elHint.getElementsByClassName('notice')[0].textContent = browser.i18n.getMessage('some_marked_bookmarks_title');
+      elHint.getElementsByClassName('content')[0].textContent = browser.i18n.getMessage('some_marked_bookmarks');
       elHint.classList.remove('success');
+      elHint.classList.remove('hidden');
     }
 
     if (ui.showMassActionButtons) {

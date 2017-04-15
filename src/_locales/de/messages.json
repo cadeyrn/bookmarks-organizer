@@ -104,6 +104,12 @@
   "search_label": {
     "message" : "Titel oder URL…"
   },
+  "some_marked_bookmarks": {
+    "message": "Sieht aus, als könnten wir hier ein wenig aufräumen!"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Schau mal!"
+  },
   "start_message": {
     "message" : "Starte hier…"
   },
