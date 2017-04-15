@@ -148,6 +148,7 @@ const ui = {
         ui.showNoResultsMessage = false;
         ui.showSearchField = true;
         ui.showFilterCheckboxes = true;
+        elSearch.focus();
       }
 
       if (ui.warnings === 0) {
