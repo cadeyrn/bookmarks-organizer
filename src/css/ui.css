@@ -324,10 +324,6 @@ a:not(.button):hover {
   background: rgb(255, 165, 0);
 }
 
-#results .url, #results .new-url {
-  display: block;
-}
-
 #results .redirect .new-url {
   position: relative;
 }
