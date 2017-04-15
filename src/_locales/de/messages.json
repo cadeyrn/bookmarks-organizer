@@ -1,9 +1,9 @@
 {
   "action_remove_all_bookmarks_with_errors": {
-    "message": "[Lösche alle fehlerhaften Lesezeichen]"
+    "message": "Lösche alle fehlerhaften Lesezeichen"
   },
   "action_repair_all_redirects": {
-    "message": "[Korrigiere alle Weiterleitungen]"
+    "message": "Korrigiere alle Weiterleitungen"
   },
   "button_check_bookmarks": {
     "message": "Prüfe Lesezeichen…"

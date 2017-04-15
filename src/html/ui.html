@@ -48,23 +48,25 @@
       </div>
       <div id='result-wrapper' class='hidden'>
         <input type='search' id='search' placeholder='__MSG_search_label__' />
-        <div id='filterbar'>
-          <div>
-            <div class='checkbox'>
-              <input type='checkbox' id='filter-errors' class='filter' data-filter='error' checked />
-              <label for='filter-errors'>__MSG_filter_errors__</label>
+        <div class='clearfix'>
+          <div id='filterbar'>
+            <div>
+              <div class='checkbox'>
+                <input type='checkbox' id='filter-errors' class='filter' data-filter='error' checked />
+                <label for='filter-errors'>__MSG_filter_errors__</label>
+              </div>
+              <div class='checkbox'>
+                <input type='checkbox' id='filter-warnings' class='filter' data-filter='warning' checked />
+                <label for='filter-warnings'>__MSG_filter_warnings__</label>
+              </div>
             </div>
-            <div class='checkbox'>
-              <input type='checkbox' id='filter-warnings' class='filter' data-filter='warning' checked />
-              <label for='filter-warnings'>__MSG_filter_warnings__</label>
-            </div>
+          </div>
+          <div id='mass-actions' class='hidden'>
+            <a href='#' id='repair-all-redirects'>__MSG_action_repair_all_redirects__</a><br />
+            <a href='#' id='remove-all-bookmarks-with-errors'>__MSG_action_remove_all_bookmarks_with_errors__</a>
           </div>
         </div>
         <div id='results'></div>
-        <div id='mass-actions' class='hidden'>
-          <a href='#' id='repair-all-redirects'>__MSG_action_repair_all_redirects__</a>
-          <a href='#' id='remove-all-bookmarks-with-errors'>__MSG_action_remove_all_bookmarks_with_errors__</a>
-        </div>
         <code id='debug-output' class='hidden'></code>
       </div>
       <div id='start'>__MSG_start_message__</div>
