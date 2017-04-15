@@ -9,13 +9,13 @@
     "message": "Prüfe Lesezeichen…"
   },
   "bookmark_action_edit": {
-    "message": "[bearbeiten]"
+    "message": "bearbeiten"
   },
   "bookmark_action_remove": {
-    "message": "[entfernen]"
+    "message": "entfernen"
   },
   "bookmark_action_repair_redirect": {
-    "message": "[korrigiere URL]"
+    "message": "korrigiere Weiterleitung"
   },
   "bookmark_confirmation_remove": {
     "message": "Soll dieses Lesezeichen wirklich gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden."
@@ -28,9 +28,6 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "Soll die URL dieses Lesezeichen wirklich geändert werden? Die Aktion kann nicht rückgängig gemacht werden."
-  },
-  "bookmark_new_url": {
-    "message": "Neue URL"
   },
   "bookmark_no_title": {
     "message": "(ohne Titel)"

@@ -375,19 +375,19 @@ const ui = {
 
       const elActionButtons = template.querySelector('.action-buttons');
 
-      const elRemoveButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_remove'));
-      const elRemoveButton = document.createElement('a');
-      elRemoveButton.appendChild(elRemoveButtonText);
-      elRemoveButton.setAttribute('data-id', bookmark.id);
-      elRemoveButton.setAttribute('data-action', 'remove');
-      elRemoveButton.setAttribute('data-confirmation', 'true');
-      elRemoveButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_remove'));
-      elRemoveButton.setAttribute('href', '#');
-      elActionButtons.appendChild(elRemoveButton);
+      const elEditButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_edit'));
+      const elEditButton = document.createElement('a');
+      elEditButton.appendChild(elEditButtonText);
+      elEditButton.setAttribute('data-id', bookmark.id);
+      elEditButton.setAttribute('data-action', 'edit');
+      elEditButton.setAttribute('data-title', bookmark.title);
+      elEditButton.setAttribute('data-url', bookmark.url);
+      elEditButton.setAttribute('data-mode', 'default');
+      elEditButton.setAttribute('href', '#');
+      elActionButtons.appendChild(elEditButton);
 
       if (bookmark.status && bookmark.status === STATUS.REDIRECT) {
-        const elNewUrlText = document.createTextNode(browser.i18n.getMessage('bookmark_new_url') + ': ' +
-          bookmark.newUrl);
+        const elNewUrlText = document.createTextNode(bookmark.newUrl);
         const elNewUrl = template.querySelector('.new-url');
         elNewUrl.appendChild(elNewUrlText);
         elNewUrl.setAttribute('href', bookmark.newUrl);
@@ -410,16 +410,15 @@ const ui = {
         elActionButtons.appendChild(elRepairRedirectButton);
       }
 
-      const elEditButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_edit'));
-      const elEditButton = document.createElement('a');
-      elEditButton.appendChild(elEditButtonText);
-      elEditButton.setAttribute('data-id', bookmark.id);
-      elEditButton.setAttribute('data-action', 'edit');
-      elEditButton.setAttribute('data-title', bookmark.title);
-      elEditButton.setAttribute('data-url', bookmark.url);
-      elEditButton.setAttribute('data-mode', 'default');
-      elEditButton.setAttribute('href', '#');
-      elActionButtons.appendChild(elEditButton);
+      const elRemoveButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_remove'));
+      const elRemoveButton = document.createElement('a');
+      elRemoveButton.appendChild(elRemoveButtonText);
+      elRemoveButton.setAttribute('data-id', bookmark.id);
+      elRemoveButton.setAttribute('data-action', 'remove');
+      elRemoveButton.setAttribute('data-confirmation', 'true');
+      elRemoveButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_remove'));
+      elRemoveButton.setAttribute('href', '#');
+      elActionButtons.appendChild(elRemoveButton);
     }
     else {
       template = document.getElementById('result-template-title').content.cloneNode(true);

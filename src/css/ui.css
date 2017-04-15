@@ -187,10 +187,9 @@ a:not(.button):hover {
 }
 
 #fox {
-  position: fixed;
+  position: absolute;
   top: 135px;
   right: 30px;
-  z-index: 300;
   width: 64px;
   height: 64px;
   animation: waggle 1000ms 3000ms forwards ease-out;
@@ -325,6 +324,46 @@ a:not(.button):hover {
 
 #results .url, #results .new-url {
   display: block;
+}
+
+#results .redirect .new-url {
+  position: relative;
+}
+
+#results .redirect .new-url::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: -25px;
+  background: url('../images/redirect.png') center center / 16px 16px no-repeat transparent;
+  width: 16px;
+  height: 16px;
+}
+
+#results .action-buttons {
+  margin-top: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0ms, opacity 500ms linear;
+}
+
+#results li:hover > .wrapper > .action-buttons {
+  visibility: visible;
+  opacity: 1;
+}
+
+#results .action-buttons a {
+  font-size: 12px;
+  color: rgb(33, 37, 42);
+}
+
+#results .action-buttons a:hover {
+  font-size: 12px;
+  color: rgb(172, 0, 0);
+}
+
+#results .action-buttons a:not(:last-child) {
+  margin-right: 30px;
 }
 
 #start {
