@@ -24,7 +24,7 @@ a:not(.button):hover {
 }
 
 .hidden {
-  display: none !important;
+  display: none;
 }
 
 .animated-visibility.is-hidden {
@@ -428,9 +428,12 @@ a:not(.button):hover {
 }
 
 #filterbar {
-  display: inline-block;
   margin-top: 10px;
   margin-left: 30px;
+}
+
+#filterbar:not(.hidden) {
+  display: inline-block;
 }
 
 #mass-actions {
