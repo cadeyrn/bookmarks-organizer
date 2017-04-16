@@ -30,7 +30,7 @@
     "message": "Soll die URL dieses Lesezeichen wirklich geändert werden? Die Aktion kann nicht rückgängig gemacht werden."
   },
   "bookmark_no_title": {
-    "message": "(ohne Titel)"
+    "message": "kein Lesezeichen-Name…"
   },
   "bookmark_path": {
     "message": "Lesezeichen-Pfad"

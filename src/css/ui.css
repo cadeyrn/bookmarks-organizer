@@ -374,6 +374,12 @@ button:not(:disabled):hover {
   font-weight: 700;
 }
 
+#results li:not(.has-children) .title.no-title {
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(33, 37, 42, .5);
+}
+
 #results .title {
   position: relative;
 }

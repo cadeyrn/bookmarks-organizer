@@ -356,9 +356,18 @@ const ui = {
       li.classList.add('is-bookmark');
       template = document.getElementById('result-template-url').content.cloneNode(true);
 
-      const title = bookmark.title ? bookmark.title : browser.i18n.getMessage('bookmark_no_title');
-      const elTitleText = document.createTextNode(title);
       const elTitle = template.querySelector('.title');
+      let title;
+
+      if (bookmark.title) {
+        title = bookmark.title;
+      }
+      else {
+        elTitle.classList.add('no-title');
+        title = browser.i18n.getMessage('bookmark_no_title');
+      }
+
+      const elTitleText = document.createTextNode(title);
       elTitle.appendChild(elTitleText);
 
       const elUrlText = document.createTextNode(bookmark.url);
