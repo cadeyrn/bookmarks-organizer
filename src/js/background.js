@@ -129,6 +129,7 @@ const bookmarksorganizer = {
     }
     else if (response.message === 'remove') {
       browser.bookmarks.remove(response.bookmarkId);
+      bookmarksorganizer.totalBookmarks--;
     }
     else if (response.message === 'repair-redirect') {
       browser.bookmarks.update(response.bookmarkId, { url : response.newUrl });
