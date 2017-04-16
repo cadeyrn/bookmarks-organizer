@@ -357,12 +357,9 @@ const ui = {
       template = document.getElementById('result-template-url').content.cloneNode(true);
 
       const elTitle = template.querySelector('.title');
-      let title;
+      let { title } = bookmark;
 
-      if (bookmark.title) {
-        title = bookmark.title;
-      }
-      else {
+      if (!title) {
         elTitle.classList.add('no-title');
         title = browser.i18n.getMessage('bookmark_no_title');
       }
