@@ -23,7 +23,7 @@ input[type='search'], input[type='text'] {
   width: 100%;
   border: none;
   border-bottom: solid 2px rgb(210, 210, 210);
-  transition: border 500ms;
+  transition: border ease 500ms;
 }
 
 input[type='search']:hover, input[type='text']:hover {
@@ -79,7 +79,7 @@ button:not(:disabled):hover {
 .animated-visibility {
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s 1000ms, opacity 1000ms linear;
+  transition: visibility 0ms 1000ms, opacity 1000ms linear;
 }
 
 .checkbox {
@@ -99,7 +99,7 @@ button:not(:disabled):hover {
   text-indent: 35px;
   white-space: nowrap;
   cursor: pointer;
-  transition: border 500ms;
+  transition: border ease 500ms;
 }
 
 .checkbox label:hover {
