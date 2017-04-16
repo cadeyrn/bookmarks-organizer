@@ -17,6 +17,46 @@ a:not(.button):hover {
   color: rgb(210, 57, 49);
 }
 
+input[type='search'], input[type='text'] {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-bottom: solid 2px rgb(210, 210, 210);
+  transition: border 500ms;
+}
+
+input[type='search']:hover, input[type='text']:hover {
+  border-color: rgb(150, 150, 150);
+}
+
+input[type='search']:focus, input[type='text']:focus {
+  border-color: rgb(172, 0, 0);
+}
+
+button {
+  margin: 12px 0;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 40px;
+  font-size: 18px;
+  border: 2px solid rgb(172, 0, 0);
+  background: rgb(255, 255, 255);
+  color: rgb(33, 37, 42);
+  cursor: pointer;
+  transition: all ease 500ms;
+}
+
+button:disabled {
+  color: rgba(33, 37, 42, .5);
+  cursor: default;
+}
+
+button:not(:disabled):hover {
+  background: rgb(172, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
 .clearfix::after {
   content: '';
   display: table-cell;
@@ -25,6 +65,10 @@ a:not(.button):hover {
 
 .hidden {
   display: none;
+}
+
+.center {
+  text-align: center;
 }
 
 .animated-visibility.is-hidden {
@@ -36,15 +80,6 @@ a:not(.button):hover {
   visibility: visible;
   opacity: 1;
   transition: visibility 0s 1000ms, opacity 1000ms linear;
-}
-
-.vertical-align > div {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.vertical-align label {
-  margin-left: 5px;
 }
 
 .checkbox {
@@ -412,19 +447,7 @@ a:not(.button):hover {
 #search {
   margin-top: 10px;
   margin-left: 30px;
-  padding: 10px;
   width: calc(100% - 165px);
-  border: none;
-  border-bottom: solid 2px rgb(210, 210, 210);
-  transition: border 500ms;
-}
-
-#search:hover {
-  border-color: rgb(150, 150, 150);
-}
-
-#search:focus {
-  border-color: rgb(172, 0, 0);
 }
 
 #filterbar {
@@ -490,29 +513,6 @@ a:not(.button):hover {
 #control-bar option {
   padding: 0 12px;
   font-size: 14px;
-}
-
-#control-bar button {
-  margin: 12px 0;
-  padding-left: 30px;
-  padding-right: 30px;
-  height: 40px;
-  font-size: 18px;
-  border: 2px solid rgb(172, 0, 0);
-  background: rgb(255, 255, 255);
-  color: rgb(33, 37, 42);
-  cursor: pointer;
-  transition: all ease 500ms;
-}
-
-#control-bar button:disabled {
-  color: rgba(33, 37, 42, .5);
-  cursor: default;
-}
-
-#control-bar button:not(:disabled):hover {
-  background: rgb(172, 0, 0);
-  color: rgb(255, 255, 255);
 }
 
 #options-form {
@@ -632,13 +632,21 @@ a:not(.button):hover {
 }
 
 .modal-header {
-  padding: 20px 5px;
+  padding: 15px;
   background-color: rgb(193, 56, 50);
   color: rgb(255, 255, 255);
 }
 
 .modal-body {
   padding: 5px 15px;
+  background: rgb(235, 235, 235);
+}
+
+.modal-body label {
+  display: block;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .modal-footer {

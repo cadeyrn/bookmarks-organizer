@@ -473,6 +473,7 @@ const ui = {
 
     const elTitle = document.getElementById('title');
     elTitle.value = title;
+    elTitle.focus();
 
     const elUrl = document.getElementById('url');
     elUrl.value = url;
