@@ -374,14 +374,6 @@ button:not(:disabled):hover {
   font-weight: 700;
 }
 
-#results .error .status {
-  color: rgb(172, 0, 0);
-}
-
-#results .warning .status {
-  color: rgb(255, 165, 0);
-}
-
 #results .title {
   position: relative;
 }
@@ -402,6 +394,10 @@ button:not(:disabled):hover {
 
 #results .warning .title::before {
   background: rgb(255, 165, 0);
+}
+
+#results .unknown .title::before {
+  background: rgb(150, 150, 150);
 }
 
 #results .redirect .new-url {

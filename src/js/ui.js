@@ -203,6 +203,7 @@ const ui = {
         listItem.getElementsByClassName('url')[0].textContent = path;
       }
       else {
+        response.bookmark.status = STATUS.UNKNOWN;
         listItem.replaceWith(ui.getSingleNode(response.bookmark));
       }
     }
@@ -375,6 +376,9 @@ const ui = {
           case STATUS.NOT_FOUND:
           case STATUS.FETCH_ERROR:
             li.classList.add('error');
+            break;
+          case STATUS.UNKNOWN:
+            li.classList.add('unknown');
             break;
           default:
             // do nothing
