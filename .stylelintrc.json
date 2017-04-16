@@ -125,6 +125,7 @@
       "width",
       "height",
       "line-height",
+      "transform",
       "font",
       "border",
       "background",
@@ -133,8 +134,10 @@
       "vertical-align",
       "text-align",
       "text-decoration",
+      "whitespace",
       "overflow",
       "cursor",
+      "opacity",
       "animation",
       "transition"
     ],
