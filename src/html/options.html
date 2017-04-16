@@ -7,22 +7,29 @@
   <link rel='icon' type='image/png' href='../images/icon-32.png' />
 </head>
 <body>
-  <header>
-    <a href='ui.html'><h1>__MSG_extension_name__</h1></a>
-  </header>
-  <progress id='progress' value='0'></progress>
-  <main>
-    <section>
-      <form>
-        <div class='vertical-align'>
-          <div><input type='checkbox' name='debug_mode' id='debug-mode' /></div>
-          <div><label for='debug-mode'>__MSG_option_debug_mode__</label></div>
+  <div id='header-wrapper' class='default'>
+    <header id='header'>
+      <div id='logo-wrapper'>
+        <a href='ui.html'></a>
+      </div>
+    </header>
+    <div id='logo-small'>
+      <a href='ui.html'></a>
+    </div>
+    <progress id='progress' value='0'></progress>
+  </div>
+  <main id='main'>
+    <section id='main-section'>
+      <form id='options-form'>
+        <div class='checkbox'>
+          <input type='checkbox' name='debug_mode' id='debug-mode' />
+          <label for='debug-mode'><span>__MSG_option_debug_mode__</span></label>
         </div>
       </form>
     </section>
   </main>
-  <footer>
-    <a href='https://www.soeren-hentzschel.at' target='_blank' rel='noopener'>
+  <footer id='footer'>
+    <a href='https://www.soeren-hentzschel.at/bookmarks-organizier/' target='_blank' rel='noopener'>
       __MSG_extension_name__ © 2017, soeren-hentzschel.at
     </a>
   </footer>

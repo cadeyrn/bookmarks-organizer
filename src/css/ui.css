@@ -47,6 +47,52 @@ a:not(.button):hover {
   margin-left: 5px;
 }
 
+.checkbox {
+  display: inline-block;
+  position: relative;
+  width: 90px;
+}
+
+.checkbox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border: 2px solid rgb(210, 210, 210);
+  background: rgb(255, 255, 255);
+  text-indent: 35px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border 500ms;
+}
+
+.checkbox label:hover {
+  border-color: rgb(150, 150, 150);
+}
+
+.checkbox label::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 7px;
+  width: 9px;
+  height: 5px;
+  transform: rotate(-45deg);
+  border: 3px solid rgb(150, 150, 150);
+  border-top: none;
+  border-right: none;
+  opacity: .2;
+}
+
+.checkbox label span {
+  vertical-align: middle;
+}
+
+.checkbox input[type='checkbox']:checked + label::after {
+  opacity: 1;
+}
+
 #header-wrapper {
   position: fixed;
   top: 0;
@@ -387,47 +433,6 @@ a:not(.button):hover {
   margin-left: 30px;
 }
 
-#filterbar .checkbox {
-  display: inline-block;
-  position: relative;
-  width: 90px;
-}
-
-#filterbar .checkbox label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 25px;
-  height: 25px;
-  border: 2px solid rgb(210, 210, 210);
-  background: rgb(255, 255, 255);
-  text-indent: 35px;
-  cursor: pointer;
-  transition: border 500ms;
-}
-
-#filterbar .checkbox label:hover {
-  border-color: rgb(150, 150, 150);
-}
-
-#filterbar .checkbox label::after {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 7px;
-  width: 9px;
-  height: 5px;
-  opacity: .2;
-  border: 3px solid rgb(150, 150, 150);
-  border-top: none;
-  border-right: none;
-  transform: rotate(-45deg);
-}
-
-#filterbar .checkbox input[type='checkbox']:checked + label::after {
-  opacity: 1;
-}
-
 #mass-actions {
   float: right;
   margin-top: 5px;
@@ -505,6 +510,10 @@ a:not(.button):hover {
 #control-bar button:not(:disabled):hover {
   background: rgb(172, 0, 0);
   color: rgb(255, 255, 255);
+}
+
+#options-form {
+  padding: 10px 30px;
 }
 
 #footer {
