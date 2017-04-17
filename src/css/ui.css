@@ -435,7 +435,7 @@ button:not(:disabled):hover {
   transition: visibility 0ms, opacity 500ms linear;
 }
 
-#results li:hover > .wrapper > .action-buttons, #results .duplicates-item > li:hover .action-buttons {
+#results li:hover > .wrapper > .action-buttons, #results .duplicates > li:hover .action-buttons {
   visibility: visible;
   opacity: 1;
 }
@@ -468,9 +468,14 @@ button:not(:disabled):hover {
 }
 
 #results .duplicates li {
-  margin: 10px 0;
+  padding: 10px;
+  border-bottom: 1px solid rgb(210, 210, 210);
+  border-left: 1px dotted rgb(210, 210, 210);
+}
+
+#results .duplicates .url {
   padding-left: 24px;
-  background: url('../images/bookmark.png') 0 2px / 16px 16px no-repeat transparent;
+  background: url('../images/folder.png') 0 2px / 16px 16px no-repeat transparent;
 }
 
 #search {
