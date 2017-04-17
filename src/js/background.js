@@ -43,13 +43,10 @@ const bookmarksorganizer = {
   callOmniboxAction (input) {
     bookmarksorganizer.openUserInterfaceInCurrentTab();
     switch (input) {
-      case 'check-all':
-        bookmarksorganizer.execute('broken-bookmarks', 'all');
-        break;
-      case 'check-errors':
+      case 'errors':
         bookmarksorganizer.execute('broken-bookmarks', 'errors');
         break;
-      case 'check-warnings':
+      case 'redirects':
         bookmarksorganizer.execute('broken-bookmarks', 'warnings');
         break;
       case 'duplicates':
