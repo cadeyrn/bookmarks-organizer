@@ -20,28 +20,24 @@ const bookmarksorganizer = {
   debug : [],
 
   showOmniboxSuggestions (input, suggest) {
-    suggest([
-      {
-        content : 'check-all',
-        description : browser.i18n.getMessage('omnibox_command_check_all')
-      },
-      {
-        content : 'check-errors',
-        description : browser.i18n.getMessage('omnibox_command_check_errors')
-      },
-      {
-        content : 'check-warnings',
-        description : browser.i18n.getMessage('omnibox_command_check_warnings')
-      },
-      {
-        content : 'duplicates',
-        description : browser.i18n.getMessage('omnibox_command_check_duplicates')
-      },
-      {
-        content : 'empty-titles',
-        description : browser.i18n.getMessage('omnibox_command_empty_titles')
+    const availableCommands = ['errors', 'redirects', 'duplicates', 'empty-titles'];
+    let suggestions = [];
+
+    for (let command of availableCommands) {
+      if (command.indexOf(input) === 0) {
+        suggestions.push({
+          content : command,
+          description : browser.i18n.getMessage('omnibox_command_check_' + command.replace('-', '_'))
+        });
       }
-    ]);
+      else {
+        if (suggestions.length !== 0) {
+          suggest(suggestions);
+        }
+      }
+    }
+
+    suggest(suggestions);
   },
 
   callOmniboxAction (input) {
@@ -473,4 +469,5 @@ const bookmarksorganizer = {
 browser.browserAction.onClicked.addListener(bookmarksorganizer.openUserInterface);
 browser.omnibox.onInputChanged.addListener(bookmarksorganizer.showOmniboxSuggestions);
 browser.omnibox.onInputEntered.addListener(bookmarksorganizer.callOmniboxAction);
+browser.omnibox.setDefaultSuggestion({ description : browser.i18n.getMessage('omnibox_default_description') });
 browser.runtime.onMessage.addListener(bookmarksorganizer.handleResponse);
