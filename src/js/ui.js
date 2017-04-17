@@ -257,6 +257,7 @@ const ui = {
 
   buildDuplicatesUi (bookmarks) {
     const list = document.createElement('ul');
+    list.classList.add('duplicates-item');
 
     for (const url in bookmarks) {
       if (Object.prototype.hasOwnProperty.call(bookmarks, url)) {
@@ -281,6 +282,8 @@ const ui = {
     elListItem.appendChild(elUrl);
 
     const elDuplicatesList = document.createElement('ul');
+    elDuplicatesList.classList.add('duplicates');
+
     const duplicates = bookmarks[url];
 
     for (const duplicate of duplicates) {
@@ -298,16 +301,7 @@ const ui = {
       elDuplicate.appendChild(elDuplicatePath);
 
       const elActionButtons = document.createElement('div');
-
-      const elRemoveButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_remove'));
-      const elRemoveButton = document.createElement('a');
-      elRemoveButton.appendChild(elRemoveButtonText);
-      elRemoveButton.setAttribute('data-id', duplicate.id);
-      elRemoveButton.setAttribute('data-action', 'remove');
-      elRemoveButton.setAttribute('data-confirmation', 'true');
-      elRemoveButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_remove'));
-      elRemoveButton.setAttribute('href', '#');
-      elActionButtons.appendChild(elRemoveButton);
+      elActionButtons.classList.add('action-buttons');
 
       const elEditButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_edit'));
       const elEditButton = document.createElement('a');
@@ -319,6 +313,16 @@ const ui = {
       elEditButton.setAttribute('data-mode', 'duplicate');
       elEditButton.setAttribute('href', '#');
       elActionButtons.appendChild(elEditButton);
+
+      const elRemoveButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_remove'));
+      const elRemoveButton = document.createElement('a');
+      elRemoveButton.appendChild(elRemoveButtonText);
+      elRemoveButton.setAttribute('data-id', duplicate.id);
+      elRemoveButton.setAttribute('data-action', 'remove');
+      elRemoveButton.setAttribute('data-confirmation', 'true');
+      elRemoveButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_remove'));
+      elRemoveButton.setAttribute('href', '#');
+      elActionButtons.appendChild(elRemoveButton);
 
       elDuplicate.appendChild(elActionButtons);
       elDuplicatesList.appendChild(elDuplicate);

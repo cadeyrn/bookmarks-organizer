@@ -384,25 +384,33 @@ button:not(:disabled):hover {
   position: relative;
 }
 
-#results .title::before {
+#results .default-wrapper .title::before, #results .duplicates-item > li > a::before {
   content: '';
   position: absolute;
-  top: 24px;
-  left: -24px;
   width: 14px;
   height: 14px;
   border-radius: 50%;
 }
 
-#results .error .title::before {
+#results .default-wrapper .title::before {
+  top: 24px;
+  left: -24px;
+}
+
+#results .duplicates-item > li > a::before {
+  top: 14px;
+  left: 14px;
+}
+
+#results .error .default-wrapper .title::before, #results .duplicates-item > li > a::before {
   background: rgb(172, 0, 0);
 }
 
-#results .warning .title::before {
+#results .warning .default-wrapper .title::before {
   background: rgb(255, 165, 0);
 }
 
-#results .unknown .title::before {
+#result .unknown .default-wrapper .title::before {
   background: rgb(150, 150, 150);
 }
 
@@ -427,7 +435,7 @@ button:not(:disabled):hover {
   transition: visibility 0ms, opacity 500ms linear;
 }
 
-#results li:hover > .wrapper > .action-buttons {
+#results li:hover > .wrapper > .action-buttons, #results .duplicates-item > li:hover .action-buttons {
   visibility: visible;
   opacity: 1;
 }
@@ -444,6 +452,25 @@ button:not(:disabled):hover {
 
 #results .action-buttons a:not(:last-child) {
   margin-right: 30px;
+}
+
+#results .duplicates-item {
+  margin-top: 100px;
+}
+
+#results .duplicates-item > li > a {
+  display: block;
+  position: relative;
+  margin-top: -1px;
+  padding: 10px 10px 10px 35px;
+  border-top: 1px solid rgb(210, 210, 210);
+  border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+#results .duplicates li {
+  margin: 10px 0;
+  padding-left: 24px;
+  background: url('../images/bookmark.png') 0 2px / 16px 16px no-repeat transparent;
 }
 
 #search {
