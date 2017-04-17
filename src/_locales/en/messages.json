@@ -92,6 +92,9 @@
   "omnibox_command_check_redirects": {
     "message": "Finde Lesezeichen, welche weiterleiten"
   },
+  "omnibox_command_open": {
+    "message": "Bookmarks Organizer öffnen"
+  },
   "omnibox_default_description": {
     "message": "Prüfe alle deine Lesezeichen auf Fehler, Weiterleitungen, Duplikate, …"
   },

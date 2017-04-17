@@ -20,19 +20,22 @@ const bookmarksorganizer = {
   debug : [],
 
   showOmniboxSuggestions (input, suggest) {
-    const availableCommands = ['errors', 'redirects', 'duplicates', 'empty-titles'];
+    const availableCommands = ['duplicates', 'empty-titles', 'errors', 'organizer', 'redirects'];
     let suggestions = [];
 
     for (let command of availableCommands) {
-      if (command.indexOf(input) === 0) {
+      if (command.indexOf(input) !== -1) {
         suggestions.push({
           content : command,
           description : browser.i18n.getMessage('omnibox_command_check_' + command.replace('-', '_'))
         });
       }
       else {
-        if (suggestions.length !== 0) {
-          suggest(suggestions);
+        if (suggestions.length === 0) {
+          suggestions.push({
+            content : 'organizer',
+            description : browser.i18n.getMessage('omnibox_command_open')
+          });
         }
       }
     }
@@ -55,8 +58,9 @@ const bookmarksorganizer = {
       case 'empty-titles':
         bookmarksorganizer.execute('empty-titles', 'all');
         break;
+      case 'organizer':
       default:
-        // do nothing
+        bookmarksorganizer.openUserInterfaceInCurrentTab();
     }
   },
 
