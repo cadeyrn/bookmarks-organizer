@@ -1,9 +1,9 @@
 {
   "action_delete_all_bookmarks_with_errors": {
-    "message": "Delete all broken bookmarks"
+    "message": "delete all broken bookmarks"
   },
   "action_repair_all_redirects": {
-    "message": "Correct all redirects"
+    "message": "correct all redirects"
   },
   "button_check_bookmarks": {
     "message": "Check bookmarks…"
