@@ -22,7 +22,7 @@ const elBookmarksWarnings = document.getElementById('bookmarks-warnings');
 const elProgress = document.getElementById('progress');
 const elMassActions = document.getElementById('mass-actions');
 const elRepairAllRedirects = document.getElementById('repair-all-redirects');
-const elRemoveAllBookmarksWithErrors = document.getElementById('remove-all-bookmarks-with-errors');
+const elDeleteAllBookmarksWithErrors = document.getElementById('delete-all-bookmarks-with-errors');
 const elFilterBar = document.getElementById('filterbar');
 const elSearch = document.getElementById('search');
 const elStart = document.getElementById('start');
@@ -196,10 +196,10 @@ const ui = {
       const listItem = document.getElementById(response.bookmarkId);
 
       if (response.mode === 'duplicate') {
-        const title = browser.i18n.getMessage('bookmark_title') + ': ' + response.title;
+        const name = browser.i18n.getMessage('bookmark_name') + ': ' + response.title;
         const path = browser.i18n.getMessage('bookmark_path') + ': ' + response.path.join(' / ');
 
-        listItem.getElementsByClassName('title')[0].textContent = title;
+        listItem.getElementsByClassName('name')[0].textContent = name;
         listItem.getElementsByClassName('url')[0].textContent = path;
       }
       else {
@@ -291,10 +291,10 @@ const ui = {
       const elDuplicate = document.createElement('li');
       elDuplicate.id = duplicate.id;
 
-      const elDuplicateTitle = document.createElement('div');
-      elDuplicateTitle.classList.add('title');
-      elDuplicateTitle.textContent = browser.i18n.getMessage('bookmark_title') + ': ' + duplicate.title;
-      elDuplicate.appendChild(elDuplicateTitle);
+      const elDuplicateName = document.createElement('div');
+      elDuplicateName.classList.add('name');
+      elDuplicateName.textContent = browser.i18n.getMessage('bookmark_name') + ': ' + duplicate.title;
+      elDuplicate.appendChild(elDuplicateName);
 
       const elDuplicatePath = document.createElement('div');
       elDuplicatePath.classList.add('url');
@@ -309,21 +309,21 @@ const ui = {
       elEditButton.appendChild(elEditButtonText);
       elEditButton.setAttribute('data-id', duplicate.id);
       elEditButton.setAttribute('data-action', 'edit');
-      elEditButton.setAttribute('data-title', duplicate.title);
+      elEditButton.setAttribute('data-name', duplicate.title);
       elEditButton.setAttribute('data-url', duplicate.url);
       elEditButton.setAttribute('data-mode', 'duplicate');
       elEditButton.setAttribute('href', '#');
       elActionButtons.appendChild(elEditButton);
 
-      const elRemoveButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_remove'));
-      const elRemoveButton = document.createElement('a');
-      elRemoveButton.appendChild(elRemoveButtonText);
-      elRemoveButton.setAttribute('data-id', duplicate.id);
-      elRemoveButton.setAttribute('data-action', 'remove');
-      elRemoveButton.setAttribute('data-confirmation', 'true');
-      elRemoveButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_remove'));
-      elRemoveButton.setAttribute('href', '#');
-      elActionButtons.appendChild(elRemoveButton);
+      const elDeleteButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_delete'));
+      const elDeleteButton = document.createElement('a');
+      elDeleteButton.appendChild(elDeleteButtonText);
+      elDeleteButton.setAttribute('data-id', duplicate.id);
+      elDeleteButton.setAttribute('data-action', 'delete');
+      elDeleteButton.setAttribute('data-confirmation', 'true');
+      elDeleteButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_delete'));
+      elDeleteButton.setAttribute('href', '#');
+      elActionButtons.appendChild(elDeleteButton);
 
       elDuplicate.appendChild(elActionButtons);
       elDuplicatesList.appendChild(elDuplicate);
@@ -361,16 +361,16 @@ const ui = {
       li.classList.add('is-bookmark');
       template = document.getElementById('result-template-url').content.cloneNode(true);
 
-      const elTitle = template.querySelector('.title');
-      let { title } = bookmark;
+      const elName = template.querySelector('.name');
+      let name = bookmark.title;
 
-      if (!title) {
-        elTitle.classList.add('no-title');
-        title = browser.i18n.getMessage('bookmark_no_title');
+      if (!name) {
+        elName.classList.add('no-name');
+        name = browser.i18n.getMessage('bookmark_no_name');
       }
 
-      const elTitleText = document.createTextNode(title);
-      elTitle.appendChild(elTitleText);
+      const elNameText = document.createTextNode(name);
+      elName.appendChild(elNameText);
 
       const elUrlText = document.createTextNode(bookmark.url);
       const elUrl = template.querySelector('.url');
@@ -406,7 +406,7 @@ const ui = {
       elEditButton.appendChild(elEditButtonText);
       elEditButton.setAttribute('data-id', bookmark.id);
       elEditButton.setAttribute('data-action', 'edit');
-      elEditButton.setAttribute('data-title', bookmark.title);
+      elEditButton.setAttribute('data-name', bookmark.title);
       elEditButton.setAttribute('data-url', bookmark.url);
       elEditButton.setAttribute('data-mode', 'default');
       elEditButton.setAttribute('href', '#');
@@ -436,23 +436,23 @@ const ui = {
         elActionButtons.appendChild(elRepairRedirectButton);
       }
 
-      const elRemoveButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_remove'));
-      const elRemoveButton = document.createElement('a');
-      elRemoveButton.appendChild(elRemoveButtonText);
-      elRemoveButton.setAttribute('data-id', bookmark.id);
-      elRemoveButton.setAttribute('data-action', 'remove');
-      elRemoveButton.setAttribute('data-confirmation', 'true');
-      elRemoveButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_remove'));
-      elRemoveButton.setAttribute('href', '#');
-      elActionButtons.appendChild(elRemoveButton);
+      const elDeleteButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_delete'));
+      const elDeleteButton = document.createElement('a');
+      elDeleteButton.appendChild(elDeleteButtonText);
+      elDeleteButton.setAttribute('data-id', bookmark.id);
+      elDeleteButton.setAttribute('data-action', 'delete');
+      elDeleteButton.setAttribute('data-confirmation', 'true');
+      elDeleteButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_delete'));
+      elDeleteButton.setAttribute('href', '#');
+      elActionButtons.appendChild(elDeleteButton);
     }
     else {
-      template = document.getElementById('result-template-title').content.cloneNode(true);
+      template = document.getElementById('result-template-name').content.cloneNode(true);
 
-      const title = bookmark.title ? bookmark.title : browser.i18n.getMessage('bookmark_no_title');
-      const elTitleText = document.createTextNode(title);
-      const elTitle = template.querySelector('.title');
-      elTitle.appendChild(elTitleText);
+      const name = bookmark.title ? bookmark.title : browser.i18n.getMessage('bookmark_no_name');
+      const elNameText = document.createTextNode(name);
+      const elName = template.querySelector('.name');
+      elName.appendChild(elNameText);
     }
 
     li.appendChild(template);
@@ -486,9 +486,9 @@ const ui = {
       }
     };
 
-    const elTitle = document.getElementById('title');
-    elTitle.value = title;
-    elTitle.focus();
+    const elName = document.getElementById('name');
+    elName.value = title;
+    elName.focus();
 
     const elUrl = document.getElementById('url');
     elUrl.value = url;
@@ -498,7 +498,7 @@ const ui = {
       e.preventDefault();
 
       modal.classList.add('hidden');
-      ui.editBookmark(bookmarkId, elTitle.value, elUrl.value, mode);
+      ui.editBookmark(bookmarkId, elName.value, elUrl.value, mode);
     };
   },
 
@@ -512,7 +512,7 @@ const ui = {
     });
   },
 
-  removeBookmark (bookmarkId) {
+  deleteBookmark (bookmarkId) {
     browser.runtime.sendMessage({
       message : 'remove',
       bookmarkId : bookmarkId
@@ -540,18 +540,18 @@ const ui = {
 
       const bookmarkId = e.target.getAttribute('data-id');
       const elBookmark = document.getElementById(bookmarkId);
-      const title = e.target.getAttribute('data-title');
+      const name = e.target.getAttribute('data-name');
       const url = e.target.getAttribute('data-url');
       const mode = e.target.getAttribute('data-mode');
 
       switch (e.target.getAttribute('data-action')) {
         case 'edit':
-          ui.showEditBookmarkOverlay(bookmarkId, title, url, mode);
+          ui.showEditBookmarkOverlay(bookmarkId, name, url, mode);
           break;
-        case 'remove':
+        case 'delete':
           elBookmark.remove();
           ui.hideEmptyCategories();
-          ui.removeBookmark(bookmarkId);
+          ui.deleteBookmark(bookmarkId);
           break;
         case 'repair-redirect':
           elBookmark.remove();
@@ -587,11 +587,11 @@ const ui = {
     ui.hideEmptyCategories();
   },
 
-  removeAllBookmarksWithErrors (e) {
+  deleteAllBookmarksWithErrors (e) {
     e.preventDefault();
 
     // eslint-disable-next-line no-alert
-    if (!confirm(browser.i18n.getMessage('bookmark_confirmation_remove_all_bookmarks_with_errors'))) {
+    if (!confirm(browser.i18n.getMessage('bookmark_confirmation_delete_all_bookmarks_with_errors'))) {
       return;
     }
 
@@ -600,7 +600,7 @@ const ui = {
     for (const bookmark of bookmarks) {
       if (!bookmark.classList.contains('hidden')) {
         bookmark.remove();
-        ui.removeBookmark(bookmark.id);
+        ui.deleteBookmark(bookmark.id);
       }
     }
 
@@ -613,9 +613,9 @@ const ui = {
 
     for (const url of urls) {
       const parentElement = url.parentNode.parentNode;
-      const title = parentElement.querySelector('.title');
+      const name = parentElement.querySelector('.name');
 
-      if (matcher.test(title.textContent) || matcher.test(url.textContent)) {
+      if (matcher.test(name.textContent) || matcher.test(url.textContent)) {
         parentElement.setAttribute('data-filter-searchfield', 'true');
       }
       else {
@@ -691,7 +691,7 @@ elButton.addEventListener('click', ui.execute);
 elBody.addEventListener('click', ui.handleActionButtonClicks);
 elFox.addEventListener('click', ui.handleFoxMessageClick);
 elRepairAllRedirects.addEventListener('click', ui.repairAllRedirects);
-elRemoveAllBookmarksWithErrors.addEventListener('click', ui.removeAllBookmarksWithErrors);
+elDeleteAllBookmarksWithErrors.addEventListener('click', ui.deleteAllBookmarksWithErrors);
 elSearch.addEventListener('input', ui.applySearchFieldFilter);
 
 browser.runtime.onMessage.addListener(ui.handleResponse);

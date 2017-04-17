@@ -1,5 +1,5 @@
 {
-  "action_remove_all_bookmarks_with_errors": {
+  "action_delete_all_bookmarks_with_errors": {
     "message": "Lösche alle fehlerhaften Lesezeichen"
   },
   "action_repair_all_redirects": {
@@ -11,16 +11,16 @@
   "bookmark_action_edit": {
     "message": "bearbeiten"
   },
-  "bookmark_action_remove": {
+  "bookmark_action_delete": {
     "message": "entfernen"
   },
   "bookmark_action_repair_redirect": {
     "message": "korrigiere Weiterleitung"
   },
-  "bookmark_confirmation_remove": {
+  "bookmark_confirmation_delete": {
     "message": "Soll dieses Lesezeichen wirklich gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden."
   },
-  "bookmark_confirmation_remove_all_bookmarks_with_errors": {
+  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
     "message": "Sollen wirklich alle fehlerhaften Lesezeichen gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden."
   },
   "bookmark_confirmation_repair_all_redirects": {
@@ -29,14 +29,14 @@
   "bookmark_confirmation_repair_redirect": {
     "message": "Soll die URL dieses Lesezeichen wirklich geändert werden? Die Aktion kann nicht rückgängig gemacht werden."
   },
-  "bookmark_no_title": {
+  "bookmark_name": {
+    "message": "Name"
+  },
+  "bookmark_no_name": {
     "message": "kein Lesezeichen-Name…"
   },
   "bookmark_path": {
     "message": "Lesezeichen-Pfad"
-  },
-  "bookmark_title": {
-    "message": "Titel"
   },
   "bookmark_url": {
     "message": "URL"
@@ -48,7 +48,7 @@
     "message": "Lesezeichen bearbeiten"
   },
   "extension_description": {
-    "message": "Mit dem Bookmarks Organizer ist es einfach, Ordnung in deine Lesezeichen zu bringen. Der Bookmarks Organizer findet für dich nicht mehr funktionierende Lesezeichen, Duplikate und mehr!"
+    "message": "Mit dem Bookmarks Organizer ist es einfach, Ordnung in deine Lesezeichen zu bringen. Der Bookmarks Organizer findet für dich nicht mehr funktionierende Lesezeichen, Weiterleitungen, Duplikate und mehr!"
   },
   "extension_name": {
     "message": "Bookmarks Organizer"
@@ -71,7 +71,7 @@
   "mode_duplicates": {
     "message": "Duplikate"
   },
-  "mode_empty_titles": {
+  "mode_empty_names": {
     "message": "fehlende Lesezeichen-Namen"
   },
   "no_marked_bookmarks": {
@@ -83,8 +83,8 @@
   "omnibox_command_check_duplicates": {
     "message": "Finde Lesezeichen-Duplikate"
   },
-  "omnibox_command_check_empty_titles": {
-    "message": "Finde Lesezeichen ohne Titel"
+  "omnibox_command_check_empty_names": {
+    "message": "Finde Lesezeichen ohne Namen"
   },
   "omnibox_command_check_errors": {
     "message": "Finde nicht mehr erreichbare Lesezeichen"
@@ -105,7 +105,7 @@
     "message": "Speichern"
   },
   "search_label": {
-    "message" : "Titel oder URL…"
+    "message" : "Name oder URL…"
   },
   "some_marked_bookmarks": {
     "message": "Sieht aus, als könnten wir hier ein wenig aufräumen!"

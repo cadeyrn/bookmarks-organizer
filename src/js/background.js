@@ -20,7 +20,7 @@ const bookmarksorganizer = {
   debug : [],
 
   showOmniboxSuggestions (input, suggest) {
-    const availableCommands = ['duplicates', 'empty-titles', 'errors', 'organizer', 'redirects'];
+    const availableCommands = ['duplicates', 'empty-names', 'errors', 'organizer', 'redirects'];
     let suggestions = [];
 
     for (let command of availableCommands) {
@@ -55,8 +55,8 @@ const bookmarksorganizer = {
       case 'duplicates':
         bookmarksorganizer.execute('duplicates', 'all');
         break;
-      case 'empty-titles':
-        bookmarksorganizer.execute('empty-titles', 'all');
+      case 'empty-names':
+        bookmarksorganizer.execute('empty-names', 'all');
         break;
       case 'organizer':
       default:
@@ -217,8 +217,8 @@ const bookmarksorganizer = {
       case 'duplicates':
         bookmarksorganizer.checkBookmarkAndAssignPath(bookmark, mode);
         break;
-      case 'empty-titles':
-        bookmarksorganizer.checkForEmptyTitle(bookmark, mode);
+      case 'empty-names':
+        bookmarksorganizer.checkForEmptyName(bookmark, mode);
         break;
       default:
         // do nothing
@@ -359,7 +359,7 @@ const bookmarksorganizer = {
     bookmarksorganizer.bookmarksResult.push(bookmark);
   },
 
-  checkForEmptyTitle (bookmark, mode) {
+  checkForEmptyName (bookmark, mode) {
     if (bookmark.url) {
       if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.internalCounter === bookmarksorganizer.LIMIT) {
         return;

@@ -63,7 +63,7 @@
           </div>
           <div id='mass-actions' class='hidden'>
             <a href='#' id='repair-all-redirects'>__MSG_action_repair_all_redirects__</a><br />
-            <a href='#' id='remove-all-bookmarks-with-errors'>__MSG_action_remove_all_bookmarks_with_errors__</a>
+            <a href='#' id='delete-all-bookmarks-with-errors'>__MSG_action_delete_all_bookmarks_with_errors__</a>
           </div>
         </div>
         <div id='results'></div>
@@ -75,7 +75,7 @@
           <select name='mode' id='mode'>
             <option value='broken-bookmarks'>__MSG_mode_broken_bookmarks__</option>
             <option value='duplicates'>__MSG_mode_duplicates__</option>
-            <option value='empty-titles'>__MSG_mode_empty_titles__</option>
+            <option value='empty-names'>__MSG_mode_empty_names__</option>
           </select>
           <button type='submit' id='submit-button' disabled>__MSG_button_check_bookmarks__</button>
         </form>
@@ -106,8 +106,8 @@
       <div class='modal-body'>
         <form>
           <div>
-            <label for='title'>__MSG_bookmark_title__:</label>
-            <input type='text' name='title' id='title' />
+            <label for='name'>__MSG_bookmark_name__:</label>
+            <input type='text' name='name' id='name' />
           </div>
           <div>
             <label for='url'>__MSG_bookmark_url__:</label>
@@ -123,15 +123,15 @@
   </div>
   <template id='result-template-url'>
     <div class='wrapper default-wrapper'>
-      <div class='title'></div>
+      <div class='name'></div>
       <a class='url'></a><br />
       <a class='new-url'></a>
       <div class='action-buttons'></div>
     </div>
   </template>
-  <template id='result-template-title'>
+  <template id='result-template-name'>
     <div class='wrapper'>
-      <div class='title'></div>
+      <div class='name'></div>
     </div>
   </template>
   <template id='duplicates-template'>

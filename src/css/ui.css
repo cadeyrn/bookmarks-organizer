@@ -370,21 +370,21 @@ button:not(:disabled):hover {
   background: url('../images/bookmark.png') 10px 12px / 16px 16px no-repeat transparent;
 }
 
-#results li:not(.has-children) .title {
+#results li:not(.has-children) .name {
   font-weight: 700;
 }
 
-#results li:not(.has-children) .title.no-title {
+#results li:not(.has-children) .name.no-name {
   font-weight: 400;
   font-style: italic;
   color: rgba(33, 37, 42, .5);
 }
 
-#results .title {
+#results .name {
   position: relative;
 }
 
-#results .default-wrapper .title::before, #results .duplicates-item > li > a::before {
+#results .default-wrapper .name::before, #results .duplicates-item > li > a::before {
   content: '';
   position: absolute;
   width: 14px;
@@ -392,7 +392,7 @@ button:not(:disabled):hover {
   border-radius: 50%;
 }
 
-#results .default-wrapper .title::before {
+#results .default-wrapper .name::before {
   top: 24px;
   left: -24px;
 }
@@ -402,15 +402,15 @@ button:not(:disabled):hover {
   left: 14px;
 }
 
-#results .error .default-wrapper .title::before, #results .duplicates-item > li > a::before {
+#results .error .default-wrapper .name::before, #results .duplicates-item > li > a::before {
   background: rgb(172, 0, 0);
 }
 
-#results .warning .default-wrapper .title::before {
+#results .warning .default-wrapper .name::before {
   background: rgb(255, 165, 0);
 }
 
-#result .unknown .default-wrapper .title::before {
+#results .unknown .default-wrapper .name::before {
   background: rgb(150, 150, 150);
 }
 

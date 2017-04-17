@@ -9,7 +9,7 @@
   },
   "developer": {
     "name": "Sören Hentzschel",
-    "url": "https://www.soeren-hentzschel.at"
+    "url": "https://www.soeren-hentzschel.at/bookmarks-organizer/"
   },
   "background": {
     "scripts": ["js/status.js", "js/background.js"]
