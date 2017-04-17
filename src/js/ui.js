@@ -212,6 +212,7 @@ const ui = {
   doUiCleanup () {
     elButton.disabled = false;
     elResultWrapper.classList.remove('hidden');
+    elStart.classList.add('hidden');
     elSearch.focus();
 
     if (ui.showNoResultsMessage) {
