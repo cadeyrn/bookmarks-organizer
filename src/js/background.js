@@ -21,22 +21,21 @@ const bookmarksorganizer = {
 
   showOmniboxSuggestions (input, suggest) {
     const availableCommands = ['duplicates', 'empty-names', 'errors', 'organizer', 'redirects'];
-    let suggestions = [];
+    const suggestions = [];
 
-    for (let command of availableCommands) {
+    for (const command of availableCommands) {
       if (command.indexOf(input) !== -1) {
         suggestions.push({
           content : command,
           description : browser.i18n.getMessage('omnibox_command_check_' + command.replace('-', '_'))
         });
       }
-      else {
-        if (suggestions.length === 0) {
-          suggestions.push({
-            content : 'organizer',
-            description : browser.i18n.getMessage('omnibox_command_open')
-          });
-        }
+
+      if (suggestions.length === 0) {
+        suggestions.push({
+          content : 'organizer',
+          description : browser.i18n.getMessage('omnibox_command_open')
+        });
       }
     }
 

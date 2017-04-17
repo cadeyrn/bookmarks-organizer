@@ -196,10 +196,10 @@ const ui = {
       const listItem = document.getElementById(response.bookmarkId);
 
       if (response.mode === 'duplicate') {
-        const name = browser.i18n.getMessage('bookmark_name') + ': ' + response.title;
+        const title = browser.i18n.getMessage('bookmark_name') + ': ' + response.title;
         const path = browser.i18n.getMessage('bookmark_path') + ': ' + response.path.join(' / ');
 
-        listItem.getElementsByClassName('name')[0].textContent = name;
+        listItem.getElementsByClassName('name')[0].textContent = title;
         listItem.getElementsByClassName('url')[0].textContent = path;
       }
       else {
@@ -362,14 +362,14 @@ const ui = {
       template = document.getElementById('result-template-url').content.cloneNode(true);
 
       const elName = template.querySelector('.name');
-      let name = bookmark.title;
+      let { title } = bookmark;
 
-      if (!name) {
+      if (!title) {
         elName.classList.add('no-name');
-        name = browser.i18n.getMessage('bookmark_no_name');
+        title = browser.i18n.getMessage('bookmark_no_name');
       }
 
-      const elNameText = document.createTextNode(name);
+      const elNameText = document.createTextNode(title);
       elName.appendChild(elNameText);
 
       const elUrlText = document.createTextNode(bookmark.url);
@@ -449,8 +449,8 @@ const ui = {
     else {
       template = document.getElementById('result-template-name').content.cloneNode(true);
 
-      const name = bookmark.title ? bookmark.title : browser.i18n.getMessage('bookmark_no_name');
-      const elNameText = document.createTextNode(name);
+      const title = bookmark.title ? bookmark.title : browser.i18n.getMessage('bookmark_no_name');
+      const elNameText = document.createTextNode(title);
       const elName = template.querySelector('.name');
       elName.appendChild(elNameText);
     }
@@ -540,13 +540,13 @@ const ui = {
 
       const bookmarkId = e.target.getAttribute('data-id');
       const elBookmark = document.getElementById(bookmarkId);
-      const name = e.target.getAttribute('data-name');
+      const title = e.target.getAttribute('data-name');
       const url = e.target.getAttribute('data-url');
       const mode = e.target.getAttribute('data-mode');
 
       switch (e.target.getAttribute('data-action')) {
         case 'edit':
-          ui.showEditBookmarkOverlay(bookmarkId, name, url, mode);
+          ui.showEditBookmarkOverlay(bookmarkId, title, url, mode);
           break;
         case 'delete':
           elBookmark.remove();
@@ -613,9 +613,9 @@ const ui = {
 
     for (const url of urls) {
       const parentElement = url.parentNode.parentNode;
-      const name = parentElement.querySelector('.name');
+      const title = parentElement.querySelector('.name');
 
-      if (matcher.test(name.textContent) || matcher.test(url.textContent)) {
+      if (matcher.test(title.textContent) || matcher.test(url.textContent)) {
         parentElement.setAttribute('data-filter-searchfield', 'true');
       }
       else {
