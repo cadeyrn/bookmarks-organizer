@@ -1,0 +1,131 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "Wšě zapolołožki ze zmylkami zhašeć"
+  },
+  "action_repair_all_redirects": {
+    "message": "Wšě dalesposrědkowanja porjedźić"
+  },
+  "button_check_bookmarks": {
+    "message": "Zapołožki přepruwować…"
+  },
+  "bookmark_action_edit": {
+    "message": "wobdźěłać"
+  },
+  "bookmark_action_delete": {
+    "message": "wotstronić"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "dalesposrědkowanje porjedźić"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "Ma so tuta zapołožka woprawdźe zhašeć? Akcija njeda so cofnyć."
+  },
+  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+    "message": "Maja so wšě zapołožki ze zmylkami woprawdźe zhašeć? Akcija njeda cofnyć."
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Maja so URL wšěch dale sposrědkowanych zapołožkow woprawdźe změnić? Akcija njeda so cofnyć."
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "Ma so URL tuteje zapołožki woprawdźe změnić? Akcija njeda so cofnyć."
+  },
+  "bookmark_name": {
+    "message": "Mjeno"
+  },
+  "bookmark_no_name": {
+    "message": "žane mjeno zapołožki…"
+  },
+  "bookmark_path": {
+    "message": "Šćežka zapołožki"
+  },
+  "bookmark_url": {
+    "message": "URL"
+  },
+  "close_overlay": {
+    "message": "Začinić"
+  },
+  "edit_bookmark": {
+    "message": "Zapołožki wobdźěłać"
+  },
+  "extension_description": {
+    "message": "Z Bookmarks Organizer je lochko, porjad do twojich zapołožkow přinjesć. Bookmarks Organizer za tebje hižo njefungowace zapołožki, dalesposrědkowanja, duplikaty a wjace namaka!"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "Zmylki"
+  },
+  "filter_warnings": {
+    "message": "Warnowanja"
+  },
+  "greeting": {
+    "message": "Hej!"
+  },
+  "intro_check": {
+    "message": "Přepruwowanje zapołožkow móže we wotwisnosći wot wubraneho modusa, ličby zapołožkow kaž tež internetneje spěšnosće wjacore mjeńšiny trać. Prošu dźiwajće na to, zo móže so čitanje webstronow w běhu přepruwowanja za defektnymi zapołožkami jasnje spomalić."
+  },
+  "mode_broken_bookmarks": {
+    "message": "Defektne zapołožki"
+  },
+  "mode_duplicates": {
+    "message": "Duplikaty"
+  },
+  "mode_empty_names": {
+    "message": "Falowace mjena zapołožkow"
+  },
+  "no_marked_bookmarks": {
+    "message": "Wšě zapołožki su w porjadku!"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Juhuu!"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "Duplikaty zapołožkow namakać"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "Zapołožki bjez mjena namakać"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Hižo njedocpějomne zapołožki namakać"
+  },
+  "omnibox_command_check_redirects": {
+    "message": "Zapołožki namakać, kotrež dale posrědkuja"
+  },
+  "omnibox_command_open": {
+    "message": "Bookmarks Organizer wočinić"
+  },
+  "omnibox_default_description": {
+    "message": "Wšě twoje zapołožki za zmylkami, dalesposrědkowanjemi, duplikatami, … přepruwować"
+  },
+  "option_debug_mode": {
+    "message": "Wudaće zmylkoweho pytanja zmóžnić"
+  },
+  "save_boolmark": {
+    "message": "Składować"
+  },
+  "search_label": {
+    "message" : "Mjeno abo URL…"
+  },
+  "some_marked_bookmarks": {
+    "message": "Zda so, kaž móhli my tu trochu zrumować!"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Hlej raz!"
+  },
+  "start_message": {
+    "message" : "Tu startować…"
+  },
+  "status_checked": {
+    "message" : "Přepruwowane"
+  },
+  "status_errors": {
+    "message" : "Zmylki"
+  },
+  "status_total": {
+    "message" : "Ličba zapołožkow"
+  },
+  "status_warnings": {
+    "message" : "Warnowanja"
+  }
+}

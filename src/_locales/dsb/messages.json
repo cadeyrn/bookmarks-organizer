@@ -1,0 +1,131 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "Wše cytańske znamjenja ze zmólkami lašowaś"
+  },
+  "action_repair_all_redirects": {
+    "message": "Wše dalejpósrědnjenja pórěźiś"
+  },
+  "button_check_bookmarks": {
+    "message": "Cytańske znamjenja pśespytaś…"
+  },
+  "bookmark_action_edit": {
+    "message": "wobźěłaś"
+  },
+  "bookmark_action_delete": {
+    "message": "wótwónoźeś"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "dalejpósrědnjenje pórěźiś"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "Ma se toś to cytańske znamje napšawdu lašowaś? Akcija njedajo se anulěrowaś."
+  },
+  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+    "message": "Maju se wše cytańske znamjenja ze zmólkami napšawdu lašowaś? Akcija njedajo se anulěrowaś."
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Maju se URL wšych dalej pósrědnjonych cytańskich znamjenjow napšawdu změniś? Akcija njedajo se anulěrowaś."
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "Ma se URL toś togo cytańskego znamjenja napšawdu změniś? Akcija njedajo se anulěrowaś."
+  },
+  "bookmark_name": {
+    "message": "Mě"
+  },
+  "bookmark_no_name": {
+    "message": "žedno mě cytańskego znamjenja…"
+  },
+  "bookmark_path": {
+    "message": "Sćažka cytańskego znamjenja"
+  },
+  "bookmark_url": {
+    "message": "URL"
+  },
+  "close_overlay": {
+    "message": "Zacyniś"
+  },
+  "edit_bookmark": {
+    "message": "Cytańske znamjenja wobźěłaś"
+  },
+  "extension_description": {
+    "message": "Z Bookmarks Organizer jo lažko, rěch do twójich cytańskich znamjenjow spóraś. Bookmarks Organizer za tebje wěcej njefunkcioněrujuce cytańske znamjenja, dalejpósrědnjenja, duplikaty a wěcej namakajo!"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "Zmólki"
+  },
+  "filter_warnings": {
+    "message": "Warnowanja"
+  },
+  "greeting": {
+    "message": "Hej!"
+  },
+  "intro_check": {
+    "message": "Pśespytanje cytańskich znamjenjow móžo we wótwisnosći wót wubranego modusa, licby cytańskich znamjenjow ako teke internetneje malsnosći někotare minuty traś. Pšosym źiwajśo na to, až móžo se cytanje webbokow w běgu pśespytanja za defektnymi cytańskimi znamjenjami radnje spómałšyś."
+  },
+  "mode_broken_bookmarks": {
+    "message": "Defektne cytańske znamjenja"
+  },
+  "mode_duplicates": {
+    "message": "Duplikaty"
+  },
+  "mode_empty_names": {
+    "message": "Felujuce mjenja cytańskich znamjenjow"
+  },
+  "no_marked_bookmarks": {
+    "message": "Wše cytańske znamjenja su w pórědku!"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Juhuu!"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "Duplikaty cytańskich znamjenjow namakaś"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "Cytańske znamjenja bźez mjenja namakaś"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Wěcej njedosegne cytańske znamjenja namakaś"
+  },
+  "omnibox_command_check_redirects": {
+    "message": "Cytańske znamjenja namakaś, kótarež dalej pósrědnjaju"
+  },
+  "omnibox_command_open": {
+    "message": "Bookmarks Organizer wócyniś"
+  },
+  "omnibox_default_description": {
+    "message": "Wše twóje cytańske znamjenja za zmólkami, dalejpósrědnjenjami, duplikatami, … pśespytaś"
+  },
+  "option_debug_mode": {
+    "message": "Wudaśe zmólkowego pytanja zmóžniś"
+  },
+  "save_boolmark": {
+    "message": "Składowaś"
+  },
+  "search_label": {
+    "message" : "Mě abo URL…"
+  },
+  "some_marked_bookmarks": {
+    "message": "Zda se, ako mógli my how pitśku zrumowaś!"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Glej raz!"
+  },
+  "start_message": {
+    "message" : "How startowaś…"
+  },
+  "status_checked": {
+    "message" : "Pśespytane"
+  },
+  "status_errors": {
+    "message" : "Zmólki"
+  },
+  "status_total": {
+    "message" : "Licba cytańskich znamjenjow"
+  },
+  "status_warnings": {
+    "message" : "Warnowanja"
+  }
+}
