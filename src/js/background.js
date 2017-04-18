@@ -5,9 +5,30 @@
 const MIN_PROGRESS = 0.01;
 const UI_PAGE = 'html/ui.html';
 
+/**
+ * @exports bookmarksorganizer
+ */
 const bookmarksorganizer = {
+  /**
+   * Limits the number of queried bookmarks. A value of 0 disables the limit. It's always 0, there is no user setting
+   * (yet).
+   *
+   * @type {integer}
+   */
   LIMIT : 0,
+
+  /**
+   * Max attempts to try to connect to a url. It's always 2, there is no user setting (yet).
+   *
+   * @type {integer}
+   */
   MAX_ATTEMPTS : 2,
+
+  /**
+   * Enables or disables the debug mode. It defaults to false and can be enabled in the add-on's settings.
+   *
+   * @type {integer}
+   */
   debugEnabled : false,
   inProgress : false,
   internalCounter : 0,
@@ -33,6 +54,18 @@ const bookmarksorganizer = {
     });
   },
 
+  /**
+   * Fired whenever the user changes the input, after the user has started interacting with the add-on by entering
+   * its keyword in the address bar and then pressing the space key.
+   *
+   * @param {string} input - user input in the address bar, not including the add-on's keyword itself or the space
+   *                 after the keyword.<br /><br />
+   *                 <strong>Supported values:</strong> duplicates, empty-names, errors, organizer, redirects
+   * @param {function} suggest - a callback function that the event listener can call to supply suggestions for the
+   *                   address bar's drop-down list.
+   *
+   * @returns {void}
+   */
   showOmniboxSuggestions (input, suggest) {
     const availableCommands = ['duplicates', 'empty-names', 'errors', 'organizer', 'redirects'];
     const suggestions = [];
@@ -56,6 +89,13 @@ const bookmarksorganizer = {
     suggest(suggestions);
   },
 
+  /**
+   * fired when the user has selected one of the suggestions the add-on has added to the address bar's drop-down list.
+   *
+   * @param {string} input - this is the value that the user selected.
+   *
+   * @returns {void}
+   */
   callOmniboxAction (input) {
     bookmarksorganizer.openUserInterfaceInCurrentTab();
     switch (input) {
