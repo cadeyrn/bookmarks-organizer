@@ -127,6 +127,9 @@ const ui = {
       elMask.classList.add('is-hidden');
       elSpinner.classList.add('is-hidden');
     }
+    else if (response.message === 'total-bookmarks-changed') {
+      elTotalBookmarks.textContent = response.total_bookmarks;
+    }
     else if (response.message === 'update-counters') {
       elTotalBookmarks.textContent = response.total_bookmarks;
       elCheckedBookmarks.textContent = response.checked_bookmarks;

@@ -19,6 +19,20 @@ const bookmarksorganizer = {
   additionalData : [],
   debug : [],
 
+  onBookmarkCreated () {
+    browser.runtime.sendMessage({
+      message : 'total-bookmarks-changed',
+      total_bookmarks : ++bookmarksorganizer.totalBookmarks
+    });
+  },
+
+  onBookmarkRemoved () {
+    browser.runtime.sendMessage({
+      message : 'total-bookmarks-changed',
+      total_bookmarks : --bookmarksorganizer.totalBookmarks
+    });
+  },
+
   showOmniboxSuggestions (input, suggest) {
     const availableCommands = ['duplicates', 'empty-names', 'errors', 'organizer', 'redirects'];
     const suggestions = [];
@@ -466,6 +480,8 @@ const bookmarksorganizer = {
   }
 };
 
+browser.bookmarks.onCreated.addListener(bookmarksorganizer.onBookmarkCreated);
+browser.bookmarks.onRemoved.addListener(bookmarksorganizer.onBookmarkRemoved);
 browser.browserAction.onClicked.addListener(bookmarksorganizer.openUserInterface);
 browser.omnibox.onInputChanged.addListener(bookmarksorganizer.showOmniboxSuggestions);
 browser.omnibox.onInputEntered.addListener(bookmarksorganizer.callOmniboxAction);
