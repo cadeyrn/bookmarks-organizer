@@ -1,0 +1,131 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "Alle defecte bladwijzers verwijderen"
+  },
+  "action_repair_all_redirects": {
+    "message": "Alle omleidingen corrigeren"
+  },
+  "button_check_bookmarks": {
+    "message": "Bladwijzers controleren…"
+  },
+  "bookmark_action_edit": {
+    "message": "bewerken"
+  },
+  "bookmark_action_delete": {
+    "message": "verwijderen"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "omleiding corrigeren"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "Weet u zeker dat u deze bladwijzer wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt."
+  },
+  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+    "message": "Weet u zeker dat u alle defecte bladwijzers wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt."
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Weet u zeker dat u de URL’s voor alle omgeleide bladwijzers wilt wijzigen? Deze actie kan niet ongedaan worden gemaakt."
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "Weet u zeker dat u de URL van deze bladwijzer wilt wijzigen? Deze actie kan niet ongedaan worden gemaakt."
+  },
+  "bookmark_name": {
+    "message": "Naam"
+  },
+  "bookmark_no_name": {
+    "message": "geen naam…"
+  },
+  "bookmark_path": {
+    "message": "Pad"
+  },
+  "bookmark_url": {
+    "message": "URL"
+  },
+  "close_overlay": {
+    "message": "Sluiten"
+  },
+  "edit_bookmark": {
+    "message": "Bladwijzer bewerken"
+  },
+  "extension_description": {
+    "message": "Met de Bookmarks Organizer is orde scheppen in uw bladwijzers eenvoudig. De Bookmarks Organizer vindt bladwijzers die niet meer werken, omleidingen, duplicaten en meer!"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "Fouten"
+  },
+  "filter_warnings": {
+    "message": "Waarschuwingen"
+  },
+  "greeting": {
+    "message": "Hallo!"
+  },
+  "intro_check": {
+    "message": "Het controleren van de bladwijzers kan enkele minuten duren, afhankelijk van de geselecteerde modus, het aantal bladwijzers, en de internetsnelheid. Houd er rekening mee dat het laden van websites tijdens de controle op defecte bladwijzers merkbaar kan worden vertraagd."
+  },
+  "mode_broken_bookmarks": {
+    "message": "defecte bladwijzers"
+  },
+  "mode_duplicates": {
+    "message": "duplicaten"
+  },
+  "mode_empty_names": {
+    "message": "ontbrekende bladwijzernamen"
+  },
+  "no_marked_bookmarks": {
+    "message": "Alle bladwijzers zijn in orde!"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Jippie!"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "Duplicaten zoeken"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "Bladwijzers zonder namen zoeken"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Niet meer toegankelijke bladwijzers zoeken"
+  },
+  "omnibox_command_check_redirects": {
+      "message": "Bladwijzers die worden omgeleid zoeken"
+  },
+  "omnibox_command_open": {
+    "message": "Bookmarks Organizer openen"
+  },
+  "omnibox_default_description": {
+    "message": "Controleer al uw bladwijzers op fouten, omleidingen, duplicaten, …"
+  },
+  "option_debug_mode": {
+    "message": "Debug-uitvoer inschakelen"
+  },
+  "save_boolmark": {
+    "message": "Opslaan"
+  },
+  "search_label": {
+    "message" : "Naam of URL…"
+  },
+  "some_marked_bookmarks": {
+    "message": "Zo te zien kan hier wel wat worden opgeruimd!"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Kijk eens aan!"
+  },
+  "start_message": {
+    "message" : "Begin hier…"
+  },
+  "status_checked": {
+    "message" : "Gecontroleerd"
+  },
+  "status_errors": {
+    "message" : "Fouten"
+  },
+  "status_total": {
+    "message" : "Aantal bladwijzers"
+  },
+  "status_warnings": {
+    "message" : "Waarschuwingen"
+  }
+}
