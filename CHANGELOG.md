@@ -5,7 +5,7 @@
 ### Version 1.0.2 (01. Mai 2017)
 
 - Update web-ext Version 1.8.1 auf Version 1.9.0
-- Code-Kommentare ergänzt
+- Code-Dokumentation ergänzt
 
 ### Version 1.0.1 (19. April 2017)
 
