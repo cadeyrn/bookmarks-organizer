@@ -58,4 +58,4 @@ voraussetzen, neue Versionen nach dem Erscheinen von Firefox 54 mindestens Firef
 
 ## Release Notes
 
-[Release Notes / Versionshinweise](https://git.agenedia.com/firefox-add-ons/bookmarks-organizer/blob/master/CHANGELOG.md "Release Notes")
+[Release Notes / Versionshinweise](CHANGELOG.md "Release Notes")
