@@ -31,20 +31,76 @@ const elDebugOutput = document.getElementById('debug-output');
 const elMask = document.getElementById('mask');
 const elSpinner = document.getElementById('spinner');
 
+/**
+ * @exports ui
+ */
 const ui = {
+  /**
+   * Number of bookmarks with errors or warnings.
+   *
+   * @type {integer}
+   */
   markedBookmarks : 0,
+
+  /**
+   * Number of bookmarks with warnings.
+   *
+   * @type {integer}
+   */
   warnings : 0,
+
+  /**
+   * boolean, indicates wheter the "no results" message should be shown or not.
+   *
+   * @type {boolean}
+   */
   showNoResultsMessage : false,
+
+  /**
+   * boolean, indicates wheter the search field should be shown or not.
+   *
+   * @type {boolean}
+   */
   showSearchField : false,
+
+  /**
+   * boolean, indicates wheter the filter checkboxes should be shown or not.
+   *
+   * @type {boolean}
+   */
   showFilterCheckboxes : false,
+
+  /**
+   * boolean, indicates wheter the mass action buttons (remove all broken bookmarks, repair all redirects) should be
+   * shown or not.
+   *
+   * @type {boolean}
+   */
   showMassActionButtons : false,
+
+  /**
+   * boolean, indicates wheter the debug output should be shown or not.
+   *
+   * @type {boolean}
+   */
   showDebugOutput : false,
 
+  /**
+   * Fired when the initial HTML document has been completely loaded and parsed. Counts the bookmarks and initializes
+   * the UI script.
+   *
+   * @returns {void}
+   */
   init () {
     browser.runtime.sendMessage({ message : 'count' });
     ui.uiscript();
   },
 
+  /**
+   * Setup method for the user interface, called by init().
+   *
+   * @returns {void}
+   */
   uiscript () {
     const delta = 5;
     let didScroll = false;
@@ -92,11 +148,25 @@ const ui = {
     };
   },
 
+  /**
+   * Fired when the Fox icon is clicked.
+   *
+   * @param {MouseEvent} e - event
+   *
+   * @returns {void}
+   */
   handleFoxMessageClick (e) {
     e.preventDefault();
     elHint.classList.toggle('hidden');
   },
 
+  /**
+   * Fired when the button for starting a bookmark check is clicked.
+   *
+   * @param {MouseEvent} e - event
+   *
+   * @returns {void}
+   */
   execute (e) {
     e.preventDefault();
     browser.runtime.sendMessage({
@@ -105,6 +175,13 @@ const ui = {
     });
   },
 
+  /**
+   * Fired when a message is sent from the background script to the UI script.
+   *
+   * @param {Object} response - contains the response from the background script
+   *
+   * @returns {void}
+   */
   handleResponse (response) {
     if (response.message === 'started') {
       elResultWrapper.classList.add('hidden');
@@ -212,6 +289,11 @@ const ui = {
     }
   },
 
+  /**
+   * Shows and hides elements based on the check mode and the result.
+   *
+   * @returns {void}
+   */
   doUiCleanup () {
     elButton.disabled = false;
     elResultWrapper.classList.remove('hidden');
@@ -259,6 +341,13 @@ const ui = {
     }
   },
 
+  /**
+   * Builds the user interface for the duplicates mode.
+   *
+   * @param {Array.<bookmarks.BookmarkTreeNode>} bookmarks - a tree of bookmarks
+   *
+   * @returns {void}
+   */
   buildDuplicatesUi (bookmarks) {
     const list = document.createElement('ul');
     list.classList.add('duplicates-item');
@@ -272,6 +361,14 @@ const ui = {
     elResults.appendChild(list);
   },
 
+  /**
+   * Gets the HTML for a single bookmark item for the duplicates mode.
+   *
+   * @param {Array.<bookmarks.BookmarkTreeNode>} bookmarks - a array of bookmarks
+   * @param {string} url - the url of the duplicate bookmarks
+   *
+   * @returns {HTMLElement} - the HTML for a single bookmark list item
+   */
   getSingleDuplicateNode (bookmarks, url) {
     const template = document.getElementById('duplicates-template').content.cloneNode(true);
     const elListItem = document.createElement('li');
@@ -337,10 +434,24 @@ const ui = {
     return elListItem;
   },
 
+  /**
+   * Builds the user interface for other modes than the duplicates mode.
+   *
+   * @param {Array.<bookmarks.BookmarkTreeNode>} bookmarks - a tree of bookmarks
+   *
+   * @returns {void}
+   */
   buildBookmarksTree (bookmarks) {
     elResults.appendChild(ui.getNodes(bookmarks));
   },
 
+  /**
+   * Gets the HTML for all nodes for other modes than the duplicates mode.
+   *
+   * @param {Array.<bookmarks.BookmarkTreeNode>} bookmarks - a tree of bookmarks
+   *
+   * @returns {HTMLElement} - the HTML for a unordered list of bookmarks
+   */
   getNodes (bookmarks) {
     const list = document.createElement('ul');
 
@@ -353,6 +464,13 @@ const ui = {
     return list;
   },
 
+  /**
+   * Gets the HTML for a single bookmark for other modes than the duplicates mode.
+   *
+   * @param {bookmarks.BookmarkTreeNode} bookmark - a single bookmark
+   *
+   * @returns {HTMLElement} - the HTML for a single bookmark list item
+   */
   getSingleNode (bookmark) {
     let template = null;
     const li = document.createElement('li');
@@ -468,6 +586,16 @@ const ui = {
     return li;
   },
 
+  /**
+   * Shows the edit overlay for a broken bookmark.
+   *
+   * @param {integer} bookmarkId - the id of the bookmark
+   * @param {string} title - the current title of the bookmark
+   * @param {string} url - the current url of the bookmark
+   * @param {string} mode - the mode of the bookmark check
+   *
+   * @returns {void}
+   */
   showEditBookmarkOverlay (bookmarkId, title, url, mode) {
     const modal = document.getElementById('modal-dialog');
     modal.classList.remove('hidden');
@@ -505,6 +633,16 @@ const ui = {
     };
   },
 
+  /**
+   * This method is used to edit a bookmark.
+   *
+   * @param {integer} bookmarkId - the id of the bookmark
+   * @param {string} title - the new title of the bookmark
+   * @param {string} url - the new url of the bookmark
+   * @param {string} mode - the mode of the bookmark check
+   *
+   * @returns {void}
+   */
   editBookmark (bookmarkId, title, url, mode) {
     browser.runtime.sendMessage({
       message : 'edit',
@@ -515,6 +653,13 @@ const ui = {
     });
   },
 
+  /**
+   * This method is used to delete a bookmark.
+   *
+   * @param {integer} bookmarkId - the id of the bookmark
+   *
+   * @returns {void}
+   */
   deleteBookmark (bookmarkId) {
     browser.runtime.sendMessage({
       message : 'remove',
@@ -522,6 +667,14 @@ const ui = {
     });
   },
 
+  /**
+   * This method is used to change the url of a bookmark which is marked as redirect.
+   *
+   * @param {integer} bookmarkId - the id of the bookmark
+   * @param {string} newUrl - the new url of the bookmark
+   *
+   * @returns {void}
+   */
   repairRedirect (bookmarkId, newUrl) {
     browser.runtime.sendMessage({
       message : 'repair-redirect',
@@ -530,6 +683,13 @@ const ui = {
     });
   },
 
+  /**
+   * Fired when of the action buttons is clicked.
+   *
+   * @param {MouseEvent} e - event
+   *
+   * @returns {void}
+   */
   handleActionButtonClicks (e) {
     if (e.target.getAttribute('data-action')) {
       e.preventDefault();
@@ -570,6 +730,13 @@ const ui = {
     }
   },
 
+  /**
+   * This method is used to change the url of all bookmarks which are marked as redirect.
+   *
+   * @param {MouseEvent} e - event
+   *
+   * @returns {void}
+   */
   repairAllRedirects (e) {
     e.preventDefault();
 
@@ -590,6 +757,13 @@ const ui = {
     ui.hideEmptyCategories();
   },
 
+  /**
+   * This method is used to delete all broken bookmarks.
+   *
+   * @param {MouseEvent} e - event
+   *
+   * @returns {void}
+   */
   deleteAllBookmarksWithErrors (e) {
     e.preventDefault();
 
@@ -610,6 +784,13 @@ const ui = {
     ui.hideEmptyCategories();
   },
 
+  /**
+   * This method is used to filter the result based on the search field.
+   *
+   * @param {MouseEvent} e - event
+   *
+   * @returns {void}
+   */
   applySearchFieldFilter (e) {
     const matcher = new RegExp(e.target.value, 'i');
     const urls = elResults.querySelectorAll('.url');
@@ -629,6 +810,13 @@ const ui = {
     ui.hideFilteredElements();
   },
 
+  /**
+   * This method is used to filter the result based on the checkboxes for errors and warnings.
+   *
+   * @param {MouseEvent} e - event
+   *
+   * @returns {void}
+   */
   applyCheckboxFilter (e) {
     const urls = elResults.querySelectorAll('.url');
 
@@ -648,6 +836,11 @@ const ui = {
     ui.hideFilteredElements();
   },
 
+  /**
+   * This method is used to hide all result items which are filtered by the search field or the checkboxes.
+   *
+   * @returns {void}
+   */
   hideFilteredElements () {
     const elements = elResults.querySelectorAll('li');
 
@@ -665,6 +858,11 @@ const ui = {
     ui.hideEmptyCategories();
   },
 
+  /**
+   * This method is used to hide all categories without bookmarks.
+   *
+   * @returns {void}
+   */
   hideEmptyCategories () {
     const elements = elResults.querySelectorAll('li.has-children');
     for (const element of elements) {
