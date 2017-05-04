@@ -2,6 +2,12 @@
 
 ## Release Notes / Versionshinweise
 
+### Version 1.0.3 (04. Mai 2017)
+
+- BUGFIX: Beim Löschen eines Lesezeichen wurden zwei Lesezeichen von der Gesamtzahl der Lesezeichen abgezogen
+- Update web-ext Version 1.9.0 auf Version 1.9.1
+- Update stylelint-order Version 0.4.3 auf Version 0.4.4
+
 ### Version 1.0.2 (01. Mai 2017)
 
 - Update web-ext Version 1.8.1 auf Version 1.9.0
