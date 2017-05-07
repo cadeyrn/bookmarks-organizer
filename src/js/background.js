@@ -335,16 +335,19 @@ const bookmarksorganizer = {
     });
 
     const bookmarks = await browser.bookmarks.getTree();
-    bookmarksorganizer.getBookmarkPath(bookmarks[0], [], bookmarksorganizer.additionalData);
-    bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
 
     if (mode === 'duplicates') {
+      bookmarksorganizer.getBookmarkPath(bookmarks[0], [], bookmarksorganizer.additionalData);
+      bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
       bookmarksorganizer.checkForDuplicates();
+    }
+    else {
+      bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
     }
   },
 
   /**
-   * Get the full path of all bookmarks.
+   * Get the full path of all bookmarks. It's only used for the duplicates mode.
    *
    * @param {Array.<bookmarks.BookmarkTreeNode>} bookmark - a tree of bookmarks
    * @param {string} path - the path or a part of the path of the bookmark
@@ -539,7 +542,7 @@ const bookmarksorganizer = {
   },
 
   /**
-   * This method assigns the full bookmark path to a bookmark object, only used for the duplicates mode.
+   * This method assigns the full bookmark path to a bookmark object. It's only used for the duplicates mode.
    *
    * @param {bookmarks.BookmarkTreeNode} bookmark - a single bookmark
    * @param {string} mode - The checking mode<br /><br />
