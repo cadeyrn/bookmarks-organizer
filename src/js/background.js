@@ -337,7 +337,7 @@ const bookmarksorganizer = {
     const bookmarks = await browser.bookmarks.getTree();
 
     if (mode === 'duplicates') {
-      bookmarksorganizer.getBookmarkPath(bookmarks[0], [], bookmarksorganizer.additionalData);
+      bookmarksorganizer.getBookmarkPath(bookmarks[0], []);
       bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
       bookmarksorganizer.checkForDuplicates();
     }
@@ -351,31 +351,30 @@ const bookmarksorganizer = {
    *
    * @param {Array.<bookmarks.BookmarkTreeNode>} bookmark - a tree of bookmarks
    * @param {string} path - the path or a part of the path of the bookmark
-   * @param {Array.<string>} map - an array containing the result
    *
    * @returns {Array.<string>} - An array with the full path of all bookmarks
    */
-  getBookmarkPath (bookmark, path, map) {
+  getBookmarkPath (bookmark, path) {
     if (bookmark.title) {
       path.push(bookmark.title);
     }
 
     if (bookmark.children) {
       for (const childNode of bookmark.children) {
-        bookmarksorganizer.getBookmarkPath(childNode, path, map);
+        bookmarksorganizer.getBookmarkPath(childNode, path);
       }
     }
     else {
-      if (!map[bookmark.id]) {
-        map[bookmark.id] = {};
+      if (!bookmarksorganizer.additionalData[bookmark.id]) {
+        bookmarksorganizer.additionalData[bookmark.id] = {};
       }
 
-      map[bookmark.id].path = path.slice(0, -1);
+      bookmarksorganizer.additionalData[bookmark.id].path = path.slice(0, -1);
     }
 
     path.pop();
 
-    return map;
+    return bookmarksorganizer.additionalData;
   },
 
   /**
