@@ -1,0 +1,131 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "usuń wszystkie uszkodzone zakładki"
+  },
+  "action_repair_all_redirects": {
+    "message": "popraw wszystkie przekierowania"
+  },
+  "button_check_bookmarks": {
+    "message": "Sprawdź zakładki…"
+  },
+  "bookmark_action_edit": {
+    "message": "edytuj"
+  },
+  "bookmark_action_delete": {
+    "message": "usuń"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "popraw przekierowanie"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "Czy na pewno chcesz usunąć tę zakładkę? Nie można cofnąć tej czynności."
+  },
+  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+    "message": "Czy na pewno chcesz usunąć wszystkie uszkodzone zakładki? Nie można cofnąć tej czynności."
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Czy na pewno chcesz zmienić adresy URL wszystkich przekierowanych zakładek? Nie można cofnąć tej czynności."
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "Czy na pewno chcesz zmienić adres URL tej zakładki? Nie można cofnąć tej czynności."
+  },
+  "bookmark_name": {
+    "message": "Nazwa"
+  },
+  "bookmark_no_name": {
+    "message": "brak nazwy…"
+  },
+  "bookmark_path": {
+    "message": "Ścieżka"
+  },
+  "bookmark_url": {
+    "message": "URL"
+  },
+  "close_overlay": {
+    "message": "Zamknij"
+  },
+  "edit_bookmark": {
+    "message": "Edytuj zakładkę"
+  },
+  "extension_description": {
+    "message": "Z Bookmarks Organizer łatwo zrobisz porządek w swoich zakładkach. Bookmarks Organizer znajduje niedziałające zakładki, przekierowania, duplikaty i wiele więcej!"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "Błędy"
+  },
+  "filter_warnings": {
+    "message": "Ostrzeżenia"
+  },
+  "greeting": {
+    "message": "Hej!"
+  },
+  "intro_check": {
+    "message": "Sprawdzanie zakładek może potrwać kilka minut, w zależności od wybranego trybu, liczby zakładek i szybkości internetu. Należy pamiętać, że podczas sprawdzania uszkodzonych zakładek ładowanie stron internetowych może być zauważalnie spowolnione."
+  },
+  "mode_broken_bookmarks": {
+    "message": "Uszkodzone zakładki"
+  },
+  "mode_duplicates": {
+    "message": "Duplikaty"
+  },
+  "mode_empty_names": {
+    "message": "Brakuje nazwy zakładek"
+  },
+  "no_marked_bookmarks": {
+    "message": "Wszystkie zakładki są w porządku!"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Hurra!"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "Znajdź duplikaty"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "Znajdź zakładki bez nazw"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Znajdź już niedostępne zakładki"
+  },
+  "omnibox_command_check_redirects": {
+      "message": "Znajdź zakładki, które przekierowują"
+  },
+  "omnibox_command_open": {
+    "message": "Otwórz Bookmarks Organizer"
+  },
+  "omnibox_default_description": {
+    "message": "Sprawdź wszystkie zakładki szukając błędów, przekierowań, duplikatów, …"
+  },
+  "option_debug_mode": {
+    "message": "Włącz wyjście debugowania"
+  },
+  "save_boolmark": {
+    "message": "Zapisz"
+  },
+  "search_label": {
+    "message" : "Nazwa lub URL…"
+  },
+  "some_marked_bookmarks": {
+    "message": "Wygląda na to, że moglibyśmy tutaj trochę posprzątać!"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Hej!"
+  },
+  "start_message": {
+    "message" : "Zacznij tutaj…"
+  },
+  "status_checked": {
+    "message" : "Sprawdzonych"
+  },
+  "status_errors": {
+    "message" : "Błędów"
+  },
+  "status_total": {
+    "message" : "Liczba zakładek"
+  },
+  "status_warnings": {
+    "message" : "Ostrzeżeń"
+  }
+}
