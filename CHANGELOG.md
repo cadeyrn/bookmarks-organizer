@@ -4,9 +4,11 @@
 
 ### Version 1.0.4 (10. Mai 2017)
 
+- ÜBERSETZUNG: Tschechische Übersetzung hinzugefügt (Danke, MekliCZ!)
 - ÜBERSETZUNG: Polnische Übersetzung hinzugefügt (Danke, WaldiPL!)
-- BUGFIX: Code aufgrund eines Bugs in Firefox temporär deaktiviert, welcher Hinzufügen von Lesezeichen erkennt und
-  die Anzahl der Lesezeichen umgehend aktualisiert.
+- BUGFIX: Code, welcher Hinzufügen von Lesezeichen erkennt und die Anzahl der Lesezeichen umgehend aktualisiert,
+  aufgrund eines Bugs in Firefox temporär deaktiviert (#1362863).
+- CODE-QUALITÄT: no-unsanitized-Plugin für ESLint hinzugefügt
 
 ### Version 1.0.3 (04. Mai 2017)
 
