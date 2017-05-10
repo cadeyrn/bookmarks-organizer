@@ -43,6 +43,7 @@ Es sind bereits einige Features für die Zukunft geplant.
 - Englisch
 - Deutsch
 - Niederländisch (Danke, Tonnes)
+- Polnisch (Danke, WaldiPL!)
 - Obersorbisch (Danke, milupo)
 - Niedersorbisch (Danke, milupo)
 
