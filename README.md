@@ -53,9 +53,6 @@ Es sind bereits einige Features für die Zukunft geplant.
 Die Erweiterung erfordert mindestens Firefox 52. Da die Erweiterung Gebrauch von modernen Webtechnologien sowie neusten
 WebExtension-APIs macht, ist eine Unterstützung in älteren Versionen von Firefox aus technischen Gründen nicht möglich.
 
-Neue Versionen dieser Erweiterung, welche nach Veröffentlichung von Firefox 53 erscheinen, werden mindestens Firefox 53
-voraussetzen, neue Versionen nach dem Erscheinen von Firefox 54 mindestens Firefox 54 usw.
-
 ## Download
 
 [Download Bookmarks Organizer](https://addons.mozilla.org/de/firefox/addon/bookmarks-organizer/)
