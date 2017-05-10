@@ -1,5 +1,7 @@
 # Firefox Add-on: Bookmarks Organizer
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/cadeyrn/bookmarks-organizer.svg)](https://greenkeeper.io/)
+
 ## Beschreibung
 
 Mit dem Bookmarks Organizer ist es einfach, Ordnung in deine Lesezeichen zu bringen. Der Bookmarks Organizer findet für
