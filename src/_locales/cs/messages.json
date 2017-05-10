@@ -1,0 +1,131 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "smazat všechny rozbité záložky"
+  },
+  "action_repair_all_redirects": {
+    "message": "opravit všechna přesměrování"
+  },
+  "button_check_bookmarks": {
+    "message": "Zkontrolovat záložky…"
+  },
+  "bookmark_action_edit": {
+    "message": "upravit"
+  },
+  "bookmark_action_delete": {
+    "message": "smazat"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "opravit přesměrování"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "Opravdu chcete smazat tuto záložku? Tato akce nemůže být vrácena."
+  },
+  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+    "message": "Opravdu chcete smazat všechny rozbité záložky? Tato akce nemůže být vrácena."
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Opravdu chcete změnit URL adresu všech záložek s přesměrováním? Tato akce nemůže být vrácena."
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "Opravdu chcete změnit URL adresu této záložky? Tato akce nemůže být vrácena."
+  },
+  "bookmark_name": {
+    "message": "Název"
+  },
+  "bookmark_no_name": {
+    "message": "žádný název…"
+  },
+  "bookmark_path": {
+    "message": "Cesta"
+  },
+  "bookmark_url": {
+    "message": "URL adresa"
+  },
+  "close_overlay": {
+    "message": "Zavřít"
+  },
+  "edit_bookmark": {
+    "message": "Upravit záložku"
+  },
+  "extension_description": {
+    "message": "S doplňkem Bookmarks Organizer si jednoduše zorganizujete záložky. Bookmarks Organizer hledá již nefunkční záložky, přesměrování, duplikáty a další!"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "Chyby"
+  },
+  "filter_warnings": {
+    "message": "Varování"
+  },
+  "greeting": {
+    "message": "Ahoj!"
+  },
+  "intro_check": {
+    "message": "Kontrola záložek může zabrat několik minut, v závislosti na vybraném režimu, počtu záložek a rychlosti internetu. Berte prosím v potaz, že v průběhu kontroly rozbitých záložek může být znatelně zpomaleno načítání webových stránek."
+  },
+  "mode_broken_bookmarks": {
+    "message": "rozbité záložky"
+  },
+  "mode_duplicates": {
+    "message": "Duplikáty"
+  },
+  "mode_empty_names": {
+    "message": "chybějící názvy záložek"
+  },
+  "no_marked_bookmarks": {
+    "message": "Všechny záložky jsou v pořádku!"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Jupí!"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "Najít duplikáty"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "Najít záložky bez názvu"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Najít nepřístupné záložky"
+  },
+  "omnibox_command_check_redirects": {
+      "message": "Najít záložky s přesměrováním"
+  },
+  "omnibox_command_open": {
+    "message": "Otevřít Bookmarks Organizer"
+  },
+  "omnibox_default_description": {
+    "message": "Zkontrolovat všechny vaše záložky na chyby, přesměrování, duplikáty, …"
+  },
+  "option_debug_mode": {
+    "message": "Povolit ladící výstup"
+  },
+  "save_boolmark": {
+    "message": "Uložit"
+  },
+  "search_label": {
+    "message" : "Název nebo URL adresa…"
+  },
+  "some_marked_bookmarks": {
+    "message": "Vypadá to, že bychom to tu mohli vyčistit!"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Hej!"
+  },
+  "start_message": {
+    "message" : "Začněte zde…"
+  },
+  "status_checked": {
+    "message" : "Zkontrolováno"
+  },
+  "status_errors": {
+    "message" : "Chyb"
+  },
+  "status_total": {
+    "message" : "Počet záložek"
+  },
+  "status_warnings": {
+    "message" : "Varování"
+  }
+}
