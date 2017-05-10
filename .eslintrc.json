@@ -1,6 +1,7 @@
 {
   "plugins": [
     "compat",
+    "no-unsanitized",
     "promise",
     "sort-requires",
     "xss"
@@ -183,6 +184,8 @@
     "no-unreachable": "error",
     "no-unsafe-finally": "error",
     "no-unsafe-negation": "error",
+    "no-unsanitized/method": "error",
+    "no-unsanitized/property": "error",
     "no-unused-expressions": "error",
     "no-unused-labels": "error",
     "no-unused-vars": ["error", { "vars": "local" }],
