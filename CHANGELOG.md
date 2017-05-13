@@ -2,6 +2,11 @@
 
 ## Release Notes / Versionshinweise
 
+### Version 1.0.5 (13. Mai 2017)
+
+- VERBESSERUNG: Nicht benötigte Berechtigung entfernt
+- DESIGN: Verwendung von Mozillas neuer Zilla Slab-Schriftart für das Logo
+
 ### Version 1.0.4 (10. Mai 2017)
 
 - ÜBERSETZUNG: Tschechische Übersetzung hinzugefügt (Danke, MekliCZ!)
