@@ -38,6 +38,7 @@
     "open_in_tab": true
   },
   "permissions": [
+    "<all_urls>",
     "bookmarks",
     "storage",
     "tabs"
