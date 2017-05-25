@@ -1,0 +1,131 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "删除所有失效书签"
+  },
+  "action_repair_all_redirects": {
+    "message": "纠正所有重定向"
+  },
+  "button_check_bookmarks": {
+    "message": "检查所有书签…"
+  },
+  "bookmark_action_edit": {
+    "message": "编辑"
+  },
+  "bookmark_action_delete": {
+    "message": "删除"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "纠正重定向"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "确定删除此书签？此操作不能撤销！"
+  },
+  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+    "message": "确定删除所有失效书签？此操作不能撤销！"
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "确定更改所有已重定向的书签网址？此操作不能撤销！"
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "确定更改此书签的网址？此操作不能撤销！"
+  },
+  "bookmark_name": {
+    "message": "名称"
+  },
+  "bookmark_no_name": {
+    "message": "无名称…"
+  },
+  "bookmark_path": {
+    "message": "路径"
+  },
+  "bookmark_url": {
+    "message": "网址"
+  },
+  "close_overlay": {
+    "message": "关闭"
+  },
+  "edit_bookmark": {
+    "message": "编辑书签"
+  },
+  "extension_description": {
+    "message": "使用 Bookmarks Organizer 可以轻松整理您的书签。Bookmarks Organizer 可以帮您找出已经失效、被重定向或者存在重复的书签。"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "错误"
+  },
+  "filter_warnings": {
+    "message": "警告"
+  },
+  "greeting": {
+    "message": "Hey!"
+  },
+  "intro_check": {
+    "message": "检查所有书签可能需要几分钟，这取决于您所选择的模式、书签数量，以及您的网络速度。在检查失效书签期间，您的网络加载速度可能变慢。"
+  },
+  "mode_broken_bookmarks": {
+    "message": "失效书签"
+  },
+  "mode_duplicates": {
+    "message": "重复书签"
+  },
+  "mode_empty_names": {
+    "message": "缺少书签名称"
+  },
+  "no_marked_bookmarks": {
+    "message": "所有书签都很好！"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "恭喜！"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "查找重复书签"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "查找无名称书签"
+  },
+  "omnibox_command_check_errors": {
+    "message": "查找不能访问的书签"
+  },
+  "omnibox_command_check_redirects": {
+      "message": "查找被重定向的书签"
+  },
+  "omnibox_command_open": {
+    "message": "打开 Bookmarks Organizer"
+  },
+  "omnibox_default_description": {
+    "message": "检查您的所有书签，找出有错误、重定向或重复的书签"
+  },
+  "option_debug_mode": {
+    "message": "启用输出调试信息"
+  },
+  "save_boolmark": {
+    "message": "保存"
+  },
+  "search_label": {
+    "message" : "名称或网址…"
+  },
+  "some_marked_bookmarks": {
+    "message": "看上去我们能清理一下！"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "检查完成。"
+  },
+  "start_message": {
+    "message" : "点这里开始…"
+  },
+  "status_checked": {
+    "message" : "已检查"
+  },
+  "status_errors": {
+    "message" : "有错误"
+  },
+  "status_total": {
+    "message" : "书签总数"
+  },
+  "status_warnings": {
+    "message" : "警告"
+  }
+}
