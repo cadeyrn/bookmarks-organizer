@@ -493,6 +493,11 @@ const bookmarksorganizer = {
         }
 
         bookmark.newUrl = response.url;
+
+        // preserve the hash for redirects (issue #24)
+        if (bookmark.url.indexOf('#') !== -1) {
+          bookmark.newUrl += bookmark.url.substring(bookmark.url.indexOf('#'));
+        }
       }
       else {
         bookmark.status = response.status;
