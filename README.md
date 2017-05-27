@@ -1,62 +1,64 @@
-# Firefox Add-on: Bookmarks Organizer
+# Firefox Add-on: Bookmarks Organizer (WebExtension)
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/cadeyrn/bookmarks-organizer.svg)](https://greenkeeper.io/)
 
-## Beschreibung
+## Description
 
-Mit dem Bookmarks Organizer ist es einfach, Ordnung in deine Lesezeichen zu bringen. Der Bookmarks Organizer findet für
-dich nicht mehr funktionierende Lesezeichen, Weiterleitungen, Duplikate und mehr!
+With the Bookmarks Organizer, it's easy to put order in your bookmarks. The Bookmarks Organizer finds no longer working
+bookmarks, redirects, duplicates and more!
 
-**Der Bookmarks Organizer ist eine WebExtension und auch noch mit Firefox 57 und höher kompatibel.**
+**The Bookmarks Organizer is a WebExtension and also compatible with Firefox 57 and later.**
 
 ### Features
 
-- Findet nicht mehr funktionierende Lesezeichen
-- Findet doppelte Lesezeichen
-- Findet Lesezeichen ohne Namen
-- Fehlerhafte Lesezeichen können direkt bearbeitet oder gelöscht werden
-- Erkennt Weiterleitungen und bietet die automatische Anpassung einzelner oder aller Weiterleitungen an
+- Finds no longer working bookmarks
+- Finds duplicate bookmarks
+- Finds bookmarks without name
+- Broken bookmarks can be edited or deleted
+- Detects redirects and offers the automatic correction of individual or all redirects
 
 ### Shortcuts
 
-Die Oberfläche kann auch per Tastatur aufgerufen werden. Hierfür ist die Kombination **Strg + Shift + L
-(macOS: Cmd + Shift + L)** reserviert.
+The interface can also be accessed via the keyboard. For this purpose the combination **Ctrl + Shift + L
+(macOS: Cmd + Shift + L)** is reserved.
 
-Außerdem ist das direkte Starten einzelner Tests direkt per Adressleiste möglich:
+It is also possible to start individual tests directly via the address bar:
 
-- **bookmarks organizer**: Öffnet die Oberfläche
-- **bookmarks duplicates**: Suche nach Duplikaten
-- **bookmarks empty-names**: Suche nach Lesezeichen ohne Namen
-- **bookmarks errors**: Suche nach fehlerhaften Lesezeichen
-- **bookmarks redirects**: Suche nach Weiterleitungen
+- **bookmarks organizer**: opens the interface
+- **bookmarks duplicates**: search for duplicates
+- **bookmarks empty-names**: search for bookmarks without name
+- **bookmarks errors**: search for broken bookmarks
+- **bookmarks redirects**: search for redirects
 
-### Geplante Features
+### Planned features
 
-Es sind bereits einige Features für die Zukunft geplant.
+There are already some features planned for the future.
 
-- Whitelist: erstelle Ausnahmen für Lesezeichen, welche bei weiteren Überprüfungen nicht länger beanstandet werden
-- Features für Lesezeichen-Ordner, u.a. leere Ordner
-& mehr…
+- Whitelist: create exceptions for bookmarks, which will no longer be objected to during further checks
+- Features for bookmark folders, including empty folders
+- & more…
 
-### Sprachen
+### Languages
 
-- Englisch
-- Deutsch
-- Niederländisch (Danke, Tonnes!)
-- Tschechisch (Danke, MekliCZ!)
-- Polnisch (Danke, WaldiPL!)
-- Obersorbisch (Danke, milupo!)
-- Niedersorbisch (Danke, milupo!)
+The extension is currently available in the following languages:
 
-## Kompatibilität
+- English
+- German
+- Dutch (Thanks, Tonnes!)
+- Czech (Thanks, MekliCZ!)
+- Polish (Thanks, WaldiPL!)
+- Upper Sorbian (Thanks, milupo!)
+- Lower Sorbian (Thanks, milupo!)
 
-Die Erweiterung erfordert mindestens Firefox 52. Da die Erweiterung Gebrauch von modernen Webtechnologien sowie neusten
-WebExtension-APIs macht, ist eine Unterstützung in älteren Versionen von Firefox aus technischen Gründen nicht möglich.
+## Compatibility
+
+The extension requires at least Firefox 52. Because the extension makes use of modern web technologies and the latest
+WebExtension APIs, support for older versions of Firefox is not possible for technical reasons.
 
 ## Download
 
-[Download Bookmarks Organizer](https://addons.mozilla.org/de/firefox/addon/bookmarks-organizer/)
+[Download Bookmarks Organizer](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/)
 
 ## Release Notes
 
-[Release Notes / Versionshinweise](CHANGELOG.md "Release Notes")
+[Release Notes](CHANGELOG.md "Release Notes")

@@ -1,46 +1,46 @@
-# Firefox Add-on: Bookmarks Organizer
+# Firefox Add-on: Bookmarks Organizer (WebExtension)
 
-## Release Notes / Versionshinweise
+## Release Notes
 
-### Version 1.0.6 (20. Mai 2017)
+### Version 1.0.6 (2017-05-20)
 
-- BUGFIX: in Version 1.0.5 entfernte Berechtigung wieder hinzugefügt, da notwendig
+- [BUGFIX] reverted "removed not needed permission from manifest"
 
-### Version 1.0.5 (13. Mai 2017)
+### Version 1.0.5 (2017-05-13)
 
-- VERBESSERUNG: Nicht benötigte Berechtigung entfernt
-- DESIGN: Verwendung von Mozillas neuer Zilla Slab-Schriftart für das Logo
+- [ENHANCEMENT] removed not needed permission from manifest
+- [DESIGN] use Mozilla's new Zilla font for the logo
 
-### Version 1.0.4 (10. Mai 2017)
+### Version 1.0.4 (2017-05-10)
 
-- ÜBERSETZUNG: Tschechische Übersetzung hinzugefügt (Danke, MekliCZ!)
-- ÜBERSETZUNG: Polnische Übersetzung hinzugefügt (Danke, WaldiPL!)
-- BUGFIX: Code, welcher Hinzufügen von Lesezeichen erkennt und die Anzahl der Lesezeichen umgehend aktualisiert,
-  aufgrund eines Bugs in Firefox temporär deaktiviert (#1362863).
-- CODE-QUALITÄT: no-unsanitized-Plugin für ESLint hinzugefügt
+- [TRANSLATION] added Czech translation (Thanks, MekliCZ!)
+- [TRANSLATION] added Polish translation (Thanks, WaldiPL!)
+- [BUGFIX] Code, which recognizes bookmarks and immediately updates the number of bookmarks, temporarily disabled due
+  to a bug in Firefox (#1362863)
+- [CODE QUALITY] added no-unsanitized plugin for ESLint
 
-### Version 1.0.3 (04. Mai 2017)
+### Version 1.0.3 (2017-05-04)
 
-- BUGFIX: Beim Löschen eines Lesezeichen wurden zwei Lesezeichen von der Gesamtzahl der Lesezeichen abgezogen
-- ABHÄNGIGKEIT: Update web-ext Version 1.9.0 auf Version 1.9.1
-- ABHÄNGIGKEIT: Update stylelint-order Version 0.4.3 auf Version 0.4.4
+- [BUGFIX] when deleting a bookmark, two bookmarks were subtracted from the total number of bookmarks
+- [DEPENDENCY] updated web-ext from version 1.9.0 to 1.9.1
+- [DEPENDENCY] updated stylelint-order from version 0.4.3 to 0.4.4 
 
-### Version 1.0.2 (01. Mai 2017)
+### Version 1.0.2 (2017-05-01)
 
-- ABHÄNGIGKEIT: Update web-ext Version 1.8.1 auf Version 1.9.0
-- CODE-QUALITÄT: Code-Dokumentation ergänzt
+- [DEPENDENCY] updated web-ext from version 1.8.1 to 1.9.0
+- [CODE QUALITY] added code documentation
 
-### Version 1.0.1 (19. April 2017)
+### Version 1.0.1 (2017-04-19)
 
-- erste Veröffentlichung für [addons.mozilla.org](https://addons.mozilla.org/de/firefox/addon/bookmarks-organizer/)
+- initial release for [addons.mozilla.org](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/)
 
-**Features der ersten Version**
+**Features of the first version**
 
-- Findet nicht mehr funktionierende Lesezeichen
-- Findet doppelte Lesezeichen
-- Findet Lesezeichen ohne Namen
-- Fehlerhafte Lesezeichen können direkt bearbeitet oder gelöscht werden
-- Erkennt Weiterleitungen und bietet die automatische Anpassung einzelner oder aller Weiterleitungen an
-- Öffnen der Oberfläche per Tastatur-Kommando (Strg + Shift + L, macOS: Cmd + Shift + L)
-- Direktes Starten einzelner Tests per Adressleiste (siehe [README](README.md "README"))
-- Sprachen: Deutsch, Englisch, Niederländisch, Obersorbisch, Niedersorbisch
+- finds no longer working bookmarks
+- finds duplicate bookmarks
+- finds bookmarks without name
+- broken bookmarks can be edited or deleted
+- detects redirects and offers the automatic correction of individual or all redirects
+- open the interface by keyboard  (Ctrl + Shift + L, macOS: Cmd + Shift + L)
+- direct start of individual tests via address bar (see [README](README.md "README"))
+- translations: English, German, Dutch, Upper Sorbian, Lower Sorbian
