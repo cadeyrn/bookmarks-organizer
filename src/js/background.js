@@ -583,9 +583,12 @@ const bookmarksorganizer = {
 
       bookmarksorganizer.internalCounter++;
 
-      if (!bookmark.title) {
-        bookmarksorganizer.bookmarkErrors++;
-        bookmarksorganizer.bookmarksResult.push(bookmark);
+      // skip place:-URIs (issue #3)
+      if (!bookmark.url.startsWith('place:')) {
+        if (!bookmark.title) {
+          bookmarksorganizer.bookmarkErrors++;
+          bookmarksorganizer.bookmarksResult.push(bookmark);
+        }
       }
 
       bookmarksorganizer.checkedBookmarks++;
