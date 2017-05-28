@@ -1,7 +1,5 @@
 # Firefox Add-on: Bookmarks Organizer (WebExtension)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/cadeyrn/bookmarks-organizer.svg)](https://greenkeeper.io/)
-
 ## Description
 
 With the Bookmarks Organizer, it's easy to put order in your bookmarks. The Bookmarks Organizer finds no longer working
