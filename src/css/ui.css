@@ -153,7 +153,7 @@ button:not(:disabled):hover {
 #logo-wrapper {
   position: relative;
   left: -10px;
-  width: 370px;
+  width: 435px;
   height: 120px;
   transform: skew(-5deg) translateZ(0);
   background: rgb(255, 255, 255);
@@ -174,7 +174,7 @@ button:not(:disabled):hover {
   width: inherit;
   height: inherit;
   transform: skew(5deg) translateZ(0);
-  background: url('../images/logo-large.png') right 25px center / 310px 85px no-repeat transparent;
+  background: url('../images/logo-large.png') right 25px center / 375px 85px no-repeat transparent;
 }
 
 #logo-small {
