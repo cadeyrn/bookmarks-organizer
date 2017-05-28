@@ -35,16 +35,20 @@ input[type='search']:focus, input[type='text']:focus {
 }
 
 button {
+  position: relative;
   margin: 12px 0;
   padding-left: 30px;
   padding-right: 30px;
   height: 40px;
+  transform: perspective(1px) translateZ(0);
   font-size: 18px;
   border: 2px solid rgb(98, 181, 71);
   background: rgb(255, 255, 255);
   color: rgb(33, 37, 42);
   cursor: pointer;
-  transition: all ease 500ms;
+  box-shadow: 0 0 1px transparent;
+  transition-property: color;
+  transition-duration: 250ms;
 }
 
 button:disabled {
@@ -52,9 +56,23 @@ button:disabled {
   cursor: default;
 }
 
-button:not(:disabled):hover {
-  background: rgb(98, 181, 71);
-  color: rgb(255, 255, 255);
+button:not(:disabled)::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: scale(0);
+  background: rgb(235, 235, 235);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+}
+
+button:not(:disabled):hover::before, button:not(:disabled):focus::before, button:not(:disabled):active::before {
+  transform: scale(1);
 }
 
 .clearfix::after {
@@ -130,10 +148,10 @@ button:not(:disabled):hover {
 
 #header-wrapper {
   position: fixed;
+  z-index: 30;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 30;
 }
 
 #header {
@@ -285,9 +303,9 @@ button:not(:disabled):hover {
 
 #hint {
   position: absolute;
+  z-index: 10;
   left: 20px;
   right: 130px;
-  z-index: 10;
   padding: 20px 15px;
   border-radius: 5px;
   background: rgb(98, 181, 71);
@@ -510,10 +528,10 @@ button:not(:disabled):hover {
 
 #control-bar {
   position: fixed;
+  z-index: 10;
   bottom: 64px;
   left: 0;
   right: 0;
-  z-index: 10;
   height: 64px;
   background: rgb(255, 255, 255);
 }
@@ -629,9 +647,9 @@ button:not(:disabled):hover {
 
 .modal-dialog {
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
-  z-index: 10;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, .75);
