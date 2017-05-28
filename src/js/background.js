@@ -95,6 +95,17 @@ const bookmarksorganizer = {
   debug : [],
 
   /**
+   * An array of url patterns which should be ignored while checking for broken bookmarks. Please only add patterns
+   * if there are known problems and add a comment with the GitHub issue.
+   *
+   */
+  ignoreForBrokenBookmarks : [
+    /* eslint-disable no-useless-escape, line-comment-position, no-inline-comments */
+    '^https?:\/\/groups.google.com/group/' // issue #25
+    /* eslint-enable no-useless-escape, line-comment-position, no-inline-comments */
+  ],
+
+  /**
    * Fired when a bookmark or a bookmark folder is created.
    * Not used because of https://bugzilla.mozilla.org/show_bug.cgi?id=1362863
    *
@@ -425,6 +436,12 @@ const bookmarksorganizer = {
   async checkForBrokenBookmark (bookmark, mode, type) {
     if (bookmark.url) {
       if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.internalCounter === bookmarksorganizer.LIMIT) {
+        return;
+      }
+
+      if (bookmarksorganizer.ignoreForBrokenBookmarks.some((i) => (new RegExp('\\b' + i + '\\b')).test(bookmark.url))) {
+        bookmarksorganizer.checkedBookmarks++;
+
         return;
       }
 
