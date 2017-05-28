@@ -200,9 +200,19 @@ const ui = {
     }
     else if (response.message === 'total-bookmarks') {
       elTotalBookmarks.textContent = response.total_bookmarks;
-      elButton.disabled = false;
       elMask.classList.add('is-hidden');
       elSpinner.classList.add('is-hidden');
+
+      if (response.total_bookmarks === 0) {
+        elStart.classList.add('hidden');
+        elHint.getElementsByClassName('notice')[0].textContent = browser.i18n.getMessage('no_marked_bookmarks_title');
+        elHint.getElementsByClassName('content')[0].textContent = browser.i18n.getMessage('no_marked_bookmarks');
+        elHint.classList.add('success');
+        elHint.classList.remove('hidden');
+      }
+      else {
+        elButton.disabled = false;
+      }
     }
     else if (response.message === 'total-bookmarks-changed') {
       elTotalBookmarks.textContent = response.total_bookmarks;
