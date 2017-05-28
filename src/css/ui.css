@@ -421,7 +421,7 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
 }
 
 #results .error .default-wrapper .name::before, #results .duplicates-item > li > a::before {
-  background: rgb(98, 181, 71);
+  background: rgb(172, 0, 0);
 }
 
 #results .warning .default-wrapper .name::before {
