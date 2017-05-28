@@ -100,6 +100,10 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
   transition: visibility 0ms 1000ms, opacity 1000ms linear;
 }
 
+.animated-visibility.active-check {
+  transition: visibility 0ms 0ms, opacity 1000ms linear;
+}
+
 .checkbox {
   display: inline-block;
   position: relative;
@@ -604,7 +608,6 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgb(255, 255, 255);
 }
 
 #mask img {
