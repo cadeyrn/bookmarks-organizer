@@ -430,7 +430,7 @@ const bookmarksorganizer = {
 
       bookmarksorganizer.internalCounter++;
 
-      if (bookmark.url.match(/^https?:\/\//)) {
+      if (/^https?:\/\//.test(bookmark.url)) {
         bookmark.attempts = 0;
 
         const checkedBookmark = await bookmarksorganizer.checkHttpResponse(bookmark);
