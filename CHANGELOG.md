@@ -2,6 +2,19 @@
 
 ## Release Notes
 
+### Version 1.1.0 (2017-05-28)
+
+- [ENHANCEMENT] preserve the hash for redirects, fixes #24
+- [ENHANCEMENT] performance optimization for protocol check
+- [TRANSLATION] added Chinese (simplified) translation (Thanks, yfdyh000!)
+- [BUGFIX] when checking for bookmarks without a name for some users the default bookmark places were listed,
+  fixes #3
+- [BUGFIX] ignore old google groups urls in broken bookmark check because it's not possible to determine the correct
+  redirect url for technical reasons, fixes #25
+- [BUGFIX] don't get into a broken state if there are no bookmarks, fixes #17
+- [BUGFIX] fixed broken debug setting, fixes #27
+- [DEPENDENCY] updated eslint-plugin-compat from version 1.0.2 to 1.0.3
+
 ### Version 1.0.6 (2017-05-20)
 
 - [BUGFIX] reverted "removed not needed permission from manifest"
@@ -27,8 +40,8 @@
 
 ### Version 1.0.2 (2017-05-01)
 
-- [DEPENDENCY] updated web-ext from version 1.8.1 to 1.9.0
 - [CODE QUALITY] added code documentation
+- [DEPENDENCY] updated web-ext from version 1.8.1 to 1.9.0
 
 ### Version 1.0.1 (2017-04-19)
 
