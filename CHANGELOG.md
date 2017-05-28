@@ -4,15 +4,16 @@
 
 ### Version 1.1.0 (2017-05-28)
 
-- [ENHANCEMENT] preserve the hash for redirects, fixes #24
+- [ENHANCEMENT] preserve the hash for redirects, fixes [#24](https://github.com/cadeyrn/bookmarks-organizer/issues/24)
 - [ENHANCEMENT] performance optimization for protocol check
 - [TRANSLATION] added Chinese (simplified) translation (Thanks, yfdyh000!)
 - [BUGFIX] when checking for bookmarks without a name for some users the default bookmark places were listed,
-  fixes #3
+  fixes [#3](https://github.com/cadeyrn/bookmarks-organizer/issues/3)
 - [BUGFIX] ignore old google groups urls in broken bookmark check because it's not possible to determine the correct
-  redirect url for technical reasons, fixes #25
-- [BUGFIX] don't get into a broken state if there are no bookmarks, fixes #17
-- [BUGFIX] fixed broken debug setting, fixes #27
+  redirect url for technical reasons, fixes [#25](https://github.com/cadeyrn/bookmarks-organizer/issues/25)
+- [BUGFIX] don't get into a broken state if there are no bookmarks, fixes
+  [#17](https://github.com/cadeyrn/bookmarks-organizer/issues/17)
+- [BUGFIX] fixed broken debug setting, fixes [#27](https://github.com/cadeyrn/bookmarks-organizer/issues/27)
 - [DEPENDENCY] updated eslint-plugin-compat from version 1.0.2 to 1.0.3
 
 ### Version 1.0.6 (2017-05-20)
