@@ -13,7 +13,7 @@ const options = {
    * @returns {void}
    */
   async load () {
-    const option = await browser.storage.local.get({ debug_enabled : false });
+    const option = await browser.storage.local.get({ debugEnabled : false });
     elDebugMode.checked = option.debugEnabled;
   }
 };

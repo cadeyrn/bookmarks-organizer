@@ -342,7 +342,7 @@ const bookmarksorganizer = {
 
     browser.runtime.sendMessage({ message : 'started' });
 
-    browser.storage.local.get('debug_enabled', (options) => {
+    browser.storage.local.get('debugEnabled', (options) => {
       bookmarksorganizer.debugEnabled = options.debugEnabled;
     });
 
