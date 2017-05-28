@@ -439,13 +439,13 @@ const bookmarksorganizer = {
         return;
       }
 
+      bookmarksorganizer.internalCounter++;
+
       if (bookmarksorganizer.ignoreForBrokenBookmarks.some((i) => (new RegExp('\\b' + i + '\\b')).test(bookmark.url))) {
         bookmarksorganizer.checkedBookmarks++;
 
         return;
       }
-
-      bookmarksorganizer.internalCounter++;
 
       if (/^https?:\/\//.test(bookmark.url)) {
         bookmark.attempts = 0;
