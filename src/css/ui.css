@@ -179,11 +179,11 @@ button:not(:disabled):hover {
 
 #logo-small {
   position: absolute;
-  top: 0;
+  top: 5px;
   padding: 8px 15px;
-  width: 64px;
-  height: 64px;
-  background: url('../images/icon.svg') center center / 64px 64px no-repeat transparent;
+  width: 63px;
+  height: 55px;
+  background: url('../images/icon.svg') center center / 63px 55px no-repeat transparent;
   cursor: pointer;
   transition: left 500ms ease-in-out;
 }
