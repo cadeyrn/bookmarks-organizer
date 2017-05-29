@@ -169,7 +169,7 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
 }
 
 #header-wrapper.compact #header {
-  height: 80px;
+  height: 60px;
 }
 
 #logo-wrapper {
@@ -201,11 +201,11 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
 
 #logo-small {
   position: absolute;
-  top: 5px;
-  padding: 8px 15px;
-  width: 63px;
-  height: 55px;
-  background: url('../images/icon.svg') center center / 63px 55px no-repeat transparent;
+  top: 0;
+  padding: 18px 15px;
+  width: 29px;
+  height: 25px;
+  background: url('../images/icon.svg') center center / 29px 25px no-repeat transparent;
   cursor: pointer;
   transition: left 500ms ease-in-out;
 }
@@ -220,17 +220,18 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
 
 #status-board {
   position: absolute;
-  left: 450px;
   font-size: 14px;
-  transition: top 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 
 #header-wrapper.default #status-board {
   top: 25px;
+  left: 450px;
 }
 
 #header-wrapper.compact #status-board {
-  top: 3px;
+  top: 6px;
+  left: 65px;
 }
 
 #status-board .item {
