@@ -8,13 +8,13 @@ body {
 }
 
 a {
-  color: rgb(193, 56, 50);
+  color: rgb(90, 90, 90);
   text-decoration: none;
   transition: color ease 250ms;
 }
 
 a:not(.button):hover {
-  color: rgb(210, 57, 49);
+  color: rgb(120, 120, 120);
 }
 
 input[type='search'], input[type='text'] {
@@ -31,20 +31,24 @@ input[type='search']:hover, input[type='text']:hover {
 }
 
 input[type='search']:focus, input[type='text']:focus {
-  border-color: rgb(172, 0, 0);
+  border-color: rgb(98, 181, 71);
 }
 
 button {
+  position: relative;
   margin: 12px 0;
   padding-left: 30px;
   padding-right: 30px;
   height: 40px;
+  transform: perspective(1px) translateZ(0);
   font-size: 18px;
-  border: 2px solid rgb(172, 0, 0);
+  border: 2px solid rgb(98, 181, 71);
   background: rgb(255, 255, 255);
   color: rgb(33, 37, 42);
   cursor: pointer;
-  transition: all ease 500ms;
+  box-shadow: 0 0 1px transparent;
+  transition-property: color;
+  transition-duration: 250ms;
 }
 
 button:disabled {
@@ -52,9 +56,23 @@ button:disabled {
   cursor: default;
 }
 
-button:not(:disabled):hover {
-  background: rgb(172, 0, 0);
-  color: rgb(255, 255, 255);
+button:not(:disabled)::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: scale(0);
+  background: rgb(235, 235, 235);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+}
+
+button:not(:disabled):hover::before, button:not(:disabled):focus::before, button:not(:disabled):active::before {
+  transform: scale(1);
 }
 
 .clearfix::after {
@@ -80,6 +98,10 @@ button:not(:disabled):hover {
   visibility: visible;
   opacity: 1;
   transition: visibility 0ms 1000ms, opacity 1000ms linear;
+}
+
+.animated-visibility.active-check {
+  transition: visibility 0ms 0ms, opacity 1000ms linear;
 }
 
 .checkbox {
@@ -130,10 +152,10 @@ button:not(:disabled):hover {
 
 #header-wrapper {
   position: fixed;
+  z-index: 30;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 30;
 }
 
 #header {
@@ -147,13 +169,13 @@ button:not(:disabled):hover {
 }
 
 #header-wrapper.compact #header {
-  height: 80px;
+  height: 60px;
 }
 
 #logo-wrapper {
   position: relative;
   left: -10px;
-  width: 370px;
+  width: 435px;
   height: 120px;
   transform: skew(-5deg) translateZ(0);
   background: rgb(255, 255, 255);
@@ -174,16 +196,16 @@ button:not(:disabled):hover {
   width: inherit;
   height: inherit;
   transform: skew(5deg) translateZ(0);
-  background: url('../images/logo-large.png') right 25px center / 310px 85px no-repeat transparent;
+  background: url('../images/logo-large.png') right 25px center / 375px 85px no-repeat transparent;
 }
 
 #logo-small {
   position: absolute;
   top: 0;
-  padding: 8px 15px;
-  width: 64px;
-  height: 64px;
-  background: url('../images/icon-128.png') center center / 64px 64px no-repeat transparent;
+  padding: 18px 15px;
+  width: 29px;
+  height: 25px;
+  background: url('../images/icon.svg') center center / 29px 25px no-repeat transparent;
   cursor: pointer;
   transition: left 500ms ease-in-out;
 }
@@ -197,36 +219,49 @@ button:not(:disabled):hover {
 }
 
 #status-board {
-  display: table;
   position: absolute;
-  right: 15px;
   font-size: 14px;
-  transition: top 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 
 #header-wrapper.default #status-board {
-  top: 15px;
+  top: 25px;
+  left: 450px;
 }
 
 #header-wrapper.compact #status-board {
-  top: 3px;
+  top: 6px;
+  left: 65px;
 }
 
-#status-board .row {
-  display: table-row;
-}
-
-#status-board .label, #status-board .value {
-  display: table-cell;
-  text-align: right;
+#status-board .item {
+  display: inline-block;
+  padding: 0 15px;
+  text-align: center;
 }
 
 #status-board .label {
-  padding-right: 10px;
+  font-weight: 700;
 }
 
 #status-board .label::after {
   content: ':';
+}
+
+#status-board .value {
+  margin-top: 5px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: rgb(98, 181, 71);
+  color: rgb(255, 255, 255);
+}
+
+#status-board .value.errors {
+  background: rgb(172, 0, 0);
+}
+
+#status-board .value.warnings {
+  background: rgb(255, 165, 0);
 }
 
 #progress {
@@ -273,7 +308,14 @@ button:not(:disabled):hover {
   right: 30px;
   width: 64px;
   height: 64px;
+  border-radius: 50%;
+  background: rgba(98, 181, 71, .5);
   animation: waggle 1000ms 3000ms forwards ease-out;
+  transition: background ease 500ms;
+}
+
+#fox:hover {
+  background: rgba(98, 181, 71, 1);
 }
 
 #fox img {
@@ -285,12 +327,12 @@ button:not(:disabled):hover {
 
 #hint {
   position: absolute;
+  z-index: 10;
   left: 20px;
   right: 130px;
-  z-index: 10;
   padding: 20px 15px;
   border-radius: 5px;
-  background: rgb(172, 0, 0);
+  background: rgb(98, 181, 71);
   color: rgb(255, 255, 255);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, .25);
 }
@@ -309,7 +351,7 @@ button:not(:disabled):hover {
   width: 0;
   height: 0;
   border: 12px solid;
-  border-color: rgb(172, 0, 0) transparent transparent rgb(172, 0, 0);
+  border-color: rgb(98, 181, 71) transparent transparent rgb(98, 181, 71);
 }
 
 #hint.success::before {
@@ -442,12 +484,10 @@ button:not(:disabled):hover {
 
 #results .action-buttons a {
   font-size: 12px;
-  color: rgb(33, 37, 42);
 }
 
 #results .action-buttons a:hover {
   font-size: 12px;
-  color: rgb(172, 0, 0);
 }
 
 #results .action-buttons a:not(:last-child) {
@@ -512,10 +552,10 @@ button:not(:disabled):hover {
 
 #control-bar {
   position: fixed;
+  z-index: 10;
   bottom: 64px;
   left: 0;
   right: 0;
-  z-index: 10;
   height: 64px;
   background: rgb(255, 255, 255);
 }
@@ -588,7 +628,6 @@ button:not(:disabled):hover {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgb(255, 255, 255);
 }
 
 #mask img {
@@ -617,7 +656,7 @@ button:not(:disabled):hover {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: rgb(172, 0, 0);
+  background-color: rgb(98, 181, 71);
   animation: spinner 1400ms infinite ease-in-out both;
 }
 
@@ -631,9 +670,9 @@ button:not(:disabled):hover {
 
 .modal-dialog {
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
-  z-index: 10;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, .75);
@@ -667,7 +706,7 @@ button:not(:disabled):hover {
 
 .modal-header {
   padding: 15px;
-  background-color: rgb(193, 56, 50);
+  background-color: rgb(98, 181, 71);
   color: rgb(255, 255, 255);
 }
 
@@ -685,7 +724,7 @@ button:not(:disabled):hover {
 
 .modal-footer {
   padding: 5px;
-  background-color: rgb(193, 56, 50);
+  background-color: rgb(98, 181, 71);
   color: rgb(255, 255, 255);
 }
 

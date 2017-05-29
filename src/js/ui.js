@@ -184,6 +184,10 @@ const ui = {
    */
   handleResponse (response) {
     if (response.message === 'started') {
+      elMask.classList.remove('is-hidden');
+      elMask.classList.add('active-check');
+      elSpinner.classList.add('active-check');
+      elSpinner.classList.remove('is-hidden');
       elResultWrapper.classList.add('hidden');
       elStart.classList.add('hidden');
       elHint.getElementsByClassName('notice')[0].textContent = browser.i18n.getMessage('greeting');
@@ -227,6 +231,11 @@ const ui = {
       ui.warnings = response.bookmarks_warnings;
     }
     else if (response.message === 'finished') {
+      elMask.classList.add('is-hidden');
+      elMask.classList.remove('active-check')
+      elSpinner.classList.add('is-hidden');
+      elSpinner.classList.remove('active-check');
+
       ui.buildBookmarksTree(response.bookmarks);
       ui.hideEmptyCategories();
 

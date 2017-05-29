@@ -105,7 +105,7 @@
     "message": "Save"
   },
   "search_label": {
-    "message" : "Name or URL…"
+    "message" : "Type name or URL to filter results…"
   },
   "some_marked_bookmarks": {
     "message": "Looks like we could clean up a little here!"
