@@ -236,7 +236,7 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
 
 #status-board .item {
   display: inline-block;
-  padding: 0 20px;
+  padding: 0 15px;
   text-align: center;
 }
 
@@ -308,7 +308,14 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
   right: 30px;
   width: 64px;
   height: 64px;
+  border-radius: 50%;
+  background: rgba(98, 181, 71, .5);
   animation: waggle 1000ms 3000ms forwards ease-out;
+  transition: background ease 500ms;
+}
+
+#fox:hover {
+  background: rgba(98, 181, 71, 1);
 }
 
 #fox img {
