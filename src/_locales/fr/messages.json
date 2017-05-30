@@ -6,7 +6,7 @@
     "message": "Corriger toutes les redirections"
   },
   "button_check_bookmarks": {
-    "message": "Vérifier les marque-pages..."
+    "message": "Vérifier les marque-pages…"
   },
   "bookmark_action_edit": {
     "message": "Modifier"
@@ -33,7 +33,7 @@
     "message": "Nom"
   },
   "bookmark_no_name": {
-    "message": "Aucun nom..."
+    "message": "Aucun nom…"
   },
   "bookmark_path": {
     "message": "Emplacement"
@@ -105,7 +105,7 @@
     "message": "Enregistrer"
   },
   "search_label": {
-    "message" : "Taper un nom ou une URL pour filter les résulats..."
+    "message" : "Taper un nom ou une URL pour filter les résulats…"
   },
   "some_marked_bookmarks": {
     "message": "Il semble que vous pouvez faire un peu de ménage ici !"
