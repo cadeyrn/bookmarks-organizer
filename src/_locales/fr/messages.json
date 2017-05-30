@@ -1,0 +1,131 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "Supprimer tous les marque-pages cassés"
+  },
+  "action_repair_all_redirects": {
+    "message": "Corriger toutes les redirections"
+  },
+  "button_check_bookmarks": {
+    "message": "Vérifier les marque-pages..."
+  },
+  "bookmark_action_edit": {
+    "message": "Modifier"
+  },
+  "bookmark_action_delete": {
+    "message": "Supprimer"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "Corriger redirection"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "Êtes-vous sûr(e) de vouloir supprimer ce marque-page ? Cette action ne peut être annulée."
+  },
+  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+    "message": "Êtes-vous sûr(e) de vouloir supprimer tous les marque-pages cassés ? Cette action ne peut être annulée."
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Êtes-vous sûr(e) de vouloir changer les URLs pour tous les marque-pages redirigés ? Cette action ne peut être annulée."
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "Êtes-vous sûr(e) de vouloir changer l'URL de ce marque-page ? Cette action ne peut être annulée."
+  },
+  "bookmark_name": {
+    "message": "Nom"
+  },
+  "bookmark_no_name": {
+    "message": "Aucun nom..."
+  },
+  "bookmark_path": {
+    "message": "Emplacement"
+  },
+  "bookmark_url": {
+    "message": "URL"
+  },
+  "close_overlay": {
+    "message": "Fermer"
+  },
+  "edit_bookmark": {
+    "message": "Modifier marque-page"
+  },
+  "extension_description": {
+    "message": "Avec Bookmarks Organizer il est facile de ranger vos marque-pages. Bookmarks Organizer trouver les marque-pages qui ne fonctionnent plus, les redirections, les doublons et plus encore !"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "Erreurs"
+  },
+  "filter_warnings": {
+    "message": "Avertissements"
+  },
+  "greeting": {
+    "message": "Salut !"
+  },
+  "intro_check": {
+    "message": "La vérification des marque-pages peut prendre plusieurs minutes, selon le mode sélectionné, le nombre de marque-pages et la vitesse Internet. Veuillez noter que pendant la vérification des marque-pages cassés, le chargement des sites web peut être significativement ralenti."
+  },
+  "mode_broken_bookmarks": {
+    "message": "Marque-pages cassés"
+  },
+  "mode_duplicates": {
+    "message": "Doublons"
+  },
+  "mode_empty_names": {
+    "message": "Noms de marque-pages manquants"
+  },
+  "no_marked_bookmarks": {
+    "message": "Tous les marque-pages sont opérationnels !"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Oui !"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "Rechercher doublons"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "Rechercher les marque-pages sans nom"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Rechercher les marque-pages inaccessibles"
+  },
+  "omnibox_command_check_redirects": {
+      "message": "Rechercher les marque-pages qui ont une redirection"
+  },
+  "omnibox_command_open": {
+    "message": "Ouvrir Bookmarks Organizer"
+  },
+  "omnibox_default_description": {
+    "message": "Vérifier tous les marque-pages ayant des erreurs, redirections, doublons, …"
+  },
+  "option_debug_mode": {
+    "message": "Activer le débogage"
+  },
+  "save_boolmark": {
+    "message": "Enregistrer"
+  },
+  "search_label": {
+    "message" : "Taper un nom ou une URL pour filter les résulats..."
+  },
+  "some_marked_bookmarks": {
+    "message": "Il semble que vous pouvez faire un peu de ménage ici !"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Salut !"
+  },
+  "start_message": {
+    "message" : "Commencez ici…"
+  },
+  "status_checked": {
+    "message" : "Vérifié"
+  },
+  "status_errors": {
+    "message" : "Erreurs"
+  },
+  "status_total": {
+    "message" : "Nombre de marque-pages"
+  },
+  "status_warnings": {
+    "message" : "Avertissements"
+  }
+}
