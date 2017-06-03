@@ -1,5 +1,7 @@
 # Firefox Add-on: Bookmarks Organizer (WebExtension)
 
+<img src="src/images/logo-large.png" alt="Logo" width="400" border="0" />
+
 ## Description
 
 With the Bookmarks Organizer, it's easy to put order in your bookmarks. The Bookmarks Organizer finds no longer working
