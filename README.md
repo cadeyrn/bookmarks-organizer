@@ -42,6 +42,7 @@ The extension is currently available in the following languages:
 
 - English
 - German
+- French (Thanks, Primokorn!)
 - Dutch (Thanks, Tonnes!)
 - Czech (Thanks, MekliCZ!)
 - Polish (Thanks, WaldiPL!)
