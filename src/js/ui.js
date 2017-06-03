@@ -232,7 +232,7 @@ const ui = {
     }
     else if (response.message === 'finished') {
       elMask.classList.add('is-hidden');
-      elMask.classList.remove('active-check')
+      elMask.classList.remove('active-check');
       elSpinner.classList.add('is-hidden');
       elSpinner.classList.remove('active-check');
 
