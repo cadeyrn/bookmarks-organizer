@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-### Version 1.2.0 (2017-06-04)
+### Version 1.2.0 (2017-06-03)
 
 - [DESIGN] refreshed design, based on user feedback, including new logo, new header style and more compact header,
   fixes [#13](https://github.com/cadeyrn/bookmarks-organizer/issues/13),
