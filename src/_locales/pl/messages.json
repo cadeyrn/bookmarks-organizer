@@ -72,7 +72,7 @@
     "message": "Duplikaty"
   },
   "mode_empty_names": {
-    "message": "Brakuje nazwy zakładek"
+    "message": "Brakujące nazwy zakładek"
   },
   "no_marked_bookmarks": {
     "message": "Wszystkie zakładki są w porządku!"
@@ -105,7 +105,7 @@
     "message": "Zapisz"
   },
   "search_label": {
-    "message" : "Nazwa lub URL…"
+    "message" : "Wpisz nazwę lub adres URL, aby filtrować wyniki…"
   },
   "some_marked_bookmarks": {
     "message": "Wygląda na to, że moglibyśmy tutaj trochę posprzątać!"
