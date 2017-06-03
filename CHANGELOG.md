@@ -2,6 +2,18 @@
 
 ## Release Notes
 
+### Version 1.2.0 (2017-06-04)
+
+- [DESIGN] refreshed design, based on user feedback, including new logo, new header style and more compact header,
+  fixes [#13](https://github.com/cadeyrn/bookmarks-organizer/issues/13),
+  [#20](https://github.com/cadeyrn/bookmarks-organizer/issues/20),
+  [#21](https://github.com/cadeyrn/bookmarks-organizer/issues/21) and
+  [#22](https://github.com/cadeyrn/bookmarks-organizer/issues/22)
+- [TRANSLATION] added French translation (Thanks, Primokorn!)
+- [TRANSLATION] fixed typo in Polish translation (Thanks, WaldiPL!)
+
+**Thanks to [Ura Design](https://ura.design/) for the new logo!**
+
 ### Version 1.1.0 (2017-05-28)
 
 - [ENHANCEMENT] preserve the hash for redirects, fixes [#24](https://github.com/cadeyrn/bookmarks-organizer/issues/24)
