@@ -11,6 +11,7 @@
   [#22](https://github.com/cadeyrn/bookmarks-organizer/issues/22)
 - [TRANSLATION] added French translation (Thanks, Primokorn!)
 - [TRANSLATION] fixed typo in Polish translation (Thanks, WaldiPL!)
+- [DEPENDENCY] updated eslint-plugin-no-unsanitized from version 2.0.0 to 2.0.1
 
 **Thanks to [Ura Design](https://ura.design/) for the new logo!**
 
