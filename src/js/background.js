@@ -461,7 +461,7 @@ const bookmarksorganizer = {
       if (/^https?:\/\//.test(bookmark.url)) {
         bookmark.attempts = 0;
 
-        const checkedBookmark = await bookmarksorganizer.checkHttpResponse(bookmark);
+        const checkedBookmark = await bookmarksorganizer.checkHttpResponse(bookmark, 'HEAD');
         bookmarksorganizer.checkedBookmarks++;
 
         switch (checkedBookmark.status) {
@@ -498,16 +498,18 @@ const bookmarksorganizer = {
    * This method sends a fetch request to check if a bookmark is broken or not, called by checkForBrokenBookmark().
    *
    * @param {bookmarks.BookmarkTreeNode} bookmark - a single bookmark
+   * @param {string} method - the HTTP method to use (HEAD for first attempt, GET for second attempt)
    *
    * @returns {bookmarks.BookmarkTreeNode} - the bookmark object
    */
-  async checkHttpResponse (bookmark) {
+  async checkHttpResponse (bookmark, method) {
     bookmark.attempts++;
 
     try {
       const response = await fetch(bookmark.url, {
+        cache : 'no-store',
         credentials : 'include',
-        cache : 'no-store'
+        method : method
       });
 
       if (response.redirected) {
@@ -528,7 +530,13 @@ const bookmarksorganizer = {
         }
       }
       else {
-        bookmark.status = response.status;
+        const headers = response.headers;
+        if (headers.has('Content-Length') && headers.get('Content-Length') === '0') {
+          bookmark.status = STATUS.EMPTY_BODY;
+        }
+        else {
+          bookmark.status = response.status;
+        }
       }
 
       if (bookmarksorganizer.debugEnabled) {
@@ -540,6 +548,7 @@ const bookmarksorganizer = {
             url : bookmark.url,
             status : bookmark.status
           },
+          method : method,
           cause : 'server-response',
           response : {
             url : response.url,
@@ -547,6 +556,12 @@ const bookmarksorganizer = {
             status : response.status
           }
         });
+      }
+
+      if (bookmark.status === STATUS.METHOD_NOT_ALLOWED || bookmark.status === STATUS.EMPTY_BODY) {
+        if (bookmark.attempts < bookmarksorganizer.MAX_ATTEMPTS) {
+          await bookmarksorganizer.checkHttpResponse(bookmark, 'GET');
+        }
       }
     }
     catch (error) {
@@ -561,13 +576,14 @@ const bookmarksorganizer = {
             url : bookmark.url,
             status : bookmark.status
           },
+          method : method,
           cause : 'fetch-error',
           response : error.message
         });
       }
 
       if (bookmark.attempts < bookmarksorganizer.MAX_ATTEMPTS) {
-        await bookmarksorganizer.checkHttpResponse(bookmark);
+        await bookmarksorganizer.checkHttpResponse(bookmark, 'GET');
       }
     }
 

@@ -21,6 +21,13 @@ const STATUS = {
   NOT_FOUND : 404,
 
   /**
+   * Status Code '405' for 'METHOD_NOT_ALLOWED'. Not every server allows HEAD requests.
+   *
+   * @type {integer}
+   */
+  METHOD_NOT_ALLOWED : 405,
+
+  /**
    * Status Code '901' for 'REDIRECT'. The bookmark redirects to another url.
    *
    * @type {integer}
@@ -33,6 +40,15 @@ const STATUS = {
    * @type {integer}
    */
   FETCH_ERROR : 902,
+
+  /**
+   * Status Code '903' for 'EMPTY_BODY'. Not every server allows HEAD requests, but some websites send a wrong HTTP
+   * status code. So we check if the response has a body, otherwise we set the status to EMPTY_BODY and try again with
+   * the GET method.
+   *
+   * @type {integer}
+   */
+  EMPTY_BODY : 903,
 
   /**
    * Status Code '999' for 'UNKNOWN'. The status is not known, for example after editing a bookmark.
