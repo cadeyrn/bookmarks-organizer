@@ -102,7 +102,7 @@
     "message": "启用输出调试信息"
   },
   "option_disable_confirmations": {
-    "message": "Disable confirmation messages (not recommended)"
+    "message": "禁用确认消息（不推荐）"
   },
   "save_bookmark": {
     "message": "保存"
