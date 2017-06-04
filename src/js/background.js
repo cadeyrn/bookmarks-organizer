@@ -530,7 +530,7 @@ const bookmarksorganizer = {
         }
       }
       else {
-        const headers = response.headers;
+        const { headers } = response;
         if (headers.has('Content-Length') && headers.get('Content-Length') === '0') {
           bookmark.status = STATUS.EMPTY_BODY;
         }
