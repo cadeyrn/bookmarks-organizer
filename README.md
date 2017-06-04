@@ -9,6 +9,12 @@ bookmarks, redirects, duplicates and more!
 
 **The Bookmarks Organizer is a WebExtension and also compatible with Firefox 57 and later.**
 
+### IMPORTANT NOTICE - PLEASE READ
+
+Users of a script blocker such as uBlock Origin or NoScript should ensure that it does not block the scripts of the
+add-on. When the tracking protection of Firefox is enabled, Firefox bookmarks, which are on the tracking list used by
+Mozilla, will be marked as incorrect.
+
 ### Features
 
 - Finds no longer working bookmarks
