@@ -20,7 +20,7 @@
   "bookmark_confirmation_delete": {
     "message": "Weet u zeker dat u deze bladwijzer wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt."
   },
-  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+  "bookmark_confirmation_delete_all_broken": {
     "message": "Weet u zeker dat u alle defecte bladwijzers wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt."
   },
   "bookmark_confirmation_repair_all_redirects": {
@@ -100,6 +100,9 @@
   },
   "option_debug_mode": {
     "message": "Debug-uitvoer inschakelen"
+  },
+  "option_disable_confirmations": {
+    "message": "Disable confirmation messages (not recommended)"
   },
   "save_bookmark": {
     "message": "Opslaan"

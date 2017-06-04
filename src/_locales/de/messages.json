@@ -20,7 +20,7 @@
   "bookmark_confirmation_delete": {
     "message": "Soll dieses Lesezeichen wirklich gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden."
   },
-  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+  "bookmark_confirmation_delete_all_broken": {
     "message": "Sollen wirklich alle fehlerhaften Lesezeichen gelöscht werden? Die Aktion kann nicht rückgängig gemacht werden."
   },
   "bookmark_confirmation_repair_all_redirects": {
@@ -100,6 +100,9 @@
   },
   "option_debug_mode": {
     "message": "Debug-Ausgabe aktivieren"
+  },
+  "option_disable_confirmations": {
+    "message": "Bestätigungs-Hinweise deaktivieren (nicht empfohlen)"
   },
   "save_bookmark": {
     "message": "Speichern"

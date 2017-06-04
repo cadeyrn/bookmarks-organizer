@@ -36,6 +36,13 @@ const elSpinner = document.getElementById('spinner');
  */
 const ui = {
   /**
+   * Disables confirmation messages. It defaults to false and can be changed in the add-on's settings.
+   *
+   * @type {boolean}
+   */
+  disableConfirmations : false,
+
+  /**
    * Number of bookmarks with errors or warnings.
    *
    * @type {integer}
@@ -231,6 +238,8 @@ const ui = {
       ui.warnings = response.bookmarks_warnings;
     }
     else if (response.message === 'finished') {
+      ui.disableConfirmations = response.disableConfirmations;
+
       elMask.classList.add('is-hidden');
       elMask.classList.remove('active-check');
       elSpinner.classList.add('is-hidden');
@@ -715,7 +724,7 @@ const ui = {
 
       if (e.target.getAttribute('data-confirmation')) {
         // eslint-disable-next-line no-alert
-        if (!confirm(e.target.getAttribute('data-confirmation-msg'))) {
+        if (!ui.disableConfirmations && !confirm(e.target.getAttribute('data-confirmation-msg'))) {
           return;
         }
       }
@@ -760,7 +769,7 @@ const ui = {
     e.preventDefault();
 
     // eslint-disable-next-line no-alert
-    if (!confirm(browser.i18n.getMessage('bookmark_confirmation_repair_all_redirects'))) {
+    if (!ui.disableConfirmations && !confirm(browser.i18n.getMessage('bookmark_confirmation_repair_all_redirects'))) {
       return;
     }
 
@@ -787,7 +796,7 @@ const ui = {
     e.preventDefault();
 
     // eslint-disable-next-line no-alert
-    if (!confirm(browser.i18n.getMessage('bookmark_confirmation_delete_all_bookmarks_with_errors'))) {
+    if (!ui.disableConfirmations && !confirm(browser.i18n.getMessage('bookmark_confirmation_delete_all_broken'))) {
       return;
     }
 

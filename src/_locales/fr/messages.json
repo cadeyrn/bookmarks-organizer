@@ -20,7 +20,7 @@
   "bookmark_confirmation_delete": {
     "message": "Êtes-vous sûr(e) de vouloir supprimer ce marque-page ? Cette action ne peut être annulée."
   },
-  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+  "bookmark_confirmation_delete_all_broken": {
     "message": "Êtes-vous sûr(e) de vouloir supprimer tous les marque-pages cassés ? Cette action ne peut être annulée."
   },
   "bookmark_confirmation_repair_all_redirects": {
@@ -100,6 +100,9 @@
   },
   "option_debug_mode": {
     "message": "Activer le débogage"
+  },
+  "option_disable_confirmations": {
+    "message": "Disable confirmation messages (not recommended)"
   },
   "save_bookmark": {
     "message": "Enregistrer"

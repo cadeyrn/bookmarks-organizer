@@ -105,9 +105,16 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
 }
 
 .checkbox {
-  display: inline-block;
   position: relative;
   width: 90px;
+}
+
+.checkbox.inline {
+  display: inline-block;
+}
+
+.checkbox:not(.inline) {
+  margin-bottom: 10px;
 }
 
 .checkbox label {

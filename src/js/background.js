@@ -32,6 +32,13 @@ const bookmarksorganizer = {
   debugEnabled : false,
 
   /**
+   * Disables confirmation messages. It defaults to false and can be changed in the add-on's settings.
+   *
+   * @type {boolean}
+   */
+  disableConfirmations : false,
+
+  /**
    * Internal variable. It's only true while a check is running.
    *
    * @type {boolean}
@@ -344,6 +351,10 @@ const bookmarksorganizer = {
 
     browser.storage.local.get('debugEnabled', (options) => {
       bookmarksorganizer.debugEnabled = options.debugEnabled;
+    });
+
+    browser.storage.local.get('disableConfirmations', (options) => {
+      bookmarksorganizer.disableConfirmations = options.disableConfirmations;
     });
 
     const bookmarks = await browser.bookmarks.getTree();
@@ -690,6 +701,7 @@ const bookmarksorganizer = {
         message : 'finished',
         mode : mode,
         bookmarks : bookmarks,
+        disableConfirmations : bookmarksorganizer.disableConfirmations,
         debug : bookmarksorganizer.debug
       });
 

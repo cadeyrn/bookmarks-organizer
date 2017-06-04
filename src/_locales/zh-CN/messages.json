@@ -20,7 +20,7 @@
   "bookmark_confirmation_delete": {
     "message": "确定删除此书签？此操作不能撤销！"
   },
-  "bookmark_confirmation_delete_all_bookmarks_with_errors": {
+  "bookmark_confirmation_delete_all_broken": {
     "message": "确定删除所有失效书签？此操作不能撤销！"
   },
   "bookmark_confirmation_repair_all_redirects": {
@@ -100,6 +100,9 @@
   },
   "option_debug_mode": {
     "message": "启用输出调试信息"
+  },
+  "option_disable_confirmations": {
+    "message": "Disable confirmation messages (not recommended)"
   },
   "save_bookmark": {
     "message": "保存"
