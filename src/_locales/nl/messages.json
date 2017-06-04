@@ -102,7 +102,7 @@
     "message": "Debug-uitvoer inschakelen"
   },
   "option_disable_confirmations": {
-    "message": "Disable confirmation messages (not recommended)"
+    "message": "Bevestigingsberichten uitschakelen (niet aanbevolen)"
   },
   "save_bookmark": {
     "message": "Opslaan"
