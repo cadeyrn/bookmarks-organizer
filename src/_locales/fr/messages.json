@@ -102,7 +102,7 @@
     "message": "Activer le débogage"
   },
   "option_disable_confirmations": {
-    "message": "Disable confirmation messages (not recommended)"
+    "message": "Désactiver les messages de confirmation (déconseillé)"
   },
   "save_bookmark": {
     "message": "Enregistrer"
