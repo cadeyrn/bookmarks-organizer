@@ -102,7 +102,7 @@
     "message": "Włącz wyjście debugowania"
   },
   "option_disable_confirmations": {
-    "message": "Disable confirmation messages (not recommended)"
+    "message": "Wyłącz komunikaty potwierdzeń (nie zalecane)"
   },
   "save_bookmark": {
     "message": "Zapisz"
