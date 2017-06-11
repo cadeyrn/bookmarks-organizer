@@ -2,6 +2,15 @@
 
 ## Release Notes
 
+### Version 1.3.0 (2017-06-11)
+
+- [ENHANCEMENT] new option to disable the confirmation dialogs (you can find it in the add-on's settings), fixes
+  [#29](https://github.com/cadeyrn/bookmarks-organizer/issues/29)
+- [ENHANCEMENT] make HEAD requests instead of GET requests for better performance and fall back to GET,
+  fixes [#33](https://github.com/cadeyrn/bookmarks-organizer/issues/33)
+- [DEPENDENCY] updated stylelint from version 7.10.1 to 7.11.0 and added new stylelint rule
+- [DEPENDENCY] updated stylelint-order from version 0.4.4 to 0.5.0
+  
 ### Version 1.2.0 (2017-06-03)
 
 - [DESIGN] refreshed design, based on user feedback, including new logo, new header style and more compact header,
