@@ -13,7 +13,7 @@ bookmarks, redirects, duplicates and more!
 
 Users of a script blocker such as uMatrix or NoScript should ensure that it does not block the scripts of the
 add-on. When the tracking protection of Firefox is enabled, Firefox bookmarks, which are on the tracking list used by
-Mozilla, will be marked as incorrect.
+Mozilla, will be marked as broken. Please double check if these bookmarks can be removed.
 
 ### Features
 
