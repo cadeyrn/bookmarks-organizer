@@ -35,7 +35,7 @@
     "npm-run-all": "4.0.2",
     "stylelint": "7.11.0",
     "stylelint-csstree-validator": "1.1.1",
-    "stylelint-order": "0.4.4",
+    "stylelint-order": "0.5.0",
     "web-ext": "1.9.1"
   },
   "scripts": {
