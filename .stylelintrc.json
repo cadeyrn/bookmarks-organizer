@@ -162,6 +162,7 @@
     "selector-list-comma-newline-before": "never-multi-line",
     "selector-list-comma-space-after": "always-single-line",
     "selector-list-comma-space-before": "never-single-line",
+    "selector-max-class": 3,
     "selector-max-compound-selectors": 4,
     "selector-max-specificity": null,
     "selector-nested-pattern": null,
