@@ -21,18 +21,11 @@ const STATUS = {
   NOT_FOUND : 404,
 
   /**
-   * Status Code '405' for 'METHOD_NOT_ALLOWED'. Not every server allows HEAD requests.
+   * Status Code '300' for 'REDIRECT'. The bookmark redirects to another url.
    *
    * @type {integer}
    */
-  METHOD_NOT_ALLOWED : 405,
-
-  /**
-   * Status Code '901' for 'REDIRECT'. The bookmark redirects to another url.
-   *
-   * @type {integer}
-   */
-  REDIRECT : 901,
+  REDIRECT : 300,
 
   /**
    * Status Code '902' for 'FETCH_ERROR'. There was an error while fetching. Maybe the website no longer exists.

@@ -558,7 +558,7 @@ const bookmarksorganizer = {
         });
       }
 
-      if (bookmark.status === STATUS.METHOD_NOT_ALLOWED || bookmark.status === STATUS.EMPTY_BODY) {
+      if (bookmark.status > STATUS.REDIRECT) {
         if (bookmark.attempts < bookmarksorganizer.MAX_ATTEMPTS) {
           await bookmarksorganizer.checkHttpResponse(bookmark, 'GET');
         }
