@@ -14,18 +14,18 @@ const STATUS = {
   OK : 200,
 
   /**
-   * Status Code '404' for 'NOT_FOUND'. The bookmark no longer works.
-   *
-   * @type {integer}
-   */
-  NOT_FOUND : 404,
-
-  /**
    * Status Code '300' for 'REDIRECT'. The bookmark redirects to another url.
    *
    * @type {integer}
    */
   REDIRECT : 300,
+
+  /**
+   * Status Code '404' for 'NOT_FOUND'. The bookmark no longer works.
+   *
+   * @type {integer}
+   */
+  NOT_FOUND : 404,
 
   /**
    * Status Code '902' for 'FETCH_ERROR'. There was an error while fetching. Maybe the website no longer exists.
