@@ -19,10 +19,12 @@ gulp.task('lint-js', () => gulp.src(['gulpfile.js', './src/js/*.js'])
 gulp.task('lint-css', () => gulp.src(['./src/css/*.css'])
   .pipe(gulpStylelint({
     failAfterError : false,
-    reporters : [{
-      formatter : 'string',
-      console : true
-    }]
+    reporters : [
+      {
+        formatter : 'string',
+        console : true
+      }
+    ]
   }))
 );
 
