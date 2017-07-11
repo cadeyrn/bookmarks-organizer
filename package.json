@@ -21,7 +21,7 @@
     "Firefox >= 52"
   ],
   "devDependencies": {
-    "eslint": "4.1.1",
+    "eslint": "4.2.0",
     "eslint-plugin-compat": "1.0.3",
     "eslint-plugin-no-unsanitized": "2.0.1",
     "eslint-plugin-sort-requires": "2.1.0",

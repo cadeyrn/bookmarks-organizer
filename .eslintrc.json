@@ -53,6 +53,7 @@
     "func-names": "off",
     "func-style": "error",
     "generator-star-spacing": "error",
+    "getter-return": "error",
     "guard-for-in": "error",
     "id-blacklist": "error",
     "id-length": ["error", { "max": 30, "exceptions": ["e", "i", "p"] }],
