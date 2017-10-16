@@ -1,0 +1,134 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "eliminar todos los marcadores rotos"
+  },
+  "action_repair_all_redirects": {
+    "message": "corregir todas las redirecciones"
+  },
+  "button_check_bookmarks": {
+    "message": "Comprobar marcadores…"
+  },
+  "bookmark_action_edit": {
+    "message": "editar"
+  },
+  "bookmark_action_delete": {
+    "message": "eliminar"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "corregir redirección"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "Estás seguro de eliminar este marcador? Esta acción no se puede deshacer."
+  },
+  "bookmark_confirmation_delete_all_broken": {
+    "message": "Estás seguro de querer eliminar toos los marcadores rotos? Esta acción no se puede deshacer."
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Estás seguro de querer cambiar las URLs para todos los marcadores redireccionados? Esta acción no se puede deshacer."
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "Estás seguro de querer cambiar la URL de este marcador? Esta acción no se puede deshacer."
+  },
+  "bookmark_name": {
+    "message": "Nombre"
+  },
+  "bookmark_no_name": {
+    "message": "sin nombre…"
+  },
+  "bookmark_path": {
+    "message": "Ruta"
+  },
+  "bookmark_url": {
+    "message": "URL"
+  },
+  "close_overlay": {
+    "message": "Cerrar"
+  },
+  "edit_bookmark": {
+    "message": "Editar marcador"
+  },
+  "extension_description": {
+    "message": "Con Bookmarks Organizer es facil poner orden en tus marcadores. Bookmarks Organizer encuentra marcadores que ya no funcionan, redirecciones, duplicados y más!"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "Errores"
+  },
+  "filter_warnings": {
+    "message": "Avisos"
+  },
+  "greeting": {
+    "message": "Hey!"
+  },
+  "intro_check": {
+    "message": "Comprobar los marcadores puede llevar unos minutos, dependiendo del modo seleccionado, el número de marcadores y la velocidad de Internet. Recuerda que durante la comprobación de marcadores rotos la carga de sitios web puede retrasarse considerablemente."
+  },
+  "mode_broken_bookmarks": {
+    "message": "marcadores rotos"
+  },
+  "mode_duplicates": {
+    "message": "Duplicados"
+  },
+  "mode_empty_names": {
+    "message": "nombres que faltan de marcadores"
+  },
+  "no_marked_bookmarks": {
+    "message": "Todos los marcadores están bien!"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Yay!"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "Encontrar duplicados"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "Encontrar marcadores sin nombres"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Encontrar marcadores ya no accesibles"
+  },
+  "omnibox_command_check_redirects": {
+      "message": "Encontrar marcadores que redireccionan"
+  },
+  "omnibox_command_open": {
+    "message": "Abrir Bookmarks Organizer"
+  },
+  "omnibox_default_description": {
+    "message": "Comprobar todos tus marcadores sobre errores, redirecciones, duplicados, …"
+  },
+  "option_debug_mode": {
+    "message": "Activar 'debug output'"
+  },
+  "option_disable_confirmations": {
+    "message": "Desactivar mensajes de confirmación (no recomendado)"
+  },
+  "save_bookmark": {
+    "message": "Guardar"
+  },
+  "search_label": {
+    "message" : "Escribe nombre o URL para filtrar resultados…"
+  },
+  "some_marked_bookmarks": {
+    "message": "Parece que podemos limpiar un poco aquí!"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Hey!"
+  },
+  "start_message": {
+    "message" : "Empezar aquí…"
+  },
+  "status_checked": {
+    "message" : "Comprobado"
+  },
+  "status_errors": {
+    "message" : "Errores"
+  },
+  "status_total": {
+    "message" : "Número de marcadores"
+  },
+  "status_warnings": {
+    "message" : "Avisos"
+  }
+}
