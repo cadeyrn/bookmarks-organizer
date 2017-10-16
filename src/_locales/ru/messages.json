@@ -1,0 +1,134 @@
+{
+  "Action_delete_all_bookmarks_with_errors" {
+    "message": "удалить все сломанные закладки"
+  }
+  "Action_repair_all_redirects" {
+    "message": "исправить все перенаправления"
+  }
+  "Button_check_bookmarks" {
+    "message": "Проверка закладок..."
+  }
+  "Bookmark_action_edit" {
+    "message": "редактировать"
+  }
+  "Bookmark_action_delete" {
+    "message": "удалить"
+  }
+  "Bookmark_action_repair_redirect" {
+    "message": "исправить перенаправления"
+  }
+  "Bookmark_confirmation_delete" {
+    "message": "Вы уверены, что хотите удалить эту закладку? Это действие нельзя отменить."
+  }
+  "Bookmark_confirmation_delete_all_broken" {
+    "message": "Вы уверены, что хотите удалить все сломанные закладки? Это действие нельзя отменить."
+  }
+  "Bookmark_confirmation_repair_all_redirects" {
+    "message": "Вы уверены, что хотите изменить URL-адреса для всех перенаправлений? Это действие нельзя отменить."
+  }
+  "Bookmark_confirmation_repair_redirect" {
+    "message": "Вы уверены, что хотите изменить URL-адрес этой закладки? Это действие нельзя отменить."
+  }
+  "Bookmark_name" {
+    "message": "Название"
+  }
+  "Bookmark_no_name" {
+    "message": "без имени..."
+  }
+  "Bookmark_path" {
+    "message": "Путь"
+  }
+  "Bookmark_url" {
+    "message": "URL"
+  }
+  "Close_overlay" {
+    "message": "Закрыть"
+  }
+  "Edit_bookmark" {
+    "message": "Редактировать закладку"
+  }
+  "Extension_description" {
+    "message": "Bookmarks Organizer помогает привести в порядок ваши закладки. Bookmarks Organizer находит, исправляет или удаляет сломанные закладки, перенаправления и дубликаты."
+  }
+  "Extension_name" {
+    "message": "Bookmarks Organizer"
+  }
+  "Filter_errors" {
+    "message": "Ошибки"
+  }
+  "Filter_warnings" {
+    "message": "Предупреждение"
+  }
+  "Greeting" {
+    "message": "Hey!"
+  }
+  "Intro_check" {
+    "message": "Проверка закладок может занять несколько минут, в зависимости от выбранного режима, количества закладок и скорости интернета. Обратите внимание, что при проверке на наличие сломанных закладок, скорость загрузки веб-сайтов может ощутимо замедлиться."
+  }
+  "Mode_broken_bookmarks" {
+    "message": "сломанные закладки"
+  }
+  "Mode_duplicates" {
+    "message": "Дубликаты"
+  }
+  "Mode_empty_names" {
+    "message": "отсутствуют названия закладок"
+  }
+  "No_marked_bookmarks" {
+    "message": "Все закладки в порядке!"
+  }
+  "No_marked_bookmarks_title" {
+    "message": "Yay!"
+  }
+  "Omnibox_command_check_duplicates" {
+    "message": "Найти дубликаты"
+  }
+  "Omnibox_command_check_empty_names" {
+    "message": "Найти закладки без имен"
+  }
+  "Omnibox_command_check_errors" {
+    "message": "Найти неработающие закладки"
+  }
+  "Omnibox_command_check_redirects" {
+      "message": "Найти перенаправляющие закладки"
+  }
+  "Omnibox_command_open" {
+    "message": "Открыть Bookmarks Organizer"
+  }
+  "Omnibox_default_description" {
+    "message": "Проверить все закладки на наличие ошибок, переадресаций, дубликатов ..."
+  }
+  "Option_debug_mode" {
+    "message": "Включить отчет отладки"
+  }
+  "Option_disable_confirmations" {
+    "message": "Отключить запросы о подтверждении (не рекомендуется)"
+  }
+  "Save_bookmark" {
+    "message": "Сохранить"
+  }
+  "Search_label" {
+    "message": "Введите имя или URL-адрес для фильтрации результатов..."
+  }
+  "Some_marked_bookmarks" {
+    "message": "Похоже, что мы можем здесь немного убрать!"
+  }
+  "Some_marked_bookmarks_title" {
+    "message": "Hey!"
+  }
+  "Start_message" {
+    "message": "Начать здесь..."
+  }
+  "Status_checked" {
+    "message": "Проверено"
+  }
+  "Status_errors" {
+    "message": "Ошибки"
+  }
+  "Status_total" {
+    "message": "Количество закладок"
+  }
+  "Status_warnings" {
+    "message": "Предупреждение"
+  }
+}
