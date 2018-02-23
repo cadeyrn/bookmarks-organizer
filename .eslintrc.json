@@ -76,7 +76,7 @@
     "max-params": ["error", 4],
     "max-statements-per-line": "error",
     "max-statements": "off",
-    "multiline-comment-style": ["error", "starred-block"],
+    "multiline-comment-style": "off",
     "multiline-ternary": ["error", "never"],
     "new-cap": "error",
     "new-parens": "error",
