@@ -52,9 +52,12 @@ The extension is currently available in the following languages:
 - German
 - French (Thanks, Primokorn!)
 - Dutch (Thanks, Tonnes!)
+- Spanish (Thanks, TarekJor!)
 - Czech (Thanks, MekliCZ!)
 - Polish (Thanks, WaldiPL!)
 - Chinese (simplified) (Thanks, yfdyh000!)
+- Russian (Thanks, perdolka!)
+- Ukrainian (Thanks, perdolka!)
 - Upper Sorbian (Thanks, milupo!)
 - Lower Sorbian (Thanks, milupo!)
 
