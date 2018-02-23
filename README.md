@@ -60,7 +60,7 @@ The extension is currently available in the following languages:
 
 ## Compatibility
 
-The extension requires at least Firefox 52. Because the extension makes use of modern web technologies and the latest
+The extension requires at least Firefox 58. Because the extension makes use of modern web technologies and the latest
 WebExtension APIs, support for older versions of Firefox is not possible for technical reasons.
 
 ## Download
