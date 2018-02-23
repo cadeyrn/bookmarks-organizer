@@ -21,7 +21,7 @@
     "message": "Estás seguro de eliminar este marcador? Esta acción no se puede deshacer."
   },
   "bookmark_confirmation_delete_all_broken": {
-    "message": "Estás seguro de querer eliminar toos los marcadores rotos? Esta acción no se puede deshacer."
+    "message": "Estás seguro de querer eliminar todos los marcadores rotos? Esta acción no se puede deshacer."
   },
   "bookmark_confirmation_repair_all_redirects": {
     "message": "Estás seguro de querer cambiar las URLs para todos los marcadores redireccionados? Esta acción no se puede deshacer."
@@ -48,7 +48,7 @@
     "message": "Editar marcador"
   },
   "extension_description": {
-    "message": "Con Bookmarks Organizer es facil poner orden en tus marcadores. Bookmarks Organizer encuentra marcadores que ya no funcionan, redirecciones, duplicados y más!"
+    "message": "Con Bookmarks Organizer es fácil poner orden en tus marcadores. Bookmarks Organizer encuentra marcadores que ya no funcionan, redirecciones, duplicados y más!"
   },
   "extension_name": {
     "message": "Bookmarks Organizer"
