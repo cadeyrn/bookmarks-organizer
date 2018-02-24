@@ -4,8 +4,8 @@
 
 ### (Work in Progress) Version 2.0.0 (2018-02-xx)
 
-- [ENHANCEMENT] really do a second bookmark check with GET request if the first HEAD request fails, fixes
-  [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
+- [ENHANCEMENT] second bookmark check via GET, if the first one via HEAD failed (new in version 1.3.0), was not
+  always executed, fixes [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
 - [ENHANCEMENT] added a menu item to the tools menu to open the user interface, fixes
   [#65](https://github.com/cadeyrn/bookmarks-organizer/issues/65)
 - [ENHANCEMENT] reduced file size of the logo, fixes [#66](https://github.com/cadeyrn/bookmarks-organizer/issues/66)
