@@ -8,28 +8,28 @@ const HEADER_TIMEOUT_IN_MS = 250;
 const MIN_PROGRESS = 0.01;
 
 const elBody = document.querySelector('body');
+const elBookmarksErrors = document.getElementById('bookmarks-errors');
+const elBookmarksWarnings = document.getElementById('bookmarks-warnings');
 const elButton = document.getElementById('submit-button');
+const elCheckedBookmarks = document.getElementById('checked-bookmarks');
+const elDebugOutput = document.getElementById('debug-output');
+const elDebugWrapper = document.getElementById('debug-output-wrapper');
+const elDeleteAllBookmarksWithErrors = document.getElementById('delete-all-bookmarks-with-errors');
+const elFilterBar = document.getElementById('filterbar');
 const elFox = document.getElementById('fox');
 const elHeaderWrapper = document.getElementById('header-wrapper');
 const elHint = document.getElementById('hint');
-const elMode = document.getElementById('mode');
-const elResultWrapper = document.getElementById('result-wrapper');
-const elResults = document.getElementById('results');
-const elTotalBookmarks = document.getElementById('total-bookmarks');
-const elCheckedBookmarks = document.getElementById('checked-bookmarks');
-const elBookmarksErrors = document.getElementById('bookmarks-errors');
-const elBookmarksWarnings = document.getElementById('bookmarks-warnings');
-const elProgress = document.getElementById('progress');
-const elMassActions = document.getElementById('mass-actions');
-const elRepairAllRedirects = document.getElementById('repair-all-redirects');
-const elDeleteAllBookmarksWithErrors = document.getElementById('delete-all-bookmarks-with-errors');
-const elFilterBar = document.getElementById('filterbar');
-const elSearch = document.getElementById('search');
-const elStart = document.getElementById('start');
-const elDebugWrapper = document.getElementById('debug-output-wrapper');
-const elDebugOutput = document.getElementById('debug-output');
 const elMask = document.getElementById('mask');
+const elMassActions = document.getElementById('mass-actions');
+const elMode = document.getElementById('mode');
+const elProgress = document.getElementById('progress');
+const elRepairAllRedirects = document.getElementById('repair-all-redirects');
+const elResults = document.getElementById('results');
+const elResultWrapper = document.getElementById('result-wrapper');
+const elSearch = document.getElementById('search');
 const elSpinner = document.getElementById('spinner');
+const elStart = document.getElementById('start');
+const elTotalBookmarks = document.getElementById('total-bookmarks');
 
 /**
  * @exports ui
