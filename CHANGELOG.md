@@ -2,6 +2,32 @@
 
 ## Release Notes
 
+### (Work in Progress) Version 2.0.0 (2018-02-xx)
+
+- [ENHANCEMENT] really do a second bookmark check with GET request if the first HEAD request fails, fixes #36
+- [ENHANCEMENT] reduced file size of the logo
+- [CHANGE] changed keyboard command to Shift + F11
+- [TRANSLATION] added Spanish translation (Thanks, TarekJor!)
+- [TRANSLATION] added Russian translation (Thanks, perdolka!)
+- [TRANSLATION] added Ukrainian translation (Thanks, perdolka!)
+- [CODE QUALITY] organized the script files in folders
+- [DEPENDENCY] updated eslint from version 3.19.0 to 4.18.1 and updated configuration file
+- [DEPENDENCY] updated eslint-plugin-compat from version 1.0.3 to 2.2.0
+- [DEPENDENCY] updated eslint-plugin-no-unsanitized from version 2.0.1 to 3.0.0
+- [DEPENDENCY] updated eslint-plugin-xss from version 0.1.8 to 0.1.9
+- [DEPENDENCY] updated gulp-eslint from version 3.0.1 to 4.0.2
+- [DEPENDENCY] updated gulp-html from version 0.0.1 to 0.0.2
+- [DEPENDENCY] updated gulp-stylelint from version 3.9.0 to 6.0.0
+- [DEPENDENCY] updated htmllint from version 0.6.0 to 0.7.2
+- [DEPENDENCY] updated jsdoc from version 3.4.3 to 3.5.5
+- [DEPENDENCY] updated npm-run-all from version 4.0.2 to 4.1.2
+- [DEPENDENCY] updated stylelint from version 7.11.0 to 9.1.1 and updated configuration file
+- [DEPENDENCY] updated stylelint-csstree-validator from version 1.1.1 to 1.2.2
+- [DEPENDENCY] updated stylelint-order from version 0.5.0 to 0.8.1
+- [DEPENDENCY] updated web-ext from version 1.9.1 to 2.4.0
+
+**Minimum required Firefox version is Firefox 58 now.**
+
 ### Version 1.3.0 (2017-06-11)
 
 - [ENHANCEMENT] new option to disable the confirmation dialogs (you can find it in the add-on's settings), fixes
@@ -10,7 +36,7 @@
   fixes [#33](https://github.com/cadeyrn/bookmarks-organizer/issues/33)
 - [DEPENDENCY] updated stylelint from version 7.10.1 to 7.11.0 and added new stylelint rule
 - [DEPENDENCY] updated stylelint-order from version 0.4.4 to 0.5.0
-  
+
 ### Version 1.2.0 (2017-06-03)
 
 - [DESIGN] refreshed design, based on user feedback, including new logo, new header style and more compact header,
@@ -59,7 +85,7 @@
 
 - [BUGFIX] when deleting a bookmark, two bookmarks were subtracted from the total number of bookmarks
 - [DEPENDENCY] updated web-ext from version 1.9.0 to 1.9.1
-- [DEPENDENCY] updated stylelint-order from version 0.4.3 to 0.4.4 
+- [DEPENDENCY] updated stylelint-order from version 0.4.3 to 0.4.4
 
 ### Version 1.0.2 (2017-05-01)
 
