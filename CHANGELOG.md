@@ -4,7 +4,8 @@
 
 ### (Work in Progress) Version 2.0.0 (2018-02-xx)
 
-- [ENHANCEMENT] really do a second bookmark check with GET request if the first HEAD request fails, fixes #36
+- [ENHANCEMENT] really do a second bookmark check with GET request if the first HEAD request fails, fixes
+  [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
 - [ENHANCEMENT] reduced file size of the logo
 - [CHANGE] changed keyboard command to Shift + F11
 - [TRANSLATION] added Spanish translation (Thanks, TarekJor!)
