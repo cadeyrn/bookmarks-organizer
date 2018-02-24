@@ -28,6 +28,14 @@ const STATUS = {
   NOT_FOUND : 404,
 
   /**
+   * Status Code '901' for 'TIMEOUT'. We try only TIMEOUT_IN_MS milliseconds to reach the server, otherwise we
+   * abort the request.
+   *
+   * @type {integer}
+   */
+  TIMEOUT : 901,
+
+  /**
    * Status Code '902' for 'FETCH_ERROR'. There was an error while fetching. Maybe the website no longer exists.
    *
    * @type {integer}

@@ -471,6 +471,7 @@ const bookmarksorganizer = {
             break;
           case STATUS.NOT_FOUND:
           case STATUS.FETCH_ERROR:
+          case STATUS.TIMEOUT:
             if (type === 'all' || type === 'errors') {
               bookmarksorganizer.bookmarkErrors++;
               bookmarksorganizer.bookmarksResult.push(checkedBookmark);
@@ -513,7 +514,7 @@ const bookmarksorganizer = {
         cache : 'no-store',
         credentials : 'include',
         method : method,
-        signal: signal
+        signal : signal
       });
 
       if (response.redirected) {
@@ -569,7 +570,15 @@ const bookmarksorganizer = {
       }
     }
     catch (error) {
-      bookmark.status = STATUS.FETCH_ERROR;
+      let cause = 'fetch-error';
+
+      if (error.name === 'AbortError') {
+        bookmark.status = STATUS.TIMEOUT;
+        cause = 'timeout';
+      }
+      else {
+        bookmark.status = STATUS.FETCH_ERROR;
+      }
 
       if (bookmarksorganizer.debugEnabled) {
         bookmarksorganizer.debug.push({
@@ -581,7 +590,7 @@ const bookmarksorganizer = {
             status : bookmark.status
           },
           method : method,
-          cause : 'fetch-error',
+          cause : cause,
           response : error.message
         });
       }
