@@ -11,7 +11,7 @@
     "url": "https://www.soeren-hentzschel.at/bookmarks-organizer/"
   },
   "background": {
-    "scripts": ["js/status.js", "js/background.js"]
+    "scripts": ["js/core/status.js", "js/core/background.js"]
   },
   "browser_action": {
     "browser_style": false,
