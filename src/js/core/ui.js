@@ -240,11 +240,6 @@ const ui = {
     else if (response.message === 'finished') {
       ui.disableConfirmations = response.disableConfirmations;
 
-      elMask.classList.add('is-hidden');
-      elMask.classList.remove('active-check');
-      elSpinner.classList.add('is-hidden');
-      elSpinner.classList.remove('active-check');
-
       ui.buildBookmarksTree(response.bookmarks);
       ui.hideEmptyCategories();
 
@@ -323,6 +318,11 @@ const ui = {
    * @returns {void}
    */
   doUiCleanup () {
+    elMask.classList.add('is-hidden');
+    elMask.classList.remove('active-check');
+    elSpinner.classList.add('is-hidden');
+    elSpinner.classList.remove('active-check');
+
     elButton.disabled = false;
     elResultWrapper.classList.remove('hidden');
     elStart.classList.add('hidden');
