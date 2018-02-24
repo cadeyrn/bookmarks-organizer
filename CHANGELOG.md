@@ -9,7 +9,7 @@
 - [ENHANCEMENT] added a menu item to the tools menu to open the user interface, fixes
   [#65](https://github.com/cadeyrn/bookmarks-organizer/issues/65)
 - [ENHANCEMENT] reduced file size of the logo, fixes [#66](https://github.com/cadeyrn/bookmarks-organizer/issues/66)
-- [CHANGE] changed keyboard command to Shift + F11, fixes
+- [CHANGE] changed keyboard shortcut to Shift + F11, fixes
   [#67](https://github.com/cadeyrn/bookmarks-organizer/issues/67)
 - [TRANSLATION] added Spanish translation (Thanks, TarekJor!)
 - [TRANSLATION] added Russian translation (Thanks, perdolka!)
