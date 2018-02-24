@@ -25,8 +25,7 @@ Mozilla will be marked as broken. Please double check if these bookmarks can be 
 
 ### Shortcuts
 
-The interface can also be accessed via the keyboard. For this purpose the combination **Ctrl + Shift + L
-(macOS: Cmd + Shift + L)** is reserved.
+The interface can also be accessed via the keyboard. For this purpose the combination **Shift + F11** is reserved.
 
 It is also possible to start individual tests directly via the address bar:
 
