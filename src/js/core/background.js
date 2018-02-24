@@ -3,6 +3,7 @@
 /* global STATUS */
 
 const MIN_PROGRESS = 0.01;
+const TIMEOUT_IN_MS = 3000;
 const UI_PAGE = 'html/ui.html';
 
 /**
@@ -503,10 +504,16 @@ const bookmarksorganizer = {
     bookmark.attempts++;
 
     try {
+      const controller = new AbortController();
+      const signal = controller.signal;
+
+      setTimeout(() => controller.abort(), TIMEOUT_IN_MS);
+
       const response = await fetch(bookmark.url, {
         cache : 'no-store',
         credentials : 'include',
-        method : method
+        method : method,
+        signal: signal
       });
 
       if (response.redirected) {
