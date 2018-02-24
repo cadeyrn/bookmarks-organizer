@@ -6,6 +6,8 @@
 
 - [ENHANCEMENT] really do a second bookmark check with GET request if the first HEAD request fails, fixes
   [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
+- [ENHANCEMENT] added a menu item to the tools menu to open the user interface, fixes
+  [#65](https://github.com/cadeyrn/bookmarks-organizer/issues/65)
 - [ENHANCEMENT] reduced file size of the logo
 - [CHANGE] changed keyboard command to Shift + F11
 - [TRANSLATION] added Spanish translation (Thanks, TarekJor!)
