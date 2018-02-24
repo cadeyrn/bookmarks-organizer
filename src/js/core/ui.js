@@ -278,6 +278,7 @@ const ui = {
       ui.doUiCleanup();
     }
     else if (response.message === 'show-duplicates-ui') {
+      ui.disableConfirmations = response.disableConfirmations;
       elBookmarksErrors.textContent = response.errors;
 
       if (response.errors === 0) {

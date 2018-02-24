@@ -676,7 +676,8 @@ const bookmarksorganizer = {
     browser.runtime.sendMessage({
       message : 'show-duplicates-ui',
       bookmarks : duplicates,
-      errors : bookmarksorganizer.bookmarkErrors
+      errors : bookmarksorganizer.bookmarkErrors,
+      disableConfirmations : bookmarksorganizer.disableConfirmations
     });
 
     bookmarksorganizer.inProgress = false;
