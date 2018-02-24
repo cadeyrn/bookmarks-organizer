@@ -349,11 +349,8 @@ const bookmarksorganizer = {
 
     browser.runtime.sendMessage({ message : 'started' });
 
-    browser.storage.local.get('debugEnabled', (options) => {
+    browser.storage.local.get(options => {
       bookmarksorganizer.debugEnabled = options.debugEnabled;
-    });
-
-    browser.storage.local.get('disableConfirmations', (options) => {
       bookmarksorganizer.disableConfirmations = options.disableConfirmations;
     });
 
