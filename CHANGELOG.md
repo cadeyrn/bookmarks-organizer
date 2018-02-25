@@ -24,6 +24,7 @@
 - [BUGFIX] changed keyboard shortcut to Shift + F11 to fix a conflict with a built-in shortcut, fixes
   [#67](https://github.com/cadeyrn/bookmarks-organizer/issues/67)
 - [TRANSLATION] added Spanish translation (Thanks, TarekJor!)
+- [TRANSLATION] added Swedish translation (Thanks, Sopor-!)
 - [TRANSLATION] added Russian translation (Thanks, perdolka!)
 - [TRANSLATION] added Ukrainian translation (Thanks, perdolka!)
 - [CODE QUALITY] organized the script files in folders
