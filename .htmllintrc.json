@@ -48,7 +48,7 @@
   "label-req-for": true,
   "lang-style": "case",
   "line-end-style": "lf",
-  "line-max-len": 120,
+  "line-max-len": 121,
   "line-max-len-ignore-regex": false,
   "spec-char-escape": false,
   "table-req-caption": true,
