@@ -7,7 +7,7 @@
 With the Bookmarks Organizer, it's easy to put order in your bookmarks. The Bookmarks Organizer finds no longer working
 bookmarks, redirects, duplicates and more!
 
-**The Bookmarks Organizer is a WebExtension and also compatible with Firefox Quantum (Firefox 57 and later).**
+**The Bookmarks Organizer is a WebExtension and compatible with Firefox Quantum (Firefox 57 and later).**
 
 ### Features
 
@@ -53,6 +53,27 @@ The extension is currently available in the following languages:
 - Ukrainian (Thanks, perdolka!)
 - Upper Sorbian (Thanks, milupo!)
 - Lower Sorbian (Thanks, milupo!)
+
+### Known Issues
+
+There are some known issues because of platform bugs in Firefox. Please see the list below.
+
+- For some users the Bookmarks Organizer is not able to finish the check for broken bookmarks. This is
+  because if Firefox can't reach a server the request does not abort. There is already an enhancement ready for
+  Bookmarks Organizer to cancel the request after a few seconds which will solve the issue but it causes
+  Firefox to crash so the fix can't be released until Mozilla has fixed the cause of the crash. Please follow
+  [issue #26](https://github.com/cadeyrn/bookmarks-organizer/issues/26) and
+  [this Bugzilla ticket](https://bugzilla.mozilla.org/show_bug.cgi?id=1440941) for more information.
+- If you edit the URL of a bookmark within Bookmarks Organizer or if you let Boomarks Organizer fix a redirect
+  Firefox will loose the tags of the bookmark. This is a WebExtension bug of Firefox. Most user don't use
+  bookmark tags and are not affected. But if you use bookmark tags please be prepared. Please follow
+ [issue #47](https://github.com/cadeyrn/bookmarks-organizer/issues/47) and
+ [this Bugzilla ticket](https://bugzilla.mozilla.org/show_bug.cgi?id=1440988) for more information.
+- Bookmarks Organizer counts the number of total bookmarks when opening the user interface of the add-on. Bookmarks
+  Organizer detects if you remove a bookmark and immediately adjusts the number of total bookmarks. But Bookmarks
+  Organizer does not detect of you add a bookmark, so please reload the user interface of the add-on before
+  executing a check. This is because of a bug in Firefox. Please follow
+  [this Bugzilla ticket](https://bugzilla.mozilla.org/show_bug.cgi?id=1362863) for more information.
 
 ## Compatibility
 
