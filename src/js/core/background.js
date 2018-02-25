@@ -362,7 +362,12 @@ const bookmarksorganizer = {
       bookmarksorganizer.checkForDuplicates();
     }
     else {
-      bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
+      // some bookmarks don't load with tracking protection enabled (issue #26)
+      const tpmode = await browser.privacy.websites.trackingProtectionMode.get({});
+
+      await browser.privacy.websites.trackingProtectionMode.set({ value: 'never' });
+      await bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
+      browser.privacy.websites.trackingProtectionMode.set({ value: tpmode.value });
     }
   },
 

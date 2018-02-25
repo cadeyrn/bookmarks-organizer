@@ -36,6 +36,7 @@
     "<all_urls>",
     "bookmarks",
     "menus",
+    "privacy",
     "storage",
     "tabs"
   ],
