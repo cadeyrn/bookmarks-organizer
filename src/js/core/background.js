@@ -312,6 +312,11 @@ const bookmarksorganizer = {
    * @returns {void}
    */
   countBookmarks (bookmark) {
+    // skip separators (issue #61)
+    if (bookmark.type === 'separator') {
+      return;
+    }
+
     if (bookmark.url) {
       if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.totalBookmarks === bookmarksorganizer.LIMIT) {
         return;
@@ -414,6 +419,11 @@ const bookmarksorganizer = {
    * @returns {void}
    */
   checkAllBookmarks (bookmark, mode, type) {
+    // skip separators (issue #61)
+    if (bookmark.type === 'separator') {
+      return;
+    }
+
     switch (mode) {
       case 'broken-bookmarks':
         bookmarksorganizer.checkForBrokenBookmark(bookmark, mode, type);
