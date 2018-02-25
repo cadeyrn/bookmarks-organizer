@@ -44,12 +44,13 @@ The extension is currently available in the following languages:
 - English
 - German
 - French (Thanks, Primokorn!)
-- Dutch (Thanks, Tonnes!)
-- Spanish (Thanks, TarekJor!)
-- Czech (Thanks, MekliCZ!)
-- Polish (Thanks, WaldiPL!)
-- Chinese (simplified) (Thanks, yfdyh000!)
 - Russian (Thanks, perdolka!)
+- Chinese (simplified) (Thanks, yfdyh000!)
+- Spanish (Thanks, TarekJor!)
+- Dutch (Thanks, Tonnes!)
+- Polish (Thanks, WaldiPL!)
+- Czech (Thanks, MekliCZ!)
+- Swedisch (Thanks, Sopor-!)
 - Ukrainian (Thanks, perdolka!)
 - Upper Sorbian (Thanks, milupo!)
 - Lower Sorbian (Thanks, milupo!)
