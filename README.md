@@ -7,13 +7,7 @@
 With the Bookmarks Organizer, it's easy to put order in your bookmarks. The Bookmarks Organizer finds no longer working
 bookmarks, redirects, duplicates and more!
 
-**The Bookmarks Organizer is a WebExtension and also compatible with Firefox 57 and later.**
-
-### IMPORTANT NOTICE - PLEASE READ
-
-Users of a script blocker such as uMatrix or NoScript should ensure that it does not block the scripts of the
-add-on. When the tracking protection of Firefox is enabled, Firefox bookmarks which are on the tracking list used by
-Mozilla will be marked as broken. Please double check if these bookmarks can be removed.
+**The Bookmarks Organizer is a WebExtension and also compatible with Firefox Quantum (Firefox 57 and later).**
 
 ### Features
 
