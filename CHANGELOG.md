@@ -4,12 +4,20 @@
 
 ### (Work in Progress) Version 2.0.0 (2018-02-xx)
 
-- [ENHANCEMENT] second bookmark check via GET, if the first one via HEAD failed (new in version 1.3.0), was not
-  always executed, fixes [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
+- **[ENHANCEMENT] the tracking protection feature of Firefox no longer causes that some working bookmarks are
+  reported as broken!** That's why Bookmarks Organizer needs the permission to read and modify the privacy
+  settings beginning with version 2.0.0, fixes [#26](https://github.com/cadeyrn/bookmarks-organizer/issues/26)
+- **[ENHANCEMENT] second bookmark check via another request method was not always executed, caused that some
+  working bookmarks were reported as broken. This does not happen anymore**, fixes
+  [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
 - [ENHANCEMENT] added a menu item to the tools menu to open the user interface, fixes
   [#65](https://github.com/cadeyrn/bookmarks-organizer/issues/65)
 - [ENHANCEMENT] reduced file size of the logo, fixes [#66](https://github.com/cadeyrn/bookmarks-organizer/issues/66)
-- [CHANGE] changed keyboard shortcut to Shift + F11, fixes
+- **[BUGFIX] progress animation didn't stop after checking for duplicates**, fixes
+  [#48](https://github.com/cadeyrn/bookmarks-organizer/issues/48)
+- [BUGFIX] setting for disabling confirmation prompts did not work for duplicates check, fixes
+  [#68](https://github.com/cadeyrn/bookmarks-organizer/issues/68)
+- [BUGFIX] changed keyboard shortcut to Shift + F11 to fix a conflict with a built-in shortcut, fixes
   [#67](https://github.com/cadeyrn/bookmarks-organizer/issues/67)
 - [TRANSLATION] added Spanish translation (Thanks, TarekJor!)
 - [TRANSLATION] added Russian translation (Thanks, perdolka!)
