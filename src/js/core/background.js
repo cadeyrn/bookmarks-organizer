@@ -312,7 +312,7 @@ const bookmarksorganizer = {
    * @returns {void}
    */
   countBookmarks (bookmark) {
-    // skip separators (issue #61)
+    // skip separators (issues #61 and #70)
     if (bookmark.type === 'separator') {
       return;
     }
@@ -419,7 +419,7 @@ const bookmarksorganizer = {
    * @returns {void}
    */
   checkAllBookmarks (bookmark, mode, type) {
-    // skip separators (issue #61)
+    // skip separators (issues #61 and #70)
     if (bookmark.type === 'separator') {
       return;
     }

@@ -10,6 +10,10 @@
 - **[ENHANCEMENT] second bookmark check via another request method was not always executed, caused that some
   working bookmarks were reported as broken. This does not happen anymore**, fixes
   [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
+- [ENHANCEMENT] check for duplicates and check for bookmarks without name no longer list bookmark separators,
+  fixes [#61](https://github.com/cadeyrn/bookmarks-organizer/issues/61)
+- [ENHANCEMENT] bookmark separators are no longer added to the total number of bookmarks, fixes
+  [#70](https://github.com/cadeyrn/bookmarks-organizer/issues/70)
 - [ENHANCEMENT] added a menu item to the tools menu to open the user interface, fixes
   [#65](https://github.com/cadeyrn/bookmarks-organizer/issues/65)
 - [ENHANCEMENT] reduced file size of the logo, fixes [#66](https://github.com/cadeyrn/bookmarks-organizer/issues/66)
