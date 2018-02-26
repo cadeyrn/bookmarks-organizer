@@ -13,6 +13,8 @@
   broken. This does not happen anymore**, fixes [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
 - added a menu item to the tools menu to open the user interface, fixes
   [#65](https://github.com/cadeyrn/bookmarks-organizer/issues/65)
+- changed keyboard shortcut to Shift + F11 to fix a conflict with a built-in shortcut, fixes
+  [#67](https://github.com/cadeyrn/bookmarks-organizer/issues/67)
 - reduced file size of the logo, fixes [#66](https://github.com/cadeyrn/bookmarks-organizer/issues/66)
 
 #### Bugfixes
@@ -25,8 +27,6 @@
   [#70](https://github.com/cadeyrn/bookmarks-organizer/issues/70)
 - setting for disabling confirmation prompts did not work for duplicates check, fixes
   [#68](https://github.com/cadeyrn/bookmarks-organizer/issues/68)
-- changed keyboard shortcut to Shift + F11 to fix a conflict with a built-in shortcut, fixes
-  [#67](https://github.com/cadeyrn/bookmarks-organizer/issues/67)
   
 #### Translations
   
