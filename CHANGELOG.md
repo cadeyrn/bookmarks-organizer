@@ -84,7 +84,7 @@
 
 #### Enhancements
 
-- refreshed design, based on user feedback, including new logo, new header style and more compact header,
+- refreshed design based on user feedback, including new logo, new header style and more compact header,
   fixes [#13](https://github.com/cadeyrn/bookmarks-organizer/issues/13),
   [#20](https://github.com/cadeyrn/bookmarks-organizer/issues/20),
   [#21](https://github.com/cadeyrn/bookmarks-organizer/issues/21) and
@@ -183,8 +183,8 @@
 
 #### Dependencies
 
-- updated web-ext from version 1.9.0 to 1.9.1
 - updated stylelint-order from version 0.4.3 to 0.4.4
+- updated web-ext from version 1.9.0 to 1.9.1
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.2...v1.0.3)
 
