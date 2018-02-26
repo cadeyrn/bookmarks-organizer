@@ -11,8 +11,6 @@
   [#26](https://github.com/cadeyrn/bookmarks-organizer/issues/26)
 - **second bookmark check via another request method was not always executed, caused that some working bookmarks were reported as
   broken. This does not happen anymore**, fixes [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
-- bookmark separators are no longer added to the total number of bookmarks, fixes
-  [#70](https://github.com/cadeyrn/bookmarks-organizer/issues/70)
 - added a menu item to the tools menu to open the user interface, fixes
   [#65](https://github.com/cadeyrn/bookmarks-organizer/issues/65)
 - reduced file size of the logo, fixes [#66](https://github.com/cadeyrn/bookmarks-organizer/issues/66)
@@ -23,6 +21,8 @@
   [#48](https://github.com/cadeyrn/bookmarks-organizer/issues/48)
 - check for duplicates and check for bookmarks without name no longer list bookmark separators, fixes
   [#61](https://github.com/cadeyrn/bookmarks-organizer/issues/61)
+- bookmark separators are no longer added to the total number of bookmarks, fixes
+  [#70](https://github.com/cadeyrn/bookmarks-organizer/issues/70)
 - setting for disabling confirmation prompts did not work for duplicates check, fixes
   [#68](https://github.com/cadeyrn/bookmarks-organizer/issues/68)
 - changed keyboard shortcut to Shift + F11 to fix a conflict with a built-in shortcut, fixes
