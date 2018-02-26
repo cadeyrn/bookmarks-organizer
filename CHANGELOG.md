@@ -28,7 +28,7 @@
 - changed keyboard shortcut to Shift + F11 to fix a conflict with a built-in shortcut, fixes
   [#67](https://github.com/cadeyrn/bookmarks-organizer/issues/67)
   
-  #### Translations
+#### Translations
   
 - added Spanish translation (Thanks, TarekJor!)
 - added Swedish translation (Thanks, Sopor-!)
@@ -58,6 +58,8 @@
 
 **Minimum required Firefox version is Firefox 58 now.**
 
+---
+
 ### [Version 1.3.0](https://github.com/cadeyrn/bookmarks-organizer/releases/tag/v1.3.0) (2017-06-21)
 
 #### Enhancements
@@ -73,6 +75,8 @@
 - updated stylelint-order from version 0.4.4 to 0.5.0
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.2.0...v1.3.0)
+
+---
 
 ### [Version 1.2.0](https://github.com/cadeyrn/bookmarks-organizer/releases/tag/v1.2.0) (2017-06-03)
 
@@ -96,6 +100,8 @@
 **Thanks to [Ura Design](https://ura.design/) for the new logo!**
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.1.0...v1.2.0)
+
+---
 
 ### [Version 1.1.0](https://github.com/cadeyrn/bookmarks-organizer/releases/tag/v1.1.0) (2017-05-28)
 
@@ -124,6 +130,8 @@
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.6...v1.1.0)
 
+---
+
 ### [Version 1.0.6](https://github.com/cadeyrn/bookmarks-organizer/releases/tag/v1.0.6) (2017-05-20)
 
 #### Bugfixes
@@ -131,6 +139,8 @@
 - reverted "removed not needed permission from manifest"
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.5...v1.0.6)
+
+---
 
 ### [Version 1.0.5](https://github.com/cadeyrn/bookmarks-organizer/releases/tag/v1.0.5) (2017-05-13)
 
@@ -140,6 +150,8 @@
 - removed not needed permission from manifest
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.4...v1.0.5)
+
+---
 
 ### [Version 1.0.4](https://github.com/cadeyrn/bookmarks-organizer/releases/tag/v1.0.4) (2017-05-10)
 
@@ -159,6 +171,8 @@
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.3...v1.0.4)
 
+---
+
 ### [Version 1.0.3](https://github.com/cadeyrn/bookmarks-organizer/releases/tag/v1.0.3) (2017-05-04)
 
 #### Bugfixes
@@ -172,6 +186,8 @@
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.2...v1.0.3)
 
+---
+
 ### [Version 1.0.2](https://github.com/cadeyrn/bookmarks-organizer/releases/tag/v1.0.2) (2017-05-01)
 
 #### Code Quality
@@ -183,6 +199,8 @@
 - updated web-ext from version 1.8.1 to 1.9.0
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.1...v1.0.2)
+
+---
 
 ### [Version 1.0.1](https://github.com/cadeyrn/bookmarks-organizer/releases/tag/v1.0.1) (2017-04-19)
 
