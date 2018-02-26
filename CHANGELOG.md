@@ -58,6 +58,8 @@
 
 **Minimum required Firefox version is Firefox 58 now.**
 
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.3.0...master)
+
 ---
 
 ### [Version 1.3.0](https://github.com/cadeyrn/bookmarks-organizer/releases/tag/v1.3.0) (2017-06-21)
