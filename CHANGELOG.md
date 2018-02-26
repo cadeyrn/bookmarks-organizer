@@ -160,7 +160,7 @@
 #### Bugfixes
 
 - Code, which recognizes bookmarks and immediately updates the number of bookmarks, temporarily disabled due
-  to a bug in Firefox (#1362863)
+  to a bug in Firefox ([#1362863](https://bugzilla.mozilla.org/show_bug.cgi?id=1362863))
   
 #### Translations
 
