@@ -79,7 +79,7 @@ There are some known issues because of platform bugs in Firefox. Please see the 
 
 ## Compatibility
 
-The extension requires at least Firefox 58. Because the extension makes use of modern web technologies and the latest
+The extension requires at least Firefox 59. Because the extension makes use of modern web technologies and the latest
 WebExtension APIs, support for older versions of Firefox is not possible for technical reasons.
 
 ## Download
