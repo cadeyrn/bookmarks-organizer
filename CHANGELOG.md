@@ -76,7 +76,7 @@
 - updated stylelint from version 7.10.1 to 7.11.0 and added new stylelint rule
 - updated stylelint-order from version 0.4.4 to 0.5.0
 
-[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.2.0...v1.3.0)
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.2.0...v1.3.0)<br />
 [Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-1.3.0)
 
 ---
@@ -102,7 +102,7 @@
 
 **Thanks to [Ura Design](https://ura.design/) for the new logo!**
 
-[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.1.0...v1.2.0)
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.1.0...v1.2.0)<br />
 [Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-1.2.0)
 
 ---
@@ -132,7 +132,7 @@
 
 - updated eslint-plugin-compat from version 1.0.2 to 1.0.3
 
-[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.6...v1.1.0)
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.6...v1.1.0)<br />
 [Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-1.1.0)
 
 ---
@@ -143,7 +143,7 @@
 
 - reverted "removed not needed permission from manifest"
 
-[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.5...v1.0.6)
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.0.5...v1.0.6)<br />
 [Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-1.0.6)
 
 ---
