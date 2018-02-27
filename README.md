@@ -59,12 +59,6 @@ The extension is currently available in the following languages:
 
 There are some known issues because of platform bugs in Firefox. Please see the list below.
 
-- For some users the Bookmarks Organizer is not able to finish the check for broken bookmarks. This is
-  because if Firefox can't reach a server the request does not abort. There is already an enhancement ready for
-  Bookmarks Organizer to cancel the request after a few seconds which will solve the issue but it causes
-  Firefox to crash so the fix can't be released until Mozilla has fixed the cause of the crash. Please follow
-  [issue #23](https://github.com/cadeyrn/bookmarks-organizer/issues/23) and
-  [this Bugzilla ticket](https://bugzilla.mozilla.org/show_bug.cgi?id=1440941) for more information.
 - If you edit the URL of a bookmark within Bookmarks Organizer or if you let Boomarks Organizer fix a redirect
   Firefox will loose the tags of the bookmark. This is a WebExtension bug of Firefox. Most user don't use
   bookmark tags and are not affected. But if you use bookmark tags please be prepared. Please follow
