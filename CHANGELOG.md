@@ -27,9 +27,9 @@
   [#70](https://github.com/cadeyrn/bookmarks-organizer/issues/70)
 - setting for disabling confirmation prompts did not work for duplicates check, fixes
   [#68](https://github.com/cadeyrn/bookmarks-organizer/issues/68)
-  
+
 #### Translations
-  
+
 - added Spanish translation (Thanks, TarekJor!)
 - added Swedish translation (Thanks, Sopor-!)
 - added Russian translation (Thanks, perdolka!)
@@ -56,7 +56,7 @@
 - updated stylelint-order from version 0.5.0 to 0.8.1
 - updated web-ext from version 1.9.1 to 2.4.0
 
-**Minimum required Firefox version is Firefox 58 now.**
+**Minimum required Firefox version is Firefox 59 now.**
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.3.0...master)
 
@@ -70,7 +70,7 @@
   [#29](https://github.com/cadeyrn/bookmarks-organizer/issues/29)
 - make HEAD requests instead of GET requests for better performance and fall back to GET,
   fixes [#33](https://github.com/cadeyrn/bookmarks-organizer/issues/33)
-  
+
 #### Dependencies
 
 - updated stylelint from version 7.10.1 to 7.11.0 and added new stylelint rule
@@ -90,9 +90,9 @@
   [#20](https://github.com/cadeyrn/bookmarks-organizer/issues/20),
   [#21](https://github.com/cadeyrn/bookmarks-organizer/issues/21) and
   [#22](https://github.com/cadeyrn/bookmarks-organizer/issues/22)
-  
+
 #### Translations
-  
+
 - added French translation (Thanks, Primokorn!)
 - fixed typo in Polish translation (Thanks, WaldiPL!)
 
@@ -165,7 +165,7 @@
 
 - Code, which recognizes bookmarks and immediately updates the number of bookmarks, temporarily disabled due
   to a bug in Firefox ([#1362863](https://bugzilla.mozilla.org/show_bug.cgi?id=1362863))
-  
+
 #### Translations
 
 - added Czech translation (Thanks, MekliCZ!)
