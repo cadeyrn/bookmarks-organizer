@@ -70,7 +70,7 @@ The extension is currently available in the following languages:
 
 ## Compatibility
 
-The extension requires at least Firefox 59. Because the extension makes use of modern web technologies and the latest
+Bookmarks Organizer requires at least Firefox 59. Because the add-on makes use of modern web technologies and the latest
 WebExtension APIs, support for older versions of Firefox is not possible for technical reasons.
 
 ## Download
