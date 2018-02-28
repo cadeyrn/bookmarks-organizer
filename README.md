@@ -37,6 +37,8 @@ There are already some features planned for the future.
 - Features for bookmark folders, including empty folders
 - & more…
 
+Please suggest your feature requests in the [issues tracker](https://github.com/cadeyrn/bookmarks-organizer/issues).
+
 ### Languages
 
 The extension is currently available in the following languages:
