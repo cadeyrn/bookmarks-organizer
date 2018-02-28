@@ -55,21 +55,18 @@ The extension is currently available in the following languages:
 - Upper Sorbian (Thanks, milupo!)
 - Lower Sorbian (Thanks, milupo!)
 
-### Known Issues
+### Notes / Known Issues
 
-There are some known issues because of platform bugs in Firefox. Please see the list below.
-
-- If you edit the URL of a bookmark within Bookmarks Organizer or if you let Boomarks Organizer fix a redirect
-  Firefox will loose the tags of the bookmark. This is a WebExtension bug of Firefox. Most user don't use
-  bookmark tags and are not affected. But if you use bookmark tags please be prepared. Please follow
- [issue #47](https://github.com/cadeyrn/bookmarks-organizer/issues/47) and
- [this Bugzilla ticket](https://bugzilla.mozilla.org/show_bug.cgi?id=1440988) for more information.
-- Bookmarks Organizer counts the number of total bookmarks when opening the user interface of the add-on. Bookmarks
-  Organizer detects if you remove a bookmark and immediately adjusts the number of total bookmarks. But Bookmarks
-  Organizer does not detect if you add a bookmark, so please reload the user interface of the add-on before
-  executing a check because Bookmarks Organizer will not correctly work with the wrong number of bookmarks. This
-  is because of a bug in Firefox. Please follow
-  [this Bugzilla ticket](https://bugzilla.mozilla.org/show_bug.cgi?id=1362863) for more information.
+- Bookmarks Organizer  counts the number of existing bookmarks as soon as the interface of the add-on is opened. Subsequently,
+  the add-on detects when a bookmark is deleted and immediately adjusts the number of existing bookmarks so that no reloading
+  of the interface is required. The same thing doesn't work if you create a new bookmark. If a new bookmark is created, the interface
+  of the add-on must be reloaded, because the functionality of Bookmarks Organizer depends on the correct number of bookmarks.
+  There is a detection in the add-on but it has been disabled because of a bug in Firefox. Please follow
+  [Bugzilla #1362863](https://bugzilla.mozilla.org/show_bug.cgi?id=1362863) for more information.
+- If you edit the URL of a bookmark or if you let Boomarks Organizer fix a redirect Firefox will “loose” the tags associated
+  with the bookmark because bookmark tags are bound to the URL and not to the bookmark. The tags are not really lost, they are
+  still associated with the old URL. This is neither a bug of Bookmarks Organizer nor of Firefox, it's how Firefox works. Please
+  see [Bugzilla #1440988](https://bugzilla.mozilla.org/show_bug.cgi?id=1440988#c2) for context.
 
 ## Compatibility
 
