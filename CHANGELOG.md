@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-### (Work in Progress) Version 2.0.0 (2018-02-xx)
+### (Work in Progress) Version 2.0.0 (2018-03-xx)
 
 #### Enhancements
 
@@ -164,7 +164,7 @@
 #### Bugfixes
 
 - Code, which recognizes bookmarks and immediately updates the number of bookmarks, temporarily disabled due
-  to a bug in Firefox ([#1362863](https://bugzilla.mozilla.org/show_bug.cgi?id=1362863))
+  to a bug in Firefox ([Bugzilla #1362863](https://bugzilla.mozilla.org/show_bug.cgi?id=1362863))
 
 #### Translations
 
