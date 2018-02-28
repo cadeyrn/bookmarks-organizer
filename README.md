@@ -41,7 +41,7 @@ Please suggest your feature requests in the [issues tracker](https://github.com/
 
 ### Languages
 
-The extension is currently available in the following languages:
+The add-on is currently available in the following languages:
 
 - English
 - German
