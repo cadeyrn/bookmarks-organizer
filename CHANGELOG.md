@@ -220,5 +220,5 @@
 - broken bookmarks can be edited or deleted
 - detects redirects and offers the automatic correction of individual or all redirects
 - open the interface by keyboard  (Ctrl + Shift + L, macOS: Cmd + Shift + L)
-- direct start of individual tests via address bar (see [README](README.md "README"))
+- direct start of individual tests via address bar (see [README](README.md#shortcuts))
 - translations: English, German, Dutch, Upper Sorbian, Lower Sorbian
