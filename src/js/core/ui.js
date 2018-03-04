@@ -212,6 +212,7 @@ const ui = {
       elButton.disabled = true;
       elFilterErrors.checked = true;
       elFilterWarnings.checked = true;
+      elSearch.value = '';
     }
     else if (response.message === 'total-bookmarks') {
       elTotalBookmarks.textContent = response.total_bookmarks;
