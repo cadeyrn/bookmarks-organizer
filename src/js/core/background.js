@@ -428,7 +428,7 @@ const bookmarksorganizer = {
   },
 
   /**
-   * This method is used to check for broken bookmarks, called by checkAllBookmarks().
+   * This method is used to check for broken bookmarks, called by processBookmarks().
    *
    * @param {bookmarks.BookmarkTreeNode} bookmark - a single bookmark
    * @param {string} mode - The checking mode<br /><br />
