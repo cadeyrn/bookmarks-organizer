@@ -360,11 +360,11 @@ const bookmarksorganizer = {
         break;
       case 'duplicates':
         bookmarksorganizer.getBookmarkPath(bookmarks[0], []);
-        bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
+        bookmarksorganizer.checkAllBookmarks(mode, type);
         bookmarksorganizer.checkForDuplicates();
         break;
       case 'empty-names':
-        bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
+        bookmarksorganizer.checkAllBookmarks(mode, type);
         break;
       default:
         // do nothing
@@ -405,7 +405,6 @@ const bookmarksorganizer = {
   /**
    * This method is the starting point for checking the bookmarks, called by execute().
    *
-   * @param {Array.<bookmarks.BookmarkTreeNode>} bookmark - a tree of bookmarks
    * @param {string} mode - The checking mode<br /><br />
    *                 <strong>Supported values:</strong> broken-bookmarks, duplicates, empty-names
    * @param {string} type - The requested type of results<br /><br />
@@ -413,26 +412,17 @@ const bookmarksorganizer = {
    *
    * @returns {void}
    */
-  checkAllBookmarks (bookmark, mode, type) {
-    // skip separators (issues #61 and #70)
-    if (bookmark.type === 'separator') {
-      return;
-    }
-
-    switch (mode) {
-      case 'duplicates':
-        bookmarksorganizer.checkBookmarkAndAssignPath(bookmark, mode);
-        break;
-      case 'empty-names':
-        bookmarksorganizer.checkForEmptyName(bookmark, mode);
-        break;
-      default:
+  checkAllBookmarks (mode, type) {
+    for (const bookmark of bookmarksorganizer.collectedBookmarks) {
+      switch (mode) {
+        case 'duplicates':
+          bookmarksorganizer.checkBookmarkAndAssignPath(bookmark, mode);
+          break;
+        case 'empty-names':
+          bookmarksorganizer.checkForEmptyName(bookmark, mode);
+          break;
+        default:
         // do nothing
-    }
-
-    if (bookmark.children) {
-      for (const child of bookmark.children) {
-        bookmarksorganizer.checkAllBookmarks(child, mode, type);
       }
     }
   },
