@@ -47,7 +47,7 @@
 - updated eslint-plugin-xss from version 0.1.8 to 0.1.9
 - updated gulp-eslint from version 3.0.1 to 4.0.2
 - updated gulp-html from version 0.0.1 to 0.0.2
-- updated gulp-stylelint from version 3.9.0 to 6.0.0
+- updated gulp-stylelint from version 3.9.0 to 7.0.0
 - updated htmllint from version 0.6.0 to 0.7.2 and updated configuration file
 - updated jsdoc from version 3.4.3 to 3.5.5
 - updated npm-run-all from version 4.0.2 to 4.1.2
