@@ -595,7 +595,7 @@ const bookmarksorganizer = {
   },
 
   /**
-   * This method iterates over the full bookmark tree and pushes all bookmarks (except separators) to an global
+   * This method iterates over the full bookmark tree and pushes all bookmarks (except separators) to a global
    * array of bookmarks.
    *
    * @param {bookmarks.BookmarkTreeNode} bookmark - a single bookmark
