@@ -308,43 +308,16 @@ const bookmarksorganizer = {
    * @returns {void}
    */
   async initBookmarkCount () {
-    bookmarksorganizer.totalBookmarks = 0;
-
     const bookmarks = await browser.bookmarks.getTree();
-    bookmarksorganizer.countBookmarks(bookmarks[0]);
+
+    bookmarksorganizer.totalBookmarks = 0;
+    bookmarksorganizer.collectedBookmarks = [];
+    bookmarksorganizer.collectAllBookmarks(bookmarks[0]);
 
     browser.runtime.sendMessage({
       message : 'total-bookmarks',
       total_bookmarks : bookmarksorganizer.totalBookmarks
     });
-  },
-
-  /**
-   * This method is used by the initBookmarkCount() method to count the bookmarks recursively.
-   *
-   * @param {Array.<bookmarks.BookmarkTreeNode>} bookmark - a tree of bookmarks
-   *
-   * @returns {void}
-   */
-  countBookmarks (bookmark) {
-    // skip separators (issues #61 and #70)
-    if (bookmark.type === 'separator') {
-      return;
-    }
-
-    if (bookmark.url) {
-      if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.totalBookmarks === bookmarksorganizer.LIMIT) {
-        return;
-      }
-
-      bookmarksorganizer.totalBookmarks++;
-    }
-
-    if (bookmark.children) {
-      for (const child of bookmark.children) {
-        bookmarksorganizer.countBookmarks(child);
-      }
-    }
   },
 
   /**
@@ -630,11 +603,19 @@ const bookmarksorganizer = {
    * @returns {void}
    */
   collectAllBookmarks (bookmark) {
+    if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.totalBookmarks === bookmarksorganizer.LIMIT) {
+      return;
+    }
+
     if (bookmark.type === 'separator') {
       return;
     }
 
     bookmarksorganizer.collectedBookmarks.push(bookmark);
+
+    if (bookmark.url) {
+      bookmarksorganizer.totalBookmarks++;
+    }
 
     if (bookmark.children) {
       for (const child of bookmark.children) {
@@ -667,9 +648,6 @@ const bookmarksorganizer = {
         return limiter.give();
       };
     };
-
-    bookmarksorganizer.collectedBookmarks = [];
-    bookmarksorganizer.collectAllBookmarks(bookmark);
 
     for (const child of bookmarksorganizer.collectedBookmarks) {
       tasks.push(limiter.take().then(executeTask(child, mode, type)));

@@ -39,6 +39,7 @@
 
 #### Code Quality
 
+- refactored and simplified a few code pathes
 - organized the script files in folders
 
 #### Dependencies
