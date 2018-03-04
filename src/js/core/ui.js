@@ -16,6 +16,8 @@ const elDebugOutput = document.getElementById('debug-output');
 const elDebugWrapper = document.getElementById('debug-output-wrapper');
 const elDeleteAllBookmarksWithErrors = document.getElementById('delete-all-bookmarks-with-errors');
 const elFilterBar = document.getElementById('filterbar');
+const elFilterErrors = document.getElementById('filter-errors');
+const elFilterWarnings = document.getElementById('filter-warnings');
 const elFox = document.getElementById('fox');
 const elHeaderWrapper = document.getElementById('header-wrapper');
 const elHint = document.getElementById('hint');
@@ -208,6 +210,8 @@ const ui = {
       elBookmarksErrors.textContent = 0;
       elBookmarksWarnings.textContent = 0;
       elButton.disabled = true;
+      elFilterErrors.checked = true;
+      elFilterWarnings.checked = true;
     }
     else if (response.message === 'total-bookmarks') {
       elTotalBookmarks.textContent = response.total_bookmarks;

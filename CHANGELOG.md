@@ -27,6 +27,8 @@
   [#70](https://github.com/cadeyrn/bookmarks-organizer/issues/70)
 - setting for disabling confirmation prompts did not work for duplicates check, fixes
   [#68](https://github.com/cadeyrn/bookmarks-organizer/issues/68)
+- filter checkboxes were not resetted when checking for broken bookmarks a second time, fixes
+  [#73](https://github.com/cadeyrn/bookmarks-organizer/issues/73)
 
 #### Translations
 
