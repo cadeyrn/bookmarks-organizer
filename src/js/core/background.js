@@ -360,11 +360,17 @@ const bookmarksorganizer = {
         break;
       case 'duplicates':
         bookmarksorganizer.getBookmarkPath(bookmarks[0], []);
-        bookmarksorganizer.checkAllBookmarks(mode, type);
+
+        for (const bookmark of bookmarksorganizer.collectedBookmarks) {
+          bookmarksorganizer.checkBookmarkAndAssignPath(bookmark, mode);
+        }
+
         bookmarksorganizer.checkForDuplicates();
         break;
       case 'empty-names':
-        bookmarksorganizer.checkAllBookmarks(mode, type);
+        for (const bookmark of bookmarksorganizer.collectedBookmarks) {
+          bookmarksorganizer.checkForEmptyName(bookmark, mode);
+        }
         break;
       default:
         // do nothing
@@ -400,31 +406,6 @@ const bookmarksorganizer = {
     path.pop();
 
     return bookmarksorganizer.additionalData;
-  },
-
-  /**
-   * This method is the starting point for checking the bookmarks, called by execute().
-   *
-   * @param {string} mode - The checking mode<br /><br />
-   *                 <strong>Supported values:</strong> broken-bookmarks, duplicates, empty-names
-   * @param {string} type - The requested type of results<br /><br />
-   *                 <strong>Supported values:</strong> errors, warnings, all
-   *
-   * @returns {void}
-   */
-  checkAllBookmarks (mode, type) {
-    for (const bookmark of bookmarksorganizer.collectedBookmarks) {
-      switch (mode) {
-        case 'duplicates':
-          bookmarksorganizer.checkBookmarkAndAssignPath(bookmark, mode);
-          break;
-        case 'empty-names':
-          bookmarksorganizer.checkForEmptyName(bookmark, mode);
-          break;
-        default:
-        // do nothing
-      }
-    }
   },
 
   /**
