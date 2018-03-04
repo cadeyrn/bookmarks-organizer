@@ -41,7 +41,7 @@
 
 #### Dependencies
 
-- updated eslint from version 3.19.0 to 4.18.1 and updated configuration file
+- updated eslint from version 3.19.0 to 4.18.2 and updated configuration file
 - updated eslint-plugin-compat from version 1.0.3 to 2.2.0
 - updated eslint-plugin-no-unsanitized from version 2.0.1 to 3.0.0
 - updated eslint-plugin-xss from version 0.1.8 to 0.1.9
