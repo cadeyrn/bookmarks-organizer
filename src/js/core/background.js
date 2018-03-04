@@ -355,7 +355,7 @@ const bookmarksorganizer = {
         const tpmode = await browser.privacy.websites.trackingProtectionMode.get({});
 
         await browser.privacy.websites.trackingProtectionMode.set({ value : 'never' });
-        await bookmarksorganizer.processBookmarks(bookmarks[0], mode, type, bookmarksorganizer.QUEUE_SIZE);
+        await bookmarksorganizer.processBookmarks(mode, type, bookmarksorganizer.QUEUE_SIZE);
         browser.privacy.websites.trackingProtectionMode.set({ value : tpmode.value });
         break;
       case 'duplicates':
@@ -599,7 +599,6 @@ const bookmarksorganizer = {
    * This method iterates over the full bookmark tree and pushes all bookmarks (except separators) to an global
    * array of bookmarks.
    *
-   * @param {bookmarks.BookmarkTreeNode} bookmark - a single bookmark
    * @param {string} mode - The checking mode<br /><br />
    *                 <strong>Supported values:</strong> broken-bookmarks, duplicates, empty-names
    * @param {string} type - The requested type of results<br /><br />
@@ -608,7 +607,7 @@ const bookmarksorganizer = {
    *
    * @returns {void}
    */
-  processBookmarks (bookmark, mode, type, queue_size) {
+  processBookmarks (mode, type, queue_size) {
     const limiter = bookmarksorganizer.throttle(queue_size);
     const tasks = [];
 
