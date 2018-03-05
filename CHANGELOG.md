@@ -21,8 +21,8 @@
 
 #### Bugfixes
 
-- **Bookmarks Organizer no longer fails to finish the check for broken bookmarks!** Requests will be aborted if they take too much
-  time, fixes [#17](https://github.com/cadeyrn/bookmarks-organizer/issues/17)
+- **Bookmarks Organizer no longer fails to finish the check for broken bookmarks for some users!** Requests will be aborted if they
+  take too much time, fixes [#17](https://github.com/cadeyrn/bookmarks-organizer/issues/17)
 - **progress animation didn't stop after checking for duplicates**, fixes
   [#48](https://github.com/cadeyrn/bookmarks-organizer/issues/48)
 - check for duplicates and check for bookmarks without name no longer list bookmark separators, fixes
