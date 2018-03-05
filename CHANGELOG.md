@@ -6,9 +6,11 @@
 
 #### Enhancements
 
+- **a new request throttling mechanism has been implemented which ensures that there are never too much requests at the same time
+  so that less working bookmarks will be reported as broken*, fixes [#72](https://github.com/cadeyrn/bookmarks-organizer/issues/72)
 - **the tracking protection feature of Firefox no longer causes that some working bookmarks are reported as broken!** That's why
-  Bookmarks Organizer needs the permission to read and modify the privacy settings beginning with version 2.0.0, fixes
-  [#26](https://github.com/cadeyrn/bookmarks-organizer/issues/26)
+  Bookmarks Organizer needs the permission to read and modify the privacy settings and to control the tracking protection beginning
+  with version 2.0.0, fixes [#26](https://github.com/cadeyrn/bookmarks-organizer/issues/26)
 - **second bookmark check via another request method was not always executed, caused that some working bookmarks were reported as
   broken. This does not happen anymore**, fixes [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
 - added a menu item to the tools menu to open the user interface, fixes
@@ -19,6 +21,8 @@
 
 #### Bugfixes
 
+- **Bookmarks Organizer no longer fails to finish the check for broken bookmarks!** Requests will be aborted if they take too much
+  time, fixes [#17](https://github.com/cadeyrn/bookmarks-organizer/issues/17)
 - **progress animation didn't stop after checking for duplicates**, fixes
   [#48](https://github.com/cadeyrn/bookmarks-organizer/issues/48)
 - check for duplicates and check for bookmarks without name no longer list bookmark separators, fixes
@@ -39,6 +43,7 @@
 
 #### Code Quality
 
+- refactored and simplified a few code pathes
 - organized the script files in folders
 
 #### Dependencies
