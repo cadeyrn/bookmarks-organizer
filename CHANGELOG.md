@@ -6,6 +6,8 @@
 
 #### Enhancements
 
+- **a new request throttling mechanism has been implemented which ensures that there are never too much requests at the same time,
+  resulting in less working bookmarks reported as broken**, fixes [#72](https://github.com/cadeyrn/bookmarks-organizer/issues/72)
 - **the tracking protection feature of Firefox no longer causes that some working bookmarks are reported as broken!** That's why
   Bookmarks Organizer needs the permission to read and modify the privacy settings beginning with version 2.0.0, fixes
   [#26](https://github.com/cadeyrn/bookmarks-organizer/issues/26)
