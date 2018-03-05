@@ -718,7 +718,7 @@ const ui = {
   },
 
   /**
-   * Fired when of the action buttons is clicked.
+   * Fired when one of the action buttons is clicked.
    *
    * @param {MouseEvent} e - event
    *
