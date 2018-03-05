@@ -25,7 +25,7 @@ const bookmarksorganizer = {
   MAX_ATTEMPTS : 2,
 
   /**
-   * Never processBookmarks more than QUEUE_SIZE bookmarks at the same time. It's always a size of 10, there is no user
+   * Never process more than QUEUE_SIZE bookmarks at the same time. It's always a size of 10, there is no user
    * setting (yet).
    *
    * @type {integer}
