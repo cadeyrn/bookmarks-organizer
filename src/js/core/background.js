@@ -159,12 +159,17 @@ const bookmarksorganizer = {
     // update bookmark in array with all bookmarks
     const idx = bookmarksorganizer.collectedBookmarks.findIndex((obj) => obj.id === id);
 
-    if (bookmark.title || bookmark.title === '') {
-      bookmarksorganizer.collectedBookmarks[idx].title = bookmark.title;
-    }
+    if (idx > -1) {
+      if (bookmark.title || bookmark.title === '') {
+        bookmarksorganizer.collectedBookmarks[idx].title = bookmark.title;
+      }
 
-    if (bookmark.url) {
-      bookmarksorganizer.collectedBookmarks[idx].url = bookmark.url;
+      if (bookmark.url) {
+        bookmarksorganizer.collectedBookmarks[idx].url = bookmark.url;
+      }
+    }
+    else{
+      bookmarksorganizer.collectedBookmarks.push(bookmark);
     }
   },
 
