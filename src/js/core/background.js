@@ -281,6 +281,11 @@ const bookmarksorganizer = {
         url : response.url
       });
 
+      // update bookmark in array with all bookmarks
+      const idx = bookmarksorganizer.collectedBookmarks.findIndex((obj) => obj.id === response.bookmarkId);
+      bookmarksorganizer.collectedBookmarks[idx].title = response.title;
+      bookmarksorganizer.collectedBookmarks[idx].url = response.url;
+
       if (response.mode === 'duplicate') {
         browser.runtime.sendMessage({
           message : 'update-listitem',
@@ -309,6 +314,10 @@ const bookmarksorganizer = {
     }
     else if (response.message === 'repair-redirect') {
       browser.bookmarks.update(response.bookmarkId, { url : response.newUrl });
+
+      // update bookmark in array with all bookmarks
+      const idx = bookmarksorganizer.collectedBookmarks.findIndex((obj) => obj.id === response.bookmarkId);
+      bookmarksorganizer.collectedBookmarks[idx].url = response.newUrl;
     }
   },
 
