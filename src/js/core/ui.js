@@ -700,6 +700,11 @@ const ui = {
       message : 'remove',
       bookmarkId : bookmarkId
     });
+
+    // The number of total bookmarks will automatically be reduced by one in the onRemoved handler in background.js.
+    // We also want to reduce the number of checked bookmarks so that there will never be more checked than total
+    // bookmarks.
+    elCheckedBookmarks.textContent = parseInt(elCheckedBookmarks.textContent) - 1;
   },
 
   /**
