@@ -148,15 +148,42 @@ const bookmarksorganizer = {
   },
 
   /**
-   * Fired when a bookmark or a bookmark folder is removed.
+   * Fired when a bookmark or a bookmark folder is changed.
+   *
+   * @param {int} id - id of the bookmark that was changed
+   * @param {bookmarks.BookmarkTreeNode>} bookmark - bookmark object containing the new data of the bookmark
    *
    * @returns {void}
    */
-  onBookmarkRemoved () {
+  onBookmarkChanged (id, bookmark) {
+    // update bookmark in array with all bookmarks
+    const idx = bookmarksorganizer.collectedBookmarks.findIndex((obj) => obj.id === id);
+
+    if (bookmark.title || bookmark.title === '') {
+      bookmarksorganizer.collectedBookmarks[idx].title = bookmark.title;
+    }
+
+    if (bookmark.url) {
+      bookmarksorganizer.collectedBookmarks[idx].url = bookmark.url;
+    }
+  },
+
+  /**
+   * Fired when a bookmark or a bookmark folder is removed.
+   *
+   * @param {int} id - id of the bookmark that was removed
+   *
+   * @returns {void}
+   */
+  onBookmarkRemoved (id) {
     browser.runtime.sendMessage({
       message : 'total-bookmarks-changed',
       total_bookmarks : --bookmarksorganizer.totalBookmarks
     });
+
+    // remove bookmark from array with all bookmarks
+    const idx = bookmarksorganizer.collectedBookmarks.findIndex((obj) => obj.id === id);
+    bookmarksorganizer.collectedBookmarks.splice(idx, 1);
   },
 
   /**
@@ -281,11 +308,6 @@ const bookmarksorganizer = {
         url : response.url
       });
 
-      // update bookmark in array with all bookmarks
-      const idx = bookmarksorganizer.collectedBookmarks.findIndex((obj) => obj.id === response.bookmarkId);
-      bookmarksorganizer.collectedBookmarks[idx].title = response.title;
-      bookmarksorganizer.collectedBookmarks[idx].url = response.url;
-
       if (response.mode === 'duplicate') {
         browser.runtime.sendMessage({
           message : 'update-listitem',
@@ -307,17 +329,9 @@ const bookmarksorganizer = {
     }
     else if (response.message === 'remove') {
       browser.bookmarks.remove(response.bookmarkId);
-
-      // remove bookmark from array with all bookmarks
-      const idx = bookmarksorganizer.collectedBookmarks.findIndex((obj) => obj.id === response.bookmarkId);
-      bookmarksorganizer.collectedBookmarks.splice(idx, 1);
     }
     else if (response.message === 'repair-redirect') {
       browser.bookmarks.update(response.bookmarkId, { url : response.newUrl });
-
-      // update bookmark in array with all bookmarks
-      const idx = bookmarksorganizer.collectedBookmarks.findIndex((obj) => obj.id === response.bookmarkId);
-      bookmarksorganizer.collectedBookmarks[idx].url = response.newUrl;
     }
   },
 
@@ -891,6 +905,7 @@ const bookmarksorganizer = {
 // disabled because of https://bugzilla.mozilla.org/show_bug.cgi?id=1362863
 // browser.bookmarks.onCreated.addListener(bookmarksorganizer.onBookmarkCreated);
 
+browser.bookmarks.onChanged.addListener(bookmarksorganizer.onBookmarkChanged);
 browser.bookmarks.onRemoved.addListener(bookmarksorganizer.onBookmarkRemoved);
 browser.browserAction.onClicked.addListener(bookmarksorganizer.openUserInterface);
 browser.omnibox.onInputChanged.addListener(bookmarksorganizer.showOmniboxSuggestions);
