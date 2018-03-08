@@ -605,7 +605,7 @@ const bookmarksorganizer = {
    *                 <strong>Supported values:</strong> errors, warnings, all
    * @param {int} queue_size - do not process more than queue_size bookmarks at the same time
    *
-   * @returns {void}
+   * @returns {Promise.<Array.<*>>} - Promise
    */
   processBookmarks (mode, type, queue_size) {
     const limiter = bookmarksorganizer.throttle(queue_size);
