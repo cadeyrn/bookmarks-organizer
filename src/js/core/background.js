@@ -304,13 +304,8 @@ const bookmarksorganizer = {
       browser.bookmarks.remove(response.bookmarkId);
 
       // remove bookmark from array with all bookmarks
-      bookmarksorganizer.collectedBookmarks.reduceRight((acc, obj, idx) => {
-        if ([response.bookmarkId].indexOf(obj.id) > -1) {
-          bookmarksorganizer.collectedBookmarks.splice(idx, 1);
-        }
-
-        return true;
-      }, 0);
+      const idx = bookmarksorganizer.collectedBookmarks.findIndex((obj) => obj.id === response.bookmarkId);
+      bookmarksorganizer.collectedBookmarks.splice(idx, 1);
     }
     else if (response.message === 'repair-redirect') {
       browser.bookmarks.update(response.bookmarkId, { url : response.newUrl });
