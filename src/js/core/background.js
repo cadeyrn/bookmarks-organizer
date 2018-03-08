@@ -619,8 +619,8 @@ const bookmarksorganizer = {
       };
     };
 
-    for (const child of bookmarksorganizer.collectedBookmarks) {
-      tasks.push(limiter.take().then(executeTask(child, mode, type)));
+    for (const bookmark of bookmarksorganizer.collectedBookmarks) {
+      tasks.push(limiter.take().then(executeTask(bookmark, mode, type)));
     }
 
     return Promise.all(tasks);
