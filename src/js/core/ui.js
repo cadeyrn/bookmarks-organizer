@@ -430,9 +430,14 @@ const ui = {
       elDuplicateName.textContent = browser.i18n.getMessage('bookmark_name') + ': ' + duplicate.title;
       elDuplicate.appendChild(elDuplicateName);
 
+      let duplicatePath = duplicate.path.join(' / ');
+      if (!duplicatePath) {
+        duplicatePath = '/';
+      }
+
       const elDuplicatePath = document.createElement('div');
       elDuplicatePath.classList.add('url');
-      elDuplicatePath.textContent = browser.i18n.getMessage('bookmark_path') + ': ' + duplicate.path.join(' / ');
+      elDuplicatePath.textContent = browser.i18n.getMessage('bookmark_path') + ': ' + duplicatePath;
       elDuplicate.appendChild(elDuplicatePath);
 
       const elActionButtons = document.createElement('div');
