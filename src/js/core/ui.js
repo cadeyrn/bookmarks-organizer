@@ -541,6 +541,7 @@ const ui = {
             break;
           case STATUS.NOT_FOUND:
           case STATUS.FETCH_ERROR:
+          case STATUS.TIMEOUT:
             li.classList.add('error');
             break;
           case STATUS.UNKNOWN:

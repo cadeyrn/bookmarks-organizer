@@ -25,6 +25,13 @@ const bookmarksorganizer = {
   MAX_ATTEMPTS : 2,
 
   /**
+   * Timeout for reaching a server in milliseconds. It's always 15 seconds, there is no user setting (yet).
+   *
+   * @type {integer}
+   */
+  TIMEOUT_IN_MS : 15000,
+
+  /**
    * Never process more than QUEUE_SIZE bookmarks at the same time. It's always a size of 10, there is no user
    * setting (yet).
    *
@@ -448,6 +455,7 @@ const bookmarksorganizer = {
             break;
           case STATUS.NOT_FOUND:
           case STATUS.FETCH_ERROR:
+          case STATUS.TIMEOUT:
             if (type === 'all' || type === 'errors') {
               bookmarksorganizer.bookmarkErrors++;
               bookmarksorganizer.bookmarksResult.push(checkedBookmark);
@@ -481,10 +489,16 @@ const bookmarksorganizer = {
     bookmark.attempts++;
 
     try {
+      const controller = new AbortController();
+      const { signal } = controller;
+
+      setTimeout(() => controller.abort(), bookmarksorganizer.TIMEOUT_IN_MS);
+
       const response = await fetch(bookmark.url, {
         cache : 'no-store',
         credentials : 'include',
-        method : method
+        method : method,
+        signal : signal
       });
 
       if (response.redirected) {
@@ -540,7 +554,15 @@ const bookmarksorganizer = {
       }
     }
     catch (error) {
-      bookmark.status = STATUS.FETCH_ERROR;
+      let cause = 'fetch-error';
+
+      if (error.name === 'AbortError') {
+        bookmark.status = STATUS.TIMEOUT;
+        cause = 'timeout';
+      }
+      else {
+        bookmark.status = STATUS.FETCH_ERROR;
+      }
 
       if (bookmarksorganizer.debugEnabled) {
         bookmarksorganizer.debug.push({
@@ -552,7 +574,7 @@ const bookmarksorganizer = {
             status : bookmark.status
           },
           method : method,
-          cause : 'fetch-error',
+          cause : cause,
           response : error.message
         });
       }
