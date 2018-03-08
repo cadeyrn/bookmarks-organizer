@@ -302,6 +302,15 @@ const bookmarksorganizer = {
     }
     else if (response.message === 'remove') {
       browser.bookmarks.remove(response.bookmarkId);
+
+      // remove bookmark from array with all bookmarks
+      bookmarksorganizer.collectedBookmarks.reduceRight((acc, obj, idx) => {
+        if ([response.bookmarkId].indexOf(obj.id) > -1) {
+          bookmarksorganizer.collectedBookmarks.splice(idx, 1);
+        }
+
+        return true;
+      }, 0);
     }
     else if (response.message === 'repair-redirect') {
       browser.bookmarks.update(response.bookmarkId, { url : response.newUrl });
