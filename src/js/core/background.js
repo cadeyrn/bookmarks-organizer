@@ -381,8 +381,6 @@ const bookmarksorganizer = {
       bookmarksorganizer.disableConfirmations = options.disableConfirmations;
     });
 
-    const bookmarks = await browser.bookmarks.getTree();
-
     switch (mode) {
       case 'broken-bookmarks':
         // some bookmarks don't load with tracking protection enabled (issue #26)
@@ -393,6 +391,8 @@ const bookmarksorganizer = {
         browser.privacy.websites.trackingProtectionMode.set({ value : tpmode.value });
         break;
       case 'duplicates':
+        const bookmarks = await browser.bookmarks.getTree();
+
         bookmarksorganizer.getBookmarkPath(bookmarks[0], []);
 
         for (const bookmark of bookmarksorganizer.collectedBookmarks) {
