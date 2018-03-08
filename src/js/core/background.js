@@ -151,7 +151,7 @@ const bookmarksorganizer = {
    * Fired when a bookmark or a bookmark folder is changed.
    *
    * @param {int} id - id of the bookmark that was changed
-   * @param {bookmarks.BookmarkTreeNode>} bookmark - bookmark object containing the new data of the bookmark
+   * @param {bookmarks.BookmarkTreeNode} bookmark - bookmark object containing the new data of the bookmark
    *
    * @returns {void}
    */
