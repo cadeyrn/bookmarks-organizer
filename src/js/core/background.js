@@ -25,6 +25,14 @@ const bookmarksorganizer = {
   MAX_ATTEMPTS : 2,
 
   /**
+   * Never process more than QUEUE_SIZE bookmarks at the same time. It's always a size of 10, there is no user
+   * setting (yet).
+   *
+   * @type {integer}
+   */
+  QUEUE_SIZE : 10,
+
+  /**
    * Enables or disables the debug mode. It defaults to false and can be enabled in the add-on's settings.
    *
    * @type {boolean}
@@ -79,6 +87,13 @@ const bookmarksorganizer = {
    * @type {integer}
    */
   bookmarkWarnings : 0,
+
+  /**
+   * An array containing all bookmarks.
+   *
+   * @type {Array.<bookmarks.BookmarkTreeNode>}
+   */
+  collectedBookmarks : [],
 
   /**
    * An array of bookmarks with errors or warnings.
@@ -293,43 +308,16 @@ const bookmarksorganizer = {
    * @returns {void}
    */
   async initBookmarkCount () {
-    bookmarksorganizer.totalBookmarks = 0;
-
     const bookmarks = await browser.bookmarks.getTree();
-    bookmarksorganizer.countBookmarks(bookmarks[0]);
+
+    bookmarksorganizer.totalBookmarks = 0;
+    bookmarksorganizer.collectedBookmarks = [];
+    bookmarksorganizer.collectAllBookmarks(bookmarks[0]);
 
     browser.runtime.sendMessage({
       message : 'total-bookmarks',
       total_bookmarks : bookmarksorganizer.totalBookmarks
     });
-  },
-
-  /**
-   * This method is used by the initBookmarkCount() method to count the bookmarks recursively.
-   *
-   * @param {Array.<bookmarks.BookmarkTreeNode>} bookmark - a tree of bookmarks
-   *
-   * @returns {void}
-   */
-  countBookmarks (bookmark) {
-    // skip separators (issues #61 and #70)
-    if (bookmark.type === 'separator') {
-      return;
-    }
-
-    if (bookmark.url) {
-      if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.totalBookmarks === bookmarksorganizer.LIMIT) {
-        return;
-      }
-
-      bookmarksorganizer.totalBookmarks++;
-    }
-
-    if (bookmark.children) {
-      for (const child of bookmark.children) {
-        bookmarksorganizer.countBookmarks(child);
-      }
-    }
   },
 
   /**
@@ -354,25 +342,38 @@ const bookmarksorganizer = {
 
     browser.runtime.sendMessage({ message : 'started' });
 
-    browser.storage.local.get(options => {
+    browser.storage.local.get((options) => {
       bookmarksorganizer.debugEnabled = options.debugEnabled;
       bookmarksorganizer.disableConfirmations = options.disableConfirmations;
     });
 
     const bookmarks = await browser.bookmarks.getTree();
 
-    if (mode === 'duplicates') {
-      bookmarksorganizer.getBookmarkPath(bookmarks[0], []);
-      bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
-      bookmarksorganizer.checkForDuplicates();
-    }
-    else {
-      // some bookmarks don't load with tracking protection enabled (issue #26)
-      const tpmode = await browser.privacy.websites.trackingProtectionMode.get({});
+    switch (mode) {
+      case 'broken-bookmarks':
+        // some bookmarks don't load with tracking protection enabled (issue #26)
+        const tpmode = await browser.privacy.websites.trackingProtectionMode.get({});
 
-      await browser.privacy.websites.trackingProtectionMode.set({ value: 'never' });
-      await bookmarksorganizer.checkAllBookmarks(bookmarks[0], mode, type);
-      browser.privacy.websites.trackingProtectionMode.set({ value: tpmode.value });
+        await browser.privacy.websites.trackingProtectionMode.set({ value : 'never' });
+        await bookmarksorganizer.processBookmarks(mode, type, bookmarksorganizer.QUEUE_SIZE);
+        browser.privacy.websites.trackingProtectionMode.set({ value : tpmode.value });
+        break;
+      case 'duplicates':
+        bookmarksorganizer.getBookmarkPath(bookmarks[0], []);
+
+        for (const bookmark of bookmarksorganizer.collectedBookmarks) {
+          bookmarksorganizer.checkBookmarkAndAssignPath(bookmark, mode);
+        }
+
+        bookmarksorganizer.checkForDuplicates();
+        break;
+      case 'empty-names':
+        for (const bookmark of bookmarksorganizer.collectedBookmarks) {
+          bookmarksorganizer.checkForEmptyName(bookmark, mode);
+        }
+        break;
+      default:
+        // do nothing
     }
   },
 
@@ -408,45 +409,7 @@ const bookmarksorganizer = {
   },
 
   /**
-   * This method is the starting point for checking the bookmarks, called by execute().
-   *
-   * @param {Array.<bookmarks.BookmarkTreeNode>} bookmark - a tree of bookmarks
-   * @param {string} mode - The checking mode<br /><br />
-   *                 <strong>Supported values:</strong> broken-bookmarks, duplicates, empty-names
-   * @param {string} type - The requested type of results<br /><br />
-   *                 <strong>Supported values:</strong> errors, warnings, all
-   *
-   * @returns {void}
-   */
-  checkAllBookmarks (bookmark, mode, type) {
-    // skip separators (issues #61 and #70)
-    if (bookmark.type === 'separator') {
-      return;
-    }
-
-    switch (mode) {
-      case 'broken-bookmarks':
-        bookmarksorganizer.checkForBrokenBookmark(bookmark, mode, type);
-        break;
-      case 'duplicates':
-        bookmarksorganizer.checkBookmarkAndAssignPath(bookmark, mode);
-        break;
-      case 'empty-names':
-        bookmarksorganizer.checkForEmptyName(bookmark, mode);
-        break;
-      default:
-        // do nothing
-    }
-
-    if (bookmark.children) {
-      for (const child of bookmark.children) {
-        bookmarksorganizer.checkAllBookmarks(child, mode, type);
-      }
-    }
-  },
-
-  /**
-   * This method is used to check for broken bookmarks, called by checkAllBookmarks().
+   * This method is used to check for broken bookmarks, called by processBookmarks().
    *
    * @param {bookmarks.BookmarkTreeNode} bookmark - a single bookmark
    * @param {string} mode - The checking mode<br /><br />
@@ -600,6 +563,124 @@ const bookmarksorganizer = {
     }
 
     return bookmark;
+  },
+
+  /**
+   * This method iterates over the full bookmark tree and pushes all bookmarks (except separators) to a global
+   * array of bookmarks.
+   *
+   * @param {bookmarks.BookmarkTreeNode} bookmark - a single bookmark
+   *
+   * @returns {void}
+   */
+  collectAllBookmarks (bookmark) {
+    if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.totalBookmarks === bookmarksorganizer.LIMIT) {
+      return;
+    }
+
+    if (bookmark.type === 'separator') {
+      return;
+    }
+
+    bookmarksorganizer.collectedBookmarks.push(bookmark);
+
+    if (bookmark.url) {
+      bookmarksorganizer.totalBookmarks++;
+    }
+
+    if (bookmark.children) {
+      for (const child of bookmark.children) {
+        bookmarksorganizer.collectAllBookmarks(child);
+      }
+    }
+  },
+
+  /**
+   * This method iterates over the full bookmark tree and pushes all bookmarks (except separators) to an global
+   * array of bookmarks.
+   *
+   * @param {string} mode - The checking mode<br /><br />
+   *                 <strong>Supported values:</strong> broken-bookmarks, duplicates, empty-names
+   * @param {string} type - The requested type of results<br /><br />
+   *                 <strong>Supported values:</strong> errors, warnings, all
+   * @param {int} queue_size - do not process more than queue_size bookmarks at the same time
+   *
+   * @returns {Promise.<Array.<*>>} - Promise
+   */
+  processBookmarks (mode, type, queue_size) {
+    const limiter = bookmarksorganizer.throttle(queue_size);
+    const tasks = [];
+
+    const executeTask = function (aBookmark, aMode, aType) {
+      return async function () {
+        await bookmarksorganizer.checkForBrokenBookmark(aBookmark, aMode, aType);
+
+        return limiter.give();
+      };
+    };
+
+    for (const bookmark of bookmarksorganizer.collectedBookmarks) {
+      tasks.push(limiter.take().then(executeTask(bookmark, mode, type)));
+    }
+
+    return Promise.all(tasks);
+  },
+
+  /**
+   * This method provides the mechanics to throttle the requests. We do not want to execute more than queue_size
+   * requests at the same time to improve the reliability of the bookmarks check.
+   *
+   * @param {int} queue_size - do not process more than queue_size bookmarks at the same time
+   *
+   * @returns {void}
+   */
+  throttle (queue_size) {
+    const queue = {
+      available : queue_size,
+      maximum : queue_size
+    };
+
+    const futures = [];
+
+    queue.take = function () {
+      if (queue.available > 0) {
+        queue.available -= 1;
+
+        return Promise.resolve();
+      }
+
+      const p = new Promise((resolve) => {
+        futures.push(resolve);
+      });
+
+      return p;
+    };
+
+    let emptyPromiseResolver = null;
+    const emptyPromise = new Promise((resolve) => {
+      emptyPromiseResolver = resolve;
+    });
+
+    queue.give = function () {
+      if (futures.length) {
+        const future = futures.shift();
+
+        future();
+      }
+      else {
+        queue.available += 1;
+
+        if (queue.available === queue.maximum) {
+          emptyPromiseResolver('empty queue');
+        }
+      }
+    };
+
+    queue.emptyPromise = function () {
+      return emptyPromise;
+    };
+
+    return queue;
   },
 
   /**
