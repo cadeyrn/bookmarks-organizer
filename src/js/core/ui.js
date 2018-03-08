@@ -111,9 +111,8 @@ const ui = {
    */
   uiscript () {
     const delta = 5;
-    let didScroll = false;
     let lastScrollTop = 0;
-    let rafTimer;
+    let rafTimer = null;
 
     const hasScrolled = function () {
       const { scrollTop } = document.documentElement;

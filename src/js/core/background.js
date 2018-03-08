@@ -168,7 +168,7 @@ const bookmarksorganizer = {
         bookmarksorganizer.collectedBookmarks[idx].url = bookmark.url;
       }
     }
-    else{
+    else {
       bookmarksorganizer.collectedBookmarks.push(bookmark);
     }
   },
