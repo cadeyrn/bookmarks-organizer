@@ -4,7 +4,6 @@
 
 const ESC_KEY = 27;
 const HEADER_SWITCH_POSITION = 100;
-const HEADER_TIMEOUT_IN_MS = 250;
 const MIN_PROGRESS = 0.01;
 
 const elBody = document.querySelector('body');
@@ -114,6 +113,7 @@ const ui = {
     const delta = 5;
     let didScroll = false;
     let lastScrollTop = 0;
+    let rafTimer;
 
     const hasScrolled = function () {
       const { scrollTop } = document.documentElement;
@@ -135,15 +135,9 @@ const ui = {
     };
 
     window.addEventListener('scroll', () => {
-      didScroll = true;
+      cancelAnimationFrame(rafTimer);
+      rafTimer = requestAnimationFrame(hasScrolled);
     });
-
-    setInterval(() => {
-      if (didScroll) {
-        hasScrolled();
-        didScroll = false;
-      }
-    }, HEADER_TIMEOUT_IN_MS);
 
     const closeButton = document.getElementById('hint-close-button');
     closeButton.onclick = function () {
