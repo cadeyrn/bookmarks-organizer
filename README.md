@@ -96,8 +96,8 @@ is needed to read and modify the bookmarks.
 _(since 2.0.0)_
 
 Without this permission the tracking protection of Firefox causes that some bookmarks will be reported as broken even
-if they are working without any problem. This permission allows Bookmarks to disable the tracking protection for the
-duration of the bookmarks check.
+if they are working without any problem. This permission allows Bookmarks Organizer to disable the tracking protection
+for the duration of the bookmarks check.
 
 ##### access browser tabs
 
