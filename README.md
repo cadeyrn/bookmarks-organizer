@@ -19,7 +19,8 @@ bookmarks, redirects, duplicates and more!
 
 ### Shortcuts
 
-The interface can also be accessed via the keyboard. For this purpose the combination **Shift + F11** is reserved.
+The interface can also be accessed via the keyboard. For this purpose the combination **Shift + F11** is reserved. Or
+you can open the interface via a menu entry in the tools menu.
 
 It is also possible to start individual tests directly via the address bar:
 
@@ -59,16 +60,18 @@ The add-on is currently available in the following languages:
 
 ### Notes / Known Issues
 
-- Bookmarks Organizer  counts the number of existing bookmarks as soon as the interface of the add-on is opened. Subsequently,
-  the add-on detects when a bookmark is deleted and immediately adjusts the number of existing bookmarks so that no reloading
-  of the interface is required. The same thing doesn't work if you create a new bookmark. If a new bookmark is created, the
-  interface of the add-on must be reloaded, because the functionality of Bookmarks Organizer depends on the correct number of
-  bookmarks. There is a detection in the add-on but it has been disabled because of a bug in Firefox. Please follow
-  [Bugzilla #1362863](https://bugzilla.mozilla.org/show_bug.cgi?id=1362863) for more information.
-- If you edit the URL of a bookmark or if you let Boomarks Organizer fix a redirect Firefox will “loose” the tags associated
-  with the bookmark because bookmark tags are bound to the URL and not to the bookmark. The tags are not really lost, they are
-  still associated with the old URL. This is neither a bug of Bookmarks Organizer nor of Firefox, it's how Firefox works. Please
-  see [Bugzilla #1440988](https://bugzilla.mozilla.org/show_bug.cgi?id=1440988#c2) for context.
+- Bookmarks Organizer  counts the number of existing bookmarks as soon as the interface of the add-on is opened.
+  Subsequently, the add-on detects when a bookmark is deleted and immediately adjusts the number of existing bookmarks
+  so that no reloading of the interface is required. The same thing doesn't work if you create a new bookmark. If a new
+  bookmark is created, the interface of the add-on must be reloaded, because the functionality of Bookmarks Organizer
+  depends on the correct number of bookmarks. There is a detection in the add-on but it has been disabled because of a
+  bug in Firefox. Please follow [Bugzilla #1362863](https://bugzilla.mozilla.org/show_bug.cgi?id=1362863) for more
+  information.
+- If you edit the URL of a bookmark or if you let Boomarks Organizer fix a redirect Firefox will “loose” the tags
+  associated with the bookmark because bookmark tags are bound to the URL and not to the bookmark. The tags are not
+  really lost, they are still associated with the old URL. This is neither a bug of Bookmarks Organizer nor of Firefox,
+  it's how Firefox works. Please see [Bugzilla #1440988](https://bugzilla.mozilla.org/show_bug.cgi?id=1440988#c2) for
+  context.
 
 ## Compatibility
 
