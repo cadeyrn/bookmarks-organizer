@@ -73,6 +73,52 @@ The add-on is currently available in the following languages:
   it's how Firefox works. Please see [Bugzilla #1440988](https://bugzilla.mozilla.org/show_bug.cgi?id=1440988#c2) for
   context.
 
+### Permissions
+
+Bookmarks Organizer needs several permissions to work properly. To give you full transparency this overview also lists
+“silent“ permissions.
+
+#### mandatory permissions
+
+Bookmarks Organizer does not work without the following permissions:
+
+##### access your data for all sites
+
+The add-on checks the bookmarks by sending a request to the appropriate URLs. This cannot work without the permission
+to access these sites.
+
+##### read and modify bookmarks
+
+You installed Bookmarks Organizer for checking and modifying broken bookmarks so it should be clear why the permission
+is needed to read and modify the bookmarks.
+
+##### read and modify privacy settings
+_(since 2.0.0)_
+
+Without this permission the tracking protection of Firefox causes that some bookmarks will be reported as broken even
+if they are working without any problem. This permission allows Bookmarks to disable the tracking protection for the
+duration of the bookmarks check.
+
+##### access browser tabs
+
+The permission to access the browser tabs is needed so that Bookmarks Organizer can jump to the already opened settings
+page if the settings page is already opened in another tab and you click the button to open Bookmarks Organizer's
+settings.
+
+#### silent permissions
+
+Bookmarks Organizer needs some more permissions, but Firefox does not prompt for the following permissions:
+
+##### menus
+_(since 2.0.0)_
+
+The menus permission is needed for providing an menu entry in the tools menu to access Bookmarks Organizer's user
+interface.
+
+##### storage
+
+The storage permission is needed so that Bookmarks Organizer can store settings and (in the future) bookmark exceptions.
+
 ## Compatibility
 
 Bookmarks Organizer requires at least Firefox 59. Because the add-on makes use of modern web technologies and the latest
