@@ -6,29 +6,39 @@
 
 #### Enhancements
 
-- **a new request throttling mechanism has been implemented which ensures that there are never too much requests at the same time
-  so that less working bookmarks will be reported as broken**, fixes [#72](https://github.com/cadeyrn/bookmarks-organizer/issues/72)
-- **the tracking protection feature of Firefox no longer causes that some working bookmarks are reported as broken!** That's why
-  Bookmarks Organizer needs the permission to read and modify the privacy settings and to control the tracking protection beginning
-  with version 2.0.0, fixes [#26](https://github.com/cadeyrn/bookmarks-organizer/issues/26)
-- **second bookmark check via another request method was not always executed, caused that some working bookmarks were reported as
-  broken. This does not happen anymore**, fixes [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
+- **Bookmarks Organizer no longer fails for some users to complete the check for broken bookmarks! A new mechanism has
+  been implemented that terminates any request if it take too much time to get an answer from the server**. That's why
+  Firefox 59 or higher is required beginning with version 2.0.0, fixes
+  [#17](https://github.com/cadeyrn/bookmarks-organizer/issues/17)
+- **a request throttling mechanism has been implemented to ensure that Firefox does not simultaneously execute too many
+  requests at any time.** With many bookmarks, this can extend the duration of the check for broken bookmarks, but on
+  the other hand it ensures that fewer working bookmarks will be reported as broken, fixes
+  [#72](https://github.com/cadeyrn/bookmarks-organizer/issues/72)
+- **the tracking protection of Firefox no longer causes that some working bookmarks will be reported as broken!** That's
+  why Bookmarks Organizer needs the permission to read and modify the privacy settings and to control the tracking
+  protection setting of Firefox beginning with version 2.0.0. Note: Only one extension can control the tracking
+  protection setting at a time. If another add-on controls this setting, Bookmarks Organizer cannot use this
+  enhancement, fixes [#26](https://github.com/cadeyrn/bookmarks-organizer/issues/26)
+- **the second bookmark check via another request method was not executed under certain circumstances, caused that some
+  working bookmarks were reported as broken. This does not happen anymore**, fixes
+  [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)
+- the check for duplicates and the check for bookmarks without name no longer list bookmark separators, fixes
+  [#61](https://github.com/cadeyrn/bookmarks-organizer/issues/61)
+- bookmark separators are no longer added to the total number of bookmarks, fixes
+  [#70](https://github.com/cadeyrn/bookmarks-organizer/issues/70)
 - added a menu item to the tools menu to open the user interface, fixes
   [#65](https://github.com/cadeyrn/bookmarks-organizer/issues/65)
-- changed keyboard shortcut to Shift + F11 to fix a conflict with a built-in shortcut, fixes
+- changed keyboard shortcut to Shift + F11 to avoid a conflict with a built-in shortcut, fixes
   [#67](https://github.com/cadeyrn/bookmarks-organizer/issues/67)
+- when deleting a bookmark, not only the total number of bookmarks will be reduced, but also the number of checked
+  bookmarks, so that the number of checked bookmarks can never be larger than the total number of bookmarks
+- the performance of several parts of the add-on has been lightly improved
 - reduced file size of the logo, fixes [#66](https://github.com/cadeyrn/bookmarks-organizer/issues/66)
 
 #### Bugfixes
 
-- **Bookmarks Organizer no longer fails to finish the check for broken bookmarks for some users!** Requests will be aborted if they
-  take too much time, fixes [#17](https://github.com/cadeyrn/bookmarks-organizer/issues/17)
-- **progress animation didn't stop after checking for duplicates**, fixes
-  [#48](https://github.com/cadeyrn/bookmarks-organizer/issues/48)
-- check for duplicates and check for bookmarks without name no longer list bookmark separators, fixes
-  [#61](https://github.com/cadeyrn/bookmarks-organizer/issues/61)
-- bookmark separators are no longer added to the total number of bookmarks, fixes
-  [#70](https://github.com/cadeyrn/bookmarks-organizer/issues/70)
+- **the progress animation didn't stop after checking for duplicates, caused that it was also not possible to delete
+  duplicate bookmarks**, fixes [#48](https://github.com/cadeyrn/bookmarks-organizer/issues/48)
 - setting for disabling confirmation prompts did not work for duplicates check, fixes
   [#68](https://github.com/cadeyrn/bookmarks-organizer/issues/68)
 - filter checkboxes and search field were not resetted when checking for broken bookmarks a second time, fixes
