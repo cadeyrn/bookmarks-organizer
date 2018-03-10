@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-### (Work in Progress) Version 2.0.0 (2018-03-xx)
+### Version 2.0.0 (2018-03-10)
 
 #### Enhancements
 
@@ -75,7 +75,8 @@
 
 **Minimum required Firefox version is Firefox 59 now.**
 
-[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.3.0...master)
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v1.3.0...v2.0.0)<br />
+[Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-2.0.0)
 
 ---
 
