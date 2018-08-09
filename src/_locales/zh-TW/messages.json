@@ -1,0 +1,134 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "刪除所有失效書籤"
+  },
+  "action_repair_all_redirects": {
+    "message": "校正所有重新導向"
+  },
+  "button_check_bookmarks": {
+    "message": "檢查所有書籤…"
+  },
+  "bookmark_action_edit": {
+    "message": "編輯"
+  },
+  "bookmark_action_delete": {
+    "message": "刪除"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "校正重新導向"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "確定刪除此書籤？此動作無法還原！"
+  },
+  "bookmark_confirmation_delete_all_broken": {
+    "message": "確定刪除所有失效書籤？此動作無法還原！"
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "確定變更所有已重新導向的書籤網址？此動作無法還原！"
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "確定變更此書籤的網址？此動作無法還原！"
+  },
+  "bookmark_name": {
+    "message": "名稱"
+  },
+  "bookmark_no_name": {
+    "message": "無名稱…"
+  },
+  "bookmark_path": {
+    "message": "路徑"
+  },
+  "bookmark_url": {
+    "message": "網址"
+  },
+  "close_overlay": {
+    "message": "關閉"
+  },
+  "edit_bookmark": {
+    "message": "編輯書籤"
+  },
+  "extension_description": {
+    "message": "使用 Bookmarks Organizer 可以輕鬆整理您的書籤。Bookmarks Organizer 可以幫您找出已經失效、被重新導向或是存在重複的書籤。"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "錯誤"
+  },
+  "filter_warnings": {
+    "message": "警告"
+  },
+  "greeting": {
+    "message": "Hey!"
+  },
+  "intro_check": {
+    "message": "檢查所有書籤可能需要幾分鐘，這取決於您所選擇的模式、書籤數量，以及您的網路速度。在檢查失效書籤期間，您的網路載入速度可能變慢。"
+  },
+  "mode_broken_bookmarks": {
+    "message": "失效書籤"
+  },
+  "mode_duplicates": {
+    "message": "重複書籤"
+  },
+  "mode_empty_names": {
+    "message": "缺少書籤名稱"
+  },
+  "no_marked_bookmarks": {
+    "message": "所有書籤都沒問題！"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "恭喜！"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "尋找重複書籤"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "尋找無名稱書籤"
+  },
+  "omnibox_command_check_errors": {
+    "message": "尋找無法存取的書籤"
+  },
+  "omnibox_command_check_redirects": {
+      "message": "尋找被重新導向的書籤"
+  },
+  "omnibox_command_open": {
+    "message": "開啟 Bookmarks Organizer"
+  },
+  "omnibox_default_description": {
+    "message":"檢查您所有的書籤，找出有錯誤、被重新導向或重複的書籤"
+  },
+  "option_debug_mode": {
+    "message": "啟用偵錯輸出"
+  },
+  "option_disable_confirmations": {
+    "message": "停用確認訊息（不推薦）"
+  },
+  "save_bookmark": {
+    "message": "儲存"
+  },
+  "search_label": {
+    "message" : "輸入名稱或網址篩選結果…"
+  },
+  "some_marked_bookmarks": {
+    "message": "看上去我們能清理一下！"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Hey!"
+  },
+  "start_message": {
+    "message" : "點這裡開始…"
+  },
+  "status_checked": {
+    "message" : "已檢查"
+  },
+  "status_errors": {
+    "message" : "有錯誤"
+  },
+  "status_total": {
+    "message" : "書籤總數"
+  },
+  "status_warnings": {
+    "message" : "警告"
+  }
+}
