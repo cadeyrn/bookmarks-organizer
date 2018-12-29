@@ -544,6 +544,7 @@ const bookmarksorganizer = {
       const response = await fetch(bookmark.url, {
         cache : 'no-store',
         method : method,
+        mode : 'no-cors',
         signal : signal
       });
 
