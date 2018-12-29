@@ -7,12 +7,12 @@
 #### Enhancements
 
 - improved reliability of bookmarks check
-- Firefox 61+: The number of bookmarks is now updated immediately when a bookmark is added. This feature was disabled
-  since version 1.0.4 due to a bug in Firefox which has been fixed in Firefox 61. That's why this feature is still
-  disabled in Firefox 60.
 - added some Mozilla domains to the internal skip list because these domains cannot be checked for security reasons,
   fixes [#76](https://github.com/cadeyrn/bookmarks-organizer/issues/76)
 - added internal option to disable the skip list for testing purposes
+- Firefox 61+: The number of bookmarks is now updated immediately when a bookmark is added. This feature was disabled
+  since version 1.0.4 due to a bug in Firefox which has been fixed in Firefox 61. That's why this feature is still
+  disabled in Firefox 60.
 
 #### Translations
 
