@@ -11,6 +11,7 @@
 - updated eslint-plugin-compat from version 2.2.0 to 2.6.3
 - updated eslint-plugin-no-unsanitized from version 3.0.0 to 3.0.2
 - updated gulp from version 3.9.1 to 4.0.0
+- updated gulp-eslint from version 4.0.2 to 5.0.0
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v2.0.0...master)<br />
 
