@@ -8,7 +8,7 @@
   },
   "developer": {
     "name": "Sören Hentzschel",
-    "url": "https://www.soeren-hentzschel.at/firefox-webextensions/bookmarks-organizer/"
+    "url": "https://www.soeren-hentzschel.at/firefox-webextensions/bookmarks-organizer/?utm_campaign=webext&utm_term=bookmarksorganizer"
   },
   "background": {
     "scripts": ["js/core/status.js", "js/core/background.js"]
