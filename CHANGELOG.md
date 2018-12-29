@@ -36,6 +36,8 @@
 - updated stylelint-order from version 0.8.1 to 2.0.0
 - updated web-ext from version 2.4.0 to 2.9.3
 
+**Minimum required Firefox version is Firefox 60 now.**
+
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v2.0.0...master)<br />
 
 ---

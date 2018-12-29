@@ -7,7 +7,7 @@
 With the Bookmarks Organizer, it's easy to put order in your bookmarks. The Bookmarks Organizer finds no longer working
 bookmarks, redirects, duplicates and more!
 
-**Bookmarks Organizer is a WebExtension and compatible with Firefox Quantum (Firefox 59 and later).**
+**Bookmarks Organizer is a WebExtension and compatible with Firefox Quantum (Firefox 60 and later).**
 
 ### Features
 
@@ -112,11 +112,6 @@ interface.
 ##### storage
 
 The storage permission is needed so that Bookmarks Organizer can store settings and (in the future) bookmark exceptions.
-
-## Compatibility
-
-Bookmarks Organizer requires at least Firefox 59. Because the add-on makes use of modern web technologies and the latest
-WebExtension APIs, support for older versions of Firefox is not possible for technical reasons.
 
 ## Download
 
