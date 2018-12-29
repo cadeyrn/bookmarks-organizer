@@ -953,7 +953,7 @@ const bookmarksorganizer = {
   }
 };
 
-browser.runtime.getBrowserInfo().then(bookmarksorganizer.init);
+browser.runtime.getBrowserInfo().then(bookmarksorganizer.init).catch();
 browser.bookmarks.onChanged.addListener(bookmarksorganizer.onBookmarkChanged);
 browser.bookmarks.onRemoved.addListener(bookmarksorganizer.onBookmarkRemoved);
 browser.browserAction.onClicked.addListener(bookmarksorganizer.openUserInterface);
