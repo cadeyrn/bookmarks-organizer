@@ -19,6 +19,7 @@
 - updated npm-run-all from version 4.1.2 to 4.1.5
 - updated stylelint from version 9.1.1 to 9.9.0 and updated stylelint configuration
 - updated stylelint-csstree-validator from version 1.2.2 to 1.3.0
+- updated stylelint-order from version 0.8.1 to 2.0.0
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v2.0.0...master)<br />
 
