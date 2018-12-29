@@ -136,7 +136,6 @@ const bookmarksorganizer = {
 
   /**
    * Fired when a bookmark or a bookmark folder is created.
-   * Not used because of https://bugzilla.mozilla.org/show_bug.cgi?id=1362863
    *
    * @returns {void}
    */
@@ -901,9 +900,7 @@ const bookmarksorganizer = {
   }
 };
 
-// disabled because of https://bugzilla.mozilla.org/show_bug.cgi?id=1362863
-// browser.bookmarks.onCreated.addListener(bookmarksorganizer.onBookmarkCreated);
-
+browser.bookmarks.onCreated.addListener(bookmarksorganizer.onBookmarkCreated);
 browser.bookmarks.onChanged.addListener(bookmarksorganizer.onBookmarkChanged);
 browser.bookmarks.onRemoved.addListener(bookmarksorganizer.onBookmarkRemoved);
 browser.browserAction.onClicked.addListener(bookmarksorganizer.openUserInterface);

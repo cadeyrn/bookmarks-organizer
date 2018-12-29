@@ -4,6 +4,11 @@
 
 ### (Work in Progress) Version 2.1.0
 
+#### Enhancements
+
+- the number of bookmarks is now updated immediately when a bookmark is added. This feature was disabled since version
+  1.0.4 due to a bug in Firefox which has been fixed in Firefox 61.
+
 #### Translations
 
 - added Chinese (traditional) translation (Thanks, zhtw2013!)
