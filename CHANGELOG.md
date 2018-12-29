@@ -4,6 +4,10 @@
 
 ### (Work in Progress) Version 2.1.0
 
+#### Translations
+
+- added Chinese translation (Thanks, zhtw2013!)
+
 #### Dependencies
 
 - added eslint-plugin-promise 4.0.1 as new dependency

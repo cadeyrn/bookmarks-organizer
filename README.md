@@ -49,6 +49,7 @@ The add-on is currently available in the following languages:
 - French (Thanks, Primokorn!)
 - Russian (Thanks, perdolka!)
 - Chinese (simplified) (Thanks, yfdyh000!)
+- Chinese (traditional) (Thanks, zhtw2013!)
 - Spanish (Thanks, TarekJor!)
 - Dutch (Thanks, Tonnes!)
 - Polish (Thanks, WaldiPL!)
