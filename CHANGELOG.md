@@ -6,7 +6,7 @@
 
 #### Translations
 
-- added Chinese translation (Thanks, zhtw2013!)
+- added Chinese (traditional) translation (Thanks, zhtw2013!)
 
 #### Dependencies
 
