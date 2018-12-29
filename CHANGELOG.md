@@ -7,6 +7,7 @@
 #### Dependencies
 
 - added eslint-plugin-promise 4.0.1 as new dependency
+- migrated from gulp-html-lint 0.0.2 to gulp-htmllint 0.0.16 because gulp-html-lint is no longer maintained
 - updated eslint from version 4.18.2 to 5.11.1 and updated eslint configuration
 - updated eslint-plugin-compat from version 2.2.0 to 2.6.3
 - updated eslint-plugin-no-unsanitized from version 3.0.0 to 3.0.2
