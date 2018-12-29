@@ -40,6 +40,13 @@ const bookmarksorganizer = {
   QUEUE_SIZE : 10,
 
   /**
+   * Wheter the internal skip list should be used or not. It's always true, there is no user setting (yet).
+   *
+   * @type {integer}
+   */
+  USE_SKIP_LIST : true,
+
+  /**
    * Enables or disables the debug mode. It defaults to false and can be enabled in the add-on's settings.
    *
    * @type {boolean}
@@ -474,7 +481,7 @@ const bookmarksorganizer = {
 
       bookmarksorganizer.internalCounter++;
 
-      if (bookmarksorganizer.ignoreForBrokenBookmarks.some((i) => (new RegExp('\\b' + i + '\\b')).test(bookmark.url))) {
+      if (bookmarksorganizer.USE_SKIP_LIST && bookmarksorganizer.ignoreForBrokenBookmarks.some((i) => (new RegExp('\\b' + i + '\\b')).test(bookmark.url))) {
         bookmarksorganizer.checkedBookmarks++;
 
         return;
