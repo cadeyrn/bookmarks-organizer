@@ -130,7 +130,21 @@ const bookmarksorganizer = {
    */
   ignoreForBrokenBookmarks : [
     /* eslint-disable no-useless-escape, line-comment-position, no-inline-comments */
-    '^https?:\/\/groups.google.com/group/' // issue #25
+    '^https?:\/\/groups.google.com/group/', // issue #25
+    '^https?:\/\/accounts-static.cdn.mozilla.net', // issue #76
+    '^https?:\/\/accounts.firefox.com', // issue #76
+    '^https?:\/\/addons.cdn.mozilla.net', // issue #76
+    '^https?:\/\/addons.mozilla.org', // issue #76
+    '^https?:\/\/api.accounts.firefox.com', // issue #76
+    '^https?:\/\/content.cdn.mozilla.net', // issue #76
+    '^https?:\/\/discovery.addons.mozilla.org', // issue #76
+    '^https?:\/\/input.mozilla.org', // issue #76
+    '^https?:\/\/install.mozilla.org', // issue #76
+    '^https?:\/\/oauth.accounts.firefox.com', // issue #76
+    '^https?:\/\/profile.accounts.firefox.com', // issue #76
+    '^https?:\/\/support.mozilla.org', // issue #76
+    '^https?:\/\/sync.services.mozilla.com', // issue #76
+    '^https?:\/\/testpilot.firefox.com' // issue #76
     /* eslint-enable no-useless-escape, line-comment-position, no-inline-comments */
   ],
 
