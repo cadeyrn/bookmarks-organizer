@@ -2,6 +2,17 @@
 
 ## Release Notes
 
+### (Work in Progress) Version 2.1.0
+
+#### Dependencies
+
+- added eslint-plugin-promise 4.0.1 as new dependency
+- updated eslint from version 4.18.2 to 5.11.1 and updated eslint configuration
+
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v2.0.0...master)<br />
+
+---
+
 ### Version 2.0.0 (2018-03-10)
 
 #### Enhancements
