@@ -14,11 +14,6 @@
   requests at any time.** With many bookmarks, this can extend the duration of the check for broken bookmarks, but on
   the other hand it ensures that fewer working bookmarks will be reported as broken, fixes
   [#72](https://github.com/cadeyrn/bookmarks-organizer/issues/72)
-- **the tracking protection of Firefox no longer causes that some working bookmarks will be reported as broken!** That's
-  why Bookmarks Organizer needs the permission to read and modify the privacy settings and to control the tracking
-  protection setting of Firefox beginning with version 2.0.0. Note: Only one extension can control the tracking
-  protection setting at a time. If another add-on controls this setting, Bookmarks Organizer cannot use this
-  enhancement, fixes [#26](https://github.com/cadeyrn/bookmarks-organizer/issues/26)
 - **the second bookmark check via another request method was not executed under certain circumstances, caused that some
   working bookmarks were reported as broken. This does not happen anymore**, fixes
   [#36](https://github.com/cadeyrn/bookmarks-organizer/issues/36)

@@ -388,12 +388,7 @@ const bookmarksorganizer = {
 
     switch (mode) {
       case 'broken-bookmarks':
-        // some bookmarks don't load with tracking protection enabled (issue #26)
-        const tpmode = await browser.privacy.websites.trackingProtectionMode.get({});
-
-        await browser.privacy.websites.trackingProtectionMode.set({ value : 'never' });
         await bookmarksorganizer.processBookmarks(mode, type, bookmarksorganizer.QUEUE_SIZE);
-        browser.privacy.websites.trackingProtectionMode.set({ value : tpmode.value });
         break;
       case 'duplicates':
         const bookmarks = await browser.bookmarks.getTree();
@@ -528,7 +523,6 @@ const bookmarksorganizer = {
 
       const response = await fetch(bookmark.url, {
         cache : 'no-store',
-        credentials : 'include',
         method : method,
         signal : signal
       });
@@ -923,4 +917,3 @@ browser.menus.create({
   contexts : ['tools_menu'],
   command : '_execute_browser_action'
 });
-

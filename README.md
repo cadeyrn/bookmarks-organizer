@@ -92,13 +92,6 @@ to access these sites.
 You installed Bookmarks Organizer for checking and modifying broken bookmarks so it should be clear why the permission
 is needed to read and modify the bookmarks.
 
-##### read and modify privacy settings
-_(since 2.0.0)_
-
-Without this permission the tracking protection of Firefox causes that some bookmarks will be reported as broken even
-if they are working without any problem. This permission allows Bookmarks Organizer to disable the tracking protection
-for the duration of the bookmarks check.
-
 ##### access browser tabs
 
 The permission to access the browser tabs is needed so that Bookmarks Organizer can jump to the already opened settings
