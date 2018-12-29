@@ -17,6 +17,7 @@
 - updated gulp-stylelint from version 7.0.0 to 8.0.0
 - updated htmllint from version 0.7.2 to 0.7.3 and updated htmllint configuration
 - updated npm-run-all from version 4.1.2 to 4.1.5
+- updated stylelint from version 9.1.1 to 9.9.0 and updated stylelint configuration
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v2.0.0...master)<br />
 
