@@ -2,11 +2,11 @@
 
 ## Release Notes
 
-### (Work in Progress) Version 2.1.0
+### (Work in Progress) Version 3.0.0
 
 #### Enhancements
 
-- **added whitelist feature to exclude bookmarks from future broken bookmarks checks!**, fixes
+- **added whitelist feature to exclude bookmarks from future broken bookmark checks!**, fixes
   [#11](https://github.com/cadeyrn/bookmarks-organizer/issues/11)
 - added some Mozilla domains to the internal skip list because these domains cannot be checked for security reasons,
   fixes [#76](https://github.com/cadeyrn/bookmarks-organizer/issues/76)
