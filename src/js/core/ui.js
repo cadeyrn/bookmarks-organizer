@@ -96,7 +96,7 @@ const ui = {
    *
    * @type {boolean}
    */
-  showRemoveAllBrokenBookmarksBtn : false,
+  showRemoveAllBrokenBtn : false,
 
   /**
    * boolean, indicates whether the debug output should be shown or not.
@@ -279,10 +279,10 @@ const ui = {
       }
 
       if (ui.errors === 0) {
-        ui.showRemoveAllBrokenBookmarksBtn = false;
+        ui.showRemoveAllBrokenBtn = false;
       }
       else {
-        ui.showRemoveAllBrokenBookmarksBtn = true;
+        ui.showRemoveAllBrokenBtn = true;
       }
 
       if (response.debug.length === 0) {
@@ -309,7 +309,7 @@ const ui = {
       ui.showSearchField = false;
       ui.showFilterCheckboxes = false;
       ui.showRepairAllRedirectsBtn = false;
-      ui.showRemoveAllBrokenBookmarksBtn = false;
+      ui.showRemoveAllBrokenBtn = false;
       ui.showDebugOutput = false;
 
       ui.buildDuplicatesUi(response.bookmarks);
@@ -367,7 +367,7 @@ const ui = {
       elRepairAllRedirects.classList.add('hidden');
     }
 
-    if (ui.showRemoveAllBrokenBookmarksBtn) {
+    if (ui.showRemoveAllBrokenBtn) {
       elDeleteAllBookmarksWithErrors.classList.remove('hidden');
     }
     else {
