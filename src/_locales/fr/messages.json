@@ -8,6 +8,12 @@
   "button_check_bookmarks": {
     "message": "Vérifier les marque-pages…"
   },
+  "button_reset_whitelist": {
+    "message": "reset whitelist…"
+  },
+  "bookmark_action_add_to_whitelist": {
+    "message": "add to whitelist"
+  },
   "bookmark_action_edit": {
     "message": "Modifier"
   },
@@ -28,6 +34,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "Êtes-vous sûr(e) de vouloir changer l'URL de ce marque-page ? Cette action ne peut être annulée."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Are you sure you want this bookmark to be permanently ignored?"
   },
   "bookmark_name": {
     "message": "Nom"
@@ -130,5 +139,8 @@
   },
   "status_warnings": {
     "message" : "Avertissements"
+  },
+  "whitelist_reset_confirmation_msg": {
+    "message" : "Do you really want to reset the whitelist?"
   }
 }

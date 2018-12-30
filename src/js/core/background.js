@@ -389,6 +389,9 @@ const bookmarksorganizer = {
     else if (response.message === 'repair-redirect') {
       browser.bookmarks.update(response.bookmarkId, { url : response.newUrl });
     }
+    else if (response.message === 'ignore') {
+      bookmarksorganizer.addToWhitelist(response.bookmarkId);
+    }
   },
 
   /**
@@ -513,6 +516,14 @@ const bookmarksorganizer = {
       bookmarksorganizer.internalCounter++;
 
       if (bookmarksorganizer.USE_SKIP_LIST && bookmarksorganizer.ignoreForBrokenBookmarks.some((i) => (new RegExp('\\b' + i + '\\b')).test(bookmark.url))) {
+        bookmarksorganizer.checkedBookmarks++;
+
+        return;
+      }
+
+      const { whitelist } = await browser.storage.local.get({ whitelist : [] });
+
+      if (whitelist.includes(bookmark.id)) {
         bookmarksorganizer.checkedBookmarks++;
 
         return;
@@ -950,6 +961,22 @@ const bookmarksorganizer = {
     }
 
     return result;
+  },
+
+  /**
+   * Adds a bookmark to the whitelist.
+   *
+   * @param {integer} bookmarkId - the id of the bookmark
+   *
+   * @returns {void}
+   */
+  async addToWhitelist (bookmarkId) {
+    const { whitelist } = await browser.storage.local.get({ whitelist : [] });
+
+    if (!whitelist.includes(bookmarkId)) {
+      whitelist.push(bookmarkId);
+      browser.storage.local.set({ whitelist : whitelist });
+    }
   }
 };
 

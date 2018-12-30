@@ -8,6 +8,12 @@
   "Button_check_bookmarks": {
     "message": "Проверка закладок..."
   },
+  "button_reset_whitelist": {
+    "message": "reset whitelist…"
+  },
+  "bookmark_action_add_to_whitelist": {
+    "message": "add to whitelist"
+  },
   "Bookmark_action_edit": {
     "message": "редактировать"
   },
@@ -28,6 +34,9 @@
   },
   "Bookmark_confirmation_repair_redirect": {
     "message": "Вы уверены, что хотите изменить URL-адрес этой закладки? Это действие нельзя отменить."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Are you sure you want this bookmark to be permanently ignored?"
   },
   "Bookmark_name": {
     "message": "Название"
@@ -130,5 +139,8 @@
   },
   "Status_warnings": {
     "message": "Предупреждение"
+  },
+  "whitelist_reset_confirmation_msg": {
+    "message" : "Do you really want to reset the whitelist?"
   }
 }

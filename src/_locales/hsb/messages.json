@@ -8,6 +8,12 @@
   "button_check_bookmarks": {
     "message": "Zapołožki přepruwować…"
   },
+  "button_reset_whitelist": {
+    "message": "reset whitelist…"
+  },
+  "bookmark_action_add_to_whitelist": {
+    "message": "add to whitelist"
+  },
   "bookmark_action_edit": {
     "message": "wobdźěłać"
   },
@@ -28,6 +34,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "Ma so URL tuteje zapołožki woprawdźe změnić? Akcija njeda so cofnyć."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Are you sure you want this bookmark to be permanently ignored?"
   },
   "bookmark_name": {
     "message": "Mjeno"
@@ -130,5 +139,8 @@
   },
   "status_warnings": {
     "message" : "Warnowanja"
+  },
+  "whitelist_reset_confirmation_msg": {
+    "message" : "Do you really want to reset the whitelist?"
   }
 }

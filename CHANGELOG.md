@@ -2,13 +2,15 @@
 
 ## Release Notes
 
-### (Work in Progress) Version 2.1.0
+### (Work in Progress) Version 3.0.0
 
 #### Enhancements
 
-- improved reliability of bookmarks check
+- **added whitelist feature to exclude bookmarks from future broken bookmark checks!**, fixes
+  [#11](https://github.com/cadeyrn/bookmarks-organizer/issues/11)
 - added some Mozilla domains to the internal skip list because these domains cannot be checked for security reasons,
   fixes [#76](https://github.com/cadeyrn/bookmarks-organizer/issues/76)
+- improved reliability of bookmarks check
 - added internal option to disable the skip list for testing purposes
 - Firefox 61+: The number of bookmarks is now updated immediately when a bookmark is added. This feature was disabled
   since version 1.0.4 due to a bug in Firefox which has been fixed in Firefox 61. That's why this feature is still

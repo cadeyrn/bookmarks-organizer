@@ -8,6 +8,12 @@
   "button_check_bookmarks": {
     "message": "Lesezeichen prüfen…"
   },
+  "button_reset_whitelist": {
+    "message": "Whitelist zurücksetzen…"
+  },
+  "bookmark_action_add_to_whitelist": {
+    "message": "zur Whitelist hinzufügen"
+  },
   "bookmark_action_edit": {
     "message": "bearbeiten"
   },
@@ -28,6 +34,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "Soll die URL dieses Lesezeichen wirklich geändert werden? Die Aktion kann nicht rückgängig gemacht werden."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Soll dieses Lesezeichen wirklich dauerhaft ignoriert werden?"
   },
   "bookmark_name": {
     "message": "Name"
@@ -130,5 +139,8 @@
   },
   "status_warnings": {
     "message" : "Warnungen"
+  },
+  "whitelist_reset_confirmation_msg": {
+    "message" : "Soll die Whitelist wirklich zurückgesetzt werden?"
   }
 }

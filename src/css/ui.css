@@ -75,6 +75,11 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
   transform: scale(1);
 }
 
+button#reset-whitelist {
+  margin-left: 10px;
+  border-color: rgb(172, 0, 0);
+}
+
 .clearfix::after {
   content: '';
   display: table-cell;

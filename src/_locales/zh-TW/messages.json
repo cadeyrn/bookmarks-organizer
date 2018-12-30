@@ -8,6 +8,12 @@
   "button_check_bookmarks": {
     "message": "檢查所有書籤…"
   },
+  "button_reset_whitelist": {
+    "message": "reset whitelist…"
+  },
+  "bookmark_action_add_to_whitelist": {
+    "message": "add to whitelist"
+  },
   "bookmark_action_edit": {
     "message": "編輯"
   },
@@ -28,6 +34,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "確定變更此書籤的網址？此動作無法還原！"
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Are you sure you want this bookmark to be permanently ignored?"
   },
   "bookmark_name": {
     "message": "名稱"
@@ -130,5 +139,8 @@
   },
   "status_warnings": {
     "message" : "警告"
+  },
+  "whitelist_reset_confirmation_msg": {
+    "message" : "Do you really want to reset the whitelist?"
   }
 }
