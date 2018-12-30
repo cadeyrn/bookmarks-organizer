@@ -6,7 +6,7 @@
     "message": "校正所有重新導向"
   },
   "bookmark_action_add_to_whitelist": {
-    "message": "add to whitelist"
+    "message": "新增至白名單中"
   },
   "bookmark_action_edit": {
     "message": "編輯"
@@ -30,7 +30,7 @@
     "message": "確定變更此書籤的網址？此動作無法還原！"
   },
   "bookmark_confirmation_whitelist": {
-    "message": "Are you sure you want this bookmark to be permanently ignored?"
+    "message": "確定要永久忽略此書籤？"
   },
   "bookmark_name": {
     "message": "名稱"
@@ -48,7 +48,7 @@
     "message": "檢查所有書籤…"
   },
   "button_reset_whitelist": {
-    "message": "reset whitelist…"
+    "message": "重設白名單…"
   },
   "close_overlay": {
     "message": "關閉"
@@ -141,6 +141,6 @@
     "message" : "警告"
   },
   "whitelist_reset_confirmation_msg": {
-    "message" : "Do you really want to reset the whitelist?"
+    "message" : "確定要重設白名單？"
   }
 }
