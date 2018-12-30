@@ -457,16 +457,6 @@ const ui = {
       elDeleteButton.setAttribute('href', '#');
       elActionButtons.appendChild(elDeleteButton);
 
-      const elIgnoreButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_add_to_whitelist'));
-      const elIgnoreButton = document.createElement('a');
-      elIgnoreButton.appendChild(elIgnoreButtonText);
-      elIgnoreButton.setAttribute('data-id', bookmark.id);
-      elIgnoreButton.setAttribute('data-action', 'ignore');
-      elIgnoreButton.setAttribute('data-confirmation', 'true');
-      elIgnoreButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_whitelist'));
-      elIgnoreButton.setAttribute('href', '#');
-      elActionButtons.appendChild(elIgnoreButton);
-
       elDuplicate.appendChild(elActionButtons);
       elDuplicatesList.appendChild(elDuplicate);
     }
