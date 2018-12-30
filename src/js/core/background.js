@@ -965,7 +965,7 @@ const bookmarksorganizer = {
   async addToWhitelist (bookmarkId) {
     const { whitelist } = await browser.storage.local.get({ whitelist : [] });
 
-    if (!whitelist.contains(bookmarkId)) {
+    if (!whitelist.includes(bookmarkId)) {
       whitelist.push(bookmarkId);
       browser.storage.local.set({ whitelist : whitelist });
     }
