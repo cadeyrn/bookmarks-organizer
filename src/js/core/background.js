@@ -4,6 +4,7 @@
 
 const MIN_PROGRESS = 0.01;
 const RELEASE_61 = 61;
+const TIMEOUT_500_MS = 500;
 const UI_PAGE = 'html/ui.html';
 
 /**
@@ -286,23 +287,27 @@ const bookmarksorganizer = {
    */
   callOmniboxAction (input) {
     bookmarksorganizer.openUserInterfaceInCurrentTab();
-    switch (input) {
-      case 'errors':
-        bookmarksorganizer.execute('broken-bookmarks', 'errors');
-        break;
-      case 'redirects':
-        bookmarksorganizer.execute('broken-bookmarks', 'warnings');
-        break;
-      case 'duplicates':
-        bookmarksorganizer.execute('duplicates', 'all');
-        break;
-      case 'empty-names':
-        bookmarksorganizer.execute('empty-names', 'all');
-        break;
-      case 'organizer':
-      default:
-        bookmarksorganizer.openUserInterfaceInCurrentTab();
-    }
+
+    // issue #74: set timeout to prevent "receiving end does not exist" error
+    setTimeout(() => {
+      switch (input) {
+        case 'errors':
+          bookmarksorganizer.execute('broken-bookmarks', 'errors');
+          break;
+        case 'redirects':
+          bookmarksorganizer.execute('broken-bookmarks', 'warnings');
+          break;
+        case 'duplicates':
+          bookmarksorganizer.execute('duplicates', 'all');
+          break;
+        case 'empty-names':
+          bookmarksorganizer.execute('empty-names', 'all');
+          break;
+        case 'organizer':
+        default:
+          bookmarksorganizer.openUserInterfaceInCurrentTab();
+      }
+    }, TIMEOUT_500_MS);
   },
 
   /**
