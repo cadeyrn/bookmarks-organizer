@@ -21,7 +21,6 @@ const elFox = document.getElementById('fox');
 const elHeaderWrapper = document.getElementById('header-wrapper');
 const elHint = document.getElementById('hint');
 const elMask = document.getElementById('mask');
-const elMassActions = document.getElementById('mass-actions');
 const elMode = document.getElementById('mode');
 const elProgress = document.getElementById('progress');
 const elRepairAllRedirects = document.getElementById('repair-all-redirects');
@@ -58,36 +57,49 @@ const ui = {
   warnings : 0,
 
   /**
-   * boolean, indicates wheter the "no results" message should be shown or not.
+   * Number of bookmarks with errors.
+   *
+   * @type {integer}
+   */
+  errors : 0,
+
+  /**
+   * boolean, indicates whether the "no results" message should be shown or not.
    *
    * @type {boolean}
    */
   showNoResultsMessage : false,
 
   /**
-   * boolean, indicates wheter the search field should be shown or not.
+   * boolean, indicates whether the search field should be shown or not.
    *
    * @type {boolean}
    */
   showSearchField : false,
 
   /**
-   * boolean, indicates wheter the filter checkboxes should be shown or not.
+   * boolean, indicates whether the filter checkboxes should be shown or not.
    *
    * @type {boolean}
    */
   showFilterCheckboxes : false,
 
   /**
-   * boolean, indicates wheter the mass action buttons (remove all broken bookmarks, repair all redirects) should be
-   * shown or not.
+   * boolean, indicates whether the button to repair all redirects should be shown or not.
    *
    * @type {boolean}
    */
-  showMassActionButtons : false,
+  showRepairAllRedirectsBtn : false,
 
   /**
-   * boolean, indicates wheter the debug output should be shown or not.
+   * boolean, indicates whether the button to remove all broken bookmarks should be shown or not.
+   *
+   * @type {boolean}
+   */
+  showRemoveAllBrokenBookmarksBtn : false,
+
+  /**
+   * boolean, indicates whether the debug output should be shown or not.
    *
    * @type {boolean}
    */
@@ -234,6 +246,7 @@ const ui = {
       elProgress.setAttribute('value', response.progress);
       ui.markedBookmarks = response.bookmarks_errors + response.bookmarks_warnings;
       ui.warnings = response.bookmarks_warnings;
+      ui.errors = response.bookmarks_errors;
     }
     else if (response.message === 'finished') {
       ui.disableConfirmations = response.disableConfirmations;
@@ -259,10 +272,17 @@ const ui = {
       }
 
       if (ui.warnings === 0) {
-        ui.showMassActionButtons = false;
+        ui.showRepairAllRedirectsBtn = false;
       }
       else {
-        ui.showMassActionButtons = true;
+        ui.showRepairAllRedirectsBtn = true;
+      }
+
+      if (ui.errors === 0) {
+        ui.showRemoveAllBrokenBookmarksBtn = false;
+      }
+      else {
+        ui.showRemoveAllBrokenBookmarksBtn = true;
       }
 
       if (response.debug.length === 0) {
@@ -288,7 +308,8 @@ const ui = {
 
       ui.showSearchField = false;
       ui.showFilterCheckboxes = false;
-      ui.showMassActionButtons = false;
+      ui.showRepairAllRedirectsBtn = false;
+      ui.showRemoveAllBrokenBookmarksBtn = false;
       ui.showDebugOutput = false;
 
       ui.buildDuplicatesUi(response.bookmarks);
@@ -339,11 +360,18 @@ const ui = {
       elHint.classList.remove('success');
     }
 
-    if (ui.showMassActionButtons) {
-      elMassActions.classList.remove('hidden');
+    if (ui.showRepairAllRedirectsBtn) {
+      elRepairAllRedirects.classList.remove('hidden');
     }
     else {
-      elMassActions.classList.add('hidden');
+      elRepairAllRedirects.classList.add('hidden');
+    }
+
+    if (ui.showRemoveAllBrokenBookmarksBtn) {
+      elDeleteAllBookmarksWithErrors.classList.remove('hidden');
+    }
+    else {
+      elDeleteAllBookmarksWithErrors.classList.add('hidden');
     }
 
     if (ui.showSearchField) {

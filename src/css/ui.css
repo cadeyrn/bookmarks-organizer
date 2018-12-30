@@ -87,7 +87,7 @@ button#reset-whitelist {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .center {
@@ -550,6 +550,10 @@ button#reset-whitelist {
   margin-top: 5px;
   margin-right: 135px;
   text-align: right;
+}
+
+#mass-actions a {
+  display: block;
 }
 
 #start {

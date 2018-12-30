@@ -15,6 +15,11 @@
 - Firefox 61+: The number of bookmarks is now updated immediately when a bookmark is added. This feature was disabled
   since version 1.0.4 due to a bug in Firefox which has been fixed in Firefox 61. In Firefox 60 this feature is still
   disabled.
+  
+#### Bugfixes
+
+- The mass action buttons for repairing all redirects or removing all broken bookmarks were not shown under some
+  circumstances, fixes [#85](https://github.com/cadeyrn/bookmarks-organizer/issues/85)
 
 #### Translations
 
