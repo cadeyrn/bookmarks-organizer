@@ -8,6 +8,9 @@
   "Button_check_bookmarks": {
     "message": "Проверка закладок..."
   },
+  "button_reset_whitelist": {
+    "message": "reset whitelist…"
+  },
   "bookmark_action_add_to_whitelist": {
     "message": "add to whitelist"
   },
@@ -136,5 +139,8 @@
   },
   "Status_warnings": {
     "message": "Предупреждение"
+  },
+  "whitelist_reset_confirmation_msg": {
+    "message" : "Do you really want to reset the whitelist?"
   }
 }

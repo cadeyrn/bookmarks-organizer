@@ -2,6 +2,7 @@
 
 const elDebugMode = document.getElementById('debug-mode');
 const elDisableConfirmations = document.getElementById('disable-confirmations');
+const elResetWhitelistBtn = document.getElementById('reset-whitelist');
 
 /**
  * @exports options
@@ -32,4 +33,15 @@ elDebugMode.addEventListener('change', (e) => {
 
 elDisableConfirmations.addEventListener('change', (e) => {
   browser.storage.local.set({ disableConfirmations : e.target.checked });
+});
+
+elResetWhitelistBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  // eslint-disable-next-line no-alert
+  if (!elDisableConfirmations.checked && !confirm(browser.i18n.getMessage('whitelist_reset_confirmation_msg'))) {
+    return;
+  }
+
+  browser.storage.local.set({ whitelist : [] });
 });

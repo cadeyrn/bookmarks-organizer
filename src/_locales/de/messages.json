@@ -8,6 +8,9 @@
   "button_check_bookmarks": {
     "message": "Lesezeichen prüfen…"
   },
+  "button_reset_whitelist": {
+    "message": "Whitelist zurücksetzen…"
+  },
   "bookmark_action_add_to_whitelist": {
     "message": "zur Whitelist hinzufügen"
   },
@@ -136,5 +139,8 @@
   },
   "status_warnings": {
     "message" : "Warnungen"
+  },
+  "whitelist_reset_confirmation_msg": {
+    "message" : "Soll die Whitelist wirklich zurückgesetzt werden?"
   }
 }
