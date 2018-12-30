@@ -6,7 +6,7 @@
     "message": "Wše dalejpósrědnjenja pórěźiś"
   },
   "bookmark_action_add_to_whitelist": {
-    "message": "add to whitelist"
+    "message": "Běłej lisćinje pśidaś"
   },
   "bookmark_action_edit": {
     "message": "wobźěłaś"
@@ -30,7 +30,7 @@
     "message": "Ma se URL toś togo cytańskego znamjenja napšawdu změniś? Akcija njedajo se anulěrowaś."
   },
   "bookmark_confirmation_whitelist": {
-    "message": "Are you sure you want this bookmark to be permanently ignored?"
+    "message": "Ma se toś to cytańske znamje napšawdu na pśecej ignorěrowaś?"
   },
   "bookmark_name": {
     "message": "Mě"
@@ -48,7 +48,7 @@
     "message": "Cytańske znamjenja pśespytaś…"
   },
   "button_reset_whitelist": {
-    "message": "reset whitelist…"
+    "message": "Běłu lisćinu slědk stajiś…"
   },
   "close_overlay": {
     "message": "Zacyniś"
@@ -141,6 +141,6 @@
     "message" : "Warnowanja"
   },
   "whitelist_reset_confirmation_msg": {
-    "message" : "Do you really want to reset the whitelist?"
+    "message" : "Ma se běła lisćina napšawdu slědk stajiś?"
   }
 }
