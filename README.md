@@ -17,7 +17,7 @@ bookmarks, redirects, duplicates and more!
 - Broken bookmarks can be edited or deleted
 - Detects redirects and offers the automatic correction of individual or all redirects
 - Whitelist feature to exclude bookmarks from future broken bookmark checks
-- Internal skip list for bookmarks that are known as not validatable for technical reasons
+- Internal skip list for domains that are known as not validatable for technical reasons
 
 ### Shortcuts
 
