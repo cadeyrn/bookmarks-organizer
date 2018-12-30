@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "查找不能访问的书签"
   },
+  "omnibox_command_check_organizer": {
+    "message": "打开 Bookmarks Organizer"
+  },
   "omnibox_command_check_redirects": {
       "message": "查找被重定向的书签"
-  },
-  "omnibox_command_open": {
-    "message": "打开 Bookmarks Organizer"
   },
   "omnibox_default_description": {
     "message": "检查您的所有书签，找出有错误、重定向或重复的书签"

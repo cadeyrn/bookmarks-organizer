@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "Find no more accessible bookmarks"
   },
+  "omnibox_command_check_organizer": {
+    "message": "Open Bookmarks Organizer"
+  },
   "omnibox_command_check_redirects": {
       "message": "Find bookmarks that redirect"
-  },
-  "omnibox_command_open": {
-    "message": "Open Bookmarks Organizer"
   },
   "omnibox_default_description": {
     "message": "Check all your bookmarks for errors, redirects, duplicates, …"

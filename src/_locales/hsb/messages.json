@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "Hižo njedocpějomne zapołožki namakać"
   },
+  "omnibox_command_check_organizer": {
+    "message": "Bookmarks Organizer wočinić"
+  },
   "omnibox_command_check_redirects": {
     "message": "Zapołožki namakać, kotrež dale posrědkuja"
-  },
-  "omnibox_command_open": {
-    "message": "Bookmarks Organizer wočinić"
   },
   "omnibox_default_description": {
     "message": "Wšě twoje zapołožki za zmylkami, dalesposrědkowanjemi, duplikatami, … přepruwować"

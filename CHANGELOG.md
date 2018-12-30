@@ -20,6 +20,8 @@
 
 - The mass action buttons for repairing all redirects or removing all broken bookmarks were not shown under some
   circumstances, fixes [#85](https://github.com/cadeyrn/bookmarks-organizer/issues/85)
+- fixed error in browser console "Unknown localization message omnibox_command_check_organizer" when using the
+  address bar commands
 
 #### Translations
 

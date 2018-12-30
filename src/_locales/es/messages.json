@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "Encontrar marcadores ya no accesibles"
   },
+  "omnibox_command_check_organizer": {
+    "message": "Abrir Bookmarks Organizer"
+  },
   "omnibox_command_check_redirects": {
       "message": "Encontrar marcadores que redireccionan"
-  },
-  "omnibox_command_open": {
-    "message": "Abrir Bookmarks Organizer"
   },
   "omnibox_default_description": {
     "message": "Comprobar todos tus marcadores sobre errores, redirecciones, duplicados, …"

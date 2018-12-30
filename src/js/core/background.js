@@ -269,7 +269,7 @@ const bookmarksorganizer = {
       if (suggestions.length === 0) {
         suggestions.push({
           content : 'organizer',
-          description : browser.i18n.getMessage('omnibox_command_open')
+          description : browser.i18n.getMessage('omnibox_command_check_organizer')
         });
       }
     }
@@ -990,7 +990,7 @@ browser.omnibox.setDefaultSuggestion({ description : browser.i18n.getMessage('om
 browser.runtime.onMessage.addListener(bookmarksorganizer.handleResponse);
 
 browser.menus.create({
-  title : browser.i18n.getMessage('omnibox_command_open'),
+  title : browser.i18n.getMessage('omnibox_command_check_organizer'),
   contexts : ['tools_menu'],
   command : '_execute_browser_action'
 });

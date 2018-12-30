@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "Znajdź już niedostępne zakładki"
   },
+  "omnibox_command_check_organizer": {
+    "message": "Otwórz Bookmarks Organizer"
+  },
   "omnibox_command_check_redirects": {
       "message": "Znajdź zakładki, które przekierowują"
-  },
-  "omnibox_command_open": {
-    "message": "Otwórz Bookmarks Organizer"
   },
   "omnibox_default_description": {
     "message": "Sprawdź wszystkie zakładki szukając błędów, przekierowań, duplikatów, …"

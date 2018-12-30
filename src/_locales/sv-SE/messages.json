@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "Leta upp otillgängliga bokmärken"
   },
+  "omnibox_command_check_organizer": {
+    "message": "Öppna Bookmarks Organizer"
+  },
   "omnibox_command_check_redirects": {
       "message": "Leta upp bokmärken som dirigerar om"
-  },
-  "omnibox_command_open": {
-    "message": "Öppna Bookmarks Organizer"
   },
   "omnibox_default_description": {
     "message": "Kontrollera alla dina bokmärken för fel, omdirigeringar, dubbletter, …"

@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "Rechercher les marque-pages inaccessibles"
   },
+  "omnibox_command_check_organizer": {
+    "message": "Ouvrir Bookmarks Organizer"
+  },
   "omnibox_command_check_redirects": {
       "message": "Rechercher les marque-pages qui ont une redirection"
-  },
-  "omnibox_command_open": {
-    "message": "Ouvrir Bookmarks Organizer"
   },
   "omnibox_default_description": {
     "message": "Vérifier tous les marque-pages ayant des erreurs, redirections, doublons, …"

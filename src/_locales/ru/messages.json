@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "Найти неработающие закладки"
   },
+  "omnibox_command_check_organizer": {
+    "message": "Открыть Bookmarks Organizer"
+  },
   "omnibox_command_check_redirects": {
     "message": "Найти перенаправляющие закладки"
-  },
-  "omnibox_command_open": {
-    "message": "Открыть Bookmarks Organizer"
   },
   "omnibox_default_description": {
     "message": "Проверить все закладки на наличие ошибок, переадресаций, дубликатов ..."

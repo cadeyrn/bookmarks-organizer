@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "Niet meer toegankelijke bladwijzers zoeken"
   },
+  "omnibox_command_check_organizer": {
+    "message": "Bookmarks Organizer openen"
+  },
   "omnibox_command_check_redirects": {
       "message": "Bladwijzers die worden omgeleid zoeken"
-  },
-  "omnibox_command_open": {
-    "message": "Bookmarks Organizer openen"
   },
   "omnibox_default_description": {
     "message": "Controleer al uw bladwijzers op fouten, omleidingen, duplicaten, …"

@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "Wěcej njedosegne cytańske znamjenja namakaś"
   },
+  "omnibox_command_check_organizer": {
+    "message": "Bookmarks Organizer wócyniś"
+  },
   "omnibox_command_check_redirects": {
     "message": "Cytańske znamjenja namakaś, kótarež dalej pósrědnjaju"
-  },
-  "omnibox_command_open": {
-    "message": "Bookmarks Organizer wócyniś"
   },
   "omnibox_default_description": {
     "message": "Wše twóje cytańske znamjenja za zmólkami, dalejpósrědnjenjami, duplikatami, … pśespytaś"

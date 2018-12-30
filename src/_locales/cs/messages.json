@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "Najít nepřístupné záložky"
   },
+  "omnibox_command_check_organizer": {
+    "message": "Otevřít Bookmarks Organizer"
+  },
   "omnibox_command_check_redirects": {
       "message": "Najít záložky s přesměrováním"
-  },
-  "omnibox_command_open": {
-    "message": "Otevřít Bookmarks Organizer"
   },
   "omnibox_default_description": {
     "message": "Zkontrolovat všechny vaše záložky na chyby, přesměrování, duplikáty, …"

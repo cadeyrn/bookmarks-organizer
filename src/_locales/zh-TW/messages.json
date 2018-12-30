@@ -98,11 +98,11 @@
   "omnibox_command_check_errors": {
     "message": "尋找無法存取的書籤"
   },
+  "omnibox_command_check_organizer": {
+    "message": "開啟 Bookmarks Organizer"
+  },
   "omnibox_command_check_redirects": {
       "message": "尋找被重新導向的書籤"
-  },
-  "omnibox_command_open": {
-    "message": "開啟 Bookmarks Organizer"
   },
   "omnibox_default_description": {
     "message":"檢查您所有的書籤，找出有錯誤、被重新導向或重複的書籤"
