@@ -5,12 +5,6 @@
   "action_repair_all_redirects": {
     "message": "纠正所有重定向"
   },
-  "button_check_bookmarks": {
-    "message": "检查所有书签…"
-  },
-  "button_reset_whitelist": {
-    "message": "reset whitelist…"
-  },
   "bookmark_action_add_to_whitelist": {
     "message": "add to whitelist"
   },
@@ -49,6 +43,12 @@
   },
   "bookmark_url": {
     "message": "网址"
+  },
+  "button_check_bookmarks": {
+    "message": "检查所有书签…"
+  },
+  "button_reset_whitelist": {
+    "message": "reset whitelist…"
   },
   "close_overlay": {
     "message": "关闭"

@@ -5,12 +5,6 @@
   "action_repair_all_redirects": {
     "message": "校正所有重新導向"
   },
-  "button_check_bookmarks": {
-    "message": "檢查所有書籤…"
-  },
-  "button_reset_whitelist": {
-    "message": "reset whitelist…"
-  },
   "bookmark_action_add_to_whitelist": {
     "message": "add to whitelist"
   },
@@ -49,6 +43,12 @@
   },
   "bookmark_url": {
     "message": "網址"
+  },
+  "button_check_bookmarks": {
+    "message": "檢查所有書籤…"
+  },
+  "button_reset_whitelist": {
+    "message": "reset whitelist…"
   },
   "close_overlay": {
     "message": "關閉"

@@ -5,12 +5,6 @@
   "action_repair_all_redirects": {
     "message": "Wše dalejpósrědnjenja pórěźiś"
   },
-  "button_check_bookmarks": {
-    "message": "Cytańske znamjenja pśespytaś…"
-  },
-  "button_reset_whitelist": {
-    "message": "reset whitelist…"
-  },
   "bookmark_action_add_to_whitelist": {
     "message": "add to whitelist"
   },
@@ -49,6 +43,12 @@
   },
   "bookmark_url": {
     "message": "URL"
+  },
+  "button_check_bookmarks": {
+    "message": "Cytańske znamjenja pśespytaś…"
+  },
+  "button_reset_whitelist": {
+    "message": "reset whitelist…"
   },
   "close_overlay": {
     "message": "Zacyniś"

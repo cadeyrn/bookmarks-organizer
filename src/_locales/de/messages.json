@@ -5,12 +5,6 @@
   "action_repair_all_redirects": {
     "message": "alle Weiterleitungen korrigieren"
   },
-  "button_check_bookmarks": {
-    "message": "Lesezeichen prüfen…"
-  },
-  "button_reset_whitelist": {
-    "message": "Whitelist zurücksetzen…"
-  },
   "bookmark_action_add_to_whitelist": {
     "message": "zur Whitelist hinzufügen"
   },
@@ -49,6 +43,12 @@
   },
   "bookmark_url": {
     "message": "URL"
+  },
+  "button_check_bookmarks": {
+    "message": "Lesezeichen prüfen…"
+  },
+  "button_reset_whitelist": {
+    "message": "Whitelist zurücksetzen…"
   },
   "close_overlay": {
     "message": "Schließen"
