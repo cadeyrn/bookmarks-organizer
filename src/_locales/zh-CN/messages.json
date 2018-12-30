@@ -8,6 +8,9 @@
   "button_check_bookmarks": {
     "message": "检查所有书签…"
   },
+  "bookmark_action_add_to_whitelist": {
+    "message": "add to whitelist"
+  },
   "bookmark_action_edit": {
     "message": "编辑"
   },
@@ -28,6 +31,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "确定更改此书签的网址？此操作不能撤销！"
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Are you sure you want this bookmark to be permanently ignored?"
   },
   "bookmark_name": {
     "message": "名称"

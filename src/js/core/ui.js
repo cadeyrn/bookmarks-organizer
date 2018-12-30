@@ -457,6 +457,16 @@ const ui = {
       elDeleteButton.setAttribute('href', '#');
       elActionButtons.appendChild(elDeleteButton);
 
+      const elIgnoreButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_add_to_whitelist'));
+      const elIgnoreButton = document.createElement('a');
+      elIgnoreButton.appendChild(elIgnoreButtonText);
+      elIgnoreButton.setAttribute('data-id', bookmark.id);
+      elIgnoreButton.setAttribute('data-action', 'ignore');
+      elIgnoreButton.setAttribute('data-confirmation', 'true');
+      elIgnoreButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_whitelist'));
+      elIgnoreButton.setAttribute('href', '#');
+      elActionButtons.appendChild(elIgnoreButton);
+
       elDuplicate.appendChild(elActionButtons);
       elDuplicatesList.appendChild(elDuplicate);
     }
@@ -599,6 +609,16 @@ const ui = {
       elDeleteButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_delete'));
       elDeleteButton.setAttribute('href', '#');
       elActionButtons.appendChild(elDeleteButton);
+
+      const elIgnoreButtonText = document.createTextNode(browser.i18n.getMessage('bookmark_action_add_to_whitelist'));
+      const elIgnoreButton = document.createElement('a');
+      elIgnoreButton.appendChild(elIgnoreButtonText);
+      elIgnoreButton.setAttribute('data-id', bookmark.id);
+      elIgnoreButton.setAttribute('data-action', 'ignore');
+      elIgnoreButton.setAttribute('data-confirmation', 'true');
+      elIgnoreButton.setAttribute('data-confirmation-msg', browser.i18n.getMessage('bookmark_confirmation_whitelist'));
+      elIgnoreButton.setAttribute('href', '#');
+      elActionButtons.appendChild(elIgnoreButton);
     }
     else {
       template = document.getElementById('result-template-name').content.cloneNode(true);
@@ -722,7 +742,21 @@ const ui = {
   },
 
   /**
-   * Fired when one of the action buttons is clicked.
+   * This method is used to add a bookmark to the whitelist.
+   *
+   * @param {integer} bookmarkId - the id of the bookmark
+   *
+   * @returns {void}
+   */
+  ignoreBookmark (bookmarkId) {
+    browser.runtime.sendMessage({
+      message : 'ignore',
+      bookmarkId : bookmarkId
+    });
+  },
+
+  /**
+   * Fired when of the action buttons is clicked.
    *
    * @param {MouseEvent} e - event
    *
@@ -758,6 +792,11 @@ const ui = {
           elBookmark.remove();
           ui.hideEmptyCategories();
           ui.repairRedirect(bookmarkId, e.target.getAttribute('data-new-url'));
+          break;
+        case 'ignore':
+          elBookmark.remove();
+          ui.hideEmptyCategories();
+          ui.ignoreBookmark(bookmarkId);
           break;
         default:
           // do nothing

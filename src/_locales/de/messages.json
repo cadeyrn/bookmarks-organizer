@@ -8,6 +8,9 @@
   "button_check_bookmarks": {
     "message": "Lesezeichen prüfen…"
   },
+  "bookmark_action_add_to_whitelist": {
+    "message": "zur Whitelist hinzufügen"
+  },
   "bookmark_action_edit": {
     "message": "bearbeiten"
   },
@@ -28,6 +31,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "Soll die URL dieses Lesezeichen wirklich geändert werden? Die Aktion kann nicht rückgängig gemacht werden."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Soll dieses Lesezeichen wirklich dauerhaft ignoriert werden?"
   },
   "bookmark_name": {
     "message": "Name"

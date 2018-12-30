@@ -8,6 +8,9 @@
   "button_check_bookmarks": {
     "message": "Sprawdź zakładki…"
   },
+  "bookmark_action_add_to_whitelist": {
+    "message": "add to whitelist"
+  },
   "bookmark_action_edit": {
     "message": "edytuj"
   },
@@ -28,6 +31,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "Czy na pewno chcesz zmienić adres URL tej zakładki? Nie można cofnąć tej czynności."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Are you sure you want this bookmark to be permanently ignored?"
   },
   "bookmark_name": {
     "message": "Nazwa"

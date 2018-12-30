@@ -8,6 +8,9 @@
   "button_check_bookmarks": {
     "message": "Cytańske znamjenja pśespytaś…"
   },
+  "bookmark_action_add_to_whitelist": {
+    "message": "add to whitelist"
+  },
   "bookmark_action_edit": {
     "message": "wobźěłaś"
   },
@@ -28,6 +31,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "Ma se URL toś togo cytańskego znamjenja napšawdu změniś? Akcija njedajo se anulěrowaś."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Are you sure you want this bookmark to be permanently ignored?"
   },
   "bookmark_name": {
     "message": "Mě"

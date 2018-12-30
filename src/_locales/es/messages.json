@@ -8,6 +8,9 @@
   "button_check_bookmarks": {
     "message": "Comprobar marcadores…"
   },
+  "bookmark_action_add_to_whitelist": {
+    "message": "add to whitelist"
+  },
   "bookmark_action_edit": {
     "message": "editar"
   },
@@ -28,6 +31,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "Estás seguro de querer cambiar la URL de este marcador? Esta acción no se puede deshacer."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Are you sure you want this bookmark to be permanently ignored?"
   },
   "bookmark_name": {
     "message": "Nombre"

@@ -8,6 +8,9 @@
   "button_check_bookmarks": {
     "message": "Bladwijzers controleren…"
   },
+  "bookmark_action_add_to_whitelist": {
+    "message": "add to whitelist"
+  },
   "bookmark_action_edit": {
     "message": "bewerken"
   },
@@ -28,6 +31,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "Weet u zeker dat u de URL van deze bladwijzer wilt wijzigen? Deze actie kan niet ongedaan worden gemaakt."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Are you sure you want this bookmark to be permanently ignored?"
   },
   "bookmark_name": {
     "message": "Naam"

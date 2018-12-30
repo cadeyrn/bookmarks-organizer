@@ -8,6 +8,9 @@
   "button_check_bookmarks": {
     "message": "Zapołožki přepruwować…"
   },
+  "bookmark_action_add_to_whitelist": {
+    "message": "add to whitelist"
+  },
   "bookmark_action_edit": {
     "message": "wobdźěłać"
   },
@@ -28,6 +31,9 @@
   },
   "bookmark_confirmation_repair_redirect": {
     "message": "Ma so URL tuteje zapołožki woprawdźe změnić? Akcija njeda so cofnyć."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Are you sure you want this bookmark to be permanently ignored?"
   },
   "bookmark_name": {
     "message": "Mjeno"
