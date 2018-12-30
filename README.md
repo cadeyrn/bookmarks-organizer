@@ -16,6 +16,8 @@ bookmarks, redirects, duplicates and more!
 - Finds bookmarks without name
 - Broken bookmarks can be edited or deleted
 - Detects redirects and offers the automatic correction of individual or all redirects
+- Whitelist feature to exclude bookmarks from future broken bookmark checks
+- Internal skip list for bookmarks that are known as not validatable for technical reasons
 
 ### Shortcuts
 
@@ -34,7 +36,6 @@ It is also possible to start individual tests directly via the address bar:
 
 There are already some features planned for the future.
 
-- Whitelist: create exceptions for bookmarks, which will no longer be objected to during further checks
 - Features for bookmark folders, including empty folders
 - & more…
 
