@@ -59,15 +59,8 @@ The add-on is currently available in the following languages:
 - Upper Sorbian (Thanks, milupo!)
 - Lower Sorbian (Thanks, milupo!)
 
-### Notes / Known Issues
+### Note
 
-- Bookmarks Organizer  counts the number of existing bookmarks as soon as the interface of the add-on is opened.
-  Subsequently, the add-on detects when a bookmark is deleted and immediately adjusts the number of existing bookmarks
-  so that no reloading of the interface is required. The same thing doesn't work if you create a new bookmark. If a new
-  bookmark is created, the interface of the add-on must be reloaded, because the functionality of Bookmarks Organizer
-  depends on the correct number of bookmarks. There is a detection in the add-on but it has been disabled because of a
-  bug in Firefox. Please follow [Bugzilla #1362863](https://bugzilla.mozilla.org/show_bug.cgi?id=1362863) for more
-  information.
 - If you edit the URL of a bookmark or if you let Boomarks Organizer fix a redirect Firefox will “loose” the tags
   associated with the bookmark because bookmark tags are bound to the URL and not to the bookmark. The tags are not
   really lost, they are still associated with the old URL. This is neither a bug of Bookmarks Organizer nor of Firefox,
