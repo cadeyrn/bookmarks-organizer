@@ -521,6 +521,14 @@ const bookmarksorganizer = {
         return;
       }
 
+      const { whitelist } = await browser.storage.local.get({ whitelist : [] });
+
+      if (whitelist.includes(bookmark.id)) {
+        bookmarksorganizer.checkedBookmarks++;
+
+        return;
+      }
+
       if ((/^https?:\/\//).test(bookmark.url)) {
         bookmark.attempts = 0;
 
