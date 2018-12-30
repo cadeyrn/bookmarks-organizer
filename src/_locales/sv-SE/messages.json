@@ -6,7 +6,7 @@
     "message": "korrigera alla omdirigeringar"
   },
   "bookmark_action_add_to_whitelist": {
-    "message": "add to whitelist"
+    "message": "lägg till i vitlistan"
   },
   "bookmark_action_edit": {
     "message": "redigera"
@@ -30,7 +30,7 @@
     "message": "Är du säker på att du vill ändra detta bokmärkes URL? Detta går inte att ångra."
   },
   "bookmark_confirmation_whitelist": {
-    "message": "Are you sure you want this bookmark to be permanently ignored?"
+    "message": "Är du säker på att du vill att detta bokmärke ska ignoreras permanent?"
   },
   "bookmark_name": {
     "message": "Namn"
@@ -48,7 +48,7 @@
     "message": "Kontrollera bokmärken…"
   },
   "button_reset_whitelist": {
-    "message": "reset whitelist…"
+    "message": "återställ vitlistan…"
   },
   "close_overlay": {
     "message": "Stäng"
@@ -141,6 +141,6 @@
     "message" : "Varningar"
   },
   "whitelist_reset_confirmation_msg": {
-    "message" : "Do you really want to reset the whitelist?"
+    "message" : "Vill du verkligen återställa vitlistan?"
   }
 }
