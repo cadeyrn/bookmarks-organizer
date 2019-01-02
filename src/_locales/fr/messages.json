@@ -6,7 +6,7 @@
     "message": "Corriger toutes les redirections"
   },
   "bookmark_action_add_to_whitelist": {
-    "message": "add to whitelist"
+    "message": "Ajouter à la liste blanche"
   },
   "bookmark_action_edit": {
     "message": "Modifier"
@@ -30,7 +30,7 @@
     "message": "Êtes-vous sûr(e) de vouloir changer l'URL de ce marque-page ? Cette action ne peut être annulée."
   },
   "bookmark_confirmation_whitelist": {
-    "message": "Are you sure you want this bookmark to be permanently ignored?"
+    "message": "Êtes-vous sûr(e) de toujours vouloir ignorer ce marque-page ?"
   },
   "bookmark_name": {
     "message": "Nom"
@@ -48,7 +48,7 @@
     "message": "Vérifier les marque-pages…"
   },
   "button_reset_whitelist": {
-    "message": "reset whitelist…"
+    "message": "Réinitialiser la liste blanche…"
   },
   "close_overlay": {
     "message": "Fermer"
@@ -141,6 +141,6 @@
     "message" : "Avertissements"
   },
   "whitelist_reset_confirmation_msg": {
-    "message" : "Do you really want to reset the whitelist?"
+    "message" : "Souhaitez-vous vraiment réinitialiser la liste blanche ?"
   }
 }
