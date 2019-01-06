@@ -190,13 +190,13 @@ const bookmarksorganizer = {
   /**
    * Fired when a bookmark or a bookmark folder is created.
    *
+   * @param {int} id - id of the bookmark that was created
+   * @param {bookmarks.BookmarkTreeNode} bookmark - bookmark object containing the data of the new bookmark
+   *
    * @returns {void}
    */
-  onBookmarkCreated () {
-    browser.runtime.sendMessage({
-      message : 'total-bookmarks-changed',
-      total_bookmarks : ++bookmarksorganizer.totalBookmarks
-    });
+  onBookmarkCreated (id, bookmark) {
+    bookmarksorganizer.collectAllBookmarks(bookmark, true);
   },
 
   /**
@@ -686,10 +686,11 @@ const bookmarksorganizer = {
    * array of bookmarks.
    *
    * @param {bookmarks.BookmarkTreeNode} bookmark - a single bookmark
+   * @param {boolean} updateCounter - whether the number of total bookmarks should be updated or not
    *
    * @returns {void}
    */
-  collectAllBookmarks (bookmark) {
+  collectAllBookmarks (bookmark, updateCounter) {
     if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.totalBookmarks === bookmarksorganizer.LIMIT) {
       return;
     }
@@ -702,6 +703,13 @@ const bookmarksorganizer = {
 
     if (bookmark.url) {
       bookmarksorganizer.totalBookmarks++;
+    }
+
+    if (updateCounter) {
+      browser.runtime.sendMessage({
+        message : 'total-bookmarks-changed',
+        total_bookmarks : bookmarksorganizer.totalBookmarks
+      });
     }
 
     if (bookmark.children) {
