@@ -2,6 +2,16 @@
 
 ## Release Notes
 
+### (Work in Progress) Version 3.1.0
+
+#### Dependencies
+
+- updated eslint from version 5.11.1 to 5.12.0
+
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.0.0...master)<br />
+
+---
+
 ### Version 3.0.0 (2018-12-30)
 
 #### Enhancements
