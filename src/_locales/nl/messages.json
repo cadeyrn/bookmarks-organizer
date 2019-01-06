@@ -6,7 +6,7 @@
     "message": "Alle omleidingen corrigeren"
   },
   "bookmark_action_add_to_whitelist": {
-    "message": "add to whitelist"
+    "message": "toevoegen aan witte lijst"
   },
   "bookmark_action_edit": {
     "message": "bewerken"
@@ -30,7 +30,7 @@
     "message": "Weet u zeker dat u de URL van deze bladwijzer wilt wijzigen? Deze actie kan niet ongedaan worden gemaakt."
   },
   "bookmark_confirmation_whitelist": {
-    "message": "Are you sure you want this bookmark to be permanently ignored?"
+    "message": "Weet u zeker dat u deze bladwijzer definitief wilt negeren?"
   },
   "bookmark_name": {
     "message": "Naam"
@@ -48,7 +48,7 @@
     "message": "Bladwijzers controleren…"
   },
   "button_reset_whitelist": {
-    "message": "reset whitelist…"
+    "message": "witte lijst herinitialiseren…"
   },
   "close_overlay": {
     "message": "Sluiten"
@@ -102,7 +102,7 @@
     "message": "Bookmarks Organizer openen"
   },
   "omnibox_command_check_redirects": {
-      "message": "Bladwijzers die worden omgeleid zoeken"
+    "message": "Bladwijzers die worden omgeleid zoeken"
   },
   "omnibox_default_description": {
     "message": "Controleer al uw bladwijzers op fouten, omleidingen, duplicaten, …"
@@ -141,6 +141,6 @@
     "message" : "Waarschuwingen"
   },
   "whitelist_reset_confirmation_msg": {
-    "message" : "Do you really want to reset the whitelist?"
+    "message" : "Wilt u de witte lijst echt herinitialiseren?"
   }
 }
