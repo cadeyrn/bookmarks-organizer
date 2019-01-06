@@ -4,6 +4,11 @@
 
 ### (Work in Progress) Version 3.1.0
 
+#### Bugfixes
+
+- fixed a bug that caused newly created bookmarks not to appear in the results list when rechecking for broken bookmarks
+  without reloading the user interface, fixes [#104](https://github.com/cadeyrn/bookmarks-organizer/issues/104)
+
 #### Translations
 
 - updated various translations
