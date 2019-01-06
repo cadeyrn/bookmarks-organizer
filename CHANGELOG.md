@@ -4,6 +4,10 @@
 
 ### (Work in Progress) Version 3.1.0
 
+#### Translations
+
+- updated various translations
+
 #### Dependencies
 
 - updated eslint from version 5.11.1 to 5.12.0
