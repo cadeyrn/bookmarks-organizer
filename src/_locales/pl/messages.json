@@ -6,7 +6,7 @@
     "message": "popraw wszystkie przekierowania"
   },
   "bookmark_action_add_to_whitelist": {
-    "message": "add to whitelist"
+    "message": "dodaj do białej listy"
   },
   "bookmark_action_edit": {
     "message": "edytuj"
@@ -30,7 +30,7 @@
     "message": "Czy na pewno chcesz zmienić adres URL tej zakładki? Nie można cofnąć tej czynności."
   },
   "bookmark_confirmation_whitelist": {
-    "message": "Are you sure you want this bookmark to be permanently ignored?"
+    "message": "Czy na pewno chcesz, aby ta zakładka była trwale ignorowana?"
   },
   "bookmark_name": {
     "message": "Nazwa"
@@ -48,7 +48,7 @@
     "message": "Sprawdź zakładki…"
   },
   "button_reset_whitelist": {
-    "message": "reset whitelist…"
+    "message": "wyczyść białą listę…"
   },
   "close_overlay": {
     "message": "Zamknij"
@@ -141,6 +141,6 @@
     "message" : "Ostrzeżeń"
   },
   "whitelist_reset_confirmation_msg": {
-    "message" : "Do you really want to reset the whitelist?"
+    "message" : "Czy na pewno chcesz wyczyścić białą listę?"
   }
 }
