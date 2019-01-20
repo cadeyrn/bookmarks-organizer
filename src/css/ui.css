@@ -698,7 +698,7 @@ button#reset-whitelist {
 .modal-content {
   position: relative;
   top: 50%;
-  margin: -150px auto auto auto;
+  margin: -150px auto auto;
   width: 80%;
   background-color: rgb(254, 254, 254);
   animation-name: animateFromTop;
