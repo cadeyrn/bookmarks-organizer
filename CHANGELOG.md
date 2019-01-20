@@ -15,7 +15,7 @@
 
 #### Dependencies
 
-- updated eslint from version 5.11.1 to 5.12.0
+- updated eslint from version 5.11.1 to 5.12.1
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.0.0...master)<br />
 
