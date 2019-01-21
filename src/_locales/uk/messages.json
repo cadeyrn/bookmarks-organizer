@@ -6,7 +6,7 @@
     "message": "виправити всі перенаправлення"
   },
   "bookmark_action_add_to_whitelist": {
-    "message": "add to whitelist"
+    "message": "додати до білого списку"
   },
   "bookmark_action_edit": {
     "message": "редагувати"
@@ -30,7 +30,7 @@
     "message": "Ви впевнені, що хочете змінити URL-адресу цієї закладки? Цю дію не можна буде скасувати."
   },
   "bookmark_confirmation_whitelist": {
-    "message": "Are you sure you want this bookmark to be permanently ignored?"
+    "message": "Ви впевнені, що цю закладку потрібно проігнорувати назавжди?"
   },
   "bookmark_name": {
     "message": "Назва"
@@ -48,7 +48,7 @@
     "message": "Перевірка закладок…"
   },
   "button_reset_whitelist": {
-    "message": "reset whitelist…"
+    "message": "скинути білий список…"
   },
   "close_overlay": {
     "message": "Закрити"
@@ -141,6 +141,6 @@
     "message" : "Попередження"
   },
   "whitelist_reset_confirmation_msg": {
-    "message" : "Do you really want to reset the whitelist?"
+    "message" : "Ви дійсно хочете скинути білий список?"
   }
 }
