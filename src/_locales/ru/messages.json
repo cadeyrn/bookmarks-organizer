@@ -6,7 +6,7 @@
     "message": "исправить все перенаправления"
   },
   "bookmark_action_add_to_whitelist": {
-    "message": "add to whitelist"
+    "message": "добавить в белый список"
   },
   "bookmark_action_edit": {
     "message": "редактировать"
@@ -30,7 +30,7 @@
     "message": "Вы уверены, что хотите изменить URL-адрес этой закладки? Это действие нельзя отменить."
   },
   "bookmark_confirmation_whitelist": {
-    "message": "Are you sure you want this bookmark to be permanently ignored?"
+    "message": "Вы уверены, что хотите, чтобы эта закладка постоянно игнорировалась?"
   },
   "bookmark_name": {
     "message": "Название"
@@ -48,7 +48,7 @@
     "message": "Проверка закладок..."
   },
   "button_reset_whitelist": {
-    "message": "reset whitelist…"
+    "message": "сбросить белый список…"
   },
   "close_overlay": {
     "message": "Закрыть"
@@ -141,6 +141,6 @@
     "message": "Предупреждение"
   },
   "whitelist_reset_confirmation_msg": {
-    "message" : "Do you really want to reset the whitelist?"
+    "message" : "Вы действительно хотите сбросить белый список?"
   }
 }
