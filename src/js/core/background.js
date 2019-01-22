@@ -136,6 +136,8 @@ const bookmarksorganizer = {
    * An array of url patterns which should be ignored while checking for broken bookmarks. Please only add patterns
    * if there are known problems and add a comment with the GitHub issue.
    *
+   * @type {Array.<string>}
+   *
    */
   ignoreForBrokenBookmarks : [
     /* eslint-disable no-useless-escape, line-comment-position, no-inline-comments */
