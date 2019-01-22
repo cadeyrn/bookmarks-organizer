@@ -4,6 +4,13 @@
 
 ### (Work in Progress) Version 3.1.0
 
+#### Enhancements
+
+- changed native confirmation dialogs to a custom implementation which looks better and does not have the checkbox
+  to prevent further dialogs. Checking this checkbox caused problems because it was not in sync with Bookmarks
+  Organizer's internal state. The new implementation will also be the foundation for future improvements, fixes
+  [#82](https://github.com/cadeyrn/bookmarks-organizer/issues/82)
+
 #### Bugfixes
 
 - fixed a bug that caused newly created bookmarks not to appear in the results list when rechecking for broken bookmarks

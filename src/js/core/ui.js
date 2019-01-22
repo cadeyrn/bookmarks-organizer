@@ -117,6 +117,55 @@ const ui = {
   },
 
   /**
+   * A general confirmation dialog implementation, used by various methods.
+   *
+   * @param {string} msg - confirmation message
+   *
+   * @returns {Promise} - resolves on success (OK button)
+   */
+  confirm (msg) {
+    const modal = document.getElementById('confirm-dialog');
+    modal.classList.remove('hidden');
+
+    const elMessage = document.getElementById('confirm-message');
+    elMessage.textContent = msg;
+
+    const hideModal = () => {
+      modal.classList.add('hidden');
+    };
+
+    return new Promise((resolve) => {
+      window.onkeydown = function (e) {
+        if (e.keyCode === ESC_KEY) {
+          hideModal();
+        }
+      };
+
+      window.onclick = function (e) {
+        if (e.target === modal) {
+          hideModal();
+        }
+      };
+
+      const closeButton = document.getElementById('confirm-close-button');
+      closeButton.onclick = function () {
+        hideModal();
+      };
+
+      const cancelButton = document.getElementById('btn-cancel');
+      cancelButton.onclick = function () {
+        hideModal();
+      };
+
+      const submitButton = document.getElementById('btn-confirm');
+      submitButton.onclick = function () {
+        hideModal();
+        resolve();
+      };
+    });
+  },
+
+  /**
    * Setup method for the user interface, called by init().
    *
    * @returns {void}
@@ -780,15 +829,12 @@ const ui = {
    *
    * @returns {void}
    */
-  handleActionButtonClicks (e) {
+  async handleActionButtonClicks (e) {
     if (e.target.getAttribute('data-action')) {
       e.preventDefault();
 
-      if (e.target.getAttribute('data-confirmation')) {
-        // eslint-disable-next-line no-alert
-        if (!ui.disableConfirmations && !confirm(e.target.getAttribute('data-confirmation-msg'))) {
-          return;
-        }
+      if (e.target.getAttribute('data-confirmation') && !ui.disableConfirmations) {
+        await ui.confirm(e.target.getAttribute('data-confirmation-msg'));
       }
 
       const bookmarkId = e.target.getAttribute('data-id');
@@ -832,12 +878,11 @@ const ui = {
    *
    * @returns {void}
    */
-  repairAllRedirects (e) {
+  async repairAllRedirects (e) {
     e.preventDefault();
 
-    // eslint-disable-next-line no-alert
-    if (!ui.disableConfirmations && !confirm(browser.i18n.getMessage('bookmark_confirmation_repair_all_redirects'))) {
-      return;
+    if (!ui.disableConfirmations) {
+      await ui.confirm(browser.i18n.getMessage('bookmark_confirmation_repair_all_redirects'));
     }
 
     const bookmarks = document.querySelectorAll('.redirect');
@@ -859,12 +904,11 @@ const ui = {
    *
    * @returns {void}
    */
-  deleteAllBookmarksWithErrors (e) {
+  async deleteAllBookmarksWithErrors (e) {
     e.preventDefault();
 
-    // eslint-disable-next-line no-alert
-    if (!ui.disableConfirmations && !confirm(browser.i18n.getMessage('bookmark_confirmation_delete_all_broken'))) {
-      return;
+    if (!ui.disableConfirmations) {
+      await ui.confirm(browser.i18n.getMessage('bookmark_confirmation_delete_all_broken'));
     }
 
     const bookmarks = document.querySelectorAll('.error');

@@ -75,6 +75,10 @@ button:not(:disabled):hover::before, button:not(:disabled):focus::before, button
   transform: scale(1);
 }
 
+button#btn-cancel {
+  border-color: rgb(172, 0, 0);
+}
+
 button#reset-whitelist {
   margin-left: 10px;
   border-color: rgb(172, 0, 0);
@@ -742,6 +746,14 @@ button#reset-whitelist {
   padding: 5px;
   background-color: rgb(98, 181, 71);
   color: rgb(255, 255, 255);
+}
+
+.confirm-dialog .modal-content {
+  max-width: 600px;
+}
+
+.confirm-dialog .modal-header, .confirm-dialog .modal-footer {
+  background-color: rgb(172, 0, 0);
 }
 
 @keyframes animateFromTop {

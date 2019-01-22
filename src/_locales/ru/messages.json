@@ -53,6 +53,12 @@
   "close_overlay": {
     "message": "Закрыть"
   },
+  "confirm_btn_cancel": {
+    "message": "Отмена"
+  },
+  "confirm_btn_ok": {
+    "message": "OK"
+  },
   "edit_bookmark": {
     "message": "Редактировать закладку"
   },

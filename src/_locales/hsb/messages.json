@@ -53,6 +53,12 @@
   "close_overlay": {
     "message": "Začinić"
   },
+  "confirm_btn_cancel": {
+    "message": "Přetorhnyć"
+  },
+  "confirm_btn_ok": {
+    "message": "W porjadku"
+  },
   "edit_bookmark": {
     "message": "Zapołožki wobdźěłać"
   },

@@ -53,6 +53,12 @@
   "close_overlay": {
     "message": "Закрити"
   },
+  "confirm_btn_cancel": {
+    "message": "Скасувати"
+  },
+  "confirm_btn_ok": {
+    "message": "Гаразд"
+  },
   "edit_bookmark": {
     "message": "Редагувати закладку"
   },

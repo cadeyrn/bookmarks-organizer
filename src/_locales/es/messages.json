@@ -53,6 +53,12 @@
   "close_overlay": {
     "message": "Cerrar"
   },
+  "confirm_btn_cancel": {
+    "message": "Cancelar"
+  },
+  "confirm_btn_ok": {
+    "message": "Aceptar"
+  },
   "edit_bookmark": {
     "message": "Editar marcador"
   },

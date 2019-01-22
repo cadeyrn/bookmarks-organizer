@@ -53,6 +53,12 @@
   "close_overlay": {
     "message": "Zacyniś"
   },
+  "confirm_btn_cancel": {
+    "message": "Pśetergnuś"
+  },
+  "confirm_btn_ok": {
+    "message": "W pórěźe"
+  },
   "edit_bookmark": {
     "message": "Cytańske znamjenja wobźěłaś"
   },

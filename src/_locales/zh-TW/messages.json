@@ -53,6 +53,12 @@
   "close_overlay": {
     "message": "關閉"
   },
+  "confirm_btn_cancel": {
+    "message": "取消"
+  },
+  "confirm_btn_ok": {
+    "message": "確定"
+  },
   "edit_bookmark": {
     "message": "編輯書籤"
   },
