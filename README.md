@@ -48,7 +48,7 @@ The add-on is currently available in the following languages:
 - English
 - German
 - French (Thanks, Primokorn!)
-- Russian (Thanks, perdolka!)
+- Russian (Thanks, perdolka and Smollet777!)
 - Chinese (simplified) (Thanks, yfdyh000!)
 - Chinese (traditional) (Thanks, zhtw2013!)
 - Spanish (Thanks, TarekJor!)
@@ -56,7 +56,7 @@ The add-on is currently available in the following languages:
 - Polish (Thanks, WaldiPL!)
 - Czech (Thanks, MekliCZ!)
 - Swedish (Thanks, Sopor-!)
-- Ukrainian (Thanks, perdolka!)
+- Ukrainian (Thanks, perdolka and Smollet777!)
 - Upper Sorbian (Thanks, milupo!)
 - Lower Sorbian (Thanks, milupo!)
 
