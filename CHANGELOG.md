@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-### (Work in Progress) Version 3.1.0
+### Version 3.1.0 (2019-01-26)
 
 #### Enhancements
 
@@ -28,7 +28,8 @@
 - updated eslint from version 5.11.1 to 5.12.1
 - updated stylelint from version 9.9.0 to 9.10.1 and added one new rule
 
-[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.0.0...master)<br />
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.0.0...v3.1.0)<br />
+[Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-3.1.0)
 
 ---
 
