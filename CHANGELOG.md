@@ -10,6 +10,9 @@
   to prevent further dialogs. Checking this checkbox caused problems because it was not in sync with Bookmarks
   Organizer's internal state. The new implementation will also be the foundation for future improvements, fixes
   [#82](https://github.com/cadeyrn/bookmarks-organizer/issues/82)
+- enabling or disabling the confirmation dialogs now has an immediate effect. It is no longer necessary to run the
+  check for broken bookmarks again after changing this option, fixes
+  [#103](https://github.com/cadeyrn/bookmarks-organizer/issues/103)
 
 #### Bugfixes
 

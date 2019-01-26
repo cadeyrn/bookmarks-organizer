@@ -379,6 +379,9 @@ const ui = {
         listItem.replaceWith(ui.getSingleNode(response.bookmark));
       }
     }
+    else if (response.message === 'change-disable-confirmations-state') {
+      ui.disableConfirmations = response.disableConfirmations;
+    }
   },
 
   /**

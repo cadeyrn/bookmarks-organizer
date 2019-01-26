@@ -33,6 +33,11 @@ elDebugMode.addEventListener('change', (e) => {
 
 elDisableConfirmations.addEventListener('change', (e) => {
   browser.storage.local.set({ disableConfirmations : e.target.checked });
+
+  browser.runtime.sendMessage({
+    message : 'change-disable-confirmations-state',
+    disableConfirmations : e.target.checked
+  });
 });
 
 elResetWhitelistBtn.addEventListener('click', (e) => {
