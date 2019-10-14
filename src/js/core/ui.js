@@ -3,6 +3,7 @@
 /* global STATUS */
 
 const ESC_KEY = 27;
+const ENTER_KEY = 13;
 const HEADER_SWITCH_POSITION = 100;
 const MIN_PROGRESS = 0.01;
 
@@ -131,6 +132,7 @@ const ui = {
     elMessage.textContent = msg;
 
     const hideModal = () => {
+      window.onkeydown = null
       modal.classList.add('hidden');
     };
 
@@ -138,6 +140,10 @@ const ui = {
       window.onkeydown = function (e) {
         if (e.keyCode === ESC_KEY) {
           hideModal();
+        }
+        if (e.keyCode === ENTER_KEY) {
+          hideModal();
+          resolve();
         }
       };
 
