@@ -1,0 +1,152 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "apagar todos os favoritos quebrados"
+  },
+  "action_repair_all_redirects": {
+    "message": "corrigir todos os redirecionamentos"
+  },
+  "bookmark_action_add_to_whitelist": {
+    "message": "adcionar à lista branca"
+  },
+  "bookmark_action_edit": {
+    "message": "editar"
+  },
+  "bookmark_action_delete": {
+    "message": "deletar"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "corrigir redirecionamento"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "Você tem certeza que deseja apagar este favorito? Esta ação não pode ser revertida."
+  },
+  "bookmark_confirmation_delete_all_broken": {
+    "message": "Você tem certeza que deseja apagar todos os favoritos quebrados? Esta ação não pode ser revertida."
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Você tem certeza que deseja alterar as URLs de todos os favoritos redirecionados? Esta ação não pode ser revertida."
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "Você tem certeza que deseja alterar a URL deste favorito? Esta ação não pode ser revertida."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Você tem certeza que deseja ignorar permanentemente este favorito?"
+  },
+  "bookmark_name": {
+    "message": "Nome"
+  },
+  "bookmark_no_name": {
+    "message": "sem nome..."
+  },
+  "bookmark_path": {
+    "message": "Caminho"
+  },
+  "bookmark_url": {
+    "message": "URL"
+  },
+  "button_check_bookmarks": {
+    "message": "verificar favoritos..."
+  },
+  "button_reset_whitelist": {
+    "message": "limpar lista branca..."
+  },
+  "close_overlay": {
+    "message": "Fechar"
+  },
+  "confirm_btn_cancel": {
+    "message": "Cancelar"
+  },
+  "confirm_btn_ok": {
+    "message": "OK"
+  },
+  "edit_bookmark": {
+    "message": "Editar favorito"
+  },
+  "extension_description": {
+    "message": "Com o Bookmarks Organizer é fácil colocar ordem em seus favoritos. O Bookmarks Organizer procura favoritos que não estão mais funcionando, redirecionamentos, duplicados e mais!"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "Erros"
+  },
+  "filter_warnings": {
+    "message": "Avisos"
+  },
+  "greeting": {
+    "message": "Ei!"
+  },
+  "intro_check": {
+    "message": "Verificar os favoritos pode levar vários minutos dependendo do modo selecionado, o número de favoritos e a velocidade de conexão de sua Internet. Por favor, note que durante a verificação de favoritos quebrados, o carregamento de websites podem ser visivelmente mais lentos."
+  },
+  "mode_broken_bookmarks": {
+    "message": "favoritos quebrados"
+  },
+  "mode_duplicates": {
+    "message": "duplicados"
+  },
+  "mode_empty_names": {
+    "message": "favoritos sem nome"
+  },
+  "no_marked_bookmarks": {
+    "message": "Todos os favoritos estão OK!"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Yay!"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "Procurar duplicados"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "Procurar favoritos sem nome"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Procurar favoritos não acessíveis"
+  },
+  "omnibox_command_check_organizer": {
+    "message": "Abrir o Bookmarks Organizer"
+  },
+  "omnibox_command_check_redirects": {
+      "message": "Procurar favoritos que redirecionam"
+  },
+  "omnibox_default_description": {
+    "message": "Verificar todos os seus favoritos para erros, redirecionamentos, duplicados..."
+  },
+  "option_debug_mode": {
+    "message": "Habilitar saída de debug"
+  },
+  "option_disable_confirmations": {
+    "message": "Desabilitar mensagens de confirmação (não recomendado)"
+  },
+  "save_bookmark": {
+    "message": "Salvar"
+  },
+  "search_label": {
+    "message" : "Digite o nome ou URL para filtrar os resultados..."
+  },
+  "some_marked_bookmarks": {
+    "message": "parece que podemos limpar um pouco aqui!"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Ei!"
+  },
+  "start_message": {
+    "message" : "Comece aqui..."
+  },
+  "status_checked": {
+    "message" : "Verificado"
+  },
+  "status_errors": {
+    "message" : "Erros"
+  },
+  "status_total": {
+    "message" : "Número de favoritos"
+  },
+  "status_warnings": {
+    "message" : "Avisos"
+  },
+  "whitelist_reset_confirmation_msg": {
+    "message" : "Você tem certeza que deseja limpar a lista branca?"
+  }
+}
