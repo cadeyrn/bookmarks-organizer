@@ -1,0 +1,152 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "elimina tutti i segnalibri non funzionanti"
+  },
+  "action_repair_all_redirects": {
+    "message": "correggi tutti i reindirizzamenti"
+  },
+  "bookmark_action_add_to_whitelist": {
+    "message": "aggiungi alla whitelist"
+  },
+  "bookmark_action_edit": {
+    "message": "modifica"
+  },
+  "bookmark_action_delete": {
+    "message": "elimina"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "correggi reindirizzamento"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "Sei sicuro di voler eliminare questo segnalibro? Questa azione non può essere annullata."
+  },
+  "bookmark_confirmation_delete_all_broken": {
+    "message": "Sei sicuro di voler eliminare tutti i segnalibri non funzionanti? Questa azione non può essere annullata."
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Sei sicuro di voler modificare gli URL di tutti i segnalibri con reindirizzamento? Questa azione non può essere annullata."
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "Sei sicuro di voler cambiare l'URL di questo segnalibro? Questa azione non può essere annullata."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Sei sicuro di volere che questo segnalibro venga ignorato in modo permanente?"
+  },
+  "bookmark_name": {
+    "message": "Nome"
+  },
+  "bookmark_no_name": {
+    "message": "nessun nome…"
+  },
+  "bookmark_path": {
+    "message": "Percorso"
+  },
+  "bookmark_url": {
+    "message": "URL"
+  },
+  "button_check_bookmarks": {
+    "message": "controlla i segnalibri… "
+  },
+  "button_reset_whitelist": {
+    "message": "svuota la whitelist…"
+  },
+  "close_overlay": {
+    "message": "Chiudi"
+  },
+  "confirm_btn_cancel": {
+    "message": "Annulla"
+  },
+  "confirm_btn_ok": {
+    "message": "OK"
+  },
+  "edit_bookmark": {
+    "message": "Modifica il segnalibro"
+  },
+  "extension_description": {
+    "message": "Con Bookmarks Organizer è facile mettere ordine nei segnalibri. Bookmarks Organizer trova i segnalibri non più funzionanti, con reindirizzamenti, duplicati e altro!"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "Errori"
+  },
+  "filter_warnings": {
+    "message": "Avvertimenti"
+  },
+  "greeting": {
+    "message": "Hey!"
+  },
+  "intro_check": {
+    "message": "La verifica dei segnalibri può richiedere diversi minuti, a seconda della modalità selezionata, del numero di segnalibri e della velocità di Internet. Si prega di notare che durante il controllo dei segnalibri non funzionanti, il caricamento dei siti Web può essere notevolmente rallentato."
+  },
+  "mode_broken_bookmarks": {
+    "message": "segnalibri non funzionanti"
+  },
+  "mode_duplicates": {
+    "message": "duplicati"
+  },
+  "mode_empty_names": {
+    "message": "segnalibri con nome mancante"
+  },
+  "no_marked_bookmarks": {
+    "message": "Tutti i segnalibri sono a posto!"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Si!"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "Trova i duplicati"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "Trova i segnalibri senza nome"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Trova i segnalibri non più accessibili"
+  },
+  "omnibox_command_check_organizer": {
+    "message": "Apri Bookmarks Organizer"
+  },
+  "omnibox_command_check_redirects": {
+      "message": "Trova i segnalibri con reindirizzamento"
+  },
+  "omnibox_default_description": {
+    "message": "Controlla tutti i tuoi segnalibri per errori, reindirizzamenti, duplicati, …"
+  },
+  "option_debug_mode": {
+    "message": "Abilita output di debug"
+  },
+  "option_disable_confirmations": {
+    "message": "Disabilita i messaggi di conferma (non consigliato)"
+  },
+  "save_bookmark": {
+    "message": "Salva"
+  },
+  "search_label": {
+    "message" : "Digita il nome o l'URL per filtrare i risultati…"
+  },
+  "some_marked_bookmarks": {
+    "message": "Sembra ci sia da far un po' di pulizia! "
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Hey!"
+  },
+  "start_message": {
+    "message" : "Avvia qui…"
+  },
+  "status_checked": {
+    "message" : "Controllati"
+  },
+  "status_errors": {
+    "message" : "Errori"
+  },
+  "status_total": {
+    "message" : "Numero di segnalibri"
+  },
+  "status_warnings": {
+    "message" : "Avvertimenti"
+  },
+  "whitelist_reset_confirmation_msg": {
+    "message" : "Vuoi davvero svuotare la whitelist?"
+  }
+}
