@@ -72,7 +72,7 @@
     "message": "Errori"
   },
   "filter_warnings": {
-    "message": "Avvertimenti"
+    "message": "Avvisi"
   },
   "greeting": {
     "message": "Hey!"
@@ -144,7 +144,7 @@
     "message" : "Numero di segnalibri"
   },
   "status_warnings": {
-    "message" : "Avvertimenti"
+    "message" : "Avvisi"
   },
   "whitelist_reset_confirmation_msg": {
     "message" : "Vuoi davvero svuotare la whitelist?"
