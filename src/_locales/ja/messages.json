@@ -1,0 +1,152 @@
+{
+    "action_delete_all_bookmarks_with_errors": {
+        "message": "壊れたブックマークをすべて削除する"
+    },
+    "action_repair_all_redirects": {
+        "メッセージ": "すべてのリダイレクトを修正"
+    },
+    "bookmark_action_add_to_whitelist": {
+        "メッセージ": "ホワイトリストに追加"
+    },
+    "bookmark_action_edit": {
+        "message": "編集"
+    },
+    "bookmark_action_delete": {
+        "message": "削除"
+    },
+    "bookmark_action_repair_redirect": {
+        "message": "リダイレクトを修正"
+    },
+    "bookmark_confirmation_delete": {
+        "メッセージ": "このブックマークを削除してもよろしいですか？この操作は元に戻せません。"
+    },
+    "bookmark_confirmation_delete_all_broken": {
+        "メッセージ": "壊れたブックマークをすべて削除してもよろしいですか？このアクションは元に戻せません。"
+    },
+    "bookmark_confirmation_repair_all_redirects": {
+        "メッセージ": "リダイレクトされたすべてのブックマークのURLを変更してもよろしいですか？このアクションは元に戻せません。"
+    },
+    "bookmark_confirmation_repair_redirect": {
+        "メッセージ": "このブックマークのURLを変更してもよろしいですか？このアクションは元に戻せません。"
+    },
+    "bookmark_confirmation_whitelist": {
+        "メッセージ": "このブックマークを完全に無視してもよろしいですか？"
+    },
+    "bookmark_name": {
+        "message": "名前"
+    },
+    "bookmark_no_name": {
+        "message": "名前なし…"
+    },
+    "bookmark_path": {
+        "message": "パス"
+    },
+    "bookmark_url": {
+        "message": "URL"
+    },
+    "button_check_bookmarks": {
+        "message": "ブックマークを確認してください…"
+    },
+    "button_reset_whitelist": {
+        "メッセージ": "ホワイトリストをリセット…"
+    },
+    "close_overlay": {
+        "message": "閉じる"
+    },
+    "confirm_btn_cancel": {
+        "message": "キャンセル"
+    },
+    "confirm_btn_ok": {
+        "message": "OK"
+    },
+    "edit_bookmark": {
+        "message": "ブックマークの編集"
+    },
+    "extension_description": {
+        "メッセージ": "ブックマークオーガナイザーを使用すると、ブックマークを簡単に整理することができます。ブックマークオーガナイザーは、機能しなくなったブックマーク、リダイレクト、重複などを検出します。"
+    },
+    "extension_name": {
+        "message": "ブックマークオーガナイザー"
+    },
+    "filter_errors": {
+        "message": "エラー"
+    },
+    "filter_warnings": {
+        "message": "警告"
+    },
+    "挨拶": {
+        "message": "やあ！"
+    },
+    "intro_check": {
+        "message": "選択したモード、ブックマークの数、インターネットの速度によっては、ブックマークの確認に数分かかる場合があります。壊れたブックマークの確認中は、ウェブサイトの読み込みが著しく遅くなる可能性があることに注意してください。"
+    },
+    "mode_broken_bookmarks": {
+        "message": "壊れたブックマーク"
+    },
+    "mode_duplicates": {
+        "message": "重複"
+    },
+    "mode_empty_names": {
+        "message": "ブックマーク名がありません"
+    },
+    "no_marked_bookmarks": {
+        "メッセージ": "すべてのブックマークは問題ありません！"
+    },
+    "no_marked_bookmarks_title": {
+        "message": "イェーイ！"
+    },
+    "omnibox_command_check_duplicates": {
+        "メッセージ": "重複を検索"
+    },
+    "omnibox_command_check_empty_names": {
+        "メッセージ": "名前のないブックマークを検索"
+    },
+    "omnibox_command_check_errors": {
+        "メッセージ": "アクセス可能なブックマークが見つかりません"
+    },
+    "omnibox_command_check_organizer": {
+        "メッセージ": "ブックマークオーガナイザーを開く"
+    },
+    "omnibox_command_check_redirects": {
+        "メッセージ": "リダイレクトするブックマークを検索"
+    },
+    "omnibox_default_description": {
+        "メッセージ": "すべてのブックマークにエラー、リダイレクト、重複などがないか確認してください…"
+    },
+    "option_debug_mode": {
+        "メッセージ": "デバッグ出力を有効にする"
+    },
+    "option_disable_confirmations": {
+        "メッセージ": "確認メッセージを無効にする（非推奨）"
+    },
+    "save_bookmark": {
+        "message": "保存"
+    },
+    "search_label": {
+        "メッセージ": "結果をフィルタリングするための名前またはURLを入力してください…"
+    },
+    "some_marked_bookmarks": {
+        "message": "ここで少しクリーンアップできるようです！"
+    },
+    "some_marked_bookmarks_title": {
+        "message": "やあ！"
+    },
+    "start_message": {
+        "message": "ここから始める…"
+    },
+    "status_checked": {
+        "message": "チェック済み"
+    },
+    "status_errors": {
+        "message": "エラー"
+    },
+    "status_total": {
+        "メッセージ": "ブックマークの数"
+    },
+    "status_warnings": {
+        "message": "警告"
+    },
+    "whitelist_reset_confirmation_msg": {
+        "メッセージ": "本当にホワイトリストをリセットしますか？"
+    }
+}
