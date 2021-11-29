@@ -1,9 +1,9 @@
 {
   "action_delete_all_bookmarks_with_errors": {
-    "message": "ta bort alla trasiga bokmärken"
+    "message": "Ta bort alla trasiga bokmärken"
   },
   "action_repair_all_redirects": {
-    "message": "korrigera alla omdirigeringar"
+    "message": "Korrigera alla omdirigeringar"
   },
   "bookmark_action_add_to_whitelist": {
     "message": "lägg till i vitlistan"
@@ -15,7 +15,7 @@
     "message": "ta bort"
   },
   "bookmark_action_repair_redirect": {
-    "message": "korrekta omdirigeringar"
+    "message": "korrigera omdirigeringar"
   },
   "bookmark_confirmation_delete": {
     "message": "Är du säker på att du vill ta bort detta bokmärke? Detta går inte att ångra."
@@ -48,7 +48,7 @@
     "message": "Kontrollera bokmärken…"
   },
   "button_reset_whitelist": {
-    "message": "återställ vitlistan…"
+    "message": "Återställ vitlistan…"
   },
   "close_overlay": {
     "message": "Stäng"
@@ -63,7 +63,7 @@
     "message": "Redigera bookmärke"
   },
   "extension_description": {
-    "message": "Med Bookmarks Organizer är det enkelt att hålla ordning på dina bokmärken. Bookmarks Organizer letar upp bokmärken som inte fungerar längre, omdirigeringar, dubbletter och mera!"
+    "message": "Med Bookmarks Organizer är det enkelt att hålla ordning på dina bokmärken. Bookmarks Organizer letar upp trasiga bokmärken, omdirigeringar, dubbletter med mera!"
   },
   "extension_name": {
     "message": "Bookmarks Organizer"
@@ -81,13 +81,13 @@
     "message": "Att kontrollera bokmärkena kan ta flera minuter, beroende på valt läge, antalet bokmärken och hastigheten på internet. Observera att under kontrollen av trasiga bokmärken kan laddningen av webbsidor bli märkbart långsammare."
   },
   "mode_broken_bookmarks": {
-    "message": "trasiga bokmärken"
+    "message": "Trasiga bokmärken"
   },
   "mode_duplicates": {
     "message": "Dubbletter"
   },
   "mode_empty_names": {
-    "message": "saknar bokmärkesnamn"
+    "message": "Saknar bokmärkesnamn"
   },
   "no_marked_bookmarks": {
     "message": "Alla bokmärken är bra!"
