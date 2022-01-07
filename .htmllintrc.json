@@ -21,7 +21,7 @@
     "id",
     "class"
   ],
-  "attr-quote-style": "single",
+  "attr-quote-style": "double",
   "attr-req-value": true,
   "class-no-dup": true,
   "class-style": "dash",
@@ -48,7 +48,7 @@
   "label-req-for": true,
   "lang-style": "case",
   "line-end-style": "lf",
-  "line-max-len": 170,
+  "line-max-len": 180,
   "line-max-len-ignore-regex": false,
   "line-no-trailing-whitespace": true,
   "link-req-noopener": true,
