@@ -10,6 +10,7 @@
 - updated eslint-plugin-xss from version 0.1.9 to 0.1.11
 - updated gulp from version 4.0.0 to 4.0.2
 - updated gulp-htmllint from version 0.0.16 to 0.0.19
+- updated gulp-jsdoc3 from version 2.0.0 to 3.0.0
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.1.0...master)
 
