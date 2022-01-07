@@ -8,6 +8,7 @@
 - updated eslint-plugin-no-unsanitized from version 3.0.2 to 4.0.1
 - updated eslint-plugin-promise from version 4.0.1 to 6.0.0
 - updated eslint-plugin-xss from version 0.1.9 to 0.1.11
+- updated gulp from version 4.0.0 to 4.0.2
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.1.0...master)
 
