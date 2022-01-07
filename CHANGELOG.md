@@ -11,6 +11,7 @@
 - updated gulp from version 4.0.0 to 4.0.2
 - updated gulp-htmllint from version 0.0.16 to 0.0.19
 - updated gulp-jsdoc3 from version 2.0.0 to 3.0.0
+- updated gulp-stylelint from version 8.0.0 to 13.0.0
 - updated stylelint from version 9.10.1 to 14.2.0 and updated configuration
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.1.0...master)
