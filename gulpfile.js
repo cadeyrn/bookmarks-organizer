@@ -1,7 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
-const gulpEslint = require('gulp-eslint');
+const gulpEslint = require('gulp-eslint-new');
 const gulpHtmllint = require('gulp-htmllint');
 const gulpStylelint = require('gulp-stylelint');
 const jsdoc = require('gulp-jsdoc3');

@@ -1,6 +1,12 @@
-# Firefox Add-on: Bookmarks Organizer (WebExtension)
+### Version 3.2.0 (Work in Progress)
 
-## Release Notes
+#### Dependencies
+
+- replaced gulp-eslint 6.0.0 with gulp-eslint-new 1.1.0
+
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.1.0...master)
+
+---
 
 ### Version 3.1.0 (2019-01-26)
 
