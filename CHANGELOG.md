@@ -6,6 +6,7 @@
 - updated eslint from version 5.12.1 to 8.6.0 and updated configuration
 - updated eslint-plugin-compat from version 2.6.3 to 4.0.1
 - updated eslint-plugin-no-unsanitized from version 3.0.2 to 4.0.1
+- updated eslint-plugin-promise from version 4.0.1 to 6.0.0
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.1.0...master)
 
