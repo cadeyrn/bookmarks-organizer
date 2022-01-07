@@ -3,6 +3,7 @@
 #### Dependencies
 
 - replaced gulp-eslint 6.0.0 with gulp-eslint-new 1.1.0
+- updated eslint from version 5.12.1 to 8.6.0 and updated configuration
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.1.0...master)
 
