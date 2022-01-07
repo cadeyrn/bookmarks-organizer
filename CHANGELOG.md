@@ -17,6 +17,7 @@
 - updated stylelint from version 9.10.1 to 14.2.0 and updated configuration
 - updated stylelint-csstree-validator from version 1.3.0 to 2.0.0
 - updated stylelint-order from version 2.0.0 to 5.0.0
+- updated web-ext from version 2.9.3 to 6.6.0
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.1.0...master)
 
