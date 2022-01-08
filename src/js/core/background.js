@@ -15,21 +15,21 @@ const bookmarksorganizer = {
    * Limits the number of queried bookmarks. A value of 0 disables the limit. It's only there for debugging purposes.
    * In production it's always 0, there is no user setting.
    *
-   * @type {integer}
+   * @type {int}
    */
   LIMIT : 0,
 
   /**
    * Max attempts to connect to a url. It's always 2, there is no user setting (yet).
    *
-   * @type {integer}
+   * @type {int}
    */
   MAX_ATTEMPTS : 2,
 
   /**
    * Timeout for reaching a server in milliseconds. It's always 15 seconds, there is no user setting (yet).
    *
-   * @type {integer}
+   * @type {int}
    */
   TIMEOUT_IN_MS : 15000,
 
@@ -37,14 +37,14 @@ const bookmarksorganizer = {
    * Never process more than QUEUE_SIZE bookmarks at the same time. It's always a size of 10, there is no user
    * setting (yet).
    *
-   * @type {integer}
+   * @type {int}
    */
   QUEUE_SIZE : 10,
 
   /**
    * Wheter the internal skip list should be used or not. It's always true, there is no user setting (yet).
    *
-   * @type {integer}
+   * @type {boolean}
    */
   USE_SKIP_LIST : true,
 
@@ -72,35 +72,35 @@ const bookmarksorganizer = {
   /**
    * Internal variable. The index of the bookmark being checked.
    *
-   * @type {integer}
+   * @type {int}
    */
   internalCounter : 0,
 
   /**
    * The number of total bookmarks.
    *
-   * @type {integer}
+   * @type {int}
    */
   totalBookmarks : 0,
 
   /**
    * The number of already checked bookmarks.
    *
-   * @type {integer}
+   * @type {int}
    */
   checkedBookmarks : 0,
 
   /**
    * The number of found errors.
    *
-   * @type {integer}
+   * @type {int}
    */
   bookmarkErrors : 0,
 
   /**
    * The number of found warnings (e.g. redirects).
    *
-   * @type {integer}
+   * @type {int}
    */
   bookmarkWarnings : 0,
 
@@ -121,7 +121,7 @@ const bookmarksorganizer = {
   /**
    * Additional data stored for bookmarks. In current version it only contains the full bookmark path.
    *
-   * @type {Array.<string>}
+   * @type {Array.<Object>}
    */
   additionalData : [],
 
@@ -476,7 +476,7 @@ const bookmarksorganizer = {
    * Get the full path of all bookmarks. It's only used for the duplicates mode.
    *
    * @param {Array.<bookmarks.BookmarkTreeNode>} bookmark - a tree of bookmarks
-   * @param {string} path - the path or a part of the path of the bookmark
+   * @param {Array<string>} path - the path or a part of the path of the bookmark
    *
    * @returns {Array.<string>} - An array with the full path of all bookmarks
    */
@@ -762,7 +762,7 @@ const bookmarksorganizer = {
    *
    * @param {int} queue_size - do not process more than queue_size bookmarks at the same time
    *
-   * @returns {void}
+   * @returns {Promise} - Promise
    */
   throttle (queue_size) {
     const queue = {
@@ -983,7 +983,7 @@ const bookmarksorganizer = {
   /**
    * Adds a bookmark to the whitelist.
    *
-   * @param {integer} bookmarkId - the id of the bookmark
+   * @param {int} bookmarkId - the id of the bookmark
    *
    * @returns {void}
    */

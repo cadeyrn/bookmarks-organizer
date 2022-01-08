@@ -44,21 +44,21 @@ const ui = {
   /**
    * Number of bookmarks with errors or warnings.
    *
-   * @type {integer}
+   * @type {int}
    */
   markedBookmarks : 0,
 
   /**
    * Number of bookmarks with warnings.
    *
-   * @type {integer}
+   * @type {int}
    */
   warnings : 0,
 
   /**
    * Number of bookmarks with errors.
    *
-   * @type {integer}
+   * @type {int}
    */
   errors : 0,
 
@@ -711,7 +711,7 @@ const ui = {
   /**
    * Shows the edit overlay for a broken bookmark.
    *
-   * @param {integer} bookmarkId - the id of the bookmark
+   * @param {int} bookmarkId - the id of the bookmark
    * @param {string} title - the current title of the bookmark
    * @param {string} url - the current url of the bookmark
    * @param {string} mode - the mode of the bookmark check
@@ -758,7 +758,7 @@ const ui = {
   /**
    * This method is used to edit a bookmark.
    *
-   * @param {integer} bookmarkId - the id of the bookmark
+   * @param {int} bookmarkId - the id of the bookmark
    * @param {string} title - the new title of the bookmark
    * @param {string} url - the new url of the bookmark
    * @param {string} mode - the mode of the bookmark check
@@ -778,7 +778,7 @@ const ui = {
   /**
    * This method is used to delete a bookmark.
    *
-   * @param {integer} bookmarkId - the id of the bookmark
+   * @param {string} bookmarkId - the id of the bookmark
    *
    * @returns {void}
    */
@@ -797,7 +797,7 @@ const ui = {
   /**
    * This method is used to change the url of a bookmark which is marked as redirect.
    *
-   * @param {integer} bookmarkId - the id of the bookmark
+   * @param {string} bookmarkId - the id of the bookmark
    * @param {string} newUrl - the new url of the bookmark
    *
    * @returns {void}
@@ -813,7 +813,7 @@ const ui = {
   /**
    * This method is used to add a bookmark to the whitelist.
    *
-   * @param {integer} bookmarkId - the id of the bookmark
+   * @param {int} bookmarkId - the id of the bookmark
    *
    * @returns {void}
    */
