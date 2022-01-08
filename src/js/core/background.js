@@ -412,7 +412,7 @@ const bookmarksorganizer = {
 
     bookmarksorganizer.totalBookmarks = 0;
     bookmarksorganizer.collectedBookmarks = [];
-    bookmarksorganizer.collectAllBookmarks(bookmarks[0]);
+    bookmarksorganizer.collectAllBookmarks(bookmarks[0], false);
 
     browser.runtime.sendMessage({
       message : 'total-bookmarks',
