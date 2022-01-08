@@ -522,7 +522,7 @@ const bookmarksorganizer = {
 
       bookmarksorganizer.internalCounter++;
 
-      if (bookmarksorganizer.USE_SKIP_LIST && bookmarksorganizer.ignoreForBrokenBookmarks.some((i) => (new RegExp('\\b' + i + '\\b')).test(bookmark.url))) {
+      if (bookmarksorganizer.USE_SKIP_LIST && bookmarksorganizer.ignoreForBrokenBookmarks.some((i) => new RegExp('\\b' + i + '\\b').test(bookmark.url))) {
         bookmarksorganizer.checkedBookmarks++;
 
         return;
@@ -617,9 +617,11 @@ const bookmarksorganizer = {
       else {
         const { headers } = response;
         if (headers.has('Content-Length') && headers.get('Content-Length') === '0') {
+          // eslint-disable-next-line require-atomic-updates
           bookmark.status = STATUS.EMPTY_BODY;
         }
         else {
+          // eslint-disable-next-line require-atomic-updates
           bookmark.status = response.status;
         }
       }
@@ -653,10 +655,12 @@ const bookmarksorganizer = {
       let cause = 'fetch-error';
 
       if (error.name === 'AbortError') {
+        // eslint-disable-next-line require-atomic-updates
         bookmark.status = STATUS.TIMEOUT;
         cause = 'timeout';
       }
       else {
+        // eslint-disable-next-line require-atomic-updates
         bookmark.status = STATUS.FETCH_ERROR;
       }
 
@@ -964,7 +968,7 @@ const bookmarksorganizer = {
     }
 
     for (const id in mappedArray) {
-      if (Object.prototype.hasOwnProperty.call(mappedArray, id)) {
+      if (Object.hasOwn(mappedArray, id)) {
         mappedElement = mappedArray[id];
         if (mappedElement.parentId) {
           mappedArray[mappedElement.parentId].children.push(mappedElement);

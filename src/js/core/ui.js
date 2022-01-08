@@ -460,7 +460,7 @@ const ui = {
     list.classList.add('duplicates-item');
 
     for (const url in bookmarks) {
-      if (Object.prototype.hasOwnProperty.call(bookmarks, url)) {
+      if (Object.hasOwn(bookmarks, url)) {
         list.appendChild(ui.getSingleDuplicateNode(bookmarks, url));
       }
     }
