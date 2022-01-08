@@ -2,6 +2,8 @@
 
 #### Notable Changes
 
+- bumped the minimum required Firefox version to Firefox 91, fixes
+  [#170](https://github.com/cadeyrn/bookmarks-organizer/issues/170)
 - changed copyright year from 2019 to 2022, fixes [#169](https://github.com/cadeyrn/bookmarks-organizer/issues/169)
 
 #### Code Quality
