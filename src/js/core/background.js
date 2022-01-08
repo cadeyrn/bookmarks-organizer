@@ -779,11 +779,9 @@ const bookmarksorganizer = {
         return Promise.resolve();
       }
 
-      const p = new Promise((resolve) => {
+      return new Promise((resolve) => {
         futures.push(resolve);
       });
-
-      return p;
     };
 
     let emptyPromiseResolver = null;
