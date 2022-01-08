@@ -762,7 +762,7 @@ const bookmarksorganizer = {
    *
    * @param {int} queue_size - do not process more than queue_size bookmarks at the same time
    *
-   * @returns {Object} - Promise
+   * @returns {Object} - Object
    */
   throttle (queue_size) {
     const queue = {
