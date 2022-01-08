@@ -1,5 +1,9 @@
 ### Version 3.2.0 (Work in Progress)
 
+#### Notable Changes
+
+- changed copyright year from 2019 to 2022, fixes [#169](https://github.com/cadeyrn/bookmarks-organizer/issues/169)
+
 #### Code Quality
 
 - replaced deprecated method call, fixes [#168](https://github.com/cadeyrn/bookmarks-organizer/issues/168)
