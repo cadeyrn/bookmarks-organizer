@@ -13,14 +13,14 @@ const UI_PAGE = 'html/ui.html';
 const bookmarksorganizer = {
   /**
    * Limits the number of queried bookmarks. A value of 0 disables the limit. It's only there for debugging purposes.
-   * In production it's always 0, there is no user setting.
+   * In production, it's always 0, there is no user setting.
    *
    * @type {int}
    */
   LIMIT : 0,
 
   /**
-   * Max attempts to connect to a url. It's always 2, there is no user setting (yet).
+   * Max attempts to connect to an URL. It's always 2, there is no user setting (yet).
    *
    * @type {int}
    */
@@ -42,7 +42,7 @@ const bookmarksorganizer = {
   QUEUE_SIZE : 10,
 
   /**
-   * Wheter the internal skip list should be used or not. It's always true, there is no user setting (yet).
+   * Whether the internal skip list should be used or not. It's always true, there is no user setting (yet).
    *
    * @type {boolean}
    */
@@ -314,7 +314,7 @@ const bookmarksorganizer = {
 
   /**
    * Fired when the toolbar icon is clicked. This method is used to open the user interface in a new tab or to switch
-   * to the tab with the user interface if the user interface is alreary opened.
+   * to the tab with the user interface if the user interface is already opened.
    *
    * @returns {void}
    */
@@ -726,7 +726,7 @@ const bookmarksorganizer = {
   },
 
   /**
-   * This method iterates over the full bookmark tree and pushes all bookmarks (except separators) to an global
+   * This method iterates over the full bookmark tree and pushes all bookmarks (except separators) to a global
    * array of bookmarks.
    *
    * @param {string} mode - The checking mode<br /><br />
@@ -948,7 +948,7 @@ const bookmarksorganizer = {
   },
 
   /**
-   * Builds an sorted array (by path) with the results (bookmarks with errors and warnings). Only used for broken
+   * Builds a sorted array (by path) with the results (bookmarks with errors and warnings). Only used for broken
    * bookmarks and bookmarks with empty names, not for duplicates.
    *
    * @param {Array.<bookmarks.BookmarkTreeNode>} bookmarks - a tree of bookmarks

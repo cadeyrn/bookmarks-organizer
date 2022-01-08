@@ -470,7 +470,7 @@ const ui = {
   /**
    * Gets the HTML for a single bookmark item for the duplicates mode.
    *
-   * @param {Array.<bookmarks.BookmarkTreeNode>} bookmarks - a array of bookmarks
+   * @param {Array.<bookmarks.BookmarkTreeNode>} bookmarks - an array of bookmarks
    * @param {string} url - the url of the duplicate bookmarks
    *
    * @returns {HTMLElement} - the HTML for a single bookmark list item
@@ -561,7 +561,7 @@ const ui = {
    *
    * @param {Array.<bookmarks.BookmarkTreeNode>} bookmarks - a tree of bookmarks
    *
-   * @returns {HTMLElement} - the HTML for a unordered list of bookmarks
+   * @returns {HTMLElement} - the HTML for an unordered list of bookmarks
    */
   getNodes (bookmarks) {
     const list = document.createElement('ul');
