@@ -2,7 +2,6 @@
 
 /* global STATUS */
 
-const ESC_KEY = 27;
 const HEADER_SWITCH_POSITION = 100;
 const MIN_PROGRESS = 0.01;
 
@@ -136,7 +135,7 @@ const ui = {
 
     return new Promise((resolve) => {
       window.onkeydown = function (e) {
-        if (e.keyCode === ESC_KEY) {
+        if (e.key === 'Escape') {
           hideModal();
         }
       };
@@ -205,7 +204,7 @@ const ui = {
     };
 
     window.onkeydown = function (e) {
-      if (e.keyCode === ESC_KEY) {
+      if (e.key === 'Escape') {
         elHint.classList.add('hidden');
       }
     };
@@ -735,7 +734,7 @@ const ui = {
     };
 
     window.onkeydown = function (e) {
-      if (e.keyCode === ESC_KEY) {
+      if (e.key === 'Escape') {
         modal.classList.add('hidden');
       }
     };
