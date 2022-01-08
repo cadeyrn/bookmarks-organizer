@@ -319,7 +319,7 @@ const bookmarksorganizer = {
    * @returns {void}
    */
   openUserInterface () {
-    const url = browser.extension.getURL(UI_PAGE);
+    const url = browser.runtime.getURL(UI_PAGE);
 
     browser.tabs.query({}, (tabs) => {
       let tabId = null;
@@ -346,7 +346,7 @@ const bookmarksorganizer = {
    * @returns {void}
    */
   openUserInterfaceInCurrentTab () {
-    browser.tabs.update(null, { url : browser.extension.getURL(UI_PAGE) });
+    browser.tabs.update(null, { url : browser.runtime.getURL(UI_PAGE) });
   },
 
   /**
