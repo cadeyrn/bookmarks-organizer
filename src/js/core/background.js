@@ -720,7 +720,7 @@ const bookmarksorganizer = {
 
     if (bookmark.children) {
       for (const child of bookmark.children) {
-        bookmarksorganizer.collectAllBookmarks(child);
+        bookmarksorganizer.collectAllBookmarks(child, false);
       }
     }
   },
