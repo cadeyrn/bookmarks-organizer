@@ -478,7 +478,7 @@ const bookmarksorganizer = {
    * @param {Array.<bookmarks.BookmarkTreeNode>} bookmark - a tree of bookmarks
    * @param {Array<string>} path - the path or a part of the path of the bookmark
    *
-   * @returns {Array.<string>} - An array with the full path of all bookmarks
+   * @returns {Array.<Object>} - An array with the full path of all bookmarks
    */
   getBookmarkPath (bookmark, path) {
     if (bookmark.title) {
@@ -762,7 +762,7 @@ const bookmarksorganizer = {
    *
    * @param {int} queue_size - do not process more than queue_size bookmarks at the same time
    *
-   * @returns {Promise} - Promise
+   * @returns {Object} - Promise
    */
   throttle (queue_size) {
     const queue = {
