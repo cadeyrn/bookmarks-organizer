@@ -258,10 +258,10 @@ const ui = {
       elHint.classList.remove('success');
       elResults.textContent = '';
       elDebugOutput.textContent = '';
-      elProgress.setAttribute('value', MIN_PROGRESS);
-      elCheckedBookmarks.textContent = 0;
-      elBookmarksErrors.textContent = 0;
-      elBookmarksWarnings.textContent = 0;
+      elProgress.setAttribute('value', MIN_PROGRESS.toString());
+      elCheckedBookmarks.textContent = '0';
+      elBookmarksErrors.textContent = '0';
+      elBookmarksWarnings.textContent = '0';
       elButton.disabled = true;
       elFilterErrors.checked = true;
       elFilterWarnings.checked = true;
@@ -791,7 +791,7 @@ const ui = {
     // The number of total bookmarks will automatically be reduced by one in the onRemoved handler in background.js.
     // We also want to reduce the number of checked bookmarks so that there will never be more checked than total
     // bookmarks.
-    elCheckedBookmarks.textContent = parseInt(elCheckedBookmarks.textContent) - 1;
+    elCheckedBookmarks.textContent = (parseInt(elCheckedBookmarks.textContent) - 1).toString();
   },
 
   /**
