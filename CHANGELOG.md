@@ -9,6 +9,7 @@
 #### Code Quality
 
 - replaced deprecated method call, fixes [#168](https://github.com/cadeyrn/bookmarks-organizer/issues/168)
+- fixed some code style issues and typos, fixes [#171](https://github.com/cadeyrn/bookmarks-organizer/issues/171)
 
 #### Dependencies
 

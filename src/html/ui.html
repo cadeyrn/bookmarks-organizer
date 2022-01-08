@@ -1,163 +1,163 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8' />
+  <meta charset="utf-8" />
   <title>__MSG_extension_name__</title>
-  <link rel='stylesheet' href='../css/ui.css' />
-  <link rel='icon' type='image/png' href='../images/icon.svg' />
+  <link rel="stylesheet" href="../css/ui.css" />
+  <link rel="icon" type="image/png" href="../images/icon.svg" />
 </head>
 <body>
-  <div id='header-wrapper' class='default'>
-    <header id='header'>
-      <div id='logo-wrapper'>
-        <a href='ui.html'></a>
+  <div id="header-wrapper" class="default">
+    <header id="header">
+      <div id="logo-wrapper">
+        <a href="ui.html"></a>
       </div>
     </header>
-    <div id='logo-small'>
-      <a href='ui.html'></a>
+    <div id="logo-small">
+      <a href="ui.html"></a>
     </div>
-    <div id='status-board'>
-      <div class='item'>
-        <div class='label'>__MSG_status_total__</div>
-        <div class='value'><span id='total-bookmarks'>0</span></div>
+    <div id="status-board">
+      <div class="item">
+        <div class="label">__MSG_status_total__</div>
+        <div class="value"><span id="total-bookmarks">0</span></div>
       </div>
-      <div class='item'>
-        <div class='label'>__MSG_status_checked__</div>
-        <div class='value'><span id='checked-bookmarks'>0</span></div>
+      <div class="item">
+        <div class="label">__MSG_status_checked__</div>
+        <div class="value"><span id="checked-bookmarks">0</span></div>
       </div>
-      <div class='item'>
-        <div class='label'>__MSG_status_warnings__</div>
-        <div class='value warnings'><span id='bookmarks-warnings'>0</span></div>
+      <div class="item">
+        <div class="label">__MSG_status_warnings__</div>
+        <div class="value warnings"><span id="bookmarks-warnings">0</span></div>
       </div>
-      <div class='item'>
-        <div class='label'>__MSG_status_errors__</div>
-        <div class='value errors'><span id='bookmarks-errors'>0</span></div>
+      <div class="item">
+        <div class="label">__MSG_status_errors__</div>
+        <div class="value errors"><span id="bookmarks-errors">0</span></div>
       </div>
     </div>
-    <progress id='progress' value='0'></progress>
+    <progress id="progress" value="0"></progress>
   </div>
-  <main id='main'>
-    <section id='main-section'>
-      <a href='' id='fox'>
-        <img src='../images/fox.png' alt='Firefox' />
+  <main id="main">
+    <section id="main-section">
+      <a href="" id="fox">
+        <img src="../images/fox.png" alt="Firefox" />
       </a>
-      <div id='hint' class='hidden'>
-        <span id='hint-close-button' class='close' title='__MSG_close_overlay__'>&times;</span>
-        <div class='notice'>__MSG_greeting__</div>
-        <div class='content'>__MSG_intro_check__</div>
+      <div id="hint" class="hidden">
+        <span id="hint-close-button" class="close" title="__MSG_close_overlay__">&times;</span>
+        <div class="notice">__MSG_greeting__</div>
+        <div class="content">__MSG_intro_check__</div>
       </div>
-      <div id='result-wrapper' class='hidden'>
-        <input type='search' id='search' placeholder='__MSG_search_label__' />
-        <div class='clearfix'>
-          <div id='filterbar'>
+      <div id="result-wrapper" class="hidden">
+        <input type="search" id="search" placeholder="__MSG_search_label__" />
+        <div class="clearfix">
+          <div id="filterbar">
             <div>
-              <div class='checkbox inline'>
-                <input type='checkbox' id='filter-errors' class='filter' data-filter='error' checked />
-                <label for='filter-errors'><span>__MSG_filter_errors__</span></label>
+              <div class="checkbox inline">
+                <input type="checkbox" id="filter-errors" class="filter" data-filter="error" checked />
+                <label for="filter-errors"><span>__MSG_filter_errors__</span></label>
               </div>
-              <div class='checkbox inline'>
-                <input type='checkbox' id='filter-warnings' class='filter' data-filter='warning' checked />
-                <label for='filter-warnings'><span>__MSG_filter_warnings__</span></label>
+              <div class="checkbox inline">
+                <input type="checkbox" id="filter-warnings" class="filter" data-filter="warning" checked />
+                <label for="filter-warnings"><span>__MSG_filter_warnings__</span></label>
               </div>
             </div>
           </div>
-          <div id='mass-actions'>
-            <a href='#' id='repair-all-redirects' class='hidden'>__MSG_action_repair_all_redirects__</a>
-            <a href='#' id='delete-all-bookmarks-with-errors' class='hidden'>__MSG_action_delete_all_bookmarks_with_errors__</a>
+          <div id="mass-actions">
+            <a href="#" id="repair-all-redirects" class="hidden">__MSG_action_repair_all_redirects__</a>
+            <a href="#" id="delete-all-bookmarks-with-errors" class="hidden">__MSG_action_delete_all_bookmarks_with_errors__</a>
           </div>
         </div>
-        <div id='results'></div>
-        <pre id='debug-output-wrapper' class='hidden'><code id='debug-output'></code></pre>
+        <div id="results"></div>
+        <pre id="debug-output-wrapper" class="hidden"><code id="debug-output"></code></pre>
       </div>
-      <div id='start'>__MSG_start_message__</div>
-      <div id='control-bar'>
+      <div id="start">__MSG_start_message__</div>
+      <div id="control-bar">
         <form>
-          <select name='mode' id='mode'>
-            <option value='broken-bookmarks'>__MSG_mode_broken_bookmarks__</option>
-            <option value='duplicates'>__MSG_mode_duplicates__</option>
-            <option value='empty-names'>__MSG_mode_empty_names__</option>
+          <select name="mode" id="mode">
+            <option value="broken-bookmarks">__MSG_mode_broken_bookmarks__</option>
+            <option value="duplicates">__MSG_mode_duplicates__</option>
+            <option value="empty-names">__MSG_mode_empty_names__</option>
           </select>
-          <button type='submit' id='submit-button' disabled>__MSG_button_check_bookmarks__</button>
+          <button type="submit" id="submit-button" disabled>__MSG_button_check_bookmarks__</button>
         </form>
       </div>
     </section>
   </main>
-  <footer id='footer'>
-    <a href='https://www.soeren-hentzschel.at/firefox-webextensions/bookmarks-organizer/?utm_campaign=webext&utm_term=bookmarksorganizer' target='_blank' rel='noopener'>
+  <footer id="footer">
+    <a href="https://www.soeren-hentzschel.at/firefox-webextensions/bookmarks-organizer/?utm_campaign=webext&utm_term=bookmarksorganizer" target="_blank" rel="noopener">
       __MSG_extension_name__ © 2022, soeren-hentzschel.at
     </a>
   </footer>
-  <div id='mask' class='animated-visibility'>
-    <img src='../images/icon.svg' alt='Logo' />
+  <div id="mask" class="animated-visibility">
+    <img src="../images/icon.svg" alt="Logo" />
   </div>
-  <div id='spinner' class='animated-visibility'>
-    <div class='bounce1'></div>
-    <div class='bounce2'></div>
-    <div class='bounce3'></div>
+  <div id="spinner" class="animated-visibility">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
   </div>
-  <div id='modal-dialog' class='modal-dialog hidden'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <div class='clearfix'>
-          <span id='close-button' class='close' title='__MSG_close_overlay__'>&times;</span>
+  <div id="modal-dialog" class="modal-dialog hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="clearfix">
+          <span id="close-button" class="close" title="__MSG_close_overlay__">&times;</span>
           <div>__MSG_edit_bookmark__</div>
         </div>
       </div>
-      <div class='modal-body'>
+      <div class="modal-body">
         <form>
           <div>
-            <label for='name'>__MSG_bookmark_name__:</label>
-            <input type='text' name='name' id='name' />
+            <label for="name">__MSG_bookmark_name__:</label>
+            <input type="text" name="name" id="name" />
           </div>
           <div>
-            <label for='url'>__MSG_bookmark_url__:</label>
-            <input type='text' name='url' id='url' />
+            <label for="url">__MSG_bookmark_url__:</label>
+            <input type="text" name="url" id="url" />
           </div>
-          <div class='center'>
-            <button type='submit' id='submit-changes'>__MSG_save_bookmark__</button>
+          <div class="center">
+            <button type="submit" id="submit-changes">__MSG_save_bookmark__</button>
           </div>
         </form>
       </div>
-      <div class='modal-footer'></div>
+      <div class="modal-footer"></div>
     </div>
   </div>
-  <div id='confirm-dialog' class='modal-dialog confirm-dialog hidden'>
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <div class='clearfix'>
-          <span id='confirm-close-button' class='close' title='__MSG_close_overlay__'>&times;</span>
+  <div id="confirm-dialog" class="modal-dialog confirm-dialog hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="clearfix">
+          <span id="confirm-close-button" class="close" title="__MSG_close_overlay__">&times;</span>
           <div>&nbsp;</div>
         </div>
       </div>
-      <div class='modal-body center'>
-        <p id='confirm-message'></p>
-        <button type='submit' id='btn-cancel'>__MSG_confirm_btn_cancel__</button>
-        <button type='submit' id='btn-confirm'>__MSG_confirm_btn_ok__</button>
+      <div class="modal-body center">
+        <p id="confirm-message"></p>
+        <button type="submit" id="btn-cancel">__MSG_confirm_btn_cancel__</button>
+        <button type="submit" id="btn-confirm">__MSG_confirm_btn_ok__</button>
       </div>
-      <div class='modal-footer'></div>
+      <div class="modal-footer"></div>
     </div>
   </div>
-  <template id='result-template-url'>
-    <div class='wrapper default-wrapper'>
-      <div class='name'></div>
-      <a class='url'></a><br />
-      <a class='new-url'></a>
-      <div class='action-buttons'></div>
+  <template id="result-template-url">
+    <div class="wrapper default-wrapper">
+      <div class="name"></div>
+      <a class="url"></a><br />
+      <a class="new-url"></a>
+      <div class="action-buttons"></div>
     </div>
   </template>
-  <template id='result-template-name'>
-    <div class='wrapper'>
-      <div class='name'></div>
+  <template id="result-template-name">
+    <div class="wrapper">
+      <div class="name"></div>
     </div>
   </template>
-  <template id='duplicates-template'>
-    <div class='wrapper'>
-      <a class='url'></a>
-      <ul class='duplicates'></ul>
+  <template id="duplicates-template">
+    <div class="wrapper">
+      <a class="url"></a>
+      <ul class="duplicates"></ul>
     </div>
   </template>
-  <script src='../js/lib/i18n.js'></script>
-  <script src='../js/core/status.js'></script>
-  <script src='../js/core/ui.js'></script>
+  <script src="../js/lib/i18n.js"></script>
+  <script src="../js/core/status.js"></script>
+  <script src="../js/core/ui.js"></script>
 </body>
 </html>
