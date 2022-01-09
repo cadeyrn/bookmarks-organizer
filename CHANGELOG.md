@@ -20,7 +20,7 @@
 
 #### Dependencies
 
-- replaced gulp-eslint 6.0.0 with gulp-eslint-new 1.1.0
+- replaced gulp-eslint 6.0.0 with gulp-eslint-new 1.1.1
 - updated eslint from version 5.12.1 to 8.6.0 and updated configuration
 - updated eslint-plugin-compat from version 2.6.3 to 4.0.1
 - updated eslint-plugin-no-unsanitized from version 3.0.2 to 4.0.1
