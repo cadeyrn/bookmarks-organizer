@@ -22,6 +22,7 @@ input[type='search'], input[type='text'] {
   padding: 10px;
   width: 100%;
   border: none;
+  outline: none;
   border-bottom: solid 2px rgb(210, 210, 210);
   transition: border ease 500ms;
 }
