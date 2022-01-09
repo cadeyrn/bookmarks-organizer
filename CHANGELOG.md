@@ -10,6 +10,8 @@
 
 #### Code Quality
 
+- replaced the translation mechanism with the newest version to share more code with other extensions and improve the
+  maintainability, fixes [#174](https://github.com/cadeyrn/bookmarks-organizer/issues/174)
 - removed code for Firefox below version 61, fixes [#172](https://github.com/cadeyrn/bookmarks-organizer/issues/172)
 - replaced deprecated method call, fixes [#168](https://github.com/cadeyrn/bookmarks-organizer/issues/168)
 - fixed some code style issues and typos, fixes [#171](https://github.com/cadeyrn/bookmarks-organizer/issues/171)
