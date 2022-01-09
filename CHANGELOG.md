@@ -4,6 +4,8 @@
 
 - bumped the minimum required Firefox version to Firefox 91, fixes
   [#170](https://github.com/cadeyrn/bookmarks-organizer/issues/170)
+- removed input.mozilla.org and testpilot.firefox.com from internal skip list because these domains are no longer part
+  of extensions.webextensions.restrictedDomains, fixes [#173](https://github.com/cadeyrn/bookmarks-organizer/issues/173)
 - changed copyright year from 2019 to 2022, fixes [#169](https://github.com/cadeyrn/bookmarks-organizer/issues/169)
 
 #### Code Quality
