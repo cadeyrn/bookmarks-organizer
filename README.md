@@ -48,14 +48,17 @@ The add-on is currently available in the following languages:
 - English
 - German
 - French (Thanks, Primokorn!)
+- Italian (Thanks, MichelePezza!)
 - Russian (Thanks, perdolka and Smollet777!)
+- Japanese (Thanks, dlwe!)
 - Chinese (simplified) (Thanks, yfdyh000!)
 - Chinese (traditional) (Thanks, zhtw2013!)
 - Spanish (Thanks, TarekJor!)
+- Brazilian Portuguese (Thanks, pmichelazzo!)
 - Dutch (Thanks, Tonnes!)
 - Polish (Thanks, WaldiPL!)
 - Czech (Thanks, MekliCZ!)
-- Swedish (Thanks, Sopor-!)
+- Swedish (Thanks, Sopor- and iwconfig!)
 - Ukrainian (Thanks, perdolka and Smollet777!)
 - Upper Sorbian (Thanks, milupo!)
 - Lower Sorbian (Thanks, milupo!)

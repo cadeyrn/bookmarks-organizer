@@ -18,6 +18,13 @@
 - replaced deprecated method call, fixes [#168](https://github.com/cadeyrn/bookmarks-organizer/issues/168)
 - fixed some code style issues and typos, fixes [#171](https://github.com/cadeyrn/bookmarks-organizer/issues/171)
 
+#### Translations
+
+- added Italian translation (Thanks, MichelePezza!)
+- added Japanese translation (Thanks, dlwe!)
+- added Brazilian Portuguese translation (Thanks, pmichelazzo!)
+- updated Swedish translation (Thanks, iwconfig!)
+
 #### Dependencies
 
 - replaced gulp-eslint 6.0.0 with gulp-eslint-new 1.1.1
