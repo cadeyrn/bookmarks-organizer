@@ -62,6 +62,13 @@ const bookmarksorganizer = {
   disableConfirmations : false,
 
   /**
+   * Disables automatic replacement with archive.org URL. It defaults to false, there is no user setting (yet).
+   *
+   * @type {boolean}
+   */
+  disableAutomaticArchiveOrgReplacement : false,
+
+  /**
    * Internal variable. It's only true while a check is running.
    *
    * @type {boolean}
@@ -541,6 +548,60 @@ const bookmarksorganizer = {
   },
 
   /**
+   * This method sends a GET request to the archive.org API to check if there is a snapshot available for a given URL.
+   * It replaces the current broken URL with the archived URL.
+   *
+   * @param {bookmarks.BookmarkTreeNode} bookmark
+   * @returns {bookmarks.BookmarkTreeNode} - the bookmark object
+   */
+  async checkArchiveOrgSnapshotAvailability (bookmark) {
+    const archive_api = 'https://archive.org/wayback/available?url=';
+    const snapshot_base_url = 'https://web.archive.org/web/';
+
+    try {
+      const controller = new AbortController();
+      const { signal } = controller;
+
+      setTimeout(() => controller.abort(), bookmarksorganizer.TIMEOUT_IN_MS);
+
+      const response = await fetch(`${archive_api}${bookmark.url}`, {
+        cache : 'no-store',
+        method : 'GET',
+        mode : 'no-cors',
+        signal : signal
+      });
+
+      const archived_snapshots = await response.json();
+
+      console.log(archived_snapshots);
+
+      // Check for available snapshots
+      if (archived_snapshots.keys('archived_snapshots').length === 0) {
+        bookmark.status = STATUS.NOT_FOUND;
+      }
+      else {
+        bookmark.newUrl = `${snapshot_base_url}${bookmark.url}`;
+        bookmark.status = STATUS.REDIRECT;
+      }
+
+      return bookmark;
+    }
+    catch (error) {
+      let cause = 'snapshot-availability-fetch-error';
+
+      if (error.name === 'AbortError') {
+        // eslint-disable-next-line require-atomic-updates
+        bookmark.status = STATUS.TIMEOUT;
+        cause = 'timeout';
+      }
+      else {
+        // eslint-disable-next-line require-atomic-updates
+        bookmark.status = STATUS.FETCH_ERROR;
+      }
+    }
+  },
+
+  /**
    * This method sends a fetch request to check if a bookmark is broken or not, called by checkForBrokenBookmark().
    *
    * @param {bookmarks.BookmarkTreeNode} bookmark - a single bookmark
@@ -612,7 +673,11 @@ const bookmarksorganizer = {
         });
       }
 
-      if (bookmark.status > STATUS.REDIRECT) {
+      if (bookmark.status == STATUS.NOT_FOUND) {
+        console.log('Checking for archive.org availability...');
+        await bookmarksorganizer.checkArchiveOrgSnapshotAvailability(bookmark);
+      }
+      else if (bookmark.status > STATUS.NOT_FOUND) {
         if (bookmark.attempts < bookmarksorganizer.MAX_ATTEMPTS) {
           await bookmarksorganizer.checkHttpResponse(bookmark, 'GET');
         }
