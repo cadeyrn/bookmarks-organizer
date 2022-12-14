@@ -62,6 +62,7 @@ The add-on is currently available in the following languages:
 - Ukrainian (Thanks, perdolka and Smollet777!)
 - Upper Sorbian (Thanks, milupo!)
 - Lower Sorbian (Thanks, milupo!)
+- Turkish (Thanks, coffeemesh!)
 
 ### Note
 
