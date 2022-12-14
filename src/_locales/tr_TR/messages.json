@@ -1,0 +1,152 @@
+{
+  "action_delete_all_bookmarks_with_errors": {
+    "message": "Bütün bozuk yer imlerini sil"
+  },
+  "action_repair_all_redirects": {
+    "message": "tüm yönlendirmeleri düzelt"
+  },
+  "bookmark_action_add_to_whitelist": {
+    "message": "beyaz listeye ekle"
+  },
+  "bookmark_action_edit": {
+    "message": "düzenle"
+  },
+  "bookmark_action_delete": {
+    "message": "sil"
+  },
+  "bookmark_action_repair_redirect": {
+    "message": "yönlendirmeyi düzelt"
+  },
+  "bookmark_confirmation_delete": {
+    "message": "Bu yer imlesini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+  },
+  "bookmark_confirmation_delete_all_broken": {
+    "message": "Tüm bozuk yer imlerini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+  },
+  "bookmark_confirmation_repair_all_redirects": {
+    "message": "Yeniden yönlendirilen tüm yer imlerinin URL'lerini değiştirmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+  },
+  "bookmark_confirmation_repair_redirect": {
+    "message": "Bu yer iminin URL'sini değiştirmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+  },
+  "bookmark_confirmation_whitelist": {
+    "message": "Bu yer işaretinin kalıcı olarak göz ardı edilmesini istediğinizden emin misiniz?"
+  },
+  "bookmark_name": {
+    "message": "İsim"
+  },
+  "bookmark_no_name": {
+    "message": "İsim yok..."
+  },
+  "bookmark_path": {
+    "message": "Yol"
+  },
+  "bookmark_url": {
+    "message": "URL"
+  },
+  "button_check_bookmarks": {
+    "message": "yer imlerini kontrol et..."
+  },
+  "button_reset_whitelist": {
+    "message": "beyaz listeyi sıfırla..."
+  },
+  "close_overlay": {
+    "message": "Kapat"
+  },
+  "confirm_btn_cancel": {
+    "message": "İptal"
+  },
+  "confirm_btn_ok": {
+    "message": "OK"
+  },
+  "edit_bookmark": {
+    "message": "Yer imini düzenle"
+  },
+  "extension_description": {
+    "message": "Bookmarks Organizer ile yer imlerinizi düzene sokmak çok kolay. Bookmarks Organizer çalışmayan yer imlerini, yönlendirmeleri, çiftleri ve daha fazlasını bulur!"
+  },
+  "extension_name": {
+    "message": "Bookmarks Organizer"
+  },
+  "filter_errors": {
+    "message": "Hatalar"
+  },
+  "filter_warnings": {
+    "message": "Uyarılar"
+  },
+  "greeting": {
+    "message": "Hey!"
+  },
+  "intro_check": {
+    "message": "Yer imlerinin kontrol edilmesi, seçilen moda, yer imlerinin sayısına ve İnternet hızına bağlı olarak birkaç dakika sürebilir. Bozuk yer imlerinin kontrolü sırasında web sitelerinin yüklenmesinin belirgin şekilde yavaşlayabileceğini lütfen unutmayın."
+  },
+  "mode_broken_bookmarks": {
+    "message": "bozuk yer imleri"
+  },
+  "mode_duplicates": {
+    "message": "çiftler"
+  },
+  "mode_empty_names": {
+    "message": "eksik yer imi adları"
+  },
+  "no_marked_bookmarks": {
+    "message": "Tüm yer imleri iyi durumda!"
+  },
+  "no_marked_bookmarks_title": {
+    "message": "Yay!"
+  },
+  "omnibox_command_check_duplicates": {
+    "message": "Çiftl yer imlerini bul"
+  },
+  "omnibox_command_check_empty_names": {
+    "message": "Adı olmayan yer imlerini bul"
+  },
+  "omnibox_command_check_errors": {
+    "message": "Erişilemeyen yer imlerini bul"
+  },
+  "omnibox_command_check_organizer": {
+    "message": "Bookmarks Organizer'ı aç"
+  },
+  "omnibox_command_check_redirects": {
+      "message": "Yönlendirme yapan yer imlerini bulun"
+  },
+  "omnibox_default_description": {
+    "message": "Tüm yer imlerinizi hatalar, yönlendirmeler, kopyalar vs. için kontrol edin"
+  },
+  "option_debug_mode": {
+    "message": "Hata ayıklama çıktısını etkinleştir"
+  },
+  "option_disable_confirmations": {
+    "message": "Onay mesajlarını devre dışı bırak (önerilmez)"
+  },
+  "save_bookmark": {
+    "message": "Kaydet"
+  },
+  "search_label": {
+    "message" : "Sonuçları filtrelemek için isim veya URL yazınız..."
+  },
+  "some_marked_bookmarks": {
+    "message": "Görünüşe göre burayı biraz temizleyebiliriz!"
+  },
+  "some_marked_bookmarks_title": {
+    "message": "Hey!"
+  },
+  "start_message": {
+    "message" : "Buradan başla..."
+  },
+  "status_checked": {
+    "message" : "Kontrol edildi"
+  },
+  "status_errors": {
+    "message" : "Hatalar"
+  },
+  "status_total": {
+    "message" : "Yer imi sayısı"
+  },
+  "status_warnings": {
+    "message" : "Uyarılar"
+  },
+  "whitelist_reset_confirmation_msg": {
+    "message" : "Beyaz listeyi gerçekten sıfırlamak istiyor musunuz?"
+  }
+}
