@@ -23,6 +23,7 @@
 - added Italian translation (Thanks, MichelePezza!)
 - added Japanese translation (Thanks, dlwe!)
 - added Brazilian Portuguese translation (Thanks, pmichelazzo!)
+- added Turkish translation (Thanks, coffeemesh!)
 - updated Swedish translation (Thanks, iwconfig!)
 
 #### Dependencies
