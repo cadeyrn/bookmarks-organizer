@@ -23,7 +23,7 @@
   "devDependencies": {
     "eslint": "8.31.0",
     "eslint-plugin-compat": "4.0.2",
-    "eslint-plugin-no-unsanitized": "4.0.1",
+    "eslint-plugin-no-unsanitized": "4.0.2",
     "eslint-plugin-promise": "6.0.0",
     "eslint-plugin-sort-requires": "2.1.0",
     "eslint-plugin-xss": "0.1.11",

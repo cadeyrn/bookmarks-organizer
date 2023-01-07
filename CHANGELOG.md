@@ -31,7 +31,7 @@
 - replaced gulp-eslint 6.0.0 with gulp-eslint-new 1.3.0
 - updated eslint from version 5.12.1 to 8.31.0 and updated configuration
 - updated eslint-plugin-compat from version 2.6.3 to 4.0.2
-- updated eslint-plugin-no-unsanitized from version 3.0.2 to 4.0.1
+- updated eslint-plugin-no-unsanitized from version 3.0.2 to 4.0.2
 - updated eslint-plugin-promise from version 4.0.1 to 6.0.0
 - updated eslint-plugin-xss from version 0.1.9 to 0.1.11
 - updated gulp from version 4.0.0 to 4.0.2
