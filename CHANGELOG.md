@@ -39,7 +39,7 @@
 - updated gulp-jsdoc3 from version 2.0.0 to 3.0.0
 - updated gulp-stylelint from version 8.0.0 to 13.0.0
 - updated htmllint from version 0.7.3 to 0.8.0 and updated configuration
-- updated jsdoc from version 3.5.5 to 3.6.10
+- updated jsdoc from version 3.5.5 to 4.0.0
 - updated stylelint from version 9.10.1 to 14.6.1 and updated configuration
 - updated stylelint-csstree-validator from version 1.3.0 to 2.0.0
 - updated stylelint-order from version 2.0.0 to 6.0.1
