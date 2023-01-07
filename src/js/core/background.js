@@ -967,14 +967,17 @@ const bookmarksorganizer = {
 browser.bookmarks.onCreated.addListener(bookmarksorganizer.onBookmarkCreated);
 browser.bookmarks.onChanged.addListener(bookmarksorganizer.onBookmarkChanged);
 browser.bookmarks.onRemoved.addListener(bookmarksorganizer.onBookmarkRemoved);
-browser.browserAction.onClicked.addListener(bookmarksorganizer.openUserInterface);
+browser.action.onClicked.addListener(bookmarksorganizer.openUserInterface);
 browser.omnibox.onInputChanged.addListener(bookmarksorganizer.showOmniboxSuggestions);
 browser.omnibox.onInputEntered.addListener(bookmarksorganizer.callOmniboxAction);
 browser.omnibox.setDefaultSuggestion({ description : browser.i18n.getMessage('omnibox_default_description') });
 browser.runtime.onMessage.addListener(bookmarksorganizer.handleResponse);
 
-browser.menus.create({
-  title : browser.i18n.getMessage('omnibox_command_check_organizer'),
-  contexts : ['tools_menu'],
-  command : '_execute_browser_action'
+browser.runtime.onInstalled.addListener(() => {
+  browser.menus.create({
+    id : 'bmo-tools-menu-entry',
+    title : browser.i18n.getMessage('omnibox_command_check_organizer'),
+    contexts : ['tools_menu'],
+    command : '_execute_action'
+  });
 });

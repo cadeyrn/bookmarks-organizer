@@ -2,6 +2,8 @@
 
 #### Notable Changes
 
+- Bookmarks Organizer now uses Manifest v3, fixes
+  [#181](https://github.com/cadeyrn/bookmarks-organizer/issues/181)
 - bumped the minimum required Firefox version to Firefox 109, fixes
   [#170](https://github.com/cadeyrn/bookmarks-organizer/issues/170)
 - the loading spinner no longer appears if the UI takes less than 500ms to be ready, fixes
