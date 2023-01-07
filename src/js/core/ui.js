@@ -2,6 +2,7 @@
 
 /* global STATUS */
 
+const DELAY_SPINNER_TIMEOUT = 500;
 const HEADER_SWITCH_POSITION = 100;
 const MIN_PROGRESS = 0.01;
 
@@ -208,6 +209,11 @@ const ui = {
         elHint.classList.add('hidden');
       }
     };
+
+    setTimeout(() => {
+      elMask.classList.remove('hidden');
+      elSpinner.classList.remove('hidden');
+    }, DELAY_SPINNER_TIMEOUT);
   },
 
   /**
