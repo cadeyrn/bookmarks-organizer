@@ -35,6 +35,7 @@
 - updated eslint-plugin-promise from version 4.0.1 to 6.0.0
 - updated eslint-plugin-xss from version 0.1.9 to 0.1.12
 - updated gulp from version 4.0.0 to 4.0.2
+- updated gulp-eslint-new from version 1.3.0 to 1.7.1
 - updated gulp-htmllint from version 0.0.16 to 0.0.19
 - updated gulp-jsdoc3 from version 2.0.0 to 3.0.0
 - updated gulp-stylelint from version 8.0.0 to 13.0.0
