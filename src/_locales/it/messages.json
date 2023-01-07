@@ -119,6 +119,15 @@
   "option_disable_confirmations": {
     "message": "Disabilita i messaggi di conferma (non consigliato)"
   },
+  "permission_description": {
+    "message": "In order for the check for broken bookmarks to work, it is technically necessary to grant permission to access the data for all websites."
+  },
+  "permission_grant_button": {
+    "message": "Grant permission"
+  },
+  "permission_needed": {
+    "message": "Permission required"
+  },
   "save_bookmark": {
     "message": "Salva"
   },

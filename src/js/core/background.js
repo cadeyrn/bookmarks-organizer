@@ -157,6 +157,36 @@ const bookmarksorganizer = {
   ],
 
   /**
+   * Fired when the permission to access all website data is granted.
+   *
+   * @param {permissions.Permissions} permissions - collection of granted permissions
+   *
+   * @returns {void}
+   */
+  onPermissionGranted (permissions) {
+    if (permissions.origins.includes('<all_urls>')) {
+      browser.runtime.sendMessage({
+        message : 'permission-granted'
+      });
+    }
+  },
+
+  /**
+   * Fired when the permission to access all website data is revoked.
+   *
+   * @param {permissions.Permissions} permissions - collection of revoked permissions
+   *
+   * @returns {void}
+   */
+  onPermissionRevoked (permissions) {
+    if (permissions.origins.includes('<all_urls>')) {
+      browser.runtime.sendMessage({
+        message : 'permission-revoked'
+      });
+    }
+  },
+
+  /**
    * Fired when a bookmark or a bookmark folder is created.
    *
    * @param {int} id - id of the bookmark that was created
@@ -324,7 +354,14 @@ const bookmarksorganizer = {
    * @returns {void}
    */
   async handleResponse (response) {
-    if (response.message === 'count') {
+    if (response.message === 'check-permission') {
+      const granted = await browser.permissions.contains({ origins : ['<all_urls>'] });
+
+      browser.runtime.sendMessage({
+        message : granted ? 'permission-granted' : 'permission-revoked'
+      });
+    }
+    else if (response.message === 'count') {
       bookmarksorganizer.initBookmarkCount();
     }
     else if (response.message === 'execute') {
@@ -964,6 +1001,8 @@ const bookmarksorganizer = {
   }
 };
 
+browser.permissions.onAdded.addListener(bookmarksorganizer.onPermissionGranted);
+browser.permissions.onRemoved.addListener(bookmarksorganizer.onPermissionRevoked);
 browser.bookmarks.onCreated.addListener(bookmarksorganizer.onBookmarkCreated);
 browser.bookmarks.onChanged.addListener(bookmarksorganizer.onBookmarkChanged);
 browser.bookmarks.onRemoved.addListener(bookmarksorganizer.onBookmarkRemoved);

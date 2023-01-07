@@ -22,6 +22,8 @@ const elHeaderWrapper = document.getElementById('header-wrapper');
 const elHint = document.getElementById('hint');
 const elMask = document.getElementById('mask');
 const elMode = document.getElementById('mode');
+const elPermissionContainer = document.getElementById('permission-container');
+const elPermissionGrantButton = document.getElementById('permission-grant-button');
 const elProgress = document.getElementById('progress');
 const elRepairAllRedirects = document.getElementById('repair-all-redirects');
 const elResults = document.getElementById('results');
@@ -106,14 +108,47 @@ const ui = {
   showDebugOutput : false,
 
   /**
-   * Fired when the initial HTML document has been completely loaded and parsed. Counts the bookmarks and initializes
-   * the UI script.
+   * boolean, indicates whether the the permission to access all website data is granted or not
+   *
+   * @type {boolean}
+   */
+  hasPermission : false,
+
+  /**
+   * Fired when the initial HTML document has been completely loaded and parsed. Checks the permission to access all
+   * website data, counts the bookmarks and initializes the UI script.
    *
    * @returns {void}
    */
-  init () {
+  async init () {
+    await ui.setupPermission();
+
     browser.runtime.sendMessage({ message : 'count' });
     ui.uiscript();
+  },
+
+  /**
+   * Checks the permission to access all website data and adds the grant permission button listener.
+   *
+   * @returns {void}
+   */
+  setupPermission () {
+    browser.runtime.sendMessage({
+      message : 'check-permission'
+    });
+
+    elPermissionGrantButton.onclick = async (e) => {
+      e.preventDefault();
+
+      const granted = await browser.permissions.request({
+        origins : ['<all_urls>']
+      });
+
+      if (granted) {
+        elPermissionContainer.classList.add('hidden');
+        elButton.disabled = false;
+      }
+    };
   },
 
   /**
@@ -251,7 +286,20 @@ const ui = {
    * @returns {void}
    */
   handleResponse (response) {
-    if (response.message === 'started') {
+    if (response.message === 'permission-granted') {
+      ui.hasPermission = true;
+      elButton.disabled = false;
+      elPermissionContainer.classList.add('hidden');
+    }
+    else if (response.message === 'permission-revoked') {
+      ui.hasPermission = false;
+      elButton.disabled = true;
+
+      if (elResultWrapper.classList.contains('hidden')) {
+        elPermissionContainer.classList.remove('hidden');
+      }
+    }
+    else if (response.message === 'started') {
       elMask.classList.remove('is-hidden');
       elMask.classList.add('active-check');
       elSpinner.classList.add('active-check');
@@ -285,7 +333,7 @@ const ui = {
         elHint.classList.add('success');
         elHint.classList.remove('hidden');
       }
-      else {
+      else if (ui.hasPermission) {
         elButton.disabled = false;
       }
     }

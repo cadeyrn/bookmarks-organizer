@@ -119,6 +119,15 @@
   "option_disable_confirmations": {
     "message": "Bestätigungs-Hinweise deaktivieren (nicht empfohlen)"
   },
+  "permission_description": {
+    "message": "Damit die Prüfung auf defekte Lesezeichen funktionieren kann, ist es technisch erforderlich, die Berechtigung zum Zugriff auf die Daten für alle Websites zu erteilen."
+  },
+  "permission_grant_button": {
+    "message": "Berechtigung erteilen"
+  },
+  "permission_needed": {
+    "message": "Berechtigung erforderlich"
+  },
   "save_bookmark": {
     "message": "Speichern"
   },

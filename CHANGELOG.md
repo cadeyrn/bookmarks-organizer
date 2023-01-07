@@ -4,6 +4,9 @@
 
 - Bookmarks Organizer now uses Manifest v3, fixes
   [#181](https://github.com/cadeyrn/bookmarks-organizer/issues/181)
+- Bookmarks Organizer now asks for permission to access all website data on the start screen if permission is not
+  granted. It also reacts to changes via the add-on manager. That permission is needed to check for broken bookmarks,
+  fixes [#190](https://github.com/cadeyrn/bookmarks-organizer/issues/190)
 - bumped the minimum required Firefox version to Firefox 109, fixes
   [#170](https://github.com/cadeyrn/bookmarks-organizer/issues/170)
 - the loading spinner no longer appears if the UI takes less than 500ms to be ready, fixes
