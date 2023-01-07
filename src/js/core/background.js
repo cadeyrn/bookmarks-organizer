@@ -19,7 +19,7 @@ const bookmarksorganizer = {
   LIMIT : 0,
 
   /**
-   * Max attempts to connect to an URL. It's always 2, there is no user setting (yet).
+   * Max attempts to connect to a URL. It's always 2, there is no user setting (yet).
    *
    * @type {int}
    */
