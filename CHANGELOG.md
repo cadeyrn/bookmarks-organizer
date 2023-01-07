@@ -3,7 +3,7 @@
 #### Notable Changes
 
 - bumped the minimum required Firefox version to Firefox 109, fixes
-  [#109](https://github.com/cadeyrn/bookmarks-organizer/issues/170)
+  [#170](https://github.com/cadeyrn/bookmarks-organizer/issues/170)
 - removed input.mozilla.org and testpilot.firefox.com from internal skip list because these domains are no longer part
   of extensions.webextensions.restrictedDomains, fixes [#173](https://github.com/cadeyrn/bookmarks-organizer/issues/173)
 - removed the outline from input fields because we have our own focus design, fixes
