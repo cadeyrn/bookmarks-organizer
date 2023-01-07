@@ -42,7 +42,7 @@
 - updated jsdoc from version 3.5.5 to 3.6.10
 - updated stylelint from version 9.10.1 to 14.6.1 and updated configuration
 - updated stylelint-csstree-validator from version 1.3.0 to 2.0.0
-- updated stylelint-order from version 2.0.0 to 5.0.0
+- updated stylelint-order from version 2.0.0 to 6.0.1
 - updated web-ext from version 2.9.3 to 6.7.0
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.1.0...master)
