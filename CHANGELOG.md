@@ -4,6 +4,8 @@
 
 - bumped the minimum required Firefox version to Firefox 109, fixes
   [#170](https://github.com/cadeyrn/bookmarks-organizer/issues/170)
+- the loading spinner no longer appears if the UI takes less than 500ms to be ready, fixes
+  [#189](https://github.com/cadeyrn/bookmarks-organizer/issues/189)
 - removed input.mozilla.org and testpilot.firefox.com from internal skip list because these domains are no longer part
   of extensions.webextensions.restrictedDomains, fixes [#173](https://github.com/cadeyrn/bookmarks-organizer/issues/173)
 - removed the outline from input fields because we have our own focus design, fixes
