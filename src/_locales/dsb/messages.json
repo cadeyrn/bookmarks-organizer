@@ -120,13 +120,13 @@
     "message": "Wobkšuśeńske pokazki znjemóžniś (njepśirázijo se)"
   },
   "permission_description": {
-    "message": "In order for the check for broken bookmarks to work, it is technically necessary to grant permission to access the data for all websites."
+    "message": "Aby mógło pśeglědanje za defektnymi cytańskimi znamjenjami funkcioněrowaś, jo techniski trjeba, pšawo za pśistup k datam za wšykne websedła daś."
   },
   "permission_grant_button": {
-    "message": "Grant permission"
+    "message": "Pšawo daś"
   },
   "permission_needed": {
-    "message": "Permission required"
+    "message": "Pšawo trjebne"
   },
   "save_bookmark": {
     "message": "Składowaś"

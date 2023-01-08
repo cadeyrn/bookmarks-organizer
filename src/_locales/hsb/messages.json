@@ -120,13 +120,13 @@
     "message": "Wobkrućenske pokazki znjemóžnić (njeporuča so)"
   },
   "permission_description": {
-    "message": "In order for the check for broken bookmarks to work, it is technically necessary to grant permission to access the data for all websites."
+    "message": "Zo by móhło pruwowanje za defektnymi zapołožkami fungować, je technisce trjeba, prawo za přistup k datam za wšě websydła dać."
   },
   "permission_grant_button": {
-    "message": "Grant permission"
+    "message": "Prawo dać"
   },
   "permission_needed": {
-    "message": "Permission required"
+    "message": "Prawo trěbne"
   },
   "save_bookmark": {
     "message": "Składować"
