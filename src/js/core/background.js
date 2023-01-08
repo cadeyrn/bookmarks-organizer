@@ -166,7 +166,8 @@ const bookmarksorganizer = {
   onPermissionGranted (permissions) {
     if (permissions.origins.includes('<all_urls>')) {
       browser.runtime.sendMessage({
-        message : 'permission-granted'
+        message : 'permission-granted',
+        has_bookmarks : bookmarksorganizer.totalBookmarks > 0
       });
     }
   },

@@ -140,14 +140,13 @@ const ui = {
     elPermissionGrantButton.onclick = async (e) => {
       e.preventDefault();
 
-      const granted = await browser.permissions.request({
+      await browser.permissions.request({
         origins : ['<all_urls>']
       });
 
-      if (granted) {
-        elPermissionContainer.classList.add('hidden');
-        elButton.disabled = false;
-      }
+      browser.runtime.sendMessage({
+        message : 'check-permission'
+      });
     };
   },
 
@@ -288,8 +287,11 @@ const ui = {
   handleResponse (response) {
     if (response.message === 'permission-granted') {
       ui.hasPermission = true;
-      elButton.disabled = false;
       elPermissionContainer.classList.add('hidden');
+
+      if (response.has_bookmarks) {
+        elButton.disabled = false;
+      }
     }
     else if (response.message === 'permission-revoked') {
       ui.hasPermission = false;
@@ -332,13 +334,15 @@ const ui = {
         elHint.getElementsByClassName('content')[0].textContent = browser.i18n.getMessage('no_marked_bookmarks');
         elHint.classList.add('success');
         elHint.classList.remove('hidden');
+        elButton.disabled = true;
       }
-      else if (ui.hasPermission) {
+      else if (ui.hasPermission && response.total_bookmarks > 0) {
         elButton.disabled = false;
       }
     }
     else if (response.message === 'total-bookmarks-changed') {
       elTotalBookmarks.textContent = response.total_bookmarks;
+      elButton.disabled = !ui.hasPermission || response.total_bookmarks === 0;
     }
     else if (response.message === 'update-counters') {
       elTotalBookmarks.textContent = response.total_bookmarks;
