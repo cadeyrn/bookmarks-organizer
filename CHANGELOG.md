@@ -24,6 +24,8 @@
 
 - If a bookmarks folder with more than one bookmark was removed the counter of the Bookmarks Organizer only decreased
   by one, fixes [#192](https://github.com/cadeyrn/bookmarks-organizer/issues/192)
+- If a bookmark was added while a check for broken bookmarks was already in progress the check never finished, fixes
+  [#112](https://github.com/cadeyrn/bookmarks-organizer/issues/112)
 
 #### Code Quality
 

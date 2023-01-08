@@ -132,6 +132,20 @@ const bookmarksorganizer = {
   debug : [],
 
   /**
+   * State variable, contains the currently selected mode (broken-bookmarks, duplicates, empty-names).
+   *
+   * @type {string}
+   */
+  mode : 'broken-bookmarks',
+
+  /**
+   * State variable, contains the currently selected type (all, errors, warnings).
+   *
+   * @type {string}
+   */
+  type : 'all',
+
+  /**
    * An array of url patterns which should be ignored while checking for broken bookmarks. Please only add patterns
    * if there are known problems and add a comment with the GitHub issue.
    *
@@ -198,6 +212,11 @@ const bookmarksorganizer = {
    */
   onBookmarkCreated (id, bookmark) {
     bookmarksorganizer.collectAllBookmarks(bookmark, true);
+
+    // execute check if a bookmarks check is already in progress
+    if (bookmarksorganizer.inProgress) {
+      bookmarksorganizer.checkForBrokenBookmark(bookmark, bookmarksorganizer.mode, bookmarksorganizer.type);
+    }
   },
 
   /**
@@ -455,6 +474,8 @@ const bookmarksorganizer = {
     bookmarksorganizer.bookmarksResult = [];
     bookmarksorganizer.additionalData = [];
     bookmarksorganizer.debug = [];
+    bookmarksorganizer.mode = mode;
+    bookmarksorganizer.type = type;
 
     browser.runtime.sendMessage({ message : 'started' });
 
