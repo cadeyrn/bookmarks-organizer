@@ -120,13 +120,13 @@
     "message": "Wyłącz komunikaty potwierdzeń (nie zalecane)"
   },
   "permission_description": {
-    "message": "In order for the check for broken bookmarks to work, it is technically necessary to grant permission to access the data for all websites."
+    "message": "Aby sprawdzanie uszkodzonych zakładek mogło działać, konieczne jest przyznanie uprawnień na dostęp do danych z wszystkich stron internetowych."
   },
   "permission_grant_button": {
-    "message": "Grant permission"
+    "message": "Przyznaj uprawnienia"
   },
   "permission_needed": {
-    "message": "Permission required"
+    "message": "Wymagane uprawnienia"
   },
   "save_bookmark": {
     "message": "Zapisz"
