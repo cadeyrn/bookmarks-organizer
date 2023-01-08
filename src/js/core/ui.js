@@ -38,6 +38,13 @@ const elTotalBookmarks = document.getElementById('total-bookmarks');
  */
 const ui = {
   /**
+   * State variable, contains the currently selected mode.
+   *
+   * @type {string}
+   */
+  mode : 'broken-bookmarks',
+
+  /**
    * Disables confirmation messages. It defaults to false and can be changed in the add-on's settings.
    *
    * @type {boolean}
@@ -263,6 +270,20 @@ const ui = {
   },
 
   /**
+   * Fired when the bookmarks check mode is changed.
+   *
+   * @returns {void}
+   */
+  onModeChange () {
+    ui.mode = this.value;
+
+    // check for permission, the resulting event will take care of necessary UI changes
+    browser.runtime.sendMessage({
+      message : 'check-permission'
+    });
+  },
+
+  /**
    * Fired when the button for starting a bookmark check is clicked.
    *
    * @param {MouseEvent} e - event
@@ -289,16 +310,26 @@ const ui = {
       ui.hasPermission = true;
       elPermissionContainer.classList.add('hidden');
 
-      if (response.has_bookmarks) {
+      if (ui.mode !== 'broken-bookmarks' && response.has_bookmarks) {
         elButton.disabled = false;
       }
     }
     else if (response.message === 'permission-revoked') {
       ui.hasPermission = false;
-      elButton.disabled = true;
 
-      if (elResultWrapper.classList.contains('hidden')) {
-        elPermissionContainer.classList.remove('hidden');
+      if (ui.mode === 'broken-bookmarks') {
+        elButton.disabled = true;
+
+        if (elResultWrapper.classList.contains('hidden')) {
+          elPermissionContainer.classList.remove('hidden');
+        }
+      }
+      else {
+        elPermissionContainer.classList.add('hidden');
+
+        if (response.has_bookmarks) {
+          elButton.disabled = false;
+        }
       }
     }
     else if (response.message === 'started') {
@@ -336,13 +367,13 @@ const ui = {
         elHint.classList.remove('hidden');
         elButton.disabled = true;
       }
-      else if (ui.hasPermission && response.total_bookmarks > 0) {
+      else if (ui.hasPermission || ui.mode !== 'broken-bookmarks') {
         elButton.disabled = false;
       }
     }
     else if (response.message === 'total-bookmarks-changed') {
       elTotalBookmarks.textContent = response.total_bookmarks;
-      elButton.disabled = !ui.hasPermission || response.total_bookmarks === 0;
+      elButton.disabled = (ui.mode === 'broken-bookmarks' && !ui.hasPermission) || response.total_bookmarks === 0;
     }
     else if (response.message === 'update-counters') {
       elTotalBookmarks.textContent = response.total_bookmarks;
@@ -458,6 +489,7 @@ const ui = {
     elSearch.focus();
 
     if (ui.showNoResultsMessage) {
+      elResultWrapper.classList.add('hidden');
       elHint.getElementsByClassName('notice')[0].textContent = browser.i18n.getMessage('no_marked_bookmarks_title');
       elHint.getElementsByClassName('content')[0].textContent = browser.i18n.getMessage('no_marked_bookmarks');
       elHint.classList.add('success');
@@ -1087,6 +1119,7 @@ const ui = {
 
 document.addEventListener('DOMContentLoaded', ui.init);
 
+elMode.addEventListener('change', ui.onModeChange);
 elButton.addEventListener('click', ui.execute);
 elBody.addEventListener('click', ui.handleActionButtonClicks);
 elFox.addEventListener('click', ui.handleFoxMessageClick);

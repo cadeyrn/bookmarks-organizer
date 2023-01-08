@@ -182,7 +182,8 @@ const bookmarksorganizer = {
   onPermissionRevoked (permissions) {
     if (permissions.origins.includes('<all_urls>')) {
       browser.runtime.sendMessage({
-        message : 'permission-revoked'
+        message : 'permission-revoked',
+        has_bookmarks : bookmarksorganizer.totalBookmarks > 0
       });
     }
   },
@@ -357,9 +358,11 @@ const bookmarksorganizer = {
   async handleResponse (response) {
     if (response.message === 'check-permission') {
       const granted = await browser.permissions.contains({ origins : ['<all_urls>'] });
+      await bookmarksorganizer.initBookmarkCount();
 
       browser.runtime.sendMessage({
-        message : granted ? 'permission-granted' : 'permission-revoked'
+        message : granted ? 'permission-granted' : 'permission-revoked',
+        has_bookmarks : bookmarksorganizer.totalBookmarks > 0
       });
     }
     else if (response.message === 'count') {
