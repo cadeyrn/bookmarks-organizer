@@ -310,7 +310,7 @@ const ui = {
       ui.hasPermission = true;
       elPermissionContainer.classList.add('hidden');
 
-      if (ui.mode !== 'broken-bookmarks' && response.has_bookmarks) {
+      if (response.has_bookmarks) {
         elButton.disabled = false;
       }
     }
