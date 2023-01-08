@@ -365,6 +365,12 @@ const bookmarksorganizer = {
       bookmarksorganizer.initBookmarkCount();
     }
     else if (response.message === 'execute') {
+      // reset internal state since background page is no longer persistent in MV3
+      if (bookmarksorganizer.totalBookmarks === 0) {
+        bookmarksorganizer.inProgress = false;
+        await bookmarksorganizer.initBookmarkCount();
+      }
+
       if (!bookmarksorganizer.inProgress) {
         bookmarksorganizer.execute(response.mode, 'all');
       }
