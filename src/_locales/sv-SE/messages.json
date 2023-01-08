@@ -120,13 +120,13 @@
     "message": "Inaktivera bekräftelsemeddelanden (rekommenderas inte)"
   },
   "permission_description": {
-    "message": "In order for the check for broken bookmarks to work, it is technically necessary to grant permission to access the data for all websites."
+    "message": "För att kontrollera trasiga bokmärken är det nödvändigt att ge behörighet att komma åt data för alla webbplatser."
   },
   "permission_grant_button": {
-    "message": "Grant permission"
+    "message": "Bevilja behörighet"
   },
   "permission_needed": {
-    "message": "Permission required"
+    "message": "Behörighet krävs"
   },
   "save_bookmark": {
     "message": "Spara"
