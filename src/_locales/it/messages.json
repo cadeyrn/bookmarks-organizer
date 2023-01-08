@@ -81,13 +81,13 @@
     "message": "La verifica dei segnalibri può richiedere diversi minuti, a seconda della modalità selezionata, del numero di segnalibri e della velocità di Internet. Si prega di notare che durante il controllo dei segnalibri non funzionanti, il caricamento dei siti Web può essere notevolmente rallentato."
   },
   "mode_broken_bookmarks": {
-    "message": "segnalibri non funzionanti"
+    "message": "Segnalibri non funzionanti"
   },
   "mode_duplicates": {
-    "message": "duplicati"
+    "message": "Duplicati"
   },
   "mode_empty_names": {
-    "message": "segnalibri con nome mancante"
+    "message": "Segnalibri con nome mancante"
   },
   "no_marked_bookmarks": {
     "message": "Tutti i segnalibri sono a posto!"

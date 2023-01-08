@@ -81,13 +81,13 @@
     "message": "Die Überprüfung der Lesezeichen kann, abhängig vom ausgewählten Modus, der Anzahl der Lesezeichen sowie der Internetgeschwindigkeit, mehrere Minuten dauern. Bitte beachte, dass während der Überprüfung auf defekte Lesezeichen das Laden von Webseiten spürbar verlangsamt sein kann."
   },
   "mode_broken_bookmarks": {
-    "message": "defekte Lesezeichen"
+    "message": "Defekte Lesezeichen"
   },
   "mode_duplicates": {
     "message": "Duplikate"
   },
   "mode_empty_names": {
-    "message": "fehlende Lesezeichen-Namen"
+    "message": "Fehlende Lesezeichen-Namen"
   },
   "no_marked_bookmarks": {
     "message": "Alle Lesezeichen sind in Ordnung!"

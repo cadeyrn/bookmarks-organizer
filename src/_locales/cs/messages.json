@@ -81,13 +81,13 @@
     "message": "Kontrola záložek může zabrat několik minut, v závislosti na vybraném režimu, počtu záložek a rychlosti internetu. Berte prosím v potaz, že v průběhu kontroly rozbitých záložek může být znatelně zpomaleno načítání webových stránek."
   },
   "mode_broken_bookmarks": {
-    "message": "rozbité záložky"
+    "message": "Rozbité záložky"
   },
   "mode_duplicates": {
     "message": "Duplikáty"
   },
   "mode_empty_names": {
-    "message": "chybějící názvy záložek"
+    "message": "Chybějící názvy záložek"
   },
   "no_marked_bookmarks": {
     "message": "Všechny záložky jsou v pořádku!"

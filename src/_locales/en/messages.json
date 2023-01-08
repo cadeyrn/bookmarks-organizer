@@ -81,13 +81,13 @@
     "message": "Checking the bookmarks may take several minutes, depending on the selected mode, the number of bookmarks and the Internet speed. Please note that during the check for broken bookmarks the loading of websites can be slowed down noticeably."
   },
   "mode_broken_bookmarks": {
-    "message": "broken bookmarks"
+    "message": "Broken bookmarks"
   },
   "mode_duplicates": {
-    "message": "duplicates"
+    "message": "Duplicates"
   },
   "mode_empty_names": {
-    "message": "missing bookmark names"
+    "message": "Missing bookmark names"
   },
   "no_marked_bookmarks": {
     "message": "All bookmarks are fine!"

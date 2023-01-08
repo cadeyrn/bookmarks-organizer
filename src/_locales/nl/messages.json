@@ -81,13 +81,13 @@
     "message": "Het controleren van de bladwijzers kan enkele minuten duren, afhankelijk van de geselecteerde modus, het aantal bladwijzers, en de internetsnelheid. Houd er rekening mee dat het laden van websites tijdens de controle op defecte bladwijzers merkbaar kan worden vertraagd."
   },
   "mode_broken_bookmarks": {
-    "message": "defecte bladwijzers"
+    "message": "Defecte bladwijzers"
   },
   "mode_duplicates": {
-    "message": "duplicaten"
+    "message": "Duplicaten"
   },
   "mode_empty_names": {
-    "message": "ontbrekende bladwijzernamen"
+    "message": "Ontbrekende bladwijzernamen"
   },
   "no_marked_bookmarks": {
     "message": "Alle bladwijzers zijn in orde!"

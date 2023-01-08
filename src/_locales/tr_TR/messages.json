@@ -81,13 +81,13 @@
     "message": "Yer imlerinin kontrol edilmesi, seçilen moda, yer imlerinin sayısına ve İnternet hızına bağlı olarak birkaç dakika sürebilir. Bozuk yer imlerinin kontrolü sırasında web sitelerinin yüklenmesinin belirgin şekilde yavaşlayabileceğini lütfen unutmayın."
   },
   "mode_broken_bookmarks": {
-    "message": "bozuk yer imleri"
+    "message": "Bozuk yer imleri"
   },
   "mode_duplicates": {
-    "message": "çiftler"
+    "message": "Çiftler"
   },
   "mode_empty_names": {
-    "message": "eksik yer imi adları"
+    "message": "Eksik yer imi adları"
   },
   "no_marked_bookmarks": {
     "message": "Tüm yer imleri iyi durumda!"
