@@ -233,10 +233,12 @@ const bookmarksorganizer = {
    *
    * @returns {void}
    */
-  onBookmarkRemoved (id) {
+  async onBookmarkRemoved (id) {
+    await bookmarksorganizer.initBookmarkCount();
+
     browser.runtime.sendMessage({
       message : 'total-bookmarks-changed',
-      total_bookmarks : --bookmarksorganizer.totalBookmarks
+      total_bookmarks : bookmarksorganizer.totalBookmarks
     });
 
     // remove bookmark from array with all bookmarks
@@ -710,7 +712,7 @@ const bookmarksorganizer = {
    *
    * @returns {void}
    */
-  collectAllBookmarks (bookmark, updateCounter) {
+  async collectAllBookmarks (bookmark, updateCounter) {
     if (bookmarksorganizer.LIMIT > 0 && bookmarksorganizer.totalBookmarks === bookmarksorganizer.LIMIT) {
       return;
     }
@@ -726,6 +728,8 @@ const bookmarksorganizer = {
     }
 
     if (updateCounter) {
+      await bookmarksorganizer.initBookmarkCount();
+
       browser.runtime.sendMessage({
         message : 'total-bookmarks-changed',
         total_bookmarks : bookmarksorganizer.totalBookmarks
