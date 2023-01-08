@@ -2,7 +2,7 @@
 
 #### Notable Changes
 
-- Bookmarks Organizer now uses Manifest v3, fixes
+- **Bookmarks Organizer now uses Manifest v3**, fixes
   [#181](https://github.com/cadeyrn/bookmarks-organizer/issues/181)
 - Bookmarks Organizer now asks for permission to access all website data on the start screen if permission is not
   granted. It also reacts to changes via the add-on manager. That permission is needed to check for broken bookmarks,
