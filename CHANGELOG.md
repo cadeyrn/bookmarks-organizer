@@ -4,14 +4,15 @@
 
 - **Bookmarks Organizer now uses Manifest v3**, fixes
   [#181](https://github.com/cadeyrn/bookmarks-organizer/issues/181)
-- Bookmarks Organizer now asks for permission to access all website data on the start screen if permission is not
-  granted. It also reacts to changes via the add-on manager. That permission is needed to check for broken bookmarks,
-  fixes [#190](https://github.com/cadeyrn/bookmarks-organizer/issues/190)
+- **Bookmarks Organizer now asks at runtime for permission** to access all website data if permission is not granted.
+  The permission is technically needed to check for broken bookmarks. Therefore, the permission is no longer
+  needed for installation as well as not for using the other modes. Bookmarks Organizer also reacts to permission
+  changes via the add-ons manager, fixes [#190](https://github.com/cadeyrn/bookmarks-organizer/issues/190)
 - bumped the minimum required Firefox version to Firefox 109, fixes
   [#170](https://github.com/cadeyrn/bookmarks-organizer/issues/170)
-- the loading spinner no longer appears if the UI takes less than 500ms to be ready, fixes
+- the loading animation no longer appears if the Bookmarks Organizer takes less than 500ms to be ready, fixes
   [#189](https://github.com/cadeyrn/bookmarks-organizer/issues/189)
-- the button to check for broken bookmarks should be disabled if there are no bookmarks, fixes
+- the button to check for broken bookmarks is now disabled if there are no bookmarks, fixes
   [#191](https://github.com/cadeyrn/bookmarks-organizer/issues/191)
 - removed input.mozilla.org and testpilot.firefox.com from internal skip list because these domains are no longer part
   of extensions.webextensions.restrictedDomains, fixes [#173](https://github.com/cadeyrn/bookmarks-organizer/issues/173)
