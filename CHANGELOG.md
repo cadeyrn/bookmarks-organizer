@@ -19,6 +19,11 @@
   [#175](https://github.com/cadeyrn/bookmarks-organizer/issues/175)
 - changed copyright year from 2019 to 2023, fixes [#169](https://github.com/cadeyrn/bookmarks-organizer/issues/169)
 
+#### Bugfixes
+
+- If a bookmarks folder with more than one bookmark was removed the counter of the Bookmarks Organizer only decreased
+  by one, fixes [#192](https://github.com/cadeyrn/bookmarks-organizer/issues/192)
+
 #### Code Quality
 
 - replaced the translation mechanism with the newest version to share more code with other extensions and improve the
