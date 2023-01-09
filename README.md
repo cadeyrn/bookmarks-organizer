@@ -113,7 +113,7 @@ interface.
 
 ##### storage
 
-The storage permission is needed so that Bookmarks Organizer can store settings and (in the future) bookmark exceptions.
+The storage permission is needed so that Bookmarks Organizer can store settings and exceptions.
 
 ## Download
 
