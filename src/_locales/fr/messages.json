@@ -120,7 +120,7 @@
     "message": "Désactiver les messages de confirmation (déconseillé)"
   },
   "permission_description": {
-    "message": "Pour pouvoir effectuer le contrôle des marque-pages cassés, il est techniquement nécessaire d\'accorder la permission d\'accéder aux données de tous les sites web."
+    "message": "Pour pouvoir effectuer le contrôle des marque-pages cassés, il est techniquement nécessaire d'accorder la permission d'accéder aux données de tous les sites web."
   },
   "permission_grant_button": {
     "message": "Accorder la permission"
