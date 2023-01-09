@@ -34,6 +34,8 @@
 - removed code for Firefox below version 61, fixes [#172](https://github.com/cadeyrn/bookmarks-organizer/issues/172)
 - replaced deprecated method call, fixes [#168](https://github.com/cadeyrn/bookmarks-organizer/issues/168)
 - fixed some code style issues and typos, fixes [#171](https://github.com/cadeyrn/bookmarks-organizer/issues/171)
+- removed -moz- vendor prefixes in CSS code where possible, fixes
+  [#198](https://github.com/cadeyrn/bookmarks-organizer/issues/198)
 
 #### Translations
 
