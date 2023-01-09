@@ -2,6 +2,11 @@
 
 <img src="src/images/logo-large.png" alt="Logo" width="400" border="0" />
 
+## Support the development
+
+**Please consider making [a donation](https://www.paypal.com/paypalme2/agenedia/) to support the further development of
+Enterprise Policy Generator. Thank you very much!**
+
 ## Description
 
 With the Bookmarks Organizer, it's easy to put order in your bookmarks. The Bookmarks Organizer finds no longer working
@@ -34,12 +39,8 @@ It is also possible to start individual tests directly via the address bar:
 
 ### Planned features
 
-There are already some features planned for the future.
-
-- Features for bookmark folders, including empty folders
-- & more…
-
-Please suggest your feature requests in the [issues tracker](https://github.com/cadeyrn/bookmarks-organizer/issues).
+You can find the roadmap and request new features in the
+[issues tracker](https://github.com/cadeyrn/bookmarks-organizer/issues).
 
 ### Languages
 
@@ -81,11 +82,6 @@ Bookmarks Organizer needs several permissions to work properly. To give you full
 
 Bookmarks Organizer does not work without the following permissions:
 
-##### access your data for all sites
-
-The add-on checks the bookmarks by sending a request to the appropriate URLs. This cannot work without the permission
-to access these sites.
-
 ##### read and modify bookmarks
 
 You installed Bookmarks Organizer for checking and modifying broken bookmarks so it should be clear why the permission
@@ -96,6 +92,13 @@ is needed to read and modify the bookmarks.
 The permission to access the browser tabs is needed so that Bookmarks Organizer can jump to the already opened settings
 page if the settings page is already opened in another tab and you click the button to open Bookmarks Organizer's
 settings.
+
+#### optional permissions
+
+##### access your data for all sites
+
+The add-on checks the bookmarks by sending a request to the appropriate URLs. This cannot work without the permission
+to access these sites. Bookmarks Organizer asks at runtime for this permission if you want to execute this check.
 
 #### silent permissions
 
