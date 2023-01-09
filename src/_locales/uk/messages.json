@@ -120,13 +120,13 @@
     "message": "Відключити запити про підтвердження (не рекомендується)"
   },
   "permission_description": {
-    "message": "In order for the check for broken bookmarks to work, it is technically necessary to grant permission to access the data for all websites."
+    "message": "Для того, щоб перевірка на пошкоджені закладки працювала, необхідно надати дозвіл на доступ до даних для всіх сайтів."
   },
   "permission_grant_button": {
-    "message": "Grant permission"
+    "message": "Надати дозвіл"
   },
   "permission_needed": {
-    "message": "Permission required"
+    "message": "Потрібен дозвіл"
   },
   "save_bookmark": {
     "message": "Зберегти"
