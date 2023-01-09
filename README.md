@@ -12,7 +12,8 @@ Enterprise Policy Generator. Thank you very much!**
 With the Bookmarks Organizer, it's easy to put order in your bookmarks. The Bookmarks Organizer finds no longer working
 bookmarks, redirects, duplicates and more!
 
-**Bookmarks Organizer is a WebExtension and compatible with Firefox Quantum (Firefox 60 and later).**
+**Bookmarks Organizer is a WebExtension and compatible with Firefox Browser 60 and higher (Firefox Browser 109 or
+higher is required for the latest version of Bookmarks Organizer).**
 
 ### Features
 
