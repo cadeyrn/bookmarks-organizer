@@ -5,7 +5,7 @@
 ## Support the development
 
 **Please consider making [a donation](https://www.paypal.com/paypalme/agenedia/) to support the further development of
-Enterprise Policy Generator. Thank you very much!**
+Bookmarks Organizer. Thank you very much!**
 
 ## Description
 
