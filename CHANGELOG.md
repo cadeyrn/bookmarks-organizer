@@ -1,4 +1,4 @@
-### Version 4.0.0 (Work in Progress)
+### Version 4.0.0 (2023-01-10)
 
 #### Notable Changes
 
@@ -65,7 +65,8 @@
 - updated stylelint-order from version 2.0.0 to 6.0.1
 - updated web-ext from version 2.9.3 to 6.7.0
 
-[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.1.0...master)
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v3.1.0...v4.0.0)<br />
+[Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-4.0.0)
 
 ---
 
