@@ -120,13 +120,13 @@
     "message": "Desabilitar mensagens de confirmação (não recomendado)"
   },
   "permission_description": {
-    "message": "In order for the check for broken bookmarks to work, it is technically necessary to grant permission to access the data for all websites."
+    "message": "Para verificar favoritos quebrados, é tecnicamente necessário conceder permissão para acessar os dados de todos os websites."
   },
   "permission_grant_button": {
-    "message": "Grant permission"
+    "message": "Conceder permissão"
   },
   "permission_needed": {
-    "message": "Permission required"
+    "message": "Permissão obrigatória"
   },
   "save_bookmark": {
     "message": "Salvar"
