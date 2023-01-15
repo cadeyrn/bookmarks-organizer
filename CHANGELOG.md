@@ -4,6 +4,10 @@
 
 - updated Brazilian Portuguese translation (Thanks, pmichelazzo!)
 
+#### Dependencies
+
+- updated eslint from version 8.31.0 to 8.32.0
+
 ### Version 4.0.0 (2023-01-10)
 
 #### Notable Changes
