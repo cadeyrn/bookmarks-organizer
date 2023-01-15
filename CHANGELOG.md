@@ -1,3 +1,9 @@
+### Version 4.0.1 (Work in Progress)
+
+#### Translations
+
+- updated Brazilian Portuguese translation (Thanks, pmichelazzo!)
+
 ### Version 4.0.0 (2023-01-10)
 
 #### Notable Changes
