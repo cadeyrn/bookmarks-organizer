@@ -1,5 +1,11 @@
 ### Version 4.0.1 (Work in Progress)
 
+#### Bugfixes
+
+- Due to a behaviour change in Manifest v3, checking for broken bookmarks in Bookmarks Organizer 4.0 no longer worked
+  for sites that are not available through https://. This issue was fixed, fixes
+  [#201](https://github.com/cadeyrn/bookmarks-organizer/issues/201)
+
 #### Translations
 
 - updated Brazilian Portuguese translation (Thanks, pmichelazzo!)

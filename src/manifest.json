@@ -41,6 +41,9 @@
   "host_permissions": [
     "<all_urls>"
   ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self';"
+  },
   "default_locale": "en",
   "browser_specific_settings": {
     "gecko": {
