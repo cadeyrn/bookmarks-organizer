@@ -1,4 +1,4 @@
-### Version 4.0.1 (Work in Progress)
+### Version 4.0.1 (2023-01-28)
 
 #### Bugfixes
 
@@ -14,6 +14,11 @@
 
 - updated eslint from version 8.31.0 to 8.32.0
 - updated web-ext from version 7.4.0 7.5.0
+
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v4.0.0...v4.0.1)<br />
+[Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-4.0.1)
+
+---
 
 ### Version 4.0.0 (2023-01-10)
 
