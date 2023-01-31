@@ -3,22 +3,22 @@
     "message": "Bütün bozuk yer imlerini sil"
   },
   "action_repair_all_redirects": {
-    "message": "tüm yönlendirmeleri düzelt"
+    "message": "Tüm yönlendirmeleri düzelt"
   },
   "bookmark_action_add_to_whitelist": {
-    "message": "beyaz listeye ekle"
+    "message": "Beyaz listeye ekle"
   },
   "bookmark_action_edit": {
-    "message": "düzenle"
+    "message": "Düzenle"
   },
   "bookmark_action_delete": {
-    "message": "sil"
+    "message": "Sil"
   },
   "bookmark_action_repair_redirect": {
-    "message": "yönlendirmeyi düzelt"
+    "message": "Yönlendirmeyi düzelt"
   },
   "bookmark_confirmation_delete": {
-    "message": "Bu yer imlesini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+    "message": "Bu yer imini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
   },
   "bookmark_confirmation_delete_all_broken": {
     "message": "Tüm bozuk yer imlerini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
@@ -27,16 +27,16 @@
     "message": "Yeniden yönlendirilen tüm yer imlerinin URL'lerini değiştirmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
   },
   "bookmark_confirmation_repair_redirect": {
-    "message": "Bu yer iminin URL'sini değiştirmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+    "message": "Bu yer iminin URL'ini değiştirmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
   },
   "bookmark_confirmation_whitelist": {
-    "message": "Bu yer işaretinin kalıcı olarak göz ardı edilmesini istediğinizden emin misiniz?"
+    "message": "Bu yer iminin kalıcı olarak göz ardı edilmesini istediğinizden emin misiniz?"
   },
   "bookmark_name": {
     "message": "İsim"
   },
   "bookmark_no_name": {
-    "message": "İsim yok..."
+    "message": "[İSİM YOK]"
   },
   "bookmark_path": {
     "message": "Yol"
@@ -45,10 +45,10 @@
     "message": "URL"
   },
   "button_check_bookmarks": {
-    "message": "yer imlerini kontrol et..."
+    "message": "Yer imlerini kontrol et"
   },
   "button_reset_whitelist": {
-    "message": "beyaz listeyi sıfırla..."
+    "message": "Beyaz listeyi sıfırla"
   },
   "close_overlay": {
     "message": "Kapat"
@@ -78,7 +78,7 @@
     "message": "Hey!"
   },
   "intro_check": {
-    "message": "Yer imlerinin kontrol edilmesi, seçilen moda, yer imlerinin sayısına ve İnternet hızına bağlı olarak birkaç dakika sürebilir. Bozuk yer imlerinin kontrolü sırasında web sitelerinin yüklenmesinin belirgin şekilde yavaşlayabileceğini lütfen unutmayın."
+    "message": "Yer imlerinin kontrol edilmesi, seçilen mod'a, yer imlerinin sayısına ve İnternet hızına bağlı olarak birkaç dakika sürebilir. Bozuk yer imlerinin kontrolü sırasında web sitelerinin yüklenmesinin belirgin şekilde yavaşlayabileceğini lütfen unutmayın."
   },
   "mode_broken_bookmarks": {
     "message": "Bozuk yer imleri"
@@ -87,7 +87,7 @@
     "message": "Çiftler"
   },
   "mode_empty_names": {
-    "message": "Eksik yer imi adları"
+    "message": "Eksik ya da boş yer imi adları"
   },
   "no_marked_bookmarks": {
     "message": "Tüm yer imleri iyi durumda!"
@@ -96,7 +96,7 @@
     "message": "Yay!"
   },
   "omnibox_command_check_duplicates": {
-    "message": "Çiftl yer imlerini bul"
+    "message": "Çift yer imlerini bul"
   },
   "omnibox_command_check_empty_names": {
     "message": "Adı olmayan yer imlerini bul"
@@ -120,19 +120,19 @@
     "message": "Onay mesajlarını devre dışı bırak (önerilmez)"
   },
   "permission_description": {
-    "message": "In order for the check for broken bookmarks to work, it is technically necessary to grant permission to access the data for all websites."
+    "message": "Bütün bozuk yer imlerini kontrol etmek için, bütün web sayfalarına erişim izni vermeniz gerekmektedir"
   },
   "permission_grant_button": {
-    "message": "Grant permission"
+    "message": "İzin ver"
   },
   "permission_needed": {
-    "message": "Permission required"
+    "message": "İzin gerekiyor"
   },
   "save_bookmark": {
     "message": "Kaydet"
   },
   "search_label": {
-    "message" : "Sonuçları filtrelemek için isim veya URL yazınız..."
+    "message" : "Sonuçları filtrelemek için isim veya URL yazınız "
   },
   "some_marked_bookmarks": {
     "message": "Görünüşe göre burayı biraz temizleyebiliriz!"
@@ -141,7 +141,7 @@
     "message": "Hey!"
   },
   "start_message": {
-    "message" : "Buradan başla..."
+    "message" : "Buradan başla "
   },
   "status_checked": {
     "message" : "Kontrol edildi"
