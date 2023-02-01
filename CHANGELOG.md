@@ -4,6 +4,10 @@
 
 - updated Turkish translation (Thanks, r0tbra1n!)
 
+#### Dependencies
+
+- updated eslint from version 8.32.0 to 8.33.0
+
 ---
 
 ### Version 4.0.1 (2023-01-28)
