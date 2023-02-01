@@ -1,3 +1,11 @@
+### Version 4.0.2 (Work in Progress)
+
+#### Translations
+
+- updated Turkish translation (Thanks, r0tbra1n!)
+
+---
+
 ### Version 4.0.1 (2023-01-28)
 
 #### Bugfixes
