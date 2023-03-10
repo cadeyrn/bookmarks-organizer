@@ -3,7 +3,7 @@
     "message": "刪除所有失效書籤"
   },
   "action_repair_all_redirects": {
-    "message": "校正所有重新導向"
+    "message": "修正所有重新導向"
   },
   "bookmark_action_add_to_whitelist": {
     "message": "新增至白名單中"
@@ -15,19 +15,19 @@
     "message": "刪除"
   },
   "bookmark_action_repair_redirect": {
-    "message": "校正重新導向"
+    "message": "修正重新導向"
   },
   "bookmark_confirmation_delete": {
-    "message": "確定刪除此書籤？此動作無法還原！"
+    "message": "確定要刪除此書籤？此動作無法還原！"
   },
   "bookmark_confirmation_delete_all_broken": {
-    "message": "確定刪除所有失效書籤？此動作無法還原！"
+    "message": "確定要刪除所有失效書籤？此動作無法還原！"
   },
   "bookmark_confirmation_repair_all_redirects": {
-    "message": "確定變更所有已重新導向的書籤網址？此動作無法還原！"
+    "message": "確定要變更所有已重新導向的書籤網址？此動作無法還原！"
   },
   "bookmark_confirmation_repair_redirect": {
-    "message": "確定變更此書籤的網址？此動作無法還原！"
+    "message": "確定要變更此書籤的網址？此動作無法還原！"
   },
   "bookmark_confirmation_whitelist": {
     "message": "確定要永久忽略此書籤？"
@@ -36,7 +36,7 @@
     "message": "名稱"
   },
   "bookmark_no_name": {
-    "message": "無名稱…"
+    "message": "無名稱……"
   },
   "bookmark_path": {
     "message": "路徑"
@@ -45,10 +45,10 @@
     "message": "網址"
   },
   "button_check_bookmarks": {
-    "message": "檢查所有書籤…"
+    "message": "檢查所有書籤……"
   },
   "button_reset_whitelist": {
-    "message": "重設白名單…"
+    "message": "重設白名單……"
   },
   "close_overlay": {
     "message": "關閉"
@@ -63,7 +63,7 @@
     "message": "編輯書籤"
   },
   "extension_description": {
-    "message": "使用 Bookmarks Organizer 可以輕鬆整理您的書籤。Bookmarks Organizer 可以幫您找出已經失效、被重新導向或是存在重複的書籤。"
+    "message": "有了 Bookmarks Organizer 就可以輕鬆地把書籤整理好。Bookmarks Organizer 可以幫您找出已經失效、被重新導向或是重複等的書籤。"
   },
   "extension_name": {
     "message": "Bookmarks Organizer"
@@ -75,10 +75,10 @@
     "message": "警告"
   },
   "greeting": {
-    "message": "Hey!"
+    "message": "嗨！"
   },
   "intro_check": {
-    "message": "檢查所有書籤可能需要幾分鐘，這取決於您所選擇的模式、書籤數量，以及您的網路速度。在檢查失效書籤期間，您的網路載入速度可能變慢。"
+    "message": "檢查所有書籤可能需要幾分鐘，這取決於您所選擇的模式、書籤數量，以及您的網路速度。在檢查失效書籤期間，您的網路載入速度可能會變慢。"
   },
   "mode_broken_bookmarks": {
     "message": "失效書籤"
@@ -111,7 +111,7 @@
       "message": "尋找被重新導向的書籤"
   },
   "omnibox_default_description": {
-    "message":"檢查您所有的書籤，找出有錯誤、被重新導向或重複的書籤"
+    "message":"檢查您所有的書籤，看看有沒有錯誤、被重新導向或重複等"
   },
   "option_debug_mode": {
     "message": "啟用偵錯輸出"
@@ -120,28 +120,28 @@
     "message": "停用確認訊息（不推薦）"
   },
   "permission_description": {
-    "message": "In order for the check for broken bookmarks to work, it is technically necessary to grant permission to access the data for all websites."
+    "message": "要檢查失效的書籤，技術上得先授與存取所有網站資料的權限。"
   },
   "permission_grant_button": {
-    "message": "Grant permission"
+    "message": "授與權限"
   },
   "permission_needed": {
-    "message": "Permission required"
+    "message": "需要權限"
   },
   "save_bookmark": {
     "message": "儲存"
   },
   "search_label": {
-    "message" : "輸入名稱或網址篩選結果…"
+    "message" : "輸入名稱或網址來篩選結果……"
   },
   "some_marked_bookmarks": {
-    "message": "看上去我們能清理一下！"
+    "message": "看來得稍微清理一下！"
   },
   "some_marked_bookmarks_title": {
-    "message": "Hey!"
+    "message": "嘿！"
   },
   "start_message": {
-    "message" : "點這裡開始…"
+    "message" : "點這裡開始……"
   },
   "status_checked": {
     "message" : "已檢查"
@@ -150,10 +150,10 @@
     "message" : "有錯誤"
   },
   "status_total": {
-    "message" : "書籤總數"
+    "message" : "總書籤"
   },
   "status_warnings": {
-    "message" : "警告"
+    "message" : "有警告"
   },
   "whitelist_reset_confirmation_msg": {
     "message" : "確定要重設白名單？"
