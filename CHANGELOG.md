@@ -7,7 +7,8 @@
 
 #### Code Quality
 
-- use inset property in CSS
+- use inset property in CSS, fixes
+  [#219](https://github.com/cadeyrn/bookmarks-organizer/issues/219)
 
 #### Notable Changes
 
