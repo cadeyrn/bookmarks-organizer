@@ -166,7 +166,8 @@ const bookmarksorganizer = {
     '^https?:\/\/oauth.accounts.firefox.com', // issue #76
     '^https?:\/\/profile.accounts.firefox.com', // issue #76
     '^https?:\/\/support.mozilla.org', // issue #76
-    '^https?:\/\/sync.services.mozilla.com' // issue #76
+    '^https?:\/\/sync.services.mozilla.com', // issue #76
+    '^https?:\/\/www.facebook.com' // issue #213
     /* eslint-enable no-useless-escape, line-comment-position, no-inline-comments */
   ],
 

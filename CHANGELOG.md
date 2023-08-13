@@ -4,6 +4,8 @@
 
 - confirmation dialogs can now be confirmed with the Enter key. Aborting with the Esc key was already possible. Fixes
   [#205](https://github.com/cadeyrn/bookmarks-organizer/issues/205)
+- facebook.com was added to the list of domains that are not checked because Facebook prevents it, fixes
+  [#212](https://github.com/cadeyrn/bookmarks-organizer/issues/213)
 
 #### Translations
 
