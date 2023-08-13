@@ -2,6 +2,7 @@
 
 #### Translations
 
+- updated Chinese translation (Thanks, Eee14!)
 - updated Turkish translation (Thanks, r0tbra1n!)
 
 #### Code Quality
