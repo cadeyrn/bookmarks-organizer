@@ -12,6 +12,7 @@
 - updated jsdoc from version 4.0.0 to 4.0.2
 - updated stylelint from version 14.16.1 to 15.10.2 and updated configuration
 - updated stylelint-csstree-validator from version 2.0.0 to 3.0.0
+- updated stylelint-order from version 6.0.1 to 6.0.3
 
 ---
 
