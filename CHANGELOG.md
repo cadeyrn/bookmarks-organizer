@@ -1,5 +1,10 @@
 ### Version 4.1.0 (Work in Progress)
 
+#### Enhancements
+
+- confirmation dialogs can now be confirmed with the Enter key. Aborting with the Esc key was already possible. Fixes
+  [#205](https://github.com/cadeyrn/bookmarks-organizer/issues/205)
+
 #### Translations
 
 - updated Chinese translation (Thanks, Eee14!)

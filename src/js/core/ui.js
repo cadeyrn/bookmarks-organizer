@@ -180,6 +180,10 @@ const ui = {
         if (e.key === 'Escape') {
           hideModal();
         }
+        else if (e.key === 'Enter') {
+          hideModal();
+          resolve();
+        }
       };
 
       window.onclick = function (e) {
