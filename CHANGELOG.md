@@ -7,6 +7,7 @@
 #### Dependencies
 
 - updated eslint from version 8.32.0 to 8.33.0
+- updated eslint-plugin-compat  from version 4.0.2 to 4.1.4
 - updated stylelint-csstree-validator from version 2.0.0 to 2.1.0
 
 ---
