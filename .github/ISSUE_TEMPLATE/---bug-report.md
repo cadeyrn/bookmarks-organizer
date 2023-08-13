@@ -23,8 +23,8 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Version information:**
-- Firefox version: [e.g. Firefox 109, Firefox ESR 102]
-- Bookmarks Organizer version [e.g. 4.0.0]
+- Firefox version: [e.g. Firefox 116, Firefox ESR 115]
+- Bookmarks Organizer version [e.g. 4.0.2]
 
 **Additional context**
 Add any other context about the problem here.

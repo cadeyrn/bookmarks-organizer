@@ -12,7 +12,7 @@ Bookmarks Organizer. Thank you very much!**
 With the Bookmarks Organizer, it's easy to put order in your bookmarks. The Bookmarks Organizer finds no longer working
 bookmarks, redirects, duplicates and more!
 
-**Bookmarks Organizer is a WebExtension and compatible with Firefox Browser 60 and higher (Firefox Browser 109 or
+**Bookmarks Organizer is a WebExtension and compatible with Firefox Browser 60 and higher (Firefox Browser 115 or
 higher is required for the latest version of Bookmarks Organizer).**
 
 ### Features

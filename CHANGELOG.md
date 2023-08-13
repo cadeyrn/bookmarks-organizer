@@ -1,4 +1,4 @@
-### Version 4.0.2 (Work in Progress)
+### Version 4.1.0 (Work in Progress)
 
 #### Translations
 
@@ -7,6 +7,11 @@
 #### Code Quality
 
 - use inset property in CSS
+
+#### Notable Changes
+
+- bumped the minimum required Firefox version to Firefox 115, fixes
+  [#218](https://github.com/cadeyrn/bookmarks-organizer/issues/218)
 
 #### Dependencies
 
