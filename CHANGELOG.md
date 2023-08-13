@@ -7,8 +7,8 @@
 
 #### Code Quality
 
-- use inset property in CSS, fixes
-  [#219](https://github.com/cadeyrn/bookmarks-organizer/issues/219)
+- optimized the file size of two images, fixes [#220](https://github.com/cadeyrn/bookmarks-organizer/issues/220)
+- use inset property in CSS, fixes [#219](https://github.com/cadeyrn/bookmarks-organizer/issues/219)
 
 #### Notable Changes
 
