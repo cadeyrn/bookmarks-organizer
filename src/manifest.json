@@ -14,7 +14,6 @@
     "scripts": ["js/core/status.js", "js/core/background.js"]
   },
   "action": {
-    "browser_style": false,
     "default_icon": "images/icon.svg",
     "default_title": "__MSG_button_check_bookmarks__"
   },

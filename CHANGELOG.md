@@ -21,6 +21,8 @@
 
 - optimized the file size of two images, fixes [#220](https://github.com/cadeyrn/bookmarks-organizer/issues/220)
 - use inset property in CSS, fixes [#219](https://github.com/cadeyrn/bookmarks-organizer/issues/219)
+- removed the deprecated browser_style manifest key, fixes
+  [#221](https://github.com/cadeyrn/bookmarks-organizer/issues/221)
 
 #### Notable Changes
 
