@@ -7,6 +7,11 @@
 - facebook.com was added to the list of domains that are not checked because Facebook prevents it, fixes
   [#212](https://github.com/cadeyrn/bookmarks-organizer/issues/213)
 
+#### Bugfixes
+
+- fixed a massive memory leak that could even lead to a Firefox crash when importing many bookmarks, fixes
+  [#209](https://github.com/cadeyrn/bookmarks-organizer/issues/209)
+
 #### Translations
 
 - updated Chinese translation (Thanks, Eee14!)

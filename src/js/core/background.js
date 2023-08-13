@@ -747,14 +747,15 @@ const bookmarksorganizer = {
 
     if (bookmark.url) {
       bookmarksorganizer.totalBookmarks++;
+      await browser.storage.session.set({ totalBookmarks : bookmarksorganizer.totalBookmarks });
     }
 
     if (updateCounter) {
-      await bookmarksorganizer.initBookmarkCount();
+      const { totalBookmarks } = await browser.storage.session.get('totalBookmarks');
 
       browser.runtime.sendMessage({
         message : 'total-bookmarks-changed',
-        total_bookmarks : bookmarksorganizer.totalBookmarks
+        total_bookmarks : totalBookmarks
       });
     }
 
