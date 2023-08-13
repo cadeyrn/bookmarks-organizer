@@ -4,6 +4,10 @@
 
 - updated Turkish translation (Thanks, r0tbra1n!)
 
+#### Code Quality
+
+- use inset property in CSS
+
 #### Dependencies
 
 - updated eslint from version 8.32.0 to 8.47.0

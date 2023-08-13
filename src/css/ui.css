@@ -61,10 +61,7 @@ button:not(:disabled)::before {
   content: '';
   position: absolute;
   z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   transform: scale(0);
   background: rgb(235, 235, 235);
   transition-property: transform;
@@ -360,10 +357,7 @@ button#reset-whitelist {
 #hint::before {
   content: '';
   position: absolute;
-  top: 35px;
-  bottom: auto;
-  left: auto;
-  right: -20px;
+  inset: 35px -20px auto auto;
   width: 0;
   height: 0;
   border: 12px solid;
@@ -643,10 +637,7 @@ button#reset-whitelist {
 
 #mask {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
 }
 
 #mask img {
