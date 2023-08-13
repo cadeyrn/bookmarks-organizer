@@ -9,7 +9,7 @@
 
 #### Bugfixes
 
-- fixed a massive memory leak that could even lead to a Firefox crash when importing many bookmarks, fixes
+- fixed a massive memory increase that could even lead to a Firefox crash when importing many bookmarks, fixes
   [#209](https://github.com/cadeyrn/bookmarks-organizer/issues/209)
 
 #### Translations
