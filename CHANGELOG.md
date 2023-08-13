@@ -12,11 +12,6 @@
 - fixed a massive memory increase that could even lead to a Firefox crash when importing many bookmarks, fixes
   [#209](https://github.com/cadeyrn/bookmarks-organizer/issues/209)
 
-#### Translations
-
-- updated Chinese translation (Thanks, Eee14!)
-- updated Turkish translation (Thanks, r0tbra1n!)
-
 #### Code Quality
 
 - optimized the file size of two images, fixes [#220](https://github.com/cadeyrn/bookmarks-organizer/issues/220)
@@ -28,6 +23,11 @@
 
 - bumped the minimum required Firefox version to Firefox 115, fixes
   [#218](https://github.com/cadeyrn/bookmarks-organizer/issues/218)
+
+#### Translations
+
+- updated Chinese translation (Thanks, Eee14!)
+- updated Turkish translation (Thanks, r0tbra1n!)
 
 #### Dependencies
 
