@@ -4,20 +4,20 @@
 
 - confirmation dialogs can now be confirmed with the Enter key. Aborting with the Esc key was already possible. Fixes
   [#205](https://github.com/cadeyrn/bookmarks-organizer/issues/205)
-- facebook.com was added to the list of domains that are not checked because Facebook prevents it, fixes
+- added facebook.com to the internal skip list because Facebook prevents checking of its website, fixes
   [#212](https://github.com/cadeyrn/bookmarks-organizer/issues/213)
 
 #### Bugfixes
 
-- fixed a massive memory increase that could even lead to a Firefox crash when importing many bookmarks, fixes
-  [#209](https://github.com/cadeyrn/bookmarks-organizer/issues/209)
+- fixed a massive memory increase and high CPU usage that could even lead to a Firefox crash when importing many
+  bookmarks, fixes [#209](https://github.com/cadeyrn/bookmarks-organizer/issues/209)
 
 #### Code Quality
 
-- optimized the file size of two images, fixes [#220](https://github.com/cadeyrn/bookmarks-organizer/issues/220)
-- use inset property in CSS, fixes [#219](https://github.com/cadeyrn/bookmarks-organizer/issues/219)
 - removed the deprecated browser_style manifest key, fixes
   [#221](https://github.com/cadeyrn/bookmarks-organizer/issues/221)
+- optimized image files to save a few bytes, fixes [#220](https://github.com/cadeyrn/bookmarks-organizer/issues/220)
+- use inset property in CSS, fixes [#219](https://github.com/cadeyrn/bookmarks-organizer/issues/219)
 
 #### Notable Changes
 
