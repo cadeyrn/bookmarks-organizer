@@ -6,7 +6,7 @@
 - confirmation dialogs can now be confirmed with the Enter key. Aborting with the Esc key was already possible. Fixes
   [#205](https://github.com/cadeyrn/bookmarks-organizer/issues/205)
 - added facebook.com to the internal skip list because Facebook prevents checking of its website, fixes
-  [#212](https://github.com/cadeyrn/bookmarks-organizer/issues/213)
+  [#213](https://github.com/cadeyrn/bookmarks-organizer/issues/213)
 
 #### Bugfixes
 
