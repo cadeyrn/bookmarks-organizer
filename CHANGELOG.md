@@ -1,4 +1,4 @@
-### Version 4.1.0 (Work in Progress)
+### Version 4.0.1 (2023-08-14)
 
 #### Enhancements
 
@@ -42,6 +42,9 @@
 - updated stylelint-csstree-validator from version 2.0.0 to 3.0.0
 - updated stylelint-order from version 6.0.1 to 6.0.3
 - updated web-ext from version 7.5.0 to 7.6.2
+
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v4.0.1...v4.1.0)<br />
+[Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-4.1.0)
 
 ---
 
