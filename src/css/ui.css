@@ -626,6 +626,12 @@ button#reset-whitelist {
   background-repeat: no-repeat;
 }
 
+@media (prefers-color-scheme: dark) {
+  #results .duplicates .url {
+    background-image: url('../images/folder-dm.png');
+  }
+}
+
 #search {
   margin-top: 10px;
   margin-left: 30px;
