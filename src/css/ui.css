@@ -28,6 +28,38 @@
   --color-text-shadow: rgb(0, 0, 0);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-accent-green: rgb(70, 129, 50);
+    --color-accent-green-reduced-opacity: rgba(70, 129, 50, .65);
+    --color-accent-green-text: rgb(255, 255, 255);
+    --color-body-background: rgb(54, 59, 71);
+    --color-body-text: rgb(235, 235, 235);
+    --color-body-text-reduced-opacity: rgba(235, 235, 235, .65);
+    --color-border: rgb(111, 112, 136);
+    --color-border-hover: rgb(165, 165, 165);
+    --color-box-background: rgb(77, 78, 103);
+    --color-box-shadow: rgba(0, 0, 0, .25);
+    --color-close: rgb(255, 255, 255);
+    --color-close-hover: rgb(230, 230, 230);
+    --color-debug-background: rgb(55, 60, 75);
+    --color-gradient-1: rgba(0, 0, 0, .1);
+    --color-gradient-2: rgba(255, 255, 255, .25);
+    --color-gradient-3: rgba(0, 0, 0, .25);
+    --color-gradient-4: rgb(0, 139, 185);
+    --color-gradient-5: rgb(72, 185, 89);
+    --color-link: rgb(190, 190, 190);
+    --color-link-hover: rgb(165, 165, 165);
+    --color-modal-background: rgba(0, 0, 0, .75);
+    --color-modal-confirmation: rgb(68, 81, 111);
+    --color-modal-primary: rgb(70, 129, 50);
+    --color-status-error: rgb(190, 46, 46);
+    --color-status-neutral: rgb(165, 165, 165);
+    --color-status-warning: rgb(255, 165, 0);
+    --color-text-shadow: rgb(0, 0, 0);
+  }
+}
+
 body {
   margin: 0;
   font-family: Verdana, sans-serif;
@@ -245,6 +277,12 @@ button#reset-whitelist {
   background: url('../images/logo-large.png') right 25px center / 375px 85px no-repeat transparent;
 }
 
+@media (prefers-color-scheme: dark) {
+  #logo-wrapper a {
+    background-image: url('../images/logo-large-dm.png');
+  }
+}
+
 #logo-small {
   position: absolute;
   top: 0;
@@ -442,8 +480,20 @@ button#reset-whitelist {
   background: url('../images/folder.png') 10px center / 16px 16px no-repeat transparent;
 }
 
+@media (prefers-color-scheme: dark) {
+  #results li.has-children > .wrapper {
+    background-image: url('../images/folder-dm.png');
+  }
+}
+
 #results li:not(.has-children) > .wrapper {
   background: url('../images/bookmark.png') 10px 12px / 16px 16px no-repeat transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  #results li:not(.has-children) > .wrapper {
+    background-image: url('../images/bookmark-dm.png');
+  }
 }
 
 #results li:not(.has-children) .name {
@@ -502,6 +552,12 @@ button#reset-whitelist {
   width: 16px;
   height: 16px;
   background: url('../images/redirect.png') center center / 16px 16px no-repeat transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  #results .redirect .new-url::before {
+    background-image: url('../images/redirect-dm.png');
+  }
 }
 
 #results .action-buttons {
@@ -611,6 +667,12 @@ button#reset-whitelist {
   color: var(--color-body-text);
   cursor: pointer;
   transition: background ease 500ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  #control-bar select {
+    background-image: url('../images/arrow-down-dm.png');
+  }
 }
 
 #control-bar select:hover {

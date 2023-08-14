@@ -24,6 +24,7 @@ higher is required for the latest version of Bookmarks Organizer).**
 - Detects redirects and offers the automatic correction of individual or all redirects
 - Whitelist feature to exclude bookmarks from future broken bookmark checks
 - Internal skip list for domains that are known as not validatable for technical reasons
+- Light and dark user interface, depending on your Firefox preference
 
 ### Shortcuts
 
