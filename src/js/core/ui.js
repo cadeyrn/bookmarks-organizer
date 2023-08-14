@@ -177,6 +177,8 @@ const ui = {
 
     return new Promise((resolve) => {
       window.onkeydown = function (e) {
+        e.preventDefault();
+
         if (e.key === 'Escape') {
           hideModal();
         }
