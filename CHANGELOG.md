@@ -20,6 +20,7 @@
 - optimized image files to save a few bytes, fixes [#220](https://github.com/cadeyrn/bookmarks-organizer/issues/220)
 - make use of CSS variables for colors, fixes [#222](https://github.com/cadeyrn/bookmarks-organizer/issues/222)
 - use inset property in CSS, fixes [#219](https://github.com/cadeyrn/bookmarks-organizer/issues/219)
+- don't use background shorthand in CSS, fixes [#223](https://github.com/cadeyrn/bookmarks-organizer/issues/223)
 
 #### Notable Changes
 
