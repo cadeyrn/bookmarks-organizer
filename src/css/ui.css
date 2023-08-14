@@ -688,6 +688,7 @@ button#reset-whitelist {
   background-position: right 10px center;
   background-size: 20px 20px;
   background-repeat: no-repeat;
+  background-color: transparent;
   color: var(--color-body-text);
   cursor: pointer;
   transition: background ease 500ms;
