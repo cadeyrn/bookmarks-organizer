@@ -17,6 +17,7 @@
 - removed the deprecated browser_style manifest key, fixes
   [#221](https://github.com/cadeyrn/bookmarks-organizer/issues/221)
 - optimized image files to save a few bytes, fixes [#220](https://github.com/cadeyrn/bookmarks-organizer/issues/220)
+- make use of CSS variables for colors, fixes [#222](https://github.com/cadeyrn/bookmarks-organizer/issues/222)
 - use inset property in CSS, fixes [#219](https://github.com/cadeyrn/bookmarks-organizer/issues/219)
 
 #### Notable Changes
