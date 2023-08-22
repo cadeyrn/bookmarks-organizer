@@ -1,3 +1,11 @@
+### Version 4.2.0 (Work in Progress)
+
+#### Dependencies
+
+- updated stylelint from version 15.10.2 to 15.10.3
+
+---
+
 ### Version 4.1.0 (2023-08-14)
 
 #### Enhancements
