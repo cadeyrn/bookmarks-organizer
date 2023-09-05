@@ -1,4 +1,10 @@
-### Version 4.2.0 (Work in Progress)
+### Version 4.1.1 (Work in Progress)
+
+#### Bugfixes
+
+- a change in Firefox 117 caused the Bookmarks Organizer to stop working correctly for users with many bookmarks. A
+  workaround has been implemented to make the add-on compatible with Firefox 117, fixes
+  [#229](https://github.com/cadeyrn/bookmarks-organizer/issues/229) (Thanks, @rpl!)
 
 #### Dependencies
 

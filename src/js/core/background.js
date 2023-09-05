@@ -1,6 +1,6 @@
 'use strict';
 
-/* global STATUS */
+/* global STATUS, keepAliveHack */
 
 const MIN_PROGRESS = 0.01;
 const TIMEOUT_500_MS = 500;
@@ -794,7 +794,7 @@ const bookmarksorganizer = {
       tasks.push(limiter.take().then(executeTask(bookmark, mode, type)));
     }
 
-    return Promise.all(tasks);
+    return keepAliveHack(Promise.all(tasks));
   },
 
   /**

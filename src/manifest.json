@@ -11,7 +11,7 @@
     "url": "https://www.soeren-hentzschel.at/firefox-webextensions/bookmarks-organizer/?utm_campaign=webext&utm_term=bookmarksorganizer"
   },
   "background": {
-    "scripts": ["js/core/status.js", "js/core/background.js"]
+    "scripts": ["js/core/keepAliveHack.js", "js/core/status.js", "js/core/background.js"]
   },
   "action": {
     "default_icon": "images/icon.svg",
