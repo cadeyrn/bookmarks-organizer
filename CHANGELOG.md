@@ -13,7 +13,7 @@
 - updated stylelint from version 15.10.2 to 15.10.3
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v4.1.0...v4.1.1)<br />
-[Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-4.1.1
+[Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-4.1.1)
 
 ---
 
