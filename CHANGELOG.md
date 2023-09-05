@@ -4,10 +4,12 @@
 
 - a change in Firefox 117 caused the Bookmarks Organizer to stop working correctly for users with many bookmarks. A
   workaround has been implemented to make the add-on compatible with Firefox 117, fixes
-  [#229](https://github.com/cadeyrn/bookmarks-organizer/issues/229) (Thanks, @rpl!)
+  [#229](https://github.com/cadeyrn/bookmarks-organizer/issues/229) (Thanks, rpl!)
 
 #### Dependencies
 
+- updated eslint from version 8.47.0 to 8.48.0
+- updated eslint-plugin-compat from version 4.1.4 to 4.2.0
 - updated stylelint from version 15.10.2 to 15.10.3
 
 ---
