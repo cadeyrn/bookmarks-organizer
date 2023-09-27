@@ -577,28 +577,18 @@ const bookmarksorganizer = {
       if ((/^https?:\/\//).test(bookmark.url)) {
         bookmark.attempts = 0;
 
-        const checkedBookmark = await bookmarksorganizer.checkHttpResponse(bookmark, 'HEAD');
+        const checkedBookmark = await bookmarksorganizer.checkHttpResponse(bookmark, 'GET');
         bookmarksorganizer.checkedBookmarks++;
 
-        switch (checkedBookmark.status) {
-          case STATUS.REDIRECT:
-            if (type === 'all' || type === 'warnings') {
-              bookmarksorganizer.bookmarkWarnings++;
-              bookmarksorganizer.bookmarksResult.push(checkedBookmark);
-            }
-            break;
-          case STATUS.NOT_FOUND:
-          case STATUS.FETCH_ERROR:
-          case STATUS.TIMEOUT:
-            if (type === 'all' || type === 'errors') {
-              bookmarksorganizer.bookmarkErrors++;
-              bookmarksorganizer.bookmarksResult.push(checkedBookmark);
-            }
-            break;
-          default:
-            // do nothing
+        if (type === 'all' || type === 'warnings') {
+          if (checkedBookmark.status === STATUS.REDIRECT) {
+            bookmarksorganizer.bookmarkWarnings++;
+          }
+          else if (checkedBookmark.status !== STATUS.OK) {
+            bookmarksorganizer.bookmarkErrors++;
+          }
+          bookmarksorganizer.bookmarksResult.push(checkedBookmark);
         }
-
         bookmarksorganizer.updateProgressUi(mode, true);
       }
       else {
@@ -631,7 +621,6 @@ const bookmarksorganizer = {
       const response = await fetch(bookmark.url, {
         cache : 'no-store',
         method : method,
-        mode : 'no-cors',
         signal : signal
       });
 

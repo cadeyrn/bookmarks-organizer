@@ -712,16 +712,12 @@ const ui = {
           case STATUS.REDIRECT:
             li.classList.add('warning', 'redirect');
             break;
-          case STATUS.NOT_FOUND:
-          case STATUS.FETCH_ERROR:
-          case STATUS.TIMEOUT:
-            li.classList.add('error');
-            break;
           case STATUS.UNKNOWN:
             li.classList.add('unknown');
             break;
           default:
-            // do nothing
+            li.classList.add('error');
+            break;
         }
       }
       else {
