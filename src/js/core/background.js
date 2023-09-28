@@ -578,23 +578,21 @@ const bookmarksorganizer = {
         bookmark.attempts = 0;
 
         const checkedBookmark = await bookmarksorganizer.checkHttpResponse(bookmark, 'GET');
-        bookmarksorganizer.checkedBookmarks++;
 
         if (type === 'all' || type === 'warnings') {
           if (checkedBookmark.status === STATUS.REDIRECT) {
             bookmarksorganizer.bookmarkWarnings++;
           }
-          else if (checkedBookmark.status !== STATUS.OK) {
+          else if (checkedBookmark.status === STATUS.NOT_OK) {
             bookmarksorganizer.bookmarkErrors++;
           }
           bookmarksorganizer.bookmarksResult.push(checkedBookmark);
         }
-        bookmarksorganizer.updateProgressUi(mode, true);
+
       }
-      else {
-        bookmarksorganizer.checkedBookmarks++;
-        bookmarksorganizer.updateProgressUi(mode, true);
-      }
+
+      bookmarksorganizer.checkedBookmarks++;
+      bookmarksorganizer.updateProgressUi(mode, true);
     }
     else {
       bookmarksorganizer.bookmarksResult.push(bookmark);
@@ -642,14 +640,11 @@ const bookmarksorganizer = {
         }
       }
       else {
-        const { headers } = response;
-        if (headers.has('Content-Length') && headers.get('Content-Length') === '0') {
-          // eslint-disable-next-line require-atomic-updates
-          bookmark.status = STATUS.EMPTY_BODY;
+        if (response.ok) {
+          bookmark.status = STATUS.OK;
         }
         else {
-          // eslint-disable-next-line require-atomic-updates
-          bookmark.status = response.status;
+          bookmark.status = STATUS.NOT_OK;
         }
       }
 
@@ -679,16 +674,11 @@ const bookmarksorganizer = {
       }
     }
     catch (error) {
+      bookmark.status = STATUS.NOT_OK;
       let cause = 'fetch-error';
 
       if (error.name === 'AbortError') {
-        // eslint-disable-next-line require-atomic-updates
-        bookmark.status = STATUS.TIMEOUT;
         cause = 'timeout';
-      }
-      else {
-        // eslint-disable-next-line require-atomic-updates
-        bookmark.status = STATUS.FETCH_ERROR;
       }
 
       if (bookmarksorganizer.debugEnabled) {

@@ -712,12 +712,14 @@ const ui = {
           case STATUS.REDIRECT:
             li.classList.add('warning', 'redirect');
             break;
+          case STATUS.NOT_OK:
+            li.classList.add('error');
+            break;
           case STATUS.UNKNOWN:
             li.classList.add('unknown');
             break;
           default:
-            li.classList.add('error');
-            break;
+            // do nothing
         }
       }
       else {
