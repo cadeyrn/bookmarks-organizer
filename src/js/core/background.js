@@ -582,13 +582,13 @@ const bookmarksorganizer = {
         if (type === 'all' || type === 'warnings') {
           if (checkedBookmark.status === STATUS.REDIRECT) {
             bookmarksorganizer.bookmarkWarnings++;
+            bookmarksorganizer.bookmarksResult.push(checkedBookmark);
           }
           else if (checkedBookmark.status === STATUS.NOT_OK) {
             bookmarksorganizer.bookmarkErrors++;
+            bookmarksorganizer.bookmarksResult.push(checkedBookmark);
           }
-          bookmarksorganizer.bookmarksResult.push(checkedBookmark);
         }
-
       }
 
       bookmarksorganizer.checkedBookmarks++;
