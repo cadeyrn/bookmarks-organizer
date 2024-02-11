@@ -1049,11 +1049,14 @@ browser.omnibox.onInputEntered.addListener(bookmarksorganizer.callOmniboxAction)
 browser.omnibox.setDefaultSuggestion({ description : browser.i18n.getMessage('omnibox_default_description') });
 browser.runtime.onMessage.addListener(bookmarksorganizer.handleResponse);
 
-browser.runtime.onInstalled.addListener(() => {
-  browser.menus.create({
-    id : 'bmo-tools-menu-entry',
-    title : browser.i18n.getMessage('omnibox_command_check_organizer'),
-    contexts : ['tools_menu'],
-    command : '_execute_action'
-  });
-});
+(async () => {
+  const { contextMenuInitialized } = await browser.storage.session.get('isContextMenuInitialized');
+  if (!contextMenuInitialized) {
+    browser.menus.create({
+      id : 'bmo-tools-menu-entry',
+      title : browser.i18n.getMessage('omnibox_command_check_organizer'),
+      contexts : ['tools_menu'],
+      command : '_execute_action'
+    });
+  }
+})();

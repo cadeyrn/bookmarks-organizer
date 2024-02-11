@@ -1,5 +1,10 @@
 ### Version 4.2.0 (TBD)
 
+#### Enhancements
+
+- worked around a Firefox bug that caused a missing menu item in the tools menu under certain circumstances, fixes
+  [#240](https://github.com/cadeyrn/bookmarks-organizer/issues/240)
+
 #### Code Quality
 
 - removed no longer needed workaround for Firefox 117 compatibility, fixes
