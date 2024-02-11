@@ -1,3 +1,14 @@
+### Version 4.2.0 (TBD)
+
+#### Dependencies
+
+- updated eslint from version 8.48.0 to 8.56.0
+
+[All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v4.1.1...v4.2.0)<br />
+[Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-4.2.0)
+
+---
+
 ### Version 4.1.1 (2023-09-05)
 
 #### Bugfixes
