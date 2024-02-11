@@ -1,5 +1,10 @@
 ### Version 4.2.0 (TBD)
 
+#### Code Quality
+
+- removed no longer needed workaround for Firefox 117 compatibility, fixes
+  [#230](https://github.com/cadeyrn/bookmarks-organizer/issues/230)
+
 #### Dependencies
 
 - updated eslint from version 8.48.0 to 8.56.0
