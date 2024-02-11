@@ -10,6 +10,10 @@
 - removed no longer needed workaround for Firefox 117 compatibility, fixes
   [#230](https://github.com/cadeyrn/bookmarks-organizer/issues/230)
 
+#### Notable Changes
+
+- changed copyright year from 2023 to 2024, fixes [#241](https://github.com/cadeyrn/bookmarks-organizer/issues/241)
+
 #### Dependencies
 
 - updated eslint from version 8.48.0 to 8.56.0
