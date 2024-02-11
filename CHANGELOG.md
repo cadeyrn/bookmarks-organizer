@@ -6,6 +6,7 @@
 - updated gulp-eslint-new from version 1.8.3 to 1.9.0
 - updated stylelint from version 15.10.3 to 15.11.0
 - updated stylelint-order from version 6.0.3 to 6.0.4
+- updated web-ext from version 7.6.2 to 7.11.0
 
 [All Changes](https://github.com/cadeyrn/bookmarks-organizer/compare/v4.1.1...v4.2.0)<br />
 [Download Signed WebExtension](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/versions/?page=1#version-4.2.0)
