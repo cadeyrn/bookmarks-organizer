@@ -577,34 +577,22 @@ const bookmarksorganizer = {
       if ((/^https?:\/\//).test(bookmark.url)) {
         bookmark.attempts = 0;
 
-        const checkedBookmark = await bookmarksorganizer.checkHttpResponse(bookmark, 'HEAD');
-        bookmarksorganizer.checkedBookmarks++;
+        const checkedBookmark = await bookmarksorganizer.checkHttpResponse(bookmark, 'GET');
 
-        switch (checkedBookmark.status) {
-          case STATUS.REDIRECT:
-            if (type === 'all' || type === 'warnings') {
-              bookmarksorganizer.bookmarkWarnings++;
-              bookmarksorganizer.bookmarksResult.push(checkedBookmark);
-            }
-            break;
-          case STATUS.NOT_FOUND:
-          case STATUS.FETCH_ERROR:
-          case STATUS.TIMEOUT:
-            if (type === 'all' || type === 'errors') {
-              bookmarksorganizer.bookmarkErrors++;
-              bookmarksorganizer.bookmarksResult.push(checkedBookmark);
-            }
-            break;
-          default:
-            // do nothing
+        if (type === 'all' || type === 'warnings') {
+          if (checkedBookmark.status === STATUS.REDIRECT) {
+            bookmarksorganizer.bookmarkWarnings++;
+            bookmarksorganizer.bookmarksResult.push(checkedBookmark);
+          }
+          else if (checkedBookmark.status === STATUS.NOT_OK) {
+            bookmarksorganizer.bookmarkErrors++;
+            bookmarksorganizer.bookmarksResult.push(checkedBookmark);
+          }
         }
+      }
 
-        bookmarksorganizer.updateProgressUi(mode, true);
-      }
-      else {
-        bookmarksorganizer.checkedBookmarks++;
-        bookmarksorganizer.updateProgressUi(mode, true);
-      }
+      bookmarksorganizer.checkedBookmarks++;
+      bookmarksorganizer.updateProgressUi(mode, true);
     }
     else {
       bookmarksorganizer.bookmarksResult.push(bookmark);
@@ -631,7 +619,6 @@ const bookmarksorganizer = {
       const response = await fetch(bookmark.url, {
         cache : 'no-store',
         method : method,
-        mode : 'no-cors',
         signal : signal
       });
 
@@ -653,14 +640,11 @@ const bookmarksorganizer = {
         }
       }
       else {
-        const { headers } = response;
-        if (headers.has('Content-Length') && headers.get('Content-Length') === '0') {
-          // eslint-disable-next-line require-atomic-updates
-          bookmark.status = STATUS.EMPTY_BODY;
+        if (response.ok) {
+          bookmark.status = STATUS.OK;
         }
         else {
-          // eslint-disable-next-line require-atomic-updates
-          bookmark.status = response.status;
+          bookmark.status = STATUS.NOT_OK;
         }
       }
 
@@ -690,16 +674,11 @@ const bookmarksorganizer = {
       }
     }
     catch (error) {
+      bookmark.status = STATUS.NOT_OK;
       let cause = 'fetch-error';
 
       if (error.name === 'AbortError') {
-        // eslint-disable-next-line require-atomic-updates
-        bookmark.status = STATUS.TIMEOUT;
         cause = 'timeout';
-      }
-      else {
-        // eslint-disable-next-line require-atomic-updates
-        bookmark.status = STATUS.FETCH_ERROR;
       }
 
       if (bookmarksorganizer.debugEnabled) {
