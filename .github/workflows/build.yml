@@ -1,0 +1,43 @@
+name: Build extension
+
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-slim
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build extension
+        run: npm run build
+
+      - name: Name build artifact
+        id: artifact
+        shell: bash
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          short_sha="${GITHUB_SHA:0:7}"
+          archive_name="bookmarks_organizer-${version}-${short_sha}.zip"
+          mv "dist/bookmarks_organizer-${version}.zip" "dist/${archive_name}"
+          echo "name=${archive_name}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ steps.artifact.outputs.name }}
+          path: dist/${{ steps.artifact.outputs.name }}
+          if-no-files-found: error
