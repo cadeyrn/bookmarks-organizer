@@ -12,7 +12,7 @@
 
 #### Notable Changes
 
-- changed copyright year from 2023 to 2024, fixes [#241](https://github.com/cadeyrn/bookmarks-organizer/issues/241)
+- changed copyright year from 2024 to 2026
 
 #### Dependencies
 
